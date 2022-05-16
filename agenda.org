@@ -1,0 +1,18 @@
+#+TITLE:CC Agenda
+#+AUTHOR:Marcus Birkenkrahe
+#+SUBTITLE: CSC 100 - Summer I, 2022
+#+OPTIONS: toc:1
+#+STARTUP: overview hideblocks
+#+PROPERTY: header-args:C :main yes :includes <stdio.h>
+* README
+
+  This file contains the agenda overview (what I had planned), the
+  objectives (what we managed to do) and (much of the) content of each
+  taught session of the course. I want to avoid splitting the content
+  up over many files - so that you have to navigate as little as
+  possible (like a book)!
+
+  The companion file to this file, less structured and with the
+  captain's log, is the [[./notes.org][notes.org]] file.
+
+* 

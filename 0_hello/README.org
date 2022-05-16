@@ -1,0 +1,2 @@
+This directory contains a lecture based on Modern C by Jens Gustedt
+(Manning, 2020), and a practice directory with an interactive notebook.
