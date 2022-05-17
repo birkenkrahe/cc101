@@ -261,33 +261,33 @@
 
    | NO | DATE       | TESTS      | ASSIGNMENT | TEXTBOOK                 |
    |----+------------+------------+------------+--------------------------|
-   |  1 | Tue-24-May |            |            | 1 Introducing C          |
+   |  1 | Tue-24-May | Entry quiz |            | 1 Introducing C          |
    |  2 | Wed-25-May |            |            |                          |
-   |  3 | Thu-26-May | Quiz 1     |            | 2 C Fundamentals         |
-   |  4 | Fri-27-May |            | Program 1  |                          |
+   |  3 | Thu-26-May | Quiz 1     | Program 1  | 2 C Fundamentals         |
+   |  4 | Fri-27-May |            |            |                          |
    |----+------------+------------+------------+--------------------------|
-   |  5 | Mon-30-May | Quiz 2     |            | 3 Formatted Input/Output |
-   |  6 | Tue-31-May |            | Program 2  |                          |
-   |  7 | Wed-01-Jun | Quiz 3     |            | 4 Expressions            |
-   |  8 | Thu-02-Jun |            | Program 3  |                          |
-   |  9 | Fri-03-Jun | Quiz 4     |            | 5 Selection statements   |
+   |  5 | Mon-30-May | Quiz 2     | Program 2  | 3 Formatted Input/Output |
+   |  6 | Tue-31-May |            |            |                          |
+   |  7 | Wed-01-Jun | Quiz 3     | Program 3  | 4 Expressions            |
+   |  8 | Thu-02-Jun |            |            |                          |
+   |  9 | Fri-03-Jun | Quiz 4     | Program 4  | 5 Selection statements   |
    |----+------------+------------+------------+--------------------------|
-   | 10 | Mon-06-Jun |            | Program 4  |                          |
-   | 11 | Tue-07-Jun | Quiz 5     |            | 6 Loops                  |
-   | 12 | Wed-08-Jun |            | Program 5  |                          |
-   | 13 | Thu-09-Jun | Quiz 6     |            | 7 Basic Types            |
-   | 14 | Fri-10-Jun |            | Program 6  |                          |
+   | 10 | Mon-06-Jun |            |            |                          |
+   | 11 | Tue-07-Jun | Quiz 5     | Program 5  | 6 Loops                  |
+   | 12 | Wed-08-Jun |            |            |                          |
+   | 13 | Thu-09-Jun | Quiz 6     | Program 6  | 7 Basic Types            |
+   | 14 | Fri-10-Jun |            |            |                          |
    |----+------------+------------+------------+--------------------------|
-   | 15 | Mon-13-Jun | Quiz 7     |            | 8 Arrays                 |
-   | 16 | Tue-14-Jun |            | Program 7  |                          |
-   | 17 | Wed-15-Jun | Quiz 8     |            | 9 Functions              |
-   | 18 | Thu-16-Jun |            | Program 8  |                          |
-   | 19 | Fri-17-Jun | Quiz 9     |            | 11 Pointers              |
+   | 15 | Mon-13-Jun | Quiz 7     | Program 7  | 8 Arrays                 |
+   | 16 | Tue-14-Jun |            |            |                          |
+   | 17 | Wed-15-Jun | Quiz 8     | Program 8  | 9 Functions              |
+   | 18 | Thu-16-Jun |            |            |                          |
+   | 19 | Fri-17-Jun | Quiz 9     | Program 9  | 11 Pointers              |
    |----+------------+------------+------------+--------------------------|
-   | 20 | Mon-20-Jun |            | Program 9  |                          |
-   | 21 | Tue-21-Jun | Quiz 10    |            | 12 Pointers and Arrays   |
-   | 22 | Wed-22-Jun |            | Program 10 |                          |
-   | 23 | Thu-23-Jun | Final exam |            | 13 Strings               |
+   | 20 | Mon-20-Jun |            |            |                          |
+   | 21 | Tue-21-Jun | Quiz 10    | Program 10 | 12 Pointers and Arrays   |
+   | 22 | Wed-22-Jun |            |            |                          |
+   | 23 | Thu-23-Jun | Final exam | Program 11 | 13 Strings               |
    | 24 | Fri-24-Jun |            |            |                          |
    |----+------------+------------+------------+--------------------------|
 
