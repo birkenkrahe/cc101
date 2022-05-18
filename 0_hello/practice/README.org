@@ -175,7 +175,7 @@
   * [ ] Check that you got the right content by entering ~cat hello.c~
     at the command line. You should see this:
 
-    #+attr_html: :width 400px
+    #+attr_html: :width 300px
     #+caption: cat hello.c
     [[./img/cat.png]]
 
@@ -204,7 +204,7 @@
     file, ~hello~. Its name is highlighted, and you can see that it is
     100 times larger and, most importantly, /executable/:
 
-    #+attr_html: :width 400px
+    #+attr_html: :width 300px
     #+caption: compile and list results
     [[./img/cc.png]]
 
@@ -219,16 +219,23 @@
   * The path to the file can be explicit or implicit. Here is the
     explicit path solution:
 
-    #+attr_html: :width 350px
+    #+attr_html: :width 300px
     #+caption: run executable file (explicit path)
     [[./img/run1.png]]
 
   * The implicit path uses ~./~ to indicate the current directory:
 
-    #+attr_html: :width 350px
+    #+attr_html: :width 300px
     #+caption: run executable file (implicit path)
     [[./img/run.png]]
 
+* Summary
+
+  * To find out where you are, use ~pwd~
+  * To move around use ~cd~ with explicit/implicit paths
+  * To list file information, use ~ls~
+  * To get files from the web, use ~wget~
+  * To compile a C source code file, use ~cc~
 * Glossary
 
   | TERM        | MEANING                 | WHAT?                            |
@@ -251,14 +258,6 @@
   | cc          | C compiler (GCC)        | Includes flags like ~-o~           |
   | compile     | Make executable file    | E.g. ~cc hello.c~                  |
   | executable  | Binary (machine) file   |                                  |
-
-* Summary
-
-  * To find out where you are, use ~pwd~
-  * To move around use ~cd~ with explicit/implicit paths
-  * To list file information, use ~ls~
-  * To get files from the web, use ~wget~
-  * To compile a C source code file, use ~cc~
 
 * Footnotes
 
