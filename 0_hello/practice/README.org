@@ -252,6 +252,14 @@
   | compile     | Make executable file    | E.g. ~cc hello.c~                  |
   | executable  | Binary (machine) file   |                                  |
 
+* Summary
+
+  * To find out where you are, use ~pwd~
+  * To move around use ~cd~ with explicit/implicit paths
+  * To list file information, use ~ls~
+  * To get files from the web, use ~wget~
+  * To compile a C source code file, use ~cc~
+
 * Footnotes
 
 [fn:3]If we did not store the log in a file, it would simply be
