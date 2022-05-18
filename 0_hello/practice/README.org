@@ -2,8 +2,8 @@
 #+AUTHOR:Marcus Birkenkrahe
 #+SUBTITLE:Linux and GCC basics
 #+STARTUP:overview hideblocks
-#+OPTIONS: toc:nil num:nil ^:nil
-* README
+#+OPTIONS: toc:1 ^:nil
+* Practice: C Programming Toolchain
 
   * This directory contains practice material for the course.
 
@@ -14,7 +14,7 @@
   * What you'll learn:
     - Finding out where you are on the computer
     - Climbing around the file system
-    - Listing files
+    - Listing filesy
     - Downloading a file from the web
     - Compiling a simple C source file
     - Running an executable file
@@ -257,7 +257,7 @@
   | cat         | Viewing command         | E.g. ~cat hello.c~                 |
   | cc          | C compiler (GCC)        | Includes flags like ~-o~           |
   | compile     | Make executable file    | E.g. ~cc hello.c~                  |
-  | executable  | Binary (machine) file   |                                  |
+  | executable  | Binary (machine) file   | Run e.g. with ~./hello~          |
 
 * Footnotes
 
