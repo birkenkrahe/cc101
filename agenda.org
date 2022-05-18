@@ -15,4 +15,7 @@
   The companion file to this file, less structured and with the
   captain's log, is the [[./notes.org][notes.org]] file.
 
-* 
+
+* 24-May (Tue) - Hello, C
+
+  * [ ] 

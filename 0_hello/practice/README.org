@@ -15,8 +15,7 @@
     - Finding out where you are on the computer
     - Climbing around the file system
     - Listing files
-    - Downloading a file using FTP
-    - Finding commands
+    - Downloading a file from the web
     - Compiling a simple C source file
     - Running an executable file
 
@@ -117,10 +116,10 @@
   * The command ~ls~ lists all files in the current directory
 
   * ~ls~ also works with file paths, e.g. this listing of the directory
-    ~$HOME~: 
+    ~$HOME~:
 
     #+begin_src bash :results output
-    ls /home/pi
+      ls /home/pi
     #+end_src
 
     #+RESULTS:
@@ -149,7 +148,7 @@
     | ls -a   | with hidden files | includes configuration files            |
     | ls -t   | time-ordered      | files sort by time of modification      |
 
-    The example output for ~ls -l~ shows one file called ~README.org~ with
+  * The example output for ~ls -l~ shows one file called ~README.org~ with
     permissions for the owner (~pi~) and his group (also called ~pi~) of
     size 6832 byte, last saved on May 14 at 18:38.
 
@@ -157,11 +156,80 @@
     -rw-r--r-- 1 pi pi 6382 May 14 18:38 README.org
     #+end_example
 
-* TODO Downloading a file using FTP
-* TODO Finding commands
-* TODO Compiling a simple C source file
-* TODO Running an executable file
-* IN PROGRESS Glossary
+* Getting a source file from the web
+
+  * The C source file ~hello.c~ is stored online [[https://pastebin.com/N37Cp7ni][at pastebin.com]]
+
+  * [ ] To download it to your ~Downloads~ directory, open a terminal
+    and enter the following command:
+
+    #+name: ex:wget
+    #+begin_example bash
+    wget pastebin.com/raw/N37Cp7ni -O hello.c -o log
+    #+end_example
+
+    - ~wget~ copies content from the web[fn:2]
+    - ~-O hello.c~ writes the content into a file ~hello.c~
+    - ~-o log~ writes messages into a file ~log~[fn:3]
+
+  * [ ] Check that you got the right content by entering ~cat hello.c~
+    at the command line. You should see this:
+
+    #+attr_html: :width 400px
+    #+caption: cat hello.c
+    [[./img/cat.png]]
+
+  * The ~cat~ command views a file. To find out more about this or any
+    other command, you can type ~man cat~ at the command line. This is
+    the UNIX help system of manual pages.
+
+  * [ ] Take a look at ~log~. 
+  
+* Compiling a simple C source file
+
+  * You now have a fully formed C source file in your fingers.
+
+  * [ ] To compile the file, enter the following command on the
+    command line - you shouldn't get any messages:
+
+    #+name: ex:compile
+    #+begin_example bash
+      cc hello.c -o hello 
+    #+end_example
+
+    This means "use ~cc~ to compile the file ~hello.c~ and put the result
+    into ~hello~". 
+
+  * [ ] Now check the file listing with ~ls -l~. You should see a new
+    file, ~hello~. Its name is highlighted, and you can see that it is
+    100 times larger and, most importantly, /executable/:
+
+    #+attr_html: :width 400px
+    #+caption: compile and list results
+    [[./img/cc.png]]
+
+* Running an executable file
+
+  * [ ] Run the executable file on the command line with the command
+    ~./hello~. 
+
+  * [ ] To run the file, the computer needs a path to the file. Try
+    entering the name of the file only.
+
+  * The path to the file can be explicit or implicit. Here is the
+    explicit path solution:
+
+    #+attr_html: :width 350px
+    #+caption: run executable file (explicit path)
+    [[./img/run1.png]]
+
+  * The implicit path uses ~./~ to indicate the current directory:
+
+    #+attr_html: :width 350px
+    #+caption: run executable file (implicit path)
+    [[./img/run.png]]
+
+* Glossary
 
   | TERM        | MEANING                 | WHAT?                            |
   |-------------+-------------------------+----------------------------------|
@@ -169,15 +237,30 @@
   | Linux[fn:1] | Operating system (OS)   | Enables your computing           |
   | $PWD        | Print working directory | Where you are in the file system |
   | $HOME       | Hhome directory (~)     | Where your files are             |
-  | Shell       | Connection to the OS    | e.g. ~bash~, scripting language    |
+  | Shell       | Connection to the OS    | E.g. ~bash~, scripting language    |
   | Prompt      | Command line symbol     | Enter shell commands after it    |
-  | echo        | Displays its arguments  | e.g. ~echo hello~ prints ~hello~     |
+  | echo        | Displays its arguments  | E.g. ~echo hello~ prints ~hello~     |
   | variable    | Memory location         | Can be declared/re/defined       |
-  | PATH        |                         |                                  |
-  | mkdir       |                         |                                  |
-  |             |                         |                                  |
+  | PATH        | Environment variable    | Where computer looks for pgms    |
+  | mkdir       | Make a new directory    | E.g. ~mkdir -v test~               |
+  | ls          | List files              | E.g. ~ls -l~ for a long listing    |
+  | wget        | Download web content    | Needs URL only                   |
+  | man         | UNIX manual pages       | E.g. ~man wget~                    |
+  | log         | Message file            | Log download process             |
+  | cat         | Viewing command         | E.g. ~cat hello.c~                 |
+  | cc          | C compiler (GCC)        | Includes flags like ~-o~           |
+  | compile     | Make executable file    | E.g. ~cc hello.c~                  |
+  | executable  | Binary (machine) file   |                                  |
 
 * Footnotes
+
+[fn:3]If we did not store the log in a file, it would simply be
+printed to the screen. An alternative is to redirect all messages to
+nowhere by replacing ~-o log~ with ~&>/dev/null~.
+
+[fn:2]Notice that you did not need a browser to do this. ~wget~ is
+actually much smarter and faster than any browser download
+program. Its manual page (~man wget~) is highly readable.
 
 [fn:1]Linux comes in many shades and forms - because it is open
 source, everyone can take it and make it to what he wants it to be. On
