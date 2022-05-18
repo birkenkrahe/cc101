@@ -1,2 +1,8 @@
+README
+
 This directory contains a lecture based on Modern C by Jens Gustedt
-(Manning, 2020), and a practice directory with an interactive notebook.
+(Manning, 2020), and a practice directory with an interactive
+notebook.
+
+The notebook is also available in the pdf directory as toolchain.pdf
+
