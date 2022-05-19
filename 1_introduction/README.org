@@ -15,11 +15,15 @@
   * Why are you learning C from me?
   * What's next in the course?
 
-  Source: King (2008) ch.1[fn:1] - see also [[https://docs.google.com/presentation/d/16jVt1LYw_an7na_Ex0bz8l2uySJtydBK/edit?usp=sharing&ouid=102963037093118135110&rtpof=true&sd=true][slides (GDrive)]]
+  Source:
+  - Textbook King (2008) ch.1[fn:1]
+  - See also [[https://docs.google.com/presentation/d/16jVt1LYw_an7na_Ex0bz8l2uySJtydBK/edit?usp=sharing&ouid=102963037093118135110&rtpof=true&sd=true][slides (GDrive)]]
 
 * What is C?
 
-  C is a programming language created in the early 1970s.
+  * C is a programming language created in the early 1970s.
+  * It grew out of the development of the UNIX operating system
+  * In turn, UNIX grew out of a space travel game (Brock, 2019).
 
   #+caption: Thompson & Ritchie & DEC PDP-11, 1970. (Brock, 2019)
   #+attr_html: :width 600px
@@ -34,6 +38,10 @@
   [[./img/tiobe.png]]
 
   Popularity contest: cp. [[https://www.tiobe.com/tiobe-index/][TIOBE Index]][fn:2]
+
+  #+caption: IEEE index (Source: Cass, 2019)
+  #+attr_html: :width 400px
+  [[./img/ieee.png]]
 
 * How important is C?
 
@@ -56,10 +64,11 @@
 * What is a programming language?
 
   #+begin_quote
-  "A programming language is a formal language comprising of a set of
-  strings that produce various kinds of machine code output. Programming
-  languages are one kind of computer language, and are used in computer
-  programming to implement algorithms." (Source: [[https://en.wikipedia.org/wiki/Programming_language][Wikipedia]])
+  "A programming language is a /formal language/ comprising of a set of
+  /strings/ that produce various kinds of /machine code/
+  output. Programming languages are one kind of computer language, and
+  are used in computer programming to implement algorithms." (Source:
+  [[https://en.wikipedia.org/wiki/Programming_language][Wikipedia]])
   #+end_quote
 
   * *Formal* language?
@@ -69,7 +78,7 @@
 
     | Fortunately, computer (and data) science isn't really a science at all! |
 
-    Right, it's more of a craft like mining, knitting, or pottering.
+    (Right, it's more of a craft like mining, knitting, or pottering.)
 
     #+caption: Scientific fields arranged by "purity" (xkcd)
     #+attr_html: :width 700px
@@ -110,7 +119,6 @@
   the power goes out.
 
 * How programs are processed
-
 **  Simplified process
 
    1) *WRITE* source code in an editor (NVM)
@@ -154,7 +162,7 @@
 * C is lightning fast and terribly tiny
 
   #+begin_quote
-  "C is fast because it's the speed of light, and relativity?"
+  "C is fast because it's the speed of light, and relativity?"[fn:9]
   ([[https://stackoverflow.com/questions/418914/why-is-c-so-fast-and-why-arent-other-languages-as-fast-or-faster][Stackoverflow]])
   #+end_quote
 
@@ -165,10 +173,10 @@
   [[./img/slow.png]]
   /Image source: [[https://github.com/kostya/benchmarks][Kostya benchmark, GitHub, Nov 2021]]/
 
-  * Excerpts for parsing and printing a Mandelbrot set
-  * Benchmarks depend on algorithm implementation
-  * C always wins the size battle (memory allocation)
-  * Some very specialized languages are even faster
+  * Excerpts for parsing and printing a /Mandelbrot/ set
+  * /Benchmarks/ depend on algorithm implementation
+  * C always wins the size battle (/memory allocation/)
+  * Some very /specialized/ languages are even faster
 
 * Strengths and weaknesses of C
 
@@ -204,8 +212,8 @@
   * System programming is pure power (C)
   * C is simpler, smaller, and faster
 
-  #+caption: Computer Landscape. (Modified from: Steinhart)
-  #+attr_html: :width 800px
+  #+caption: Computer Landscape. (Modified from: Steinhart, 2019)
+  #+attr_html: :width 500px
   [[./img/power2.png]]
 
   - Bjarne Stroustrup (2011): "[[https://youtu.be/KlPC3O1DVcg][C is obsolete]]"[fn:6]
@@ -233,10 +241,10 @@
   #+begin_quote
   I used C++ during my PhD studies at DESY, Germany, to write a
   library of multigrid functions (numerical method for lattice gauge
-  theory simulations in theoretical particle physics).
+  theory simulations in theoretical particle physics).[fn:10]
   #+end_quote
 
-* What will happen to C/C++ in the next 20 years?
+ * What will happen to C/C++ in the next 20 years?
 
   Whatever happens, good new for learning C.
 
@@ -256,7 +264,7 @@
   * The object-oriented programming (OOP) language C++ contains C
   * System programming is a powerful skill set
 
-** Concept glossary
+* Glossary
 
    | CONCEPT/TOPIC           | DEFINITION                                          |
    |-------------------------+-----------------------------------------------------|
@@ -299,6 +307,9 @@
     youtu.be/KlPC3O1DVcg]].
   * Brock (October 17, 2019). The Earliest Unix Code: An Anniversary
     Source Code Release [Blog]. URL: [[https://computerhistory.org/blog/the-earliest-unix-code-an-anniversary-source-code-release/][computerhistory.org]].
+  * Cass (6 Sept 2019). The Top Programming Languages 2019 > Python
+    remains the big kahuna, but specialist languages hold their
+    own. IEEE Spectrum. [[https://spectrum.ieee.org/the-top-programming-languages-2019][URL: spectrum.ieee.org]].
   * Chatley R., Donaldson A., Mycroft A. (2019) The Next 7000
     Programming Languages. In: Steffen B., Woeginger G. (eds)
     Computing and Software Science. Lecture Notes in Computer Science,
@@ -329,12 +340,18 @@
 
 * Footnotes
 
+[fn:10]I changed my name from 'Speh' to 'Birkenkrahe' when I got
+married.
+
+[fn:9]This is a joke based on someone mixing up c (speed of light
+constant) and C (the programming language).
+
 [fn:1]All sources are referenced at the end of the script, followed by
 the footnotes, which do unfortunately not render as links [[https://github.com/birkenkrahe/cc100/tree/main/history_of_c][on
 GitHub]]. The book by King (2008) does not cover a few recent updates to
 the ANSI standard for C, like C11, and the current standard C17. The
 next major C standard revision (C23) is expected for 2023. Gustedt
-(2019) is a good book on "modern C".
+(2019) is a good (but quite difficult) book on "modern C".
 
 [fn:2]Since 2000, C has consistently ranked among the top two
 languages in the TIOBE index (based on searches).
@@ -348,8 +365,8 @@ bit length of a word (or byte). One byte holds 8 = 2^3 bits (binary
 digits, or memory locations capable of storing 2 states). 8K byte
 correspond to 8 * 2^10 = 8 * 1,024 = 8,192 bits. By comparison, the
 main memory of my laptop is 16GB = 16 * 2^30 = 3.2E+31 bits. It
-follows that UNIX (and C) had to be designed to be very small, or
-space effective.
+follows from these memory restrictions that UNIX (and C) had to be
+designed to be very small, or space effective.
 
 [fn:5]Answer: no. By 1966, there were already ca. 700 programming
 languages (Chatley et al, 2019), today there are almost 9,000. C
