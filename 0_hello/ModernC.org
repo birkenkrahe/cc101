@@ -2,7 +2,7 @@
 #+TITLE:Modern C - extended example
 #+AUTHOR:Marcus Birkenkrahe
 #+STARTUP:overview hideblocks
-#+OPTIONS: toc:nil num:nil ^:nil
+#+OPTIONS: toc:1 ^:nil
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :comments both :exports both :results output
 * README
 
