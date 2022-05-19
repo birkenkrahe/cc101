@@ -17,8 +17,6 @@
   * You will also see Emacs Org-mode, our literate programming
     environment, in action.
 
-  * This lecture is available in Org, PDF, HTML and as YouTube video
-
 * Introduction to programming
 
   * What is programming?
@@ -297,16 +295,11 @@
 
   * Davenport/Vine (2014). C Programming for Absolute
     Beginners. Cenpage.
-
   * Gookin (2022). TinyC Projects. Manning. URL: [[https://www.manning.com/books/tiny-c-projects][manning.com]].
-
   * Gustedt (2020). Modern C. Manning. URL:
     [[https://gustedt.gitlabpages.inria.fr/modern-c/][gustedt.gitlabpages.inria.fr]].
-
   * Johannessen/Davenport (June 22, 2021). When Low-Code/No-Code
-    Development Works - and When It Doesn't. In: Harvard Business
-    Review / Technology and Analysis [online]. [[https://hbr.org/2021/06/when-low-code-no-code-development-works-and-when-it-doesnt][URL: hbr.org]].
-
+    Development Works - and When It Doesn't [article]. [[https://hbr.org/2021/06/when-low-code-no-code-development-works-and-when-it-doesnt][URL: hbr.org]].
   * King (2008). C Programming - A Modern Approach. Norton.
 
 * Footnotes
