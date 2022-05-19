@@ -18,4 +18,113 @@
 
 * 24-May (Tue) - Hello, C
 
-  * [ ] 
+  * [ ] Setting up the infrastructure
+  * [ ] Information about the course
+  * [ ] Hello, C - extended example => lecture
+  * [ ] Toolchain practice => practice
+
+** Course information
+
+   * All materials are hosted on GitHub
+   * Sample programs from pastebin
+   * 
+   
+** Setting up the infrastructure
+
+   #+attr_html: :width 500px
+   #+caption: Raspberry Pi 400 (Source: raspberrypi.com)
+   [[./img/pi400.png]]
+
+   * The Pi 400 contains a credit-card sized System-on-a-chip computer
+
+   * For processor information, run ~cat /proc/cpuinfo~ in a terminal
+
+     #+name: cpuinfo
+     #+begin_src bash :results output
+     cat /proc/cpuinfo
+     #+end_src
+
+     #+RESULTS: cpuinfo
+     #+begin_example
+     processor	: 0
+     model name	: ARMv7 Processor rev 3 (v7l)
+     BogoMIPS	: 108.00
+     Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+     CPU implementer	: 0x41
+     CPU architecture: 7
+     CPU variant	: 0x0
+     CPU part	: 0xd08
+     CPU revision	: 3
+
+     processor	: 1
+     model name	: ARMv7 Processor rev 3 (v7l)
+     BogoMIPS	: 108.00
+     Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+     CPU implementer	: 0x41
+     CPU architecture: 7
+     CPU variant	: 0x0
+     CPU part	: 0xd08
+     CPU revision	: 3
+
+     processor	: 2
+     model name	: ARMv7 Processor rev 3 (v7l)
+     BogoMIPS	: 108.00
+     Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+     CPU implementer	: 0x41
+     CPU architecture: 7
+     CPU variant	: 0x0
+     CPU part	: 0xd08
+     CPU revision	: 3
+
+     processor	: 3
+     model name	: ARMv7 Processor rev 3 (v7l)
+     BogoMIPS	: 108.00
+     Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+     CPU implementer	: 0x41
+     CPU architecture: 7
+     CPU variant	: 0x0
+     CPU part	: 0xd08
+     CPU revision	: 3
+
+     Hardware	: BCM2711
+     Revision	: c03114
+     Serial		: 10000000186afd4d
+     Model		: Raspberry Pi 4 Model B Rev 1.4
+     #+end_example
+
+   * For OS information, run ~cat /etc/os-release~ in a terminal
+
+     #+name: osinfo
+     #+begin_src bash :results output
+     cat /etc/os-release
+     #+end_src
+
+     #+RESULTS: osinfo
+     #+begin_example
+     PRETTY_NAME="Raspbian GNU/Linux 11 (bullseye)"
+     NAME="Raspbian GNU/Linux"
+     VERSION_ID="11"
+     VERSION="11 (bullseye)"
+     VERSION_CODENAME=bullseye
+     ID=raspbian
+     ID_LIKE=debian
+     HOME_URL="http://www.raspbian.org/"
+     SUPPORT_URL="http://www.raspbian.org/RaspbianForums"
+     BUG_REPORT_URL="http://www.raspbian.org/RaspbianBugs"
+     #+end_example
+
+   * At the start of every session, you must:
+     1) unpack the Pi 400
+     2) connect the HDMI cable to your monitor
+     3) connect the mouse to on of the Pi 400 USB ports
+     4) pull the LAN cable from the desktop PC
+     5) connect the LAN cable to the Pi 400
+     6) plug the charger and connect it to the Pi 400
+     7) enter ~startx~ at the terminal prompt
+
+   * At the end of every session, you must:
+     1) enter ~sudo shutdown now~ at the terminal prompt
+     2) unplug the power from the Pi 400
+     3) unplug the LAN cable and replug it into the desktop PC
+     4) unplug the USB-mouse and the HDMI cable
+     5) stow mouse, cable and Pi 400 in the box

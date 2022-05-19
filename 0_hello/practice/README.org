@@ -158,14 +158,15 @@
 
 * Getting a source file from the web
 
-  * The C source file ~hello.c~ is stored online [[https://pastebin.com/N37Cp7ni][at pastebin.com]]
+  * The C source file ~hello.c~ is stored online at this place in
+    GitHub: tinyurl.com/mrxne2t3 ([[https://raw.githubusercontent.com/birkenkrahe/cc101/piHome/0_hello/practice/src/hello.c][long URL]])
 
   * [ ] To download it to your ~Downloads~ directory, open a terminal
     and enter the following command:
 
     #+name: ex:wget
     #+begin_example bash
-    wget pastebin.com/raw/N37Cp7ni -O hello.c -o log
+    wget tinyurl.com/mrxne2t3 -O hello.c -o log
     #+end_example
 
     - ~wget~ copies content from the web[fn:2]
