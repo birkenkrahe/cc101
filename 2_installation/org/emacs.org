@@ -1,0 +1,134 @@
+#+TITLE:Literate programming with Emacs and Org-mode
+#+AUTHOR:Marcus Birkenkrahe
+#+SUBTITLE:
+#+STARTUP:overview hideblocks
+#+OPTIONS: toc:1 ^:nil
+#+PROPERTY: header-args:C :includes <stdio.h> :main yes :exports both :contents both :results output
+* README
+
+  * This file introduces literate programming using the GNU Emacs
+    editor and Org-mode as IDE (Integrated Development
+    Environment)[fn:1].
+
+  * There is a much longer, more detailed version with more
+    information on installation, customization and background
+
+  * What you will learn:
+
+    - What is literate programming
+    - How to tangle code and weave documentation
+    - Understanding Org-mode code blocks
+    - What will you have to know and do in this course
+
+* Setup
+
+  * [ ] To make sure that you can run the Org-mode C code blocks, type
+    ~CTRL-c~ twice (written ~C-c C-c~) with the cursor anywhere on the
+    code block "[[pgm:readme]]":
+
+    #+name: pgm:readme
+    #+begin_src C :tangle ../src/readme.c
+      puts("Yes, it works.");
+    #+end_src
+
+  * Anything else but the output ~Yes, it works~ spells trouble:
+    - Check that you have a ~.emacs~ file in ~$HOME~.
+    - Check that the ~.emacs~ file contains these lines:
+
+      #+name: ex:emacs
+      #+begin_example emacs-lisp
+      (org-babel-do-load-languages
+       'org-babel-load-languages '((C . t)))
+      #+end_example
+
+    - Check that you have GCC or another C compiler installed by
+      entering in a terminal: ~gcc --version~. This is what I get:
+
+      #+begin_example bash
+      pi@raspberrypi:~$ gcc --version
+      gcc (Raspbian 10.2.1-6+rpi1) 10.2.1 20210110
+      Copyright (C) 2020 Free Software Foundation, Inc.
+      This is free software; see the source for copying conditions.
+      #+end_example
+
+    - Check the ~*Messages*~ buffer of this Emacs session for error
+      messages
+
+* What is literate programming
+
+  * A programming /paradigm/ that produces programs both for humans and
+    for machines, invented by Donald Knuth since 1984.
+
+    #+attr_html: :width 700px
+    #+caption: What is literate programming? (2022)
+    [[../img/litprog22.png]]
+
+  * In my field, data science, literate programs in the form of
+    interactive notebooks are the dominant development medium[fn:2].
+
+* Tangle code or weave documentation
+
+  * This GNU Emacs Org-mode file is an example. It contains both code
+    (see [[pgm:readme]]) and documentation.
+
+  * You can infer the fact that it's an Org-mode file from the file
+    ending ~.org~
+
+  * The code in this file can be /tangled/ into a C source code file,
+    and it can be /woven/ into documentation (in different formats).
+
+  * GNU Emacs commands can usually either be entered in a long version
+    (as a function), or in a short version (as a keyboard sequence)[fn:3].
+
+  * To tangle code blocks, type ~C-c C-v t~ or ~M-x org-babel-tangle~
+    where ~C-~ stands for ~CTRL~, and ~M~ (meta key) stands for ~ALT~.
+
+  * To weave file documentation, type ~C-c C-e~ to get to the ~*Org
+    Export Dispatcher*~ where you can choose your format.
+
+* Code blocks explained
+
+
+* Further study
+
+  * Reading:
+
+  * Viewing:
+
+  * Installing: 
+
+* Let's practice
+
+  GNU Emacs practice includes two steps:
+
+  1) Completing the GNU Emacs on-board tutorial - this will enable you
+     to use the editor with ease
+  2) Completing a few simple practice exercises. Download 
+
+* Glossary
+
+  | TERM                 | MEANING                                 |
+  |----------------------+-----------------------------------------|
+  | IDE                  | Integrated Development Environment      |
+  | Literate Programming | Story + code = source + doc             |
+  |                      | Programming for machines AND humans     |
+  | GNU Emacs            | Text editor of the GNU Operating System |
+  | Org-mode             | A major Emacs mode (environment)        |
+  | Tangle file          | Extract source code file (e.g. C)       |
+  | Weave file           | Extract documentation (e.g. PDF)        |
+  | Meta key             | M- (usually ALT on the keyboard)        |
+
+* Footnotes
+
+[fn:3]Emacs is a self-extensible editor - this means that you can
+completely reprogram it. Imagine you could do that with WORD to create
+exactly the text editor that you need and like.
+
+[fn:2]Examples are: [[https://jupyter.org/][Jupyter notebooks]], [[https://colab.research.google.com/][Google Colaboratory]], [[https://www.rstudio.com/blog/r-notebooks/][RStudio
+Notebooks]], or [[https://www.kaggle.com/][Kaggle]].
+
+[fn:1]I introduced literate programming as a teaching and learning
+technique only in spring 2022, see [[https://docs.google.com/presentation/d/1wA7sb41EjV6GP3oBEFsOiYnoe29WILtLJR2sHSfr6Fs/edit?usp=sharing][this presentation]] given at Lyon
+College on April 8, 2022 (research paper in preparation). I was
+inspired to do this by Daniel German's talk at EmacsConf 2021, "[[https://emacsconf.org/2021/talks/teach/][Using
+Org-mode to teach programming]]".
