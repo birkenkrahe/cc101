@@ -1,7 +1,6 @@
 
 #+TITLE:Modern C - extended example
-#+AUTHOR:Jens Gustedt
-#+SUBTITLE:Modern C
+#+AUTHOR:Marcus Birkenkrahe
 #+STARTUP:overview hideblocks
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :comments both :exports both :results output
