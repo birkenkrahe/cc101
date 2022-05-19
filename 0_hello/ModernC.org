@@ -239,7 +239,8 @@
     #+begin_example bash
     pi@raspberrypi:~/Documents/cc$ c99 -Wall -o first1 getting_started.c -lm
     getting_started.c: In function ‘main’:
-    getting_started.c:35:14: error: ‘EXIT_SUCCESS’ undeclared (first use in this function)
+    getting_started.c:35:14: error: ‘EXIT_SUCCESS’ undeclared 
+    (first use in this function)
     35 |       return EXIT_SUCCESS;
        |              ^~~~~~~~~~~~
     #+end_example
