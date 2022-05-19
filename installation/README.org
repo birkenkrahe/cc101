@@ -90,8 +90,8 @@
    Watch: "[[https://youtu.be/w3jLJU7DT5E][What is GitHub?]]" (GitHub, 2016)
 
    #+attr_html: :width 500px
-   [[./img/github.gif]]
-   /Gif: "So long binder of requirements" Source: GitHub/
+   [[./img/github1.png]]
+   [[https://media.giphy.com/media/GxMOE1Ns0fdy4bfhf6/giphy.gif][/Gif: "So long binder of requirements" Source: GitHub/]]
 
 ** Why are we using it?
 
@@ -399,7 +399,7 @@
    Download the configuration file [[https://github.com/birkenkrahe/cc100/blob/main/2_installation/.emacs][from GitHub]]. Here is the code: you
    can also copy and paste it into a ~.emacs~ file.
 
-   #+begin_src emacs-lisp :exports both :tangle .emacs
+   #+begin_example emacs-lisp :exports both :tangle .emacs
      ;; bury a directory buffer with 'a'
      (put 'dired-find-alternate-file 'disabled nil)
 
@@ -445,7 +445,7 @@
      (global-set-key (kbd "C-x rf") 'recentf-open-files)
 
      (setq-default org-hide-emphasis-markers t)
-   #+end_src
+   #+end_example
 
    Once you've created the ~.emacs~ file, you can start
    Emacs. Everything that follows is optional. I will bring one
@@ -523,8 +523,7 @@
    #+attr_html: :width 400px
    [[./img/orgtreeslide.png]]
 
-   #+begin_src emacs-lisp :exports both
-
+   #+begin_example emacs-lisp :exports both
      ;; org-tree-slide: https://github.com/takaxp/org-tree-slide
      ;; to activate: M-x org-tree-slide-mode or <f9> - stop S-<f9>
      (require 'org-tree-slide)
@@ -538,11 +537,7 @@
      (setq org-tree-slide-skip-outline-level 0)
      (setq org-tree-slide-slide-effect t)
      (org-tree-slide-simple-profile) ;; no headers
-
-   #+end_src
-
-   #+RESULTS:
-   : simple profile: ON
+   #+end_example
 
    In the code, ~<f9>~ is used to switch the mode on or off (~SHIFT +
    <f9>~), and ~<f8>~ to move one slide forward or backward (~SHIFT +
@@ -550,11 +545,9 @@
    headers, comment the last line by putting ~;;~ in front of it like
    this:
 
-   #+begin_src emacs-lisp
-
+   #+begin_example emacs-lisp
      ;; (org-tree-slide-simple-profile) ;; no headers
-
-   #+end_src
+   #+end_example
 
 ** Definitions and functions
 
@@ -565,8 +558,7 @@
    your ~~/.emacs~ file, you can use ~M-x unfill-region~ to achieve
    that.
 
-   #+begin_src emacs-lisp
-
+   #+begin_example emacs-lisp
      ;; unfill region
      (defun unfill-region (beg end)
        "Unfill the region, joining text paragraphs into a single
@@ -575,24 +567,15 @@
        (interactive "*r")
        (let ((fill-column (point-max)))
          (fill-region beg end)))
-
-   #+end_src
-
-   #+RESULTS:
-   : unfill-region
+   #+end_example
 
    If you like to bind the function to a key sequence, you can use
    this code - now ~C-M-Q~ will invoke the function:
 
-   #+begin_src emacs-lisp
-
+   #+begin_example emacs-lisp
      ;; bind unfill-region to C-M-Q
      (define-key global-map "\C-\M-Q" 'unfill-region)
-
-   #+end_src
-
-   #+RESULTS:
-   : unfill-region
+   #+end_example
 
 ** Adding images and links to Org-mode files
 
@@ -707,6 +690,7 @@
   * GNU Emacs Org-mode assignment
 
 * References
+
   * Biggs/Donovan (November 9, 2020). Modern IDEs are magic. Why are
     so many coders still using Vim and Emacs? [Blog]. URL:
     [[https://stackoverflow.blog/2020/11/09/modern-ide-vs-vim-emacs/][stackoverflow.org]].
@@ -763,8 +747,7 @@ use the mobile version a lot.
 function ~iwb~ to indent a whole buffer according to the buffer's
 mode - something that can also be done with the key sequence ~C-x h
 C-M-\~ (~mark-whole-buffer + indent-region~).
-
-#+begin_src emacs-lisp
+#+begin_example emacs-lisp
   ;; re-indenting of whole buffer according to mode
   (defun iwb ()
     "indent whole buffer"
@@ -773,7 +756,7 @@ C-M-\~ (~mark-whole-buffer + indent-region~).
     (indent-region (point-min) (point-max) nil)
     (untabify (point-min) (point-max))
     )
-#+end_src
+#+end_example
 
 [fn:5]Emacs Lisp is a Lisp dialect. Lisp was one of the first
 languages used for Artificial Intelligence research (cp. [[https://hci.stanford.edu/~winograd/shrdlu/][SHRDLU]], an
