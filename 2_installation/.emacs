@@ -32,14 +32,11 @@
 
 ;; require org-tempo so that <s <TAB> self-insert works
 (require 'org-tempo)
+(load "org-tempo")
 
 ;; remove GUI tool bar and menu bar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (toggle-scroll-bar -1)
-
-;; enable recentf mode and bind it to
-(recentf-mode 1)
-(global-set-key (kbd "C-x rf") 'recentf-open-files)
 
 (setq-default org-hide-emphasis-markers t)
