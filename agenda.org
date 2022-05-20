@@ -136,6 +136,7 @@
       5) connect the LAN cable to the Pi 400
       6) plug the charger and connect it to the Pi 400
       7) enter ~startx~ at the terminal prompt
+      8) open a browser to [[https://tinyurl.com/3ptbb7zz][tinyurl.com/3ptbb7zz]]
 
     * At the end of every session, you must:
       1) enter ~sudo shutdown now~ at the terminal prompt

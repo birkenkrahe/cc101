@@ -3,5 +3,3 @@
   * This file is a practice file for using the GNU Emacs editor as a
     C programming IDE (Integrated Development Environment).
 
-
-*brown* ~new~ 
