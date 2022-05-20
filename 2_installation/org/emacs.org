@@ -88,22 +88,123 @@
 
 * Code blocks explained
 
+  * A code block can be executed in a given language,
+    e.g. C[fn:4]. "Execution" in the case of a compiled language like
+    C includes several steps:
 
-* Further study
+    1) parse the code ("read it")
+    2) put the code into a C file
+    3) compile and link the C file into a binary executable
+    4) execute the binary file
 
-  * Reading:
+  * So instead of going back and forth between file and command line,
+    you only need one command (~C-c C-c~) to do it all in one go.
+
+  * Anything between the meta characters ~#+begin_src~ and ~#+end_src~ is
+    executed by Emacs. The file must be an Org-mode file, i.e. it must
+    end in ~.org~.
+
+  * You can pass arguments to Emacs that are used during the
+    execution, e.g. ~:main yes~ to wrap the code in a ~int main ()~ C
+    function, or ~:includes <stdio.h>~ to include the ~stdio.h~ header
+    file[fn:5].
+
+  * If you want to tangle the code, you need to add ~:tangle filename.c~
+    to the header - this leads to a C source code file ~filename.c~.
+
+  * Code blocks should be named (so that you can link to them) using
+    the meta characters ~#+name:~ . E.g. ~#+name: blck~ can be linked to
+    from anywhere using double square brackets: ~[[blck]]~.
+
+  * A simple example that upon execution (~C-c C-c~) will print ~hello there~:
+
+    #+begin_src C 
+      puts("hello there");
+    #+end_src
+
+    - This code block will only execute if the ~#+PROPERTY~ is set
+      properly
+
+  * An example with more arguments that also asks for input from the
+    file ~input~ that will print the letter in ~input~ ('A'):
+
+    #+begin_src C :main yes :includes <stdio.h> :cmdline < ../src/input
+      char c;
+      scanf("%c", &c);
+      printf("%c", c);
+    #+end_src
+
+    - This code block will only execute, if the file ~../src/input~
+      exists
+
+* TODO Further study
+
+  * Reading: 
 
   * Viewing:
 
-  * Installing: 
+  * Installing:
 
 * Let's practice
 
   GNU Emacs practice includes two steps:
 
-  1) Completing the GNU Emacs on-board tutorial - this will enable you
-     to use the editor with ease
-  2) Completing a few simple practice exercises. Download 
+  1) [ ] Completing the GNU Emacs on-board tutorial - this will enable you
+     to use the editor with ease. To open it type first:
+
+     #+name: ex:tutor
+     #+begin_example
+     $  emacs -nw
+     #+end_example
+
+     Emacs should open in the terminal (no graphics). Now type ~C-h t~
+     or ~M-x help-with-tutorial~ and follow the instructions all the way
+     to the end. This will take about 1 hour.
+
+     #+attr_html: :width 500px
+     #+caption: First lines of the Emacs tutorial
+     [[../img/tutor.png]]
+
+  2) [ ] Completing a few simple practice exercises. Download [[https://raw.githubusercontent.com/birkenkrahe/cc101/piHome/2_installation/org/practice.org][practice.org]]
+     using ~wget~ on the command line:
+
+     #+name: ex:wget
+     #+begin_example
+     $  wget tinyurl.com/3tjvnws8 -O practice.org -o log
+     #+end_example
+
+  3) Open the file with Emacs from the command line (in the same
+     directory where you downloaded it to - probably ~Downloads~:
+
+     #+name: ex:emacs
+     #+begin_example
+     $  emacs --file practice.org &
+     #+end_example
+
+     - This command loads the file following the ~--file~ flag, and pushes
+       the process (Emacs) into the background so that you can keep
+       using the terminal and don't have to open a new one.
+
+  4) If all goes well, you see the file in an Emacs buffer window. You
+     can open headlines, code blocks and bullet points by typing TAB
+     when the cursor is on the headline. Some examples:
+
+     * headline
+       that goes over
+       three lines
+
+     * code block:
+       #+begin_example C
+     int main (void) {
+     // nothing to see here
+     }
+     #+end_example
+
+  5) [ ] Complete the online exercises, then submit your completed
+     Org-mode file practice.org in Schoology here.
+
+* Summary
+
 
 * Glossary
 
@@ -119,6 +220,16 @@
   | Meta key             | M- (usually ALT on the keyboard)        |
 
 * Footnotes
+
+[fn:5]The header arguments can also be defined for the entire file
+with more than one code block using the ~#+PROPERTY~ meta
+characters. See the top of this file for an example (for C).
+
+[fn:4]Many other languages are supported, too. E.g. the following code
+block runs the statistical programming language R:
+#+begin_src R :session :results output
+  str(mtcars)
+#+end_src
 
 [fn:3]Emacs is a self-extensible editor - this means that you can
 completely reprogram it. Imagine you could do that with WORD to create

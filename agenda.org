@@ -6,125 +6,167 @@
 #+PROPERTY: header-args:C :main yes :includes <stdio.h>
 * README
 
-  This file contains the agenda overview (what I had planned), the
-  objectives (what we managed to do) and (much of the) content of each
-  taught session of the course. I want to avoid splitting the content
-  up over many files - so that you have to navigate as little as
-  possible (like a book)!
+  * This file contains the agenda overview (what I had planned), the
+    objectives (what we managed to do) and (much of the) content of
+    each taught session of the course. I want to avoid splitting the
+    content up over many files - so that you have to navigate as
+    little as possible (like a book)!
 
-  The companion file to this file, less structured and with the
-  captain's log, is the [[./notes.org][notes.org]] file.
+* Week 1 - Hello, world
+** 24-May (Tue) - Hello, C
 
+   * [ ] Entry quiz (Google Forms)
+   * [ ] Why C Programming Is Awesome (YouTube)
+   * [ ] Setting up the infrastructure
+   * [ ] Information about the course
+   * [ ] Hello, C - extended example => lecture
+   * [ ] Toolchain practice => practice
 
-* 24-May (Tue) - Hello, C
+*** Why C Programming Is Awesome (2016)
 
-  * [ ] Setting up the infrastructure
-  * [ ] Information about the course
-  * [ ] Hello, C - extended example => lecture
-  * [ ] Toolchain practice => practice
+    Which key points do you remember?
 
-** Course information
+    #+begin_quote Key points
+    * Almost all popular languages are built on top of C[fn:1]
+    * 500,000 lines of C code powered the Mars Curiosity Rover[fn:2]
+    * Language of choice for /kernel/ development[fn:3]
+    * Helps to understand how a computer actually works[fn:4]
+    * 
+    #+end_quote
 
-   * All materials are hosted on GitHub
-   * Sample programs from pastebin
-   * 
+*** Course information
+
+    * All materials are hosted on [[https://github.com/birkenkrahe/cc101][GitHub]] 
+    * For formal requirements, grades etc. see [[https://github.com/birkenkrahe/cc101/blob/piHome/syllabus.org][Syllabus]]
+    * Classes include: lecture / practice / programming
+    * Weekly quizzes and final exam (in Schoology)
+    * Final exam is a selection from the weekly quizzes
+    * Programming assignments to be submitted in Schoology
    
-** Setting up the infrastructure
+*** Setting up the hardware infrastructure
 
-   #+attr_html: :width 500px
-   #+caption: Raspberry Pi 400 (Source: raspberrypi.com)
-   [[./img/pi400.png]]
+    #+attr_html: :width 500px
+    #+caption: Raspberry Pi 400 (Source: raspberrypi.com)
+    [[./img/pi400.png]]
 
-   * The Pi 400 contains a credit-card sized System-on-a-chip computer
+    * The Pi 400 contains a credit-card sized System-on-a-chip computer
 
-   * For processor information, run ~cat /proc/cpuinfo~ in a terminal
+    * For processor information, run ~cat /proc/cpuinfo~ in a terminal
 
-     #+name: cpuinfo
-     #+begin_src bash :results output
-     cat /proc/cpuinfo
-     #+end_src
+      #+name: cpuinfo
+      #+begin_src bash :results output
+      cat /proc/cpuinfo
+      #+end_src
 
-     #+RESULTS: cpuinfo
-     #+begin_example
-     processor	: 0
-     model name	: ARMv7 Processor rev 3 (v7l)
-     BogoMIPS	: 108.00
-     Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
-     CPU implementer	: 0x41
-     CPU architecture: 7
-     CPU variant	: 0x0
-     CPU part	: 0xd08
-     CPU revision	: 3
+      #+RESULTS: cpuinfo
+      #+begin_example
+      processor	: 0
+      model name	: ARMv7 Processor rev 3 (v7l)
+      BogoMIPS	: 108.00
+      Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+      CPU implementer	: 0x41
+      CPU architecture: 7
+      CPU variant	: 0x0
+      CPU part	: 0xd08
+      CPU revision	: 3
 
-     processor	: 1
-     model name	: ARMv7 Processor rev 3 (v7l)
-     BogoMIPS	: 108.00
-     Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
-     CPU implementer	: 0x41
-     CPU architecture: 7
-     CPU variant	: 0x0
-     CPU part	: 0xd08
-     CPU revision	: 3
+      processor	: 1
+      model name	: ARMv7 Processor rev 3 (v7l)
+      BogoMIPS	: 108.00
+      Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+      CPU implementer	: 0x41
+      CPU architecture: 7
+      CPU variant	: 0x0
+      CPU part	: 0xd08
+      CPU revision	: 3
 
-     processor	: 2
-     model name	: ARMv7 Processor rev 3 (v7l)
-     BogoMIPS	: 108.00
-     Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
-     CPU implementer	: 0x41
-     CPU architecture: 7
-     CPU variant	: 0x0
-     CPU part	: 0xd08
-     CPU revision	: 3
+      processor	: 2
+      model name	: ARMv7 Processor rev 3 (v7l)
+      BogoMIPS	: 108.00
+      Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+      CPU implementer	: 0x41
+      CPU architecture: 7
+      CPU variant	: 0x0
+      CPU part	: 0xd08
+      CPU revision	: 3
 
-     processor	: 3
-     model name	: ARMv7 Processor rev 3 (v7l)
-     BogoMIPS	: 108.00
-     Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
-     CPU implementer	: 0x41
-     CPU architecture: 7
-     CPU variant	: 0x0
-     CPU part	: 0xd08
-     CPU revision	: 3
+      processor	: 3
+      model name	: ARMv7 Processor rev 3 (v7l)
+      BogoMIPS	: 108.00
+      Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+      CPU implementer	: 0x41
+      CPU architecture: 7
+      CPU variant	: 0x0
+      CPU part	: 0xd08
+      CPU revision	: 3
 
-     Hardware	: BCM2711
-     Revision	: c03114
-     Serial		: 10000000186afd4d
-     Model		: Raspberry Pi 4 Model B Rev 1.4
-     #+end_example
+      Hardware	: BCM2711
+      Revision	: c03114
+      Serial		: 10000000186afd4d
+      Model		: Raspberry Pi 4 Model B Rev 1.4
+      #+end_example
 
-   * For OS information, run ~cat /etc/os-release~ in a terminal
+    * For OS information, run ~cat /etc/os-release~ in a terminal
 
-     #+name: osinfo
-     #+begin_src bash :results output
-     cat /etc/os-release
-     #+end_src
+      #+name: osinfo
+      #+begin_src bash :results output
+      cat /etc/os-release
+      #+end_src
 
-     #+RESULTS: osinfo
-     #+begin_example
-     PRETTY_NAME="Raspbian GNU/Linux 11 (bullseye)"
-     NAME="Raspbian GNU/Linux"
-     VERSION_ID="11"
-     VERSION="11 (bullseye)"
-     VERSION_CODENAME=bullseye
-     ID=raspbian
-     ID_LIKE=debian
-     HOME_URL="http://www.raspbian.org/"
-     SUPPORT_URL="http://www.raspbian.org/RaspbianForums"
-     BUG_REPORT_URL="http://www.raspbian.org/RaspbianBugs"
-     #+end_example
+      #+RESULTS: osinfo
+      #+begin_example
+      PRETTY_NAME="Raspbian GNU/Linux 11 (bullseye)"
+      NAME="Raspbian GNU/Linux"
+      VERSION_ID="11"
+      VERSION="11 (bullseye)"
+      VERSION_CODENAME=bullseye
+      ID=raspbian
+      ID_LIKE=debian
+      HOME_URL="http://www.raspbian.org/"
+      SUPPORT_URL="http://www.raspbian.org/RaspbianForums"
+      BUG_REPORT_URL="http://www.raspbian.org/RaspbianBugs"
+      #+end_example
 
-   * At the start of every session, you must:
-     1) unpack the Pi 400
-     2) connect the HDMI cable to your monitor
-     3) connect the mouse to on of the Pi 400 USB ports
-     4) pull the LAN cable from the desktop PC
-     5) connect the LAN cable to the Pi 400
-     6) plug the charger and connect it to the Pi 400
-     7) enter ~startx~ at the terminal prompt
+    * At the start of every session, you must:
+      1) unpack the Pi 400
+      2) connect the HDMI cable to your monitor
+      3) connect the mouse to on of the Pi 400 USB ports
+      4) pull the LAN cable from the desktop PC
+      5) connect the LAN cable to the Pi 400
+      6) plug the charger and connect it to the Pi 400
+      7) enter ~startx~ at the terminal prompt
 
-   * At the end of every session, you must:
-     1) enter ~sudo shutdown now~ at the terminal prompt
-     2) unplug the power from the Pi 400
-     3) unplug the LAN cable and replug it into the desktop PC
-     4) unplug the USB-mouse and the HDMI cable
-     5) stow mouse, cable and Pi 400 in the box
+    * At the end of every session, you must:
+      1) enter ~sudo shutdown now~ at the terminal prompt
+      2) unplug the power from the Pi 400
+      3) unplug the LAN cable and replug it into the desktop PC
+      4) unplug the USB-mouse and the HDMI cable
+      5) stow mouse, cable and Pi 400 in the box
+
+** 25-May (Wed) - Hello, Emacs
+
+   * [ ] Literate programming with Emacs => lecture
+   * [ ] Emacs tutorial => practice
+   * [ ] First Emacs Org-mode file
+
+** 26-May (Thu) - Introduction to C
+** 27-May (Fri) - C Fundamentals
+
+* Footnotes
+
+[fn:1]Popular languages include: C++ (industry), C# (games), Java
+(enterprise), Python (machine learning), PHP (web dev),
+JavaScript (web dev), etc.
+
+[fn:2]Another language that is popular in space is Lisp - see this
+2022 podcast on robots and Mars missions, "LISP in space" -
+incidentally, Lisp is what powers our IDE, GNU Emacs.
+
+[fn:3]The /kernel/ is the core of an operating system, the software that
+brings your computer to life. Kernel tasks include: booting (starting
+up), managing processes, performance, and guarding the computer.
+
+[fn:4]Mentioned are: memory allocation and management. C achieves this
+e.g. by its use of /pointers/ which we will encounter in this course,
+though more technical memory management techniques are out of our
+reach.
