@@ -205,7 +205,13 @@
 
 * Summary
 
-
+   * Code is often developed using special software (IDE) like Emacs
+   * Literate programming is a technique to develop programs for both
+     human and machine consumption
+   * GNU Emacs is a self-extensible text editor
+   * Org-mode is a major Emacs mode for literate programming
+   * Literate programming includes tangling and weaving
+   * Meta information controls layout via macros
 
 [[id:7b22cd97-bf1a-4cde-af09-a67b6e65b599][cc-glossary]]
 

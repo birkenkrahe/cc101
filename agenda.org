@@ -24,14 +24,15 @@
 
 *** Why C Programming Is Awesome (2016)
 
-    Which key points do you remember?
+    Which key points do you remember [[https://www.youtube.com/watch?v=smGalmxPVYc][from this video]]?
 
     #+begin_quote Key points
-    * Almost all popular languages are built on top of C[fn:1]
-    * 500,000 lines of C code powered the Mars Curiosity Rover[fn:2]
-    * Language of choice for /kernel/ development[fn:3]
-    * Helps to understand how a computer actually works[fn:4]
-    * 
+    1) Almost all popular languages are built on top of C[fn:1]
+    2) 500,000 lines of C code powered the Mars Curiosity Rover[fn:2]
+    3) Language of choice for /kernel/ development[fn:3]
+    4) Helps to understand how a computer actually works[fn:4]
+    5) Easy to land a job with C programming knowledge
+    6) Code is portable, efficient, reliable, small
     #+end_quote
 
 *** Course information
