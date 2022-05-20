@@ -206,18 +206,8 @@
 * Summary
 
 
-* Glossary
 
-  | TERM                 | MEANING                                 |
-  |----------------------+-----------------------------------------|
-  | IDE                  | Integrated Development Environment      |
-  | Literate Programming | Story + code = source + doc             |
-  |                      | Programming for machines AND humans     |
-  | GNU Emacs            | Text editor of the GNU Operating System |
-  | Org-mode             | A major Emacs mode (environment)        |
-  | Tangle file          | Extract source code file (e.g. C)       |
-  | Weave file           | Extract documentation (e.g. PDF)        |
-  | Meta key             | M- (usually ALT on the keyboard)        |
+[[id:7b22cd97-bf1a-4cde-af09-a67b6e65b599][cc-glossary]]
 
 * Footnotes
 

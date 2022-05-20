@@ -1,0 +1,251 @@
+#+TITLE:Practice: C Programming Toolchain
+#+AUTHOR:Marcus Birkenkrahe
+#+SUBTITLE:Linux and GCC basics
+#+STARTUP:overview hideblocks
+#+OPTIONS: toc:1 ^:nil
+* Practice: C Programming Toolchain
+
+  * This directory contains practice material for the course.
+
+  * This practice session deals with your C programming
+    toolchain. Since we're working on Linux, you have many small,
+    powerful UNIX commands available to you.
+
+  * What you'll learn:
+    - Finding out where you are on the computer
+    - Climbing around the file system
+    - Listing filesy
+    - Downloading a file from the web
+    - Compiling a simple C source file
+    - Running an executable file
+
+  * Whenever you see this symbol: ~* [ ]~, you have something to do.
+
+  * When you're in Emacs, put the cursor on the same line as the
+    symbol and press ~C-c C-c~ then the symbol changes to ~* [X]~
+
+  * [ ] Let's try this! Press ~C-c C-c~ a few times.
+
+* Finding out where you are on the computer
+
+  * To find out where you are, enter ~pwd~ ("print working directory")
+    after the terminal prompt ~$~. In the example below, the answer is
+    ~/home/pi~, which is the home directory of the user ~pi~.
+
+    #+name: ex:pwd
+    #+begin_example bash
+    ~$ pwd
+    /home/pi
+    #+end_example
+
+  * The answer to the shell command ~pwd~ is stored in the variable
+    ~$PWD~. To check this, enter the command ~echo $PWD~ at the prompt.
+
+    #+name: ex:pwd1
+    #+begin_example bash
+     ~$ echo $PWD
+    /home/pi
+    #+end_example
+
+  * You can actually see this via the symbol ~ before the prompt,
+    which stands for another variable, ~$HOME~.
+
+  * [ ] Print the variable ~$HOME~.
+
+    #+begin_src bash
+      echo $HOME
+    #+end_src
+
+  * The shell, or ~bash(1)~, is a program that is capable of scripting,
+    or programming both interactively (on the console/terminal/command
+    line), or via stored scripts.
+
+* Climbing around the file system
+
+  * The computer has a list of locations stored where it checks for
+    available programs - like an index - called the ~$PATH~.
+
+  * [ ] Print the ~$PATH~ on your computer
+
+    #+begin_src bash
+      echo $PATH
+    #+end_src
+
+  * If it's not in the ~PATH~ list, the computer won't know it as a
+    command. This includes executable files that you create yourself
+
+  * To change directory, use ~cd~. E.g. ~cd ~~ or ~cd $HOME~ will get you to
+    your home directory.
+
+  * [ ] Go to your home directory and print the working directory. You
+    can execute both commands in one go whe putting a ~;~ between them.
+
+    #+name: cd
+    #+begin_src bash
+      cd ~ ; pwd
+    #+end_src
+
+    #+RESULTS:
+    : /home/pi
+
+  * [ ] Make another directory and go there (you could put all of
+    these commands on one line separating them with semi-colons.
+
+    #+begin_example bash
+    mkdir -v test
+    cd test
+    pwd
+    #+end_example
+    (The ~-v~ flag means "verbose" - say what you just did).
+
+  * To go to any place, you can enter ~cd~ followed by the location
+    (or explicit path), e.g. ~/home/pi~ or ~/home/pi/test~, or by a
+    relative path using ~..~
+
+  * For example ~cd ..~ brings you back home from ~test~, while ~cd .~
+    does nothing, and ~cd ../..~ gets you one directory up from ~pi~.
+
+  * [ ] Follow this path using ~cd~:
+    - Go back up one directory from ~/test~
+    - Go back up one directory from ~/pi~
+    - Go back up one directory from ~ (or ~/home~)
+    - Go back down to ~/test~
+
+* Listing files
+
+  * The command ~ls~ lists all files in the current directory
+
+  * ~ls~ also works with file paths, e.g. this listing of the directory
+    ~$HOME~:
+
+    #+begin_src bash :results output
+      ls /home/pi
+    #+end_src
+
+    #+RESULTS:
+    #+begin_example
+    bin
+    Bookshelf
+    csvkit_tutorial
+    Desktop
+    Documents
+    Downloads
+    GitHub
+    Music
+    Pictures
+    Public
+    src
+    Templates
+    test
+    Videos
+    #+end_example
+
+  * [ ] This command has many useful options: try them yourself
+
+    | COMMAND | LISTING           | WHAT?                                   |
+    |---------+-------------------+-----------------------------------------|
+    | ls -l   | long listing      | file owners, size, time, permissions    |
+    | ls -a   | with hidden files | includes configuration files            |
+    | ls -t   | time-ordered      | files sort by time of modification      |
+
+  * The example output for ~ls -l~ shows one file called ~README.org~ with
+    permissions for the owner (~pi~) and his group (also called ~pi~) of
+    size 6832 byte, last saved on May 14 at 18:38.
+
+    #+begin_example
+    -rw-r--r-- 1 pi pi 6382 May 14 18:38 README.org
+    #+end_example
+
+* Getting a source file from the web
+
+  * The C source file ~hello.c~ is stored online at this place in
+    GitHub: tinyurl.com/mrxne2t3 ([[https://raw.githubusercontent.com/birkenkrahe/cc101/piHome/0_hello/practice/src/hello.c][long URL]])
+
+  * [ ] To download it to your ~Downloads~ directory, open a terminal
+    and enter the following command:
+
+    #+name: ex:wget
+    #+begin_example bash
+    wget tinyurl.com/mrxne2t3 -O hello.c -o log
+    #+end_example
+
+    - ~wget~ copies content from the web[fn:1]
+    - ~-O hello.c~ writes the content into a file ~hello.c~
+    - ~-o log~ writes messages into a file ~log~[fn:2]
+
+  * [ ] Check that you got the right content by entering ~cat hello.c~
+    at the command line. You should see this:
+
+    #+attr_html: :width 300px
+    #+caption: cat hello.c
+    [[../img/cat.png]]
+
+  * The ~cat~ command views a file. To find out more about this or any
+    other command, you can type ~man cat~ at the command line. This is
+    the UNIX help system of manual pages.
+
+  * [ ] Take a look at ~log~. 
+  
+* Compiling a simple C source file
+
+  * You now have a fully formed C source file in your fingers.
+
+  * [ ] To compile the file, enter the following command on the
+    command line - you shouldn't get any messages:
+
+    #+name: ex:compile
+    #+begin_example bash
+      cc hello.c -o hello 
+    #+end_example
+
+    This means "use ~cc~ to compile the file ~hello.c~ and put the result
+    into ~hello~". 
+
+  * [ ] Now check the file listing with ~ls -l~. You should see a new
+    file, ~hello~. Its name is highlighted, and you can see that it is
+    100 times larger and, most importantly, /executable/:
+
+    #+attr_html: :width 300px
+    #+caption: compile and list results
+    [[../img/cc.png]]
+
+* Running an executable file
+
+  * [ ] Run the executable file on the command line with the command
+    ~./hello~. 
+
+  * [ ] To run the file, the computer needs a path to the file. Try
+    entering the name of the file only.
+
+  * The path to the file can be explicit or implicit. Here is the
+    explicit path solution:
+
+    #+attr_html: :width 300px
+    #+caption: run executable file (explicit path)
+    [[../img/run1.png]]
+
+  * The implicit path uses ~./~ to indicate the current directory:
+
+    #+attr_html: :width 300px
+    #+caption: run executable file (implicit path)
+    [[../img/run.png]]
+
+* Summary
+
+  * To find out where you are, use ~pwd~
+  * To move around use ~cd~ with explicit/implicit paths
+  * To list file information, use ~ls~
+  * To get files from the web, use ~wget~
+  * To compile a C source code file, use ~cc~
+
+[[id:7b22cd97-bf1a-4cde-af09-a67b6e65b599][cc-glossary]]    
+
+* Footnotes
+
+[fn:1]Notice that you did not need a browser to do this. ~wget~ is
+actually much smarter and faster than any browser download
+program. Its manual page (~man wget~) is highly readable.
+
+[fn:2]If we did not store the log in a file, it would simply be
+printed to the screen. An alternative is to redirect all messages to
+nowhere by replacing ~-o log~ with ~&>/dev/null~.
