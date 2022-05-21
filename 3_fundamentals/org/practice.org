@@ -6,6 +6,7 @@
   - This file is a practice file for C fundamentals.
 
   - You will learn how to:
+    - run the 
 
   - Time: approx. 30-45 min.
 
