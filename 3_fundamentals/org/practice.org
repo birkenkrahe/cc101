@@ -13,4 +13,117 @@
   - When you're done with a section move the cursor on the section
     heading and type ~S-<right>~ (or SHIFT+<right-arrow>).
 
-* TODO 
+* Identify yourself
+
+  - replace the placeholder ~[yourName]~ in the header of this file by
+    your name and save the file (~C-x C-s~). 
+
+* Syntax highlighting
+
+  1) Create a named code block ~hello~ with a program that prints
+     "Hello, world!" on the screen. Use ~<s~ to create the block.
+
+     /Tip: the program consists of only one mandatory line!/
+
+     ----- Put code block here -----
+
+     #+begin_src C
+       puts("Hello, world!");
+     #+end_src
+
+  2) Run the program in Emacs to make sure that it works.
+
+  3) Open the themes chooser with ~M-x custom-themes~. In the buffer,
+     uncheck the current theme and check another. Then return here
+     (~C-x b~) to see the effect on your hello world program.
+ 
+  4) If you like a theme especially well, you save it for future
+     sessions if you like by clicking on ~Save Theme Settings~. You get
+     the message ~Custom theme saved for future sessions~ in the
+     minibuffer.
+
+
+
+
+
+* Fix the program
+
+  The program [[comment1]] should print out the sentence "~I love my dog
+  'Milly'~". But it doesn't. Something went wrong with the
+  comments. Fix the program and run it again.
+
+  #+name: comment1 
+  #+begin_src C
+    printf("I "); /****     
+			 printf("love "); 
+			 printf("my ");   ****/     
+    printf("dog"); 
+    printf(" 'Milly'"); //* I really do! */
+  #+end_src
+
+  #+RESULTS: comment1
+  : I dog 'Milly'
+
+  ----- Solution -----
+  
+  #+name: comment_solution
+  #+begin_src C
+    printf("I "); /****/     
+			 printf("love "); 
+			 printf("my ");   /****/     
+    printf("dog"); 
+    printf(" 'Milly'"); //* I really do! */
+  #+end_src
+
+  #+RESULTS: comment_solution
+  : I love my dog 'Milly'
+
+* Comment program
+
+   Write short comments in the program [[comment2]] to explain what each
+   part of the program does (guess if you don't know for sure) -
+   comment at least whenever you see ~WRITE COMMENT HERE~.
+
+   #+name: comment2
+   #+begin_src C
+     #include <stdio.h> // WRITE COMMENT HERE
+
+     int main (void) // WRITE COMMENT HERE
+     {
+       /* 
+	 WRITE COMMENT HERE */
+       int i = 1;
+
+       // WRITE COMMENT HERE
+       printf("%d\n", i);
+
+       return 0;
+     }
+   #+end_src
+
+   #+RESULTS: comment2
+   : 1
+
+   The program contains so-called /inline/ comments ~//~ and /multi-line/
+   comments: ~/* ... */.~
+
+   ----- SOLUTION -----
+
+   #+name: comment2_solution
+   #+begin_src C
+     #include <stdio.h> // include file stdio.h
+
+     int main (void)  // define main function (no arguments)
+     {
+       /* declare integer variable
+	  and initialize it with the value 1 */
+       int i = 1;
+
+       // print variable value
+       printf("%d\n", i);
+
+       return 0;
+     }
+   #+end_src
+
+

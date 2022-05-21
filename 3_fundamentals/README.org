@@ -34,7 +34,7 @@
   [[./img/structure.png]]
 
 * Hello world program
-** DONE "What a Tangled Web We Weave..."
+** "What a Tangled Web We Weave..."
 
    #+begin_quote
    "Oh, what a tangled web we weave, when first we practice to deceive!"
@@ -64,14 +64,6 @@
 
 ** Hello World Version 1
 
-What happens here:
-  - A header file (~stdio.h~) is included for input/output
-  - A function (~main~) without arguments (~void~) is defined
-  - The function returns integer data (~int~)
-  - A string (~"..."~) is printed out
-  - A new-line is added at the end (~\n~)
-  - If successful, the program returns the value ~0~
-
 #+NAME: hello1
 #+begin_src C :exports both :tangle ./src/hello1.c 
       #include <stdio.h>
@@ -82,11 +74,19 @@ What happens here:
       }
 #+end_src
 
+What happens in [[hello1]]:
+  - A header file (~stdio.h~) is included for input/output
+  - A function (~main~) without arguments (~void~) is defined
+  - The function returns integer data (~int~)
+  - A string (~"..."~) is printed out
+  - A new-line is added at the end (~\n~)
+  - If successful, the program returns the value ~0~
+
 ** Hello World Version 2
 
 The program could also have been written much simpler:
-- This function ~main~ is missing the ~void~ argument, and the ~int~
-  (indicating the type of variable returned - an integer).
+- In [[hello2]],the function ~main~ is missing the ~void~ argument, and the
+  ~int~ (indicating the type of variable returned - an integer).
 
  #+NAME: hello2
  #+begin_src C :exports both :tangle ./src/hello2.c :main no
@@ -118,18 +118,18 @@ The program could also have been written more complicated:
 
 * Compiler workflow
 
-The machine cannot process ~pun.c~ without help. It must
+The machine cannot process ~hello.c~ without help. It must
 
 |------------+-------------------------------------------------------------|
 | /Preprocess/ | The preprocessor acts on lines beginning with ~#~             |
 |------------+-------------------------------------------------------------|
-| /Compile/  | The compiler translates instructions into object code       |
+| /Compile/    | The compiler translates instructions into object code       |
 |------------+-------------------------------------------------------------|
-| /Link/     | The linker combines object code and functions like ~printf()~ |
+| /Link/       | The linker combines object code and functions like ~printf()~ |
 |------------+-------------------------------------------------------------|
-| /Run/      | The final ~*.exe~ program is a binary (machine) program       |
+| /Run/        | The final ~*.exe~ program is a binary (machine) program       |
 |------------+-------------------------------------------------------------|
-| /Debug/    | The debugger controls rule violations along the way         |
+| /Debug/      | The debugger controls rule violations along the way         |
 |------------+-------------------------------------------------------------|
 
 I compiled the ~hello.c~ program on a Linux box - the executable is
@@ -138,7 +138,7 @@ Windows. Compare the two executables - what do you notice?
 
 [[./img/files.png]]
 
- *Challenge: are these executables portable?*[fn:2] 
+*Question: are these executables portable?*[fn:2] 
 
 * Shell execution
 
@@ -206,6 +206,9 @@ Windows. Compare the two executables - what do you notice?
     printf("fleas");
 
   #+end_src
+
+  #+RESULTS:
+  : My cat has fleas
 
 * Variable types and declarations
 
