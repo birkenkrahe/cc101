@@ -146,11 +146,16 @@
       5) stow mouse, cable and Pi 400 in the box
 
 ** 25-May (Wed) - Hello, Emacs
+:PROPERTIES:
+:ID:       61009199-457a-42bc-8ec0-38d83fa9bbed
+:END:
 
    * [ ] Literate programming with Emacs => lecture
    * [ ] Emacs tutorial => practice
    * [ ] First Emacs Org-mode file
 
+     [[id:39c53d65-0958-4ef9-8c1a-d502701cceb8][literate_programming]]
+   
 ** 26-May (Thu) - Introduction to C
 ** 27-May (Fri) - C Fundamentals
 
