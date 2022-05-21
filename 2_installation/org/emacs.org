@@ -77,6 +77,10 @@
 - The code in this file can be /tangled/ into a C source code file,
   and it can be /woven/ into documentation (in different formats).
 
+  #+attr_html: :width 600px
+  #+caption: Tangling and weaving a literate program
+  [[../img/cweb.png]]
+
 - GNU Emacs commands can usually either be entered in a long version
   (as a function), or in a short version (as a keyboard
   sequence)[fn:3].
@@ -250,7 +254,19 @@ GNU Emacs practice includes two steps:
 - Literate programming includes tangling and weaving
 - Meta information controls layout via macros
 
-  Glossary: [[id:7b22cd97-bf1a-4cde-af09-a67b6e65b599][cc-glossary]]
+* Glossary
+
+  | TERM                 | MEANING                                 |
+  |----------------------+-----------------------------------------|
+  | IDE                  | Integrated Development Environment      |
+  | Literate Programming | Story + code = source + doc             |
+  |                      | Programming for machines AND humans     |
+  | GNU Emacs            | Text editor of the GNU Operating System |
+  | Org-mode             | A major Emacs mode (environment)        |
+  | Tangle file          | Extract source code file (e.g. C)       |
+  | Weave file           | Extract documentation (e.g. PDF)        |
+  | Meta key             | M- (usually ALT on the keyboard)        |
+  | Macro                | An efficient function inserted as-is    |
 
 * Footnotes
 

@@ -665,7 +665,24 @@
   * Emacs is a highly customizable editor (using Emacs Lisp)
   * Org-mode is a literate programming environment
 
-[[id:7b22cd97-bf1a-4cde-af09-a67b6e65b599][cc-glossary]]
+* Glossary    
+
+  | CONCEPT          | EXPLANATION                                       |
+  |------------------+---------------------------------------------------|
+  | Source code      | Human-readable program                            |
+  | Compiling        | Translating source                                |
+  | Linking          | Linking compiled program to libraries             |
+  | Library          | Bundle of reusable macros or functions            |
+  | Object code      | Code ready for execution by a machine             |
+  | Execution        | Running object code on a machine                  |
+  | Interpreter      | Machine that interprets and executes source code  |
+  | Script           | Source code for an interpreter                    |
+  | Emacs            | Extensible text editor (via Emacs Lisp)           |
+  | Literate Program | Readable code - expands into doc + executable     |
+  | GNU              | "GNU's not UNIX"                                  |
+  | GNU/Linux        | Free, open source operating system                |
+  | Richard Stallman | Creator of the GNU project and Emacs              |
+  | Org-mode         | Emacs package for literate programming (and more) |
 
 * References
 
