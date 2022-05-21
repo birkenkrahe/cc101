@@ -10,23 +10,31 @@
 #+PROPERTY: header-args:C :comments both
 * README
 
-  * This script summarizes and adds to the treatment by King (2008),
+  - This script summarizes and adds to the treatment by King (2008),
     chapter 2, C Fundamentals - see also [[https://docs.google.com/presentation/d/14qvh00aVb_R09_hrQY0EDEK_JLAkgZ0S/edit?usp=sharing&ouid=102963037093118135110&rtpof=true&sd=true][slides (GDrive)]].
 
-  * There is a separate Org-mode file available for practice. Download
-    it using ~wget~ from GitHub:
-  
+  - There is a separate Org-mode file available for practice. Download
+    [[https://raw.githubusercontent.com/birkenkrahe/cc101/piHome/3_fundamentals/org/practice.org][practice.org]] using ~wget~ from GitHub as ~practice3.org~:
+
+    #+name: ex:wget
+    #+begin_example sh
+    wget tinyurl.com/yckuhh2f -O practice3.org -o log
+    #+end_example
+      
 * Program structure
 
+  - All C program statements must be included in a ~main~ function
 
+  - The ~main~ function has a body delimited by ~{...}~
+
+  - There can be /preprocessor/ /directives/ - ~#include~ or ~#define~. 
 
   #+attr_html: :width 600px
+  #+caption: main function structure (Collingbourne, 2017)
   [[./img/structure.png]]
 
-  (Image source: Collingbourne, 2017)
-
 * Hello world program
-** "What a Tangled Web We Weave..."
+** DONE "What a Tangled Web We Weave..."
 
    #+begin_quote
    "Oh, what a tangled web we weave, when first we practice to deceive!"
@@ -56,111 +64,99 @@
 
 ** Hello World Version 1
 
-   * What happens here:
-     - A header file (~stdio.h~) is included for input/output
-     - A function (~main~) without arguments (~void~) is defined
-     - The function returns integer data (~int~)
-     - A string (~"..."~) is printed out
-     - A new-line is added at the end (~\n~)
-     - If successful, the program returns the value ~0~
+What happens here:
+  - A header file (~stdio.h~) is included for input/output
+  - A function (~main~) without arguments (~void~) is defined
+  - The function returns integer data (~int~)
+  - A string (~"..."~) is printed out
+  - A new-line is added at the end (~\n~)
+  - If successful, the program returns the value ~0~
 
-   #+NAME: hello1
-   #+begin_src C :exports both :tangle ./src/hello1.c :comments both
-     #include <stdio.h>
-     int main(void)
-     {
-       printf("Hello world\n");
-       return 0;
-     }
-   #+end_src
-
-   #+RESULTS: hello1
-   : Hello world
+#+NAME: hello1
+#+begin_src C :exports both :tangle ./src/hello1.c 
+      #include <stdio.h>
+      int main(void)
+      {
+	printf("Hello world\n");
+	return 0;
+      }
+#+end_src
 
 ** Hello World Version 2
 
-   The program could also have been written much simpler:
-   * This function ~main~ is missing the ~void~ argument, and the
-     ~int~ (indicating the type of variable returned - an integer).
-   * Alas, in Org-mode, this program will not compile, though outside
-     of Org-mode, it will (with a warning). Try it!
+The program could also have been written much simpler:
+- This function ~main~ is missing the ~void~ argument, and the ~int~
+  (indicating the type of variable returned - an integer).
 
-   #+NAME: hello2
-   #+begin_src C :exports both :tangle ./src/hello2.c :comments both :main no
+ #+NAME: hello2
+ #+begin_src C :exports both :tangle ./src/hello2.c :main no
      #include <stdio.h>
      main()
      {
        printf("Hello world\n");
      }
-   #+end_src
-
-   #+RESULTS: hello2
-   : Hello world
+ #+end_src
 
 ** Hello World Version 3
 
-   The program could also have been written more complicated:
-   - ~int argc~ is an integer, or single number - the number of
-     arguments that were passed to ~main~
-   - ~char **argv~ (or ~char *argv[]~) is a pointer that refers to an
-     array of characters - a more complicated data structure.
+The program could also have been written more complicated:
+  - ~int argc~ is an integer, or single number - the number of arguments
+    that were passed to ~main~
+  - ~char **argv~ (or ~char *argv[]~) is a /pointer/ that refers to an array
+    of characters - a more complicated data structure.
 
-   #+NAME: hello3
-   #+begin_src C :exports both :tangle ./src/hello3.c :comments both
-     #include <stdio.h>
+#+NAME: hello3
+#+begin_src C :exports both :tangle ./src/hello3.c :comments both
+      #include <stdio.h>
 
-     int main(int argc, char **argv)
-     {
-       printf("hello world\n");
-       return 0;
-     }
-   #+end_src
-
-
-   #+RESULTS: hello3
-   : hello world
+      int main(int argc, char **argv)
+      {
+	printf("hello world\n");
+	return 0;
+      }
+#+end_src
 
 * Compiler workflow
 
-  The machine cannot process ~pun.c~ without help. It must
+The machine cannot process ~pun.c~ without help. It must
 
-  |------------+---------------------------------------------------------------|
-  | Preprocess | The preprocessor acts on lines beginning with ~#~             |
-  |------------+---------------------------------------------------------------|
-  | Compile    | The compiler translates instructions into object code         |
-  |------------+---------------------------------------------------------------|
-  | Link       | The linker combines object code and functions like ~printf()~ |
-  |------------+---------------------------------------------------------------|
-  | Run        | The final ~*.exe~ program is a binary (machine) program       |
-  |------------+---------------------------------------------------------------|
-  | Debug      | The debugger controls rule violations along the way           |
-  |------------+---------------------------------------------------------------|
+|------------+---------------------------------------------------------------|
+| Preprocess | The preprocessor acts on lines beginning with ~#~             |
+|------------+---------------------------------------------------------------|
+| Compile    | The compiler translates instructions into object code         |
+|------------+---------------------------------------------------------------|
+| Link       | The linker combines object code and functions like ~printf()~ |
+|------------+---------------------------------------------------------------|
+| Run        | The final ~*.exe~ program is a binary (machine) program       |
+|------------+---------------------------------------------------------------|
+| Debug      | The debugger controls rule violations along the way           |
+|------------+---------------------------------------------------------------|
 
-  I compiled the ~hello.c~ program on a Linux box - the executable is
-  called ~hello.out~. Compare the two executables - what do you
-  notice?
+I compiled the ~hello.c~ program on a Linux box - the executable is
+called ~hello.out~. Compare the two executables - what do you
+notice?
 
-  [[./img/files.png]]
+[[./img/files.png]]
 
-  | Challenge: are these executables portable?[fn:2] |
+| Challenge: are these executables portable?[fn:2] |
 
 * Shell execution
 
-  * You can also save the code in a program ~pun.c~
-  * Compile it on the Windows command line or in the Emacs shell:
+* You can also save the code in a program ~pun.c~
+* Compile it on the Windows command line or in the Emacs shell:
 
-    | COMMAND            | ACTION                                        |
-    |--------------------+-----------------------------------------------|
-    | C-x C-f pun.c      | Create C file ~pun.c~                         |
-    |                    | Copy block or write code anew in ~pun.c~      |
-    | C-x C-s            | Save ~pun.c~                                  |
-    | M-x eshell         | start a command line shell in an Emacs buffer |
-    | ~gcc -o pun pun.c~ | compile program and create executable         |
-    | ~ls~               | list files - you should see ~pun.exe~         |
-    | ~pun~              | execute program                               |
+| COMMAND            | ACTION                                        |
+|--------------------+-----------------------------------------------|
+| C-x C-f pun.c      | Create C file ~pun.c~                         |
+|                    | Copy block or write code anew in ~pun.c~      |
+| C-x C-s            | Save ~pun.c~                                  |
+| M-x eshell         | start a command line shell in an Emacs buffer |
+| ~gcc -o pun pun.c~ | compile program and create executable         |
+| ~ls~               | list files - you should see ~pun.exe~         |
+| ~pun~              | execute program                               |
 
-    * The shell is an Emacs Lisp simulation of a Linux shell (~bash~)
-    * Windows ~PowerShell~ would also work (run with ~./pun[.exe]~)
+* The shell is an Emacs Lisp simulation of a Linux shell (~bash~)
+* Windows ~PowerShell~ would also work (run with ~./pun[.exe]~)
 
 * Syntax highlighting
 
