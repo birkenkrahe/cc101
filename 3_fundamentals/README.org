@@ -120,77 +120,81 @@ The program could also have been written more complicated:
 
 The machine cannot process ~pun.c~ without help. It must
 
-|------------+---------------------------------------------------------------|
-| Preprocess | The preprocessor acts on lines beginning with ~#~             |
-|------------+---------------------------------------------------------------|
-| Compile    | The compiler translates instructions into object code         |
-|------------+---------------------------------------------------------------|
-| Link       | The linker combines object code and functions like ~printf()~ |
-|------------+---------------------------------------------------------------|
-| Run        | The final ~*.exe~ program is a binary (machine) program       |
-|------------+---------------------------------------------------------------|
-| Debug      | The debugger controls rule violations along the way           |
-|------------+---------------------------------------------------------------|
+|------------+-------------------------------------------------------------|
+| /Preprocess/ | The preprocessor acts on lines beginning with ~#~             |
+|------------+-------------------------------------------------------------|
+| /Compile/  | The compiler translates instructions into object code       |
+|------------+-------------------------------------------------------------|
+| /Link/     | The linker combines object code and functions like ~printf()~ |
+|------------+-------------------------------------------------------------|
+| /Run/      | The final ~*.exe~ program is a binary (machine) program       |
+|------------+-------------------------------------------------------------|
+| /Debug/    | The debugger controls rule violations along the way         |
+|------------+-------------------------------------------------------------|
 
 I compiled the ~hello.c~ program on a Linux box - the executable is
-called ~hello.out~. Compare the two executables - what do you
-notice?
+called ~hello.out~. The other binary is ~hello.exe~ compiled on
+Windows. Compare the two executables - what do you notice?
 
 [[./img/files.png]]
 
-| Challenge: are these executables portable?[fn:2] |
+ *Challenge: are these executables portable?*[fn:2] 
 
 * Shell execution
 
-* You can also save the code in a program ~pun.c~
-* Compile it on the Windows command line or in the Emacs shell:
+ - You can also save the code in a C source code file ~hello.c~
 
-| COMMAND            | ACTION                                        |
-|--------------------+-----------------------------------------------|
-| C-x C-f pun.c      | Create C file ~pun.c~                         |
-|                    | Copy block or write code anew in ~pun.c~      |
-| C-x C-s            | Save ~pun.c~                                  |
-| M-x eshell         | start a command line shell in an Emacs buffer |
-| ~gcc -o pun pun.c~ | compile program and create executable         |
-| ~ls~               | list files - you should see ~pun.exe~         |
-| ~pun~              | execute program                               |
+ - Instead of Emacs, you could use the simple ~nano~ editor (/try it now/)
 
-* The shell is an Emacs Lisp simulation of a Linux shell (~bash~)
-* Windows ~PowerShell~ would also work (run with ~./pun[.exe]~)
+ - On Windows: compile it on the Windows command line or in the Emacs shell:
+
+| COMMAND              | ACTION                                        |
+|----------------------+-----------------------------------------------|
+| ~C-x C-f hello.c~      | Create C file ~hello.c~                         |
+|                      | Copy block or write code anew in ~hello.c~      |
+| ~C-x C-s~              | Save ~hello.c~                                  |
+| ~M-x eshell~           | start a command line shell in an Emacs buffer |
+| ~M-x shell~            | start a command line shell in an Emacs buffer |
+| ~gcc hello.c -o hello~ | compile program and create executable         |
+| ~ls -l hello*~         | list files - you should see ~hello~, ~hello.c~    |
+| ~/.hello~              | execute program                               |
+
+ - The /eshell/ is an Emacs Lisp simulation of a Linux shell (~bash~)
+
+ - On Windows, ~PowerShell~ would also work (run with ~./pun[.exe]~)
 
 * Syntax highlighting
 
-  * Notice the slight syntax highlighting difference to ~repl.it~
-
+  * Notice the slight syntax highlighting difference to an online REPL
+    ~repl.it~[fn:3]:
+    
     #+attr_html: :width 330px
     [[./img/replit.png]]
 
   * There is no highlighting standard - you should experiment with
-    different themes[fn:3]
+    different themes[fn:4]
 
-  * Display line numbers with ~display-line-numbers-mode~, and
-    highlight lines with ~hl-line-mode~[fn:4]:
+  * Display line numbers with ~display-line-numbers-mode~, and highlight
+    lines with ~hl-line-mode~[fn:5] - you can toggle these, and you can
+    go through the minibuffer history with ~M-x M-p~ and ~M-n~:
 
     #+attr_html: :width 600px
     [[./img/pun.png]]
 
 * Comments
 
-  Forgetting to terminate a comment may cause the compiler to ignore
+  Forgetting to terminate a /comment/ may cause the compiler to ignore
   part of your program - but both syntax highlighting and auto-indent
   in the editor will tip you off:
 
   #+begin_src C :exports both :main yes :includes stdio.h
 
-    printf("My "); /* forgot to close this comment ...
-                      printf("cat ");
+    printf("My "); /* forgot to close this comment ... 
+                      printf("cat "); 
                       printf("has ");  /* so it ends here */
     printf("fleas");
 
   #+end_src
-
-  #+RESULTS:
-  : My fleas
 
   Let's fix this:
 
@@ -202,9 +206,6 @@ notice?
     printf("fleas");
 
   #+end_src
-
-  #+RESULTS:
-  : My cat has fleas
 
 * Variable types and declarations
 
@@ -236,7 +237,7 @@ notice?
   * Variable type declarations must precede statements that use the
     variables
 
-  * The block with *declarations* comes before the statements[fn:5]
+  * The block with *declarations* comes before the statements[fn:6]
 
 * Variable assignment
 
@@ -253,10 +254,10 @@ notice?
     #+RESULTS: assignment example 1
 
   * [X] If you tried to run [[assignment example 1]], you got an
-    error. Can you see why?[fn:6]
+    error. Can you see why?[fn:7]
 
   * [X] However, [[assignment example 2]] throws another error. What's
-    wrong this time?[fn:7]
+    wrong this time?[fn:8]
 
     #+name: assignment example 2
     #+begin_example C
@@ -319,7 +320,7 @@ notice?
    * We use the built-in (via ~stdio.h~) function ~printf~ to print.
 
    * We also used ~puts~ in the past, which includes the newline
-     character ~\n~ that we need to add for ~printf~[fn:8].
+     character ~\n~ that we need to add for ~printf~[fn:9].
 
 ** Formatting integer numbers
 
@@ -398,7 +399,7 @@ notice?
   * Shipping fees are based on volume instead of weight. For the
     conversion, the volume is divided by 166. If the result exceeds
     the actual weight, the shipping fee is based on the "dimensional
-    weight"[fn:9].
+    weight"[fn:10].
 
   * [X] We write a program to compute the dimensional ~weight~ of a box of
     given ~volume~ - we use ~/~ for division. Let's say the box is
@@ -436,7 +437,7 @@ notice?
   * This is not what we need. When dividing one integer by another, C
     "truncates" the answer - the result is rounded down, but the
     shipping company wants us to round up. This can be achieved by
-    adding 165 to the volume before dividing by 166[fn:10] as shown in
+    adding 165 to the volume before dividing by 166[fn:11] as shown in
     [[dweight]].
 
     #+name: dweight
@@ -575,7 +576,7 @@ notice?
      #+caption: Mathematical constants in /usr/include/math.h
      [[./img/math.png]]
 
-   * [X] Where is ~math.h~ in Windows[fn:11]? Where in MacOS? Find the file,
+   * [X] Where is ~math.h~ in Windows[fn:12]? Where in MacOS? Find the file,
      open and look at it in Emacs (the file is read-only).
 
 ** Type definition with ~const~
@@ -716,7 +717,7 @@ notice?
     variable ~i~. To run it, you have to tangle the code block (with
     ~C-u C-c C-v t~), compile and run it on the command line - not on
     the simulated ~eshell~ or the Emacs ~shell~, but on the Windows
-    CMD terminal command line[fn:14].
+    CMD terminal command line[fn:13].
     #+name: iscan
     #+begin_src C :tangle iscan.c :main yes :includes <stdio.h>
       int i;
@@ -742,7 +743,7 @@ notice?
 
 * Program Layout
 
-  * You can think of a program statement as a series of tokens[fn:12]:
+  * You can think of a program statement as a series of tokens[fn:14]:
 
     #+name: tokenization
     #+begin_example
@@ -761,7 +762,7 @@ notice?
     | 7 | punctuation    | statement closure                    |
 
   * You can have any amount of white (empty) space between program
-    tokens (this is not so for all programming languages[fn:13]).
+    tokens (this is not so for all programming languages[fn:15]).
 
   * [X] As an example, here is a version of ~dweight~ that works just
     as well, on one line, with almost all whitespace deleted. Only in
@@ -909,28 +910,51 @@ notice?
   * Collingbourne (2019). The Little Book of C (Rev. 1.2). Dark Neon.
   * King (2008). C Programming - A Modern Approach. Norton. [[http://knking.com/books/c2/index.html][Online:
     knking.com]].
+
 * Footnotes
 
-[fn:14]You could try and run it in Emacs. Can you explain the result?
+[fn:1] In our case, instead of weaving TeX files (~.tex~) to print, we
+weave Markdown files (~.md~), or WORD (~*.odt~) files, or we dispense with
+the weaving altogether because Org-mode files (equivalent of the ~*.w~
+or "web" files) look fine on GitHub.  GitHub.
 
-[fn:13]Python e.g. is white-space sensitive: the indentation level is
-significant, it denotes code blocks, and needs to be consistent. The
-same goes for Org-mode markdown and code blocks.
+[fn:2]Executables are the result of compilation for a specific
+computer architecture and OS. The ~.exe~ program was compiled for
+Windows, the ~.out~ program was compiled for Linux. They will only run
+on these OS.
 
-[fn:12]The tokenization is an important sub-process of natural language
-processing, a data science discipline that is responsible for language
-assistants like Siri, robotic calls, auto-coding and machine
-translation (like Google translate).
+[fn:3][[https://replit.com][replit.com]] is an online Read-Eval-Print-Loop (REPL) that looks
+like a Linux installation (in fact, it is a so-called Docker
+container, an emulated, customized Linux installation). When
+registering (for free) you can use many different programming
+languages - here is a [[https://replit.com/@birkenkrahe/DiscreteDearObjectdatabase#main.c][link to my container]].
 
-[fn:11]Look for it in the MinGW directory - there's an ~/include~
-subdirectory that contains many header/library files ~.h~.
+[fn:4]You can find different [[https://emacsthemes.com/][themes for GNU Emacs]] here, and install
+them using ~M-x package-list-packages~. To see the differences, enter
+~M-x custom-themes~ and pick another theme now. You can save it
+automatically for future sessions.
 
-[fn:8][[https://www.geeksforgeeks.org/puts-vs-printf-for-printing-a-string/][See here]] for a comparison of ~printf()~ vs. ~puts()~.
+[fn:5]If you always want to have line numbers and highlight the line
+under the cursor, put these lines in your ~.emacs~ file: and restart
+Emacs:
+#+begin_example emacs-lisp
+  ;; always display line numbers
+  (global-display-line-numbers-mode)
+  ;; enable global highlighting
+  (global-hl-line-mode 1)
+#+end_example
 
-[fn:10]165/166 is 0.9939759, so we've just messed with the actual
-volume.
+[fn:6]In the C99 standard, declarations don't have to come before
+statements.
 
-[fn:9]
+[fn:7]Assignment is variable use. Variable types must be declared
+before they can be used.
+
+[fn:8]The declaration must precede the use of the variable.
+
+[fn:9][[https://www.geeksforgeeks.org/puts-vs-printf-for-printing-a-string/][See here]] for a comparison of ~printf()~ vs. ~puts()~.
+
+[fn:10]
 #+begin_quote
 "Cargo space has physical limits based on the volume of the cargo and
 the weight. The reason why both volume & weight are evaluated can be
@@ -946,34 +970,19 @@ the transportation costs. The greater of the two weights is also
 commonly referred to as ‘chargeable weight’." (UniRelo 2020)
 #+end_quote
 
-[fn:7]The declaration must precede the use of the variable.
+[fn:11]165/166 is 0.9939759, so we've just messed with the actual
+volume.
 
-[fn:6]Assignment is variable use. Variable types must be declared
-before they can be used.
+[fn:12]Look for it in the MinGW directory - there's an ~/include~
+subdirectory that contains many header/library files ~.h~.
 
-[fn:5]In the C99 standard, declarations don't have to come before
-statements.
+[fn:13]You could try and run it in Emacs. Can you explain the result?
 
-[fn:1] In our case, instead of weaving TeX files (~.tex~) to print, we
-weave Markdown files (~.md~), or WORD (~*.odt~) files, or we dispense
-with the weaving altogether because Org-mode files (equivalent of the
-~*.w~ or "web" files) look fine on GitHub.
-GitHub.
+[fn:14]The tokenization is an important sub-process of natural language
+processing, a data science discipline that is responsible for language
+assistants like Siri, robotic calls, auto-coding and machine
+translation (like Google translate).
 
-[fn:2]Executables are the result of compilation for a specific
-computer architecture and OS. The ~.exe~ program was compiled for
-Windows, the ~.out~ program was compiled for Linux. They will only run
-on these OS.
-
-[fn:3]You can find [[https://emacsthemes.com/][themes for GNU Emacs]] here, and install them
-using ~M-x package-list-packages~.
-
-[fn:4]If you always want to have line numbers and highlight the line
-under the cursor, put these lines in your ~.emacs~ file: and restart
-Emacs:
-#+begin_src emacs-lisp
-  ;; always display line numbers
-  (global-display-line-numbers-mode)
-  ;; enable global highlighting
-  (global-hl-line-mode 1)
-#+end_src
+[fn:15]Python e.g. is white-space sensitive: the indentation level is
+significant, it denotes code blocks, and needs to be consistent. The
+same goes for Org-mode markdown and code blocks.
