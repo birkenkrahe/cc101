@@ -160,7 +160,11 @@
      - [[https://lucidmanager.org/productivity/getting-started-with-emacs/][Getting Started with Emacs: A Beginner's Guide]] (Prevos, 2021)
 
      - [[https://opensource.com/article/20/3/getting-started-emacs][Getting started with Emacs]] (Kenlon, 2020)
-       
+
+     - [[http://cachestocaches.com/2018/6/org-literate-programming/][Literate Programming With Org-Mode]] (Stein, 2018)
+
+     - [[https://sachachua.com/blog/2013/05/how-to-learn-emacs-a-hand-drawn-one-pager-for-beginners/][How to learn Emacs cheat sheet]] (Chua, 2013)
+
   2) Viewing:
 
      - [[https://youtu.be/48JlgiBpw_I][The Absolute Beginner's Guide to Emacs]] (Wilson, 2021)
@@ -169,9 +173,11 @@
 
   3) Installing:
 
-     - Emacs download for Windows, MacOS or Linux (GNU)
+     - [[https://www.gnu.org/software/emacs/download.html][Emacs download for Windows, MacOS or Linux]] (GNU)
 
-     - Preconfigured Emacs for data science for Windows/MacOS
+     - [[https://vigou3.gitlab.io/emacs-modified-macos/][Preconfigured Emacs for R + LaTeX for MacOS]] (Vincent Goulet)
+
+     - [[https://vigou3.gitlab.io/emacs-modified-windows/][Preconfigured Emacs for R + LaTeX for Windows]] (Vincent Goulet)
   
 * Let's practice
 
