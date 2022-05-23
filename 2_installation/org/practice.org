@@ -43,8 +43,6 @@
 
   ----- Create sub-heading here: -----
 
-  
-
 * TODO Create a task list
 
   Here you create a simple list, then continue it as a task list.
@@ -68,8 +66,6 @@
   
   ----- Put your list here: -----
 
-  
- 
 * TODO Establish meta header to run code blocks
 
   Here you create a C source code block with header arguments.
@@ -111,7 +107,6 @@
 
      ----- Put your 1st code block here: -----
   
-
 * TODO Create another code block
 
   1) Create another code block and name it ~2nd_pgm~.
@@ -129,6 +124,23 @@
 
      ----- Put your 2nd code block here: -----
 
+* TODO Reference a code block using its ~#+name~
+
+You can use the header argument ~:noweb yes~ to tangle named code chunks
+into other code chunks.
+
+1) Run the chunk [[3rd_pgm_1]] below
+
+2) Now change it to reference [[1st_pgm]] by inserting ~<<1st_pgm>>~ before
+   the ~puts~ statement (instead of ~...~)
+
+3) Change the name of the code chunk to [[3rd_pgm_2]] and run it again.
+   
+#+name: 3rd_pgm_1
+#+begin_src C :noweb yes
+  ...
+  puts("Another line");
+#+end_src
 
 * TODO Run the code blocks
 

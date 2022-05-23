@@ -9,7 +9,7 @@
     1) understand and change syntax highlighting
     2) understanding and using comments in C
 
-  - Time: approx. 30-45 min.
+  - Time: approx. 45-60 min.
 
   - When you're done with a section move the cursor on the section
     heading and type ~S-<right>~ (or SHIFT+<right-arrow>).
@@ -241,15 +241,102 @@
   #+RESULTS: assign
   : 0
 
-* TODO Formatting printout
+* DONE Formatting printout
 
-  1) 
+  1) Define and initialize three variables in a code block named
+     [[format]]:
+     - an integer variable ~foo~ with value 100
+     - a floating-point variable ~bar~ with value 100
+     - a character variable ~baz~ with value A
 
-* Fix the program
+  2) Print the three variables so that the output looks like shown below.
+
+  3) Use 
+     - ~puts~ for the headline "Three variables",
+     - ~printf~ to print ~foo~ and ~bar~, and
+     - ~putchar~ to print ~baz~.
+
+     /Tip:/ The final program [[format]] has 7 lines.
+
+     Output:
+     #+begin_example 
+     Three variables:
+     foo = 100
+     bar = 100.01
+     baz = A
+     #+end_example
+
+  ----- PUT CODE BLOCK HERE -----
+
+
+  ----- SOLUTION -----
+
+  #+name: format
+  #+begin_src C
+    int foo   = 100;  
+    float bar = 100.01f;
+    char baz  = 'A';
+
+    puts("Three variables:");
+    printf("foo = %d\nbar = %.2f\n", foo, bar);
+    printf("baz = "); 
+    putchar(baz);
+  #+end_src
+
+  #+RESULTS: format
+  : Three variables:
+  : foo = 100
+  : bar = 100.01
+  : baz = A
+
+* DONE Fix the program
+
+  The program [[format_error]] should print out
+
+  #+begin_example
+    Speed of light (m/s): c = 299792458
+    Euler number: e = 2.7183
+  #+end_example
+
+  But instead it print out this:
+
+  #+begin_example
+    Speed of light (m/s): c = 14.985029
+    Euler number: e = 0
+  #+end_example
+  
+  Fix the program to get the right output!
+
+  #+name: format_error
+  #+begin_src C
+    int c = 299792458;
+    float e = 2.718282f;
+
+    printf("Speed of light (m/s): c = %f\n", c);
+    printf("Euler number: e = %d\n", e);
+  #+end_src
+
+  ----- SOLUTION -----
+
+  #+name: format_error_solution
+  #+begin_src C
+    int c = 299792458;
+    float e = 2.718282f;
+
+    printf("Speed of light (m/s): c = %d\n", c);
+    printf("Euler number: e = %.4f\n", e);
+  #+end_src
+
+  #+RESULTS: format_error_solution
+  : Speed of light (m/s): c = 299792458
+  : Euler number: e = 2.7183
+
 
 * TODO Constants
 
 * TODO Reading input
+
+* TODO Naming identifiers
 
 * TODO Program layout
 

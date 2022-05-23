@@ -448,18 +448,19 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
     the actual weight, the shipping fee is based on the "dimensional
     weight"[fn:10].
 
-  * [X] We write a program to compute the dimensional ~weight~ of a box of
+  * [ ] We write a program to compute the dimensional ~weight~ of a box of
     given ~volume~ - we use ~/~ for division. Let's say the box is
-    12'' x 10'' x 8 ''. What does [[box_error]] need to run?
+    12'' x 10'' x 8 ''. What does [[box_error]] need to compile?
 
     #+name: box_error
     #+begin_example C
       volume = 12 * 10 * 8
-      height = volume / 166
+      weight = volume / 166
     #+end_example
 
-  * [ ] Fixed the errors in [[box]]. The compiler no longer complains, but
-    we don't see anything. How can we print the result?
+  * [ ] Fixed the errors in the block [[box]] below. The compiler no
+    longer complains, but we don't get any output. How can we print
+    the result?
 
     #+name: box
     #+begin_src C :results silent
@@ -478,9 +479,6 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
       printf("The dimensional weight is %d\n",weight); // print result
     #+end_src
 
-    #+RESULTS: box_print
-    : The dimensional weight is 5
-
   * This is not what we need. When dividing one integer by another, C
     "truncates" the answer - the result is rounded down, but the
     shipping company wants us to round up. This can be achieved by
@@ -495,50 +493,44 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
       printf("The dimensional weight is %d\n",weight); // print result
     #+end_src
 
-    #+RESULTS: dweight
-    : The dimensional weight is 6
-
-  * [ ] Now for the final program [[dweight_c]]. This time, we allow for
-    tangling the program as ~dweight.c~.
+  * [ ] Now for the final program [[dweight_c]]. 
 
     #+name: dweight_c
-    #+begin_src C :tangle ./src/dweight1.c :results output
-      #include <stdio.h>
+    #+begin_src C :results output
+      // declare variable types
+      int height, length, width, volume, weight;
 
-      int main(void)
-      {
-        // declare variable types
-        int height, length, width, volume, weight;
+      // variable assignments
+      height = 8;
+      length = 12;
+      width = 10;
+      volume = height * length * width;
+      weight = (volume + 165) / 166;
 
-        // variable assignments
-        height = 8;
-        length = 12;
-        width = 10;
-        volume = height * length * width;
-        weight = (volume + 165) / 166;
-
-        // print results
-        printf("Dimensions: %dx%dx%d\n", length, width, height);
-        printf("Volume (cubic inches): %d\n", volume);
-        printf("Dimensional weight (pounds): %d\n", weight);
-
-        return 0;
-      }
+      // print results
+      printf("Dimensions: %dx%dx%d\n", length, width, height);
+      printf("Volume (cubic inches): %d\n", volume);
+      printf("Dimensional weight (pounds): %d\n", weight);
     #+end_src
 
-    #+RESULTS: dweight_c
-    : Dimensions: 12x10x8
-    : Volume (cubic inches): 960
-    : Dimensional weight (pounds): 6
+* Let's practice!
 
+ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete the second batch of exercises:
+
+    1) Typing, declaring and initializing variables
+    2) Formatting printout and fixing formatting errors
+
+    #+attr_html: :width 300px
+    [[./img/practice1.gif]]
+    
 * Constants
 ** Macro definition with ~#define~
 
-   * If I don't want a value to change, I define a ~constant~. There
-     are different ways of doing that. The code in [[define]] shows a
-     declarative constant definition for the pre-processor that
-     blindly substitutes the value everywhere in the program. This is
-     also called a *macro definition*.
+   * If you don't want a value to change, you can define a
+     ~constant~. There are different ways of doing that. The code in
+     [[define]] shows a declarative constant definition for the
+     pre-processor that blindly substitutes the value everywhere in
+     the program. This is also called a *macro definition*.
 
      #+name: define
      #+begin_src C :main yes :includes <stdio.h>
@@ -546,34 +538,35 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
        printf("PI is %f\n",PI);
      #+end_src
 
-     #+RESULTS: define
-     : PI is 3.141593
-
-   * So if I mistype my definition, I get errors. Take [[define]] and
-     introduce an error: in [[constant_err_1]], ~= 3.141593~ is substituted
-     for ~PI~ everywhere - the program will not compile.
-
+   * [ ] Can you see what mistake I made in [[constant_err_1]]? 
+     
      #+name: constant_err_1
      #+begin_example C
        #define PI = 3.141593
-       printf("PI is %f\n",PI);
+       printf("PI is %f\n", PI);
      #+end_example
 
-   * [X] Can you see what went wrong in [[constant_err_2]] ? If you don't
+     #+begin_quote Answer
+     Instead of "~3.141593~", the expression "~= 3.141593~" is substituted for
+     ~PI~ everywhere - the program will not compile.
+     #+end_quote
+   
+   * [ ] Can you see what went wrong in [[constant_err_2]] ? If you don't
      see it at once, check the compiler error output!
 
      #+name: constant_err_2
      #+begin_example C
        #define PI 3.141593;
-       printf("PI is %f\n",PI);
+       printf("PI is %f\n", PI);
      #+end_example
 
-   * It's easy to make mistakes with user-defined constants. Constants
-     declared with ~#define~ can be redefined.
+   * It's easy to make mistakes with user-defined constants. For one
+     thing, "constants" declared with ~#define~ can be redefined (so
+     they aren't really constant at all).
 
-   * [X] Write a program that demonstrates how a constant declared
+   * [ ] The program [[redefined]] demonstrates how a constant declared
      with ~#define~ can be redefined later with a second ~#define~
-     declaration. Print out each constant after defining it.
+     declaration. 
 
      #+name: redefined
      #+begin_src C :exports both :results output
