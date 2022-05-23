@@ -210,25 +210,35 @@ Windows. Compare the two executables - what do you notice?
   #+RESULTS:
   : My cat has fleas
 
+* Let's practice!
+
+Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete the first few exercises:
+
+    1) understand and change syntax highlighting
+    2) understanding and using comments in C
+
+    #+attr_html: :width 300px
+    [[./img/practice1.gif]]
+    
 * Variable types and declarations
 
-  * C computes using placeholders, or *variables*
+  - C computes using placeholders, or *variables*
 
-  * Each variable must have a *type* to specify the data it can hold
+  - Each variable must have a *type* to specify the data it can hold
 
-  * E.g. ~int~ (integer), ~float~ (floating point), ~char~ (character)
+  - E.g. ~int~ (integer), ~float~ (floating point), ~char~ (character)
 
-  * Variables must be *declared* before they can be used, see [[type
-    declaration examples]]
+  - Variables must be *declared* before they can be used, see
+    [[declarations]]: 
 
-    #+name: type declaration examples
+    #+name: declarations
     #+begin_src C :results silent
       int height;
       float profit;
       char name;
     #+end_src
 
-  * Several variables of the same type can be declared together:
+  - Several variables of the same type can be declared together:
 
     #+name: type declaration examples 1
     #+begin_src C :results silent
@@ -237,62 +247,74 @@ Windows. Compare the two executables - what do you notice?
       char first_name, last_name;
     #+end_src
 
-  * Variable type declarations must precede statements that use the
-    variables
-
-  * The block with *declarations* comes before the statements[fn:6]
+  - Variable type declarations must precede statements that use the
+    variables[fn:6]: you must tell the computer first, how much memory
+    you'll need.
 
 * Variable assignment
 
-  * A variable gets its value through *assignment*
+  - A variable gets its value through *assignment*
 
-  * In [[assignment example 1]], the variable ~height~ gets the value
-    ~8~. It is called a ~constant~ because it cannot change.
+  - In [[ex1]], the variable ~height~ gets the value ~8~. ~8~ is called a ~string
+    literal~ because it cannot change.
 
-    #+name: assignment example 1
+    #+name: ex1
     #+begin_example C
       height = 8;
     #+end_example
 
-    #+RESULTS: assignment example 1
+  - [ ] If you would try to run [[ex1]], you would get an error. Can you
+    see why?[fn:7]
 
-  * [X] If you tried to run [[assignment example 1]], you got an
-    error. Can you see why?[fn:7]
+  - [ ] Example [[ex2]] would throw another error. What's wrong?[fn:8]
 
-  * [X] However, [[assignment example 2]] throws another error. What's
-    wrong this time?[fn:8]
-
-    #+name: assignment example 2
+    #+name: ex2
     #+begin_example C
       height = 8;
       int height;
     #+end_example
 
-    #+RESULTS: assignment example 2
+  - [ ] Code block [[ex3]] finally works, that is, it compiles and runs.
 
-  * Code block [[assignment example fixed]] works.
-    #+name: assignment example fixed
+    What does the code actually do?
+    
+    #+name: ex3
     #+begin_src C :results silent
-      int height;
-      height = 8;
+      int height; height = 8;
     #+end_src
 
-  * A constant assigned to a ~float~ variable contains a decimal point
-    and the letter ~f~, as shown in [[float point]].
+  - A /string literal/ assigned to a ~float~ variable contains a decimal
+    point and the letter ~f~, as shown in [[fp]].
 
-    #+name: float point
+    #+name: fp1
     #+begin_src C :results silent
       float profit;
       profit = 2150.48f;
     #+end_src
 
-  * Assigning a ~float~ to an ~int~ and vice versa is possible but not
-    safe.
+  - Assigning a ~float~ to an ~int~ (as in [[fp2]]) and vice versa ([[fp3]]) is
+    possible (but not safe as we will see). 
 
-  * Variables with values can be used to compute other values, as
-    shown in [[compute value]].
+    #+name: fp2
+    #+begin_src C :results silent
+      float profit;
+      int iProfit;
+      iProfit = 2150.48;
+    #+end_src
 
-    #+name: compute value
+    #+name: fp3
+    #+begin_src C :results silent
+      float profit;
+      int iProfit;
+      profit = 2150;
+    #+end_src
+    
+  - [ ] Variables with values can be used to compute other values, as
+    shown in [[compute]]
+
+    How many things does this little program have to do[fn:16]?
+    
+    #+name: compute
     #+begin_src C :results silent
       int height, length, width, volume;
 
@@ -302,20 +324,18 @@ Windows. Compare the two executables - what do you notice?
       volume = height * length * width;
     #+end_src
 
-  * You can also initiate and declare variables at once. In [[initiate]],
+  - You can also initiate and declare variables at once. In [[init]],
     the ~volume~ from before is computed inside ~printf~.
 
-    #+name: initiate
+    #+name: init
     #+begin_src C
       int height = 8, length = 12, width = 10;
 
       printf("Volume: %d", height * length * width);
     #+end_src
 
-    #+RESULTS: initiate
-    : Volume: 960
-
-  * To print these variables, we need to learn *formatting*
+  - To print these variables, we need to learn *formatting* identifiers,
+    expressions like ~%d~ that you've seen before.
 
 * Formatting printout
 ** ~printf~ vs. ~puts~
@@ -325,11 +345,20 @@ Windows. Compare the two executables - what do you notice?
    * We also used ~puts~ in the past, which includes the newline
      character ~\n~ that we need to add for ~printf~[fn:9].
 
+   * the standard input/output library ~stdio.h~ also contains
+     ~putchar()~, which prints a character to the screen.
+
+     #+name: putchar
+     #+begin_src C
+       char c = 'A';
+       putchar(c);
+     #+end_src
+
 ** Formatting integer numbers
 
-   * In the code [[int print]], ~%d~ is a placeholder for an ~int~:
+   * In the code [[intPrint]], ~%d~ is a format specifier for an ~int~:
 
-     #+name: int print
+     #+name: intPrint
      #+begin_src C
        int height;  // type declaration
        height = 8;  // variable assignment
@@ -337,31 +366,26 @@ Windows. Compare the two executables - what do you notice?
        printf("The height is: %d\n", height); // formatted printout
      #+end_src
 
-     #+RESULTS: int print
-     : The height is: 8
+** Formatting floating-point numbers
 
-** Formatting floating point numbers
+   * In [[floatPrint]], the format specifier ~%f~ is used to print a
+     ~float~.
 
-   * In [[float print]], ~%f~ is used to print a ~float~:
-
-     #+name: float print
+     #+name: floatPrint
      #+begin_src C
-       float profit;       // type declaration
-       profit = 2150.48f;  // variable assignment
+       float profit; // type declaration profit = 2150.48f; // variable
+       profit = 2150.f;
 
        printf("The profit is: $%f\n", profit); // formatted printout
      #+end_src
 
-     #+RESULTS: float print
-     : The profit is: $2150.479980
-
 ** Change floating point precision
 
-   * By default, ~%f~ displays the result with six digits. To change
-     it to ~p~ digits, put ~.p~ between ~%~ and ~f~. E.g. to print it
-     with 2 digits, ~p=2~:
+   * By default, ~%f~ displays the result with six digits after the
+     decimal point. To change it to ~p~ digits, put ~.p~ between ~%~ and
+     ~f~. E.g. to print it with 2 digits, ~p=2~:
 
-     #+name: p digits
+     #+name: digits
      #+begin_src C
        float profit;       // type declaration
        profit = 2150.48f;  // variable assignment
@@ -369,35 +393,55 @@ Windows. Compare the two executables - what do you notice?
        printf("The profit is: $%.2f\n", profit); // formatted printout
      #+end_src
 
-     #+RESULTS: p digits
+     #+RESULTS: digits
      : The profit is: $2150.48
+
+   * Formatting instructions need to be precise: if you don't specify
+     ~p=2~, the computer simply makes digits up! The output below is
+     ~$2150.479980~, which can be rounded to the correct result, but it
+     is strictly not the same number!
+
+     #+name: digits1
+     #+begin_src C
+       float profit;       // type declaration
+       profit = 2150.48f;  // variable assignment
+
+       printf("The profit is: $%f\n", profit); // formatted printout
+     #+end_src
+
+     #+RESULTS:
+     : The profit is: $2150.479980
 
 ** Formatting errors
 
-   * What happens when you get the formatting wrong?  in [[format_test]],
-     we print a ~float~ first correctly, then with the wrong format
-     identifier, and then the other way around.
+   * Bad things happen when you get the formatting wrong.
+
+   * In [[format_test]], we print a ~float~ first correctly, then with the
+     wrong format identifier, and then the other way around.
 
      #+name: format_test
-     #+begin_src C
+     #+begin_src C :results output
        float foo;  // defined float
        foo = 3.14f;   // assigned float
-       printf("%.2f\n",foo);  // formatted float as float
-       printf("%d\n",foo);  // formatted float as int
+       printf("float as float: %.2f\n",foo);  // formatted float as float
+       printf("float as int: %d\n",foo);  // formatted float as int
 
        int bar;  // defined int
        bar = 314;   // assigned int
-       printf("%d\n",bar);  // formatted int as int
-       printf("%.2f\n",bar);  // formatted int as float
+       printf("int as int: %d\n",bar);  // formatted int as int
+       printf("int as float: %.2f\n",bar);  // formatted int as float
      #+end_src
 
      #+RESULTS: format_test
-     |       3.14 |
-     | 1610612736 |
-     |        314 |
-     |       3.14 |
+     : float as float: 3.14
+     : float as int: 0
+     : int as int: 314
+     : int as float: 0.00
 
-* Putting it all together (C program)
+   * When you print an integer as a floating point number or vice
+     versa, the results are in general unpredictable!
+   
+* Putting it all together (extended example)
 
   * Shipping fees are based on volume instead of weight. For the
     conversion, the volume is divided by 166. If the result exceeds
@@ -414,7 +458,7 @@ Windows. Compare the two executables - what do you notice?
       height = volume / 166
     #+end_example
 
-  * [X] Fixed the errors in [[box]]. The compiler no longer complains, but
+  * [ ] Fixed the errors in [[box]]. The compiler no longer complains, but
     we don't see anything. How can we print the result?
 
     #+name: box
@@ -424,7 +468,7 @@ Windows. Compare the two executables - what do you notice?
       weight = volume / 166;
     #+end_src
 
-  * [X] The code in [[box_print]] prints the result of the computation.
+  * [ ] The code in [[box_print]] prints the result of the computation.
 
     #+name: box_print
     #+begin_src C
@@ -454,7 +498,7 @@ Windows. Compare the two executables - what do you notice?
     #+RESULTS: dweight
     : The dimensional weight is 6
 
-  * [X] Now for the final program [[dweight_c]]. This time, we allow for
+  * [ ] Now for the final program [[dweight_c]]. This time, we allow for
     tangling the program as ~dweight.c~.
 
     #+name: dweight_c
@@ -844,25 +888,7 @@ Windows. Compare the two executables - what do you notice?
     #+RESULTS: layout
     : Variable1=1,variable2=100
 
-* Glossary of terms and commands
-
-  | TERM             | EXPLANATION                                                          |
-  |------------------+----------------------------------------------------------------------|
-  | Variable         | Placeholder for a value, e.g. a number                               |
-  | Type             | Tells the computer to reserve memory, e.g. ~int~ for integer numbers |
-  | Type declaration | Combination of type and variable name - e.g. ~int height;~           |
-  | ~int~            | C type for integer numbers, e.g. 2                                   |
-  | ~float~          | C type for floating point numbers, e.g. 3.14                         |
-  | ~char~           | C type for characters, like "joey"                                   |
-  | Formatting       | Tells the computer how to print, e.g. ~%d~ for ~int~ types           |
-  | ~%d~             | Format for integers                                                  |
-  | ~%f~ and ~%.pf~  | Format for floating point numbers (with ~p~ digits after the point)  |
-  | ~#define~        | Define a constant with the preprocessor, e.g. ~#define PI 3.14~      |
-  | ~math.h~         | Math library, contains mathematical constants and functions          |
-  | ~stdio.h~        | Input/Output library, enables ~printf~ and ~scanf~                   |
-  | ~const~          | Constant identifier, e.g. ~const double PI = 3.14;~                  |
-
-* Concept summary
+* Summary
 
   * C programs must be compiled and linked
   * Programs consist of directives, functions, and statements
@@ -874,47 +900,63 @@ Windows. Compare the two executables - what do you notice?
 
 * Code summary
 
-  | CODE                          | EXPLANATION                              |
-  |-------------------------------+------------------------------------------|
-  | ~#include~                    | directive to include other programs      |
-  | ~stdio.h~                     | standard input/output header file ([[https://www.tutorialspoint.com/c_standard_library/stdio_h.htm][more]]) |
-  | ~main(void)~                  | main function without argument           |
-  | ~main(int argc, char **argv)~ | main function with two arguments         |
-  | ~return~                      | statement (successful completion)        |
-  | ~void~                        | empty argument - no value                |
-  | ~printf~                      | printing function                        |
-  | ~\n~                          | escape character (new-line)              |
-  | ~/* ... */~  ~//...~          | comments                                 |
-  | ~scanf~                       | input pattern function                   |
+| CODE                        | EXPLANATION                         |
+|-----------------------------+-------------------------------------|
+| ~#include~                    | directive to include other programs |
+| ~stdio.h~                     | standard input/output header file   |
+| ~main(int argc, char **argv)~ | main function with two arguments    |
+| ~return~                      | statement (successful completion)   |
+| ~void~                        | empty argument - no value           |
+| ~printf~                      | printing function                   |
+| ~\n~                          | escape character (new-line)         |
+| ~/* ... */~  ~//...~            | comments                            |
+| ~scanf~                       | input pattern function              |
+| ~main(void)~                  | main function without argument      |
 
 * Glossary
 
-  | CONCEPT      | EXPLANATION                                  |
-  |--------------+----------------------------------------------|
-  | Compiler     | translates source code to object code        |
-  |--------------+----------------------------------------------|
-  | Linker       | translates object code to machine code       |
-  |--------------+----------------------------------------------|
-  | Syntax       | language rules                               |
-  |--------------+----------------------------------------------|
-  | Debugger     | checks syntax                                |
-  |--------------+----------------------------------------------|
-  | Directive    | starts with ~#~, one line only, no delimiter |
-  |--------------+----------------------------------------------|
-  | Preprocessor | processes directives                         |
-  |--------------+----------------------------------------------|
-  | Statement    | command to be executed, e.g. ~return~        |
-  |--------------+----------------------------------------------|
-  | Delimiter    | ends a statement (in C: semicolon - ;)       |
-  |--------------+----------------------------------------------|
-  | Function     | a rule to compute something with arguments   |
-  |--------------+----------------------------------------------|
+  | CONCEPT          | EXPLANATION                                               |
+  |------------------+-----------------------------------------------------------|
+  | Compiler         | translates source code to object code                     |
+  | Linker           | translates object code to machine code                    |
+  | Syntax           | language rules                                            |
+  | Debugger         | checks syntax                                             |
+  | Directive        | starts with ~#~, one line only, no delimiter                |
+  | Preprocessor     | processes directives                                      |
+  | Statement        | command to be executed, e.g. ~return~                       |
+  | Delimiter        | ends a statement (in C: semicolon - ;)                    |
+  | Function         | a rule to compute something with arguments                |
+  | String           | Sequence of /character/ values like ~hello~                   |
+  | String literal   | Unchangeable, like the numbe ~8~ or the string ~hello~        |
+  | Constant         | Set value that is not changed                             |
+  | Variable         | A named memory placeholder for a value, e.g. ~int i~        |
+  | Data type        | A memory storage instruction like ~int~ for integer         |
+  | Comment          | Region of code that is not executed                       |
+  | Format specifier | Formatting symbol like ~%d%~ or ~%f%~                         |
+  | Data type        | Tells the computer to reserve memory,                     |
+  |                  | e.g. ~int~ for integer numbers                              |
+  | Type declaration | Combination of type and variable name - e.g. ~int height;~  |
+  | ~int~              | C type for integer numbers, e.g. 2                        |
+  | ~float~            | C type for floating point numbers, e.g. 3.14              |
+  | ~char~             | C type for characters, like "joey"                        |
+  | Formatting       | Tells the computer how to print, e.g. ~%d~ for ~int~ types    |
+  | ~%d~               | Format for integers                                       |
+  | ~%f~ and ~%.pf~      | Format for floating point numbers                         |
+  |                  | (with ~p~ digits after the point)                           |
+  | ~#define~          | Define a constant with the preprocessor,                  |
+  |                  | e.g. ~#define PI 3.14~                                      |
+  | ~math.h~           | Math library, contains mathematical constants & functions |
+  | ~stdio.h~          | Input/Output library, enables ~printf~ and ~scanf~            |
+  | ~const~            | Constant identifier, e.g. ~const double PI = 3.14;~         |
+
 * References
   * Collingbourne (2019). The Little Book of C (Rev. 1.2). Dark Neon.
   * King (2008). C Programming - A Modern Approach. Norton. [[http://knking.com/books/c2/index.html][Online:
     knking.com]].
 
 * Footnotes
+[fn:16] Answer: (1) memory allocation for four integer variables; (2)
+assignments for four variables; (3) multiplication of three integers.
 
 [fn:1] In our case, instead of weaving TeX files (~.tex~) to print, we
 weave Markdown files (~.md~), or WORD (~*.odt~) files, or we dispense with

@@ -19,8 +19,8 @@
 - [ ] Why C Programming Is Awesome (YouTube)
 - [ ] Setting up the infrastructure
 - [ ] Information about the course
-- [ ] Hello, C - extended example => lecture
-- [ ] Toolchain practice => practice
+- [ ] Hello, C - extended example
+- [ ] Toolchain practice
 
 *** Why C Programming Is Awesome (2016)
 
@@ -147,15 +147,29 @@ Which key points do you remember [[https://www.youtube.com/watch?v=smGalmxPVYc][
 
 ** 25-May (Wed) - Hello, Emacs
 
-- [ ] [[id:39c53d65-0958-4ef9-8c1a-d502701cceb8][Literate_programming]] with Emacs => lecture
-- [ ] Emacs tutorial => online practice (~C-h t~)
-- [ ] Emacs org-mode => 2_installation/org/practice.org
-- [ ] Submit result to Schoology
+- [ ] [[id:39c53d65-0958-4ef9-8c1a-d502701cceb8][Literate_programming]] with Emacs
+- [ ] Emacs tutorial - online practice (~C-h t~)
+- [ ] Org-mode practice file
+- [ ] *Submit file to Schoology*
 
 ** 26-May (Thu) - Introduction to C
+
+- [ ] What is C and why is it important?
+- [ ] How computers work
+- [ ] How programs are processed
+- [ ] C vs. C++
+- [ ] *Complete quiz 1 in Schoology*
+
 ** 27-May (Fri) - C Fundamentals
 
-- [ ] Program assignment
+- [ ] Commenting
+- [ ] Declaring and initializing variables
+- [ ] Input and output
+- [ ] Naming identifiers
+- [ ] Program layout
+- [ ] Org-mode practice file
+- [ ] *Program assignment 1*
+- [ ] *Submit files to Schoology*
 
 * Footnotes
 

@@ -6,19 +6,20 @@
   - This file is a practice file for C fundamentals.
 
   - You will learn how to:
-    - run the 
+    1) understand and change syntax highlighting
+    2) understanding and using comments in C
 
   - Time: approx. 30-45 min.
 
   - When you're done with a section move the cursor on the section
     heading and type ~S-<right>~ (or SHIFT+<right-arrow>).
 
-* Identify yourself
+* DONE Identify yourself
 
   - replace the placeholder ~[yourName]~ in the header of this file by
     your name and save the file (~C-x C-s~). 
 
-* Syntax highlighting
+* DONE Syntax highlighting
 
   1) Create a named code block ~hello~ with a program that prints
      "Hello, world!" on the screen. Use ~<s~ to create the block.
@@ -42,11 +43,7 @@
      the message ~Custom theme saved for future sessions~ in the
      minibuffer.
 
-
-
-
-
-* Fix the program
+* DONE Fix the program
 
   The program [[comment1]] should print out the sentence "~I love my dog
   'Milly'~". But it doesn't. Something went wrong with the
@@ -78,7 +75,7 @@
   #+RESULTS: comment_solution
   : I love my dog 'Milly'
 
-* Comment program
+* DONE Comment program
 
    Write short comments in the program [[comment2]] to explain what each
    part of the program does (guess if you don't know for sure) -
@@ -126,4 +123,144 @@
      }
    #+end_src
 
+* DONE Variable types and declarations
 
+  1) Create a named C code block [[declarations]] below.
+
+  2) Declare two /floating-point/ variables ~fahrenheit~ and ~celsius~.
+
+  3) Use two separate statements.
+
+  4) Put ~:results silent~ in the code block header[fn:1].
+
+  5) Run the code block (~C-c C-c~).
+
+  ----- PUT CODE BLOCK HERE -----
+
+  ----- SOLUTION -----
+  #+name: declarations
+  #+begin_src C :results silent
+    float fahrenheit;
+    float celsius;
+  #+end_src
+
+* DONE Fix the program
+
+  1) A couple of things are wrong in the code block [[declare1]].
+
+  2) You can check that yourself by running it (~C-c C-c~) and reading
+     the compiler messages that open in another buffer. Type ~C-x 1~ to
+     delete the message buffer.
+
+  3) Find and fix the errors, and run the code block to make sure.
+
+  #+name: declare1
+  #+begin_src C :results silent
+    freezing_point = 32.0f
+    float freezing_point;
+  #+end_src
+
+* DONE Variable assignments
+
+  1) Create a code block [[assignments]] below.
+
+  2) Declare *and* initialize two /floating-point/ variables, ~freezing~ and
+     ~factor~, with the values 32 and 5/9, respectively.
+
+  3) Declare and initialize these variables in *one* statement only.
+
+  ----- PUT CODE BLOCK HERE -----
+
+
+  ----- SOLUTION -----
+
+  #+name: assignments
+  #+begin_src C :results silent
+    float freezing = 32.0f, factor = 5.0f/9.0f;
+  #+end_src
+
+* DONE Variable computations
+
+  1) The code from [[declarations]] and from [[assignments]] has been copied
+     into the code block [[conversion]] below[fn:2].
+
+  2) Complete [[conversion]] with two statements:
+     - assign the temperature 80 to ~fahrenheit~
+     - compute ~celsius~ using [[formula]]
+
+  3) Run the program to make sure that the answer is correct for 80
+     degrees Fahrenheit (equivalent to 26.7 degrees Celsius).
+
+       #+name: formula
+       #+begin_example
+       celsius = (fahrenheit - freezing) * factor
+       #+end_example
+       
+  #+name: conversion
+  #+begin_src C :noweb yes
+    <<declarations>>
+    <<assignments>>
+    ...
+    ...
+    printf("Fahrenheit: %g\nCelsius equivalent: %.1f\n", 
+	   fahrenheit, celsius);
+  #+end_src
+
+
+  ----- SOLUTION -----
+
+  #+name: conversion
+  #+begin_src C :noweb yes :tangle noweb.c
+    <<declarations>>
+    <<assignments>>
+    fahrenheit = 80.f;
+    celsius = (fahrenheit - freezing) * factor;
+    printf("Fahrenheit: %g\nCelsius equivalent: %.1f\n", 
+	   fahrenheit, celsius);
+  #+end_src
+
+  #+RESULTS: conversion
+  : Fahrenheit: 80
+  : Celsius equivalent: 26.7
+
+* DONE Fix the program
+
+  The program [[assign]] declares and initializes the variable ~i~ with the
+  value ~0~. After assigning ~1~ to ~i~, it should print out ~1~ but it prints
+  ~0~ instead.
+
+  Fix the error and then run the block with ~C-c C-c~ to check.
+
+  #+name: assign
+  #+begin_src C
+    int i = 0;
+    i == 1;
+    printf("%d\n", i);
+  #+end_src
+
+  #+RESULTS: assign
+  : 0
+
+* TODO Formatting printout
+
+  1) 
+
+* Fix the program
+
+* TODO Constants
+
+* TODO Reading input
+
+* TODO Program layout
+
+* Footnotes
+
+[fn:2]The header argument ~:noweb~ enables referencing to other
+code. Setting it to ~yes~ means that references are expanded when
+evaluating, tangling, or exporting. You can check that by tangling the
+source code and looking at the result ([[https://orgmode.org/manual/Noweb-Reference-Syntax.html][more info]]).
+
+[fn:1]With ~:results silent~ in the header, the Org-mode code block will
+be executed, but the results will not be printed in the buffer, only
+in the minibuffer. If there is no printout, the minibuffer shows ~""~
+(empty).
