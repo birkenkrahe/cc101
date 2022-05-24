@@ -173,7 +173,6 @@ Which key points do you remember [[https://www.youtube.com/watch?v=smGalmxPVYc][
 - [ ] *Program assignment 1*
 - [ ] *Submit files to Schoology*
 
-
 * Week 2 - Flow control
 
 * Week 3 - Iteration
