@@ -18,9 +18,9 @@
 ** 24-May (Tue) - Hello, C
 
 - [ ] Entry quiz (Google Forms)
-- [ ] Why C Programming Is Awesome (YouTube)
-- [ ] Setting up the infrastructure
-- [ ] Information about the course
+- [X] Why C Programming Is Awesome (YouTube)
+- [X] Setting up the infrastructure
+- [X] Information about the course
 - [ ] Hello, C - extended example
 - [ ] Toolchain practice
 

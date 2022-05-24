@@ -121,6 +121,7 @@
   4) Return something.
      #+name: return
      #+begin_example C
+     printf(...)
      return EXIT_SUCCESS;
      #+end_example
 
