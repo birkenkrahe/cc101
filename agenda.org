@@ -17,11 +17,11 @@
 * Week 1 - Hello, world
 ** 24-May (Tue) - Hello, C
 
-- [ ] Entry quiz (Google Forms)
+- [X] Entry quiz (Google Forms)
 - [X] Why C Programming Is Awesome (YouTube)
 - [X] Setting up the infrastructure
 - [X] Information about the course
-- [ ] Hello, C - extended example
+- [X] Hello, C - extended example
 - [ ] Toolchain practice
 
 *** Why C Programming Is Awesome (2016)
@@ -151,8 +151,8 @@ Which key points do you remember [[https://www.youtube.com/watch?v=smGalmxPVYc][
 
 - [ ] [[id:39c53d65-0958-4ef9-8c1a-d502701cceb8][Literate_programming]] with Emacs
 - [ ] Emacs tutorial - online practice (~C-h t~)
-- [ ] Org-mode practice file
-- [ ] *Submit file to Schoology*
+- [ ] Download/complete Org-mode practice file practice.org
+- [ ] *Submit file practice.org to Schoology*
 
 ** 26-May (Thu) - Introduction to C
 
