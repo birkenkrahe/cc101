@@ -576,11 +576,7 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
        #define WERT 2.0
        printf("Constant is %.2f\n", WERT);
      #+end_src
-
-     #+RESULTS: redefined
-     : Constant is 1.00
-     : Constant is 2.00
-
+   
 ** Library definitions with ~#include~
 
    * Since mathematical constants are so important in scientific
@@ -591,12 +587,12 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
      #+name: math
      #+begin_src C :includes <math.h> :exports both :results output
        printf("PI is %f\n",M_PI);
-       printf("PI is %.18f\n",M_PI);
+       printf("PI is %.16f\n",M_PI);
      #+end_src
 
      #+RESULTS: math
      : PI is 3.141593
-     : PI is 3.141592653589793100
+     : PI is 3.1415926535897931
 
    * If you write source code outside of Emacs Org-mode, you have to
      include this library file explicitly like this:
@@ -616,9 +612,18 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
      #+caption: Mathematical constants in /usr/include/math.h
      [[./img/math.png]]
 
-   * [X] Where is ~math.h~ in Windows[fn:12]? Where in MacOS? Find the file,
+   * [ ] Where is ~math.h~ in Windows[fn:12]? Where in MacOS? Find the file,
      open and look at it in Emacs (the file is read-only).
 
+     #+begin_src C
+       #include <math.h>
+       #define e M_E
+       printf("%.16f\n", e);
+     #+end_src
+
+     #+RESULTS:
+     : 2.718281828459045
+   
 ** Type definition with ~const~
 
    * Modern C has the ~const~ identifier to protect constants. [[const]]
@@ -639,7 +644,7 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
      #+RESULTS: const
      : Tax on revenue 200.00 is 35.00
 
-   * [X] What happens if you try to redefine the constant ~taxrate~
+   * [ ] What happens if you try to redefine the constant ~taxrate~
      after the type declaration? Modify [[const]] accordingly and run it.
 
      #+name: const_err
@@ -655,7 +660,6 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
      #+end_example
 
 * Naming identifiers
-
 ** Naming conventions
 
    (The code blocks in this section are all silent - will give no
@@ -1011,8 +1015,9 @@ commonly referred to as ‘chargeable weight’." (UniRelo 2020)
 [fn:11]165/166 is 0.9939759, so we've just messed with the actual
 volume.
 
-[fn:12]Look for it in the MinGW directory - there's an ~/include~
-subdirectory that contains many header/library files ~.h~.
+[fn:12]If you installed the MinGW compiler (GCC for Windows), look for
+it in the MinGW directory - there's an ~/include~ subdirectory that
+contains many header/library files ~.h~.
 
 [fn:13]You could try and run it in Emacs. Can you explain the result?
 

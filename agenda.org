@@ -12,6 +12,8 @@
   content up over many files - so that you have to navigate as
   little as possible (like a book)!
 
+  See the [[file:syllabus.org][course syllabus]] for a detailed schedule.
+  
 * Week 1 - Hello, world
 ** 24-May (Tue) - Hello, C
 
@@ -170,6 +172,15 @@ Which key points do you remember [[https://www.youtube.com/watch?v=smGalmxPVYc][
 - [ ] Org-mode practice file
 - [ ] *Program assignment 1*
 - [ ] *Submit files to Schoology*
+
+
+* Week 2 - Flow control
+
+* Week 3 - Iteration
+
+* Week 4 - Management
+
+* Week 5 - Applications
 
 * Footnotes
 

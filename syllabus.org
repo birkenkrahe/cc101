@@ -132,7 +132,7 @@
     - Sourced from the quiz questions
     - Online in Schoology in the classroom
 
-* Standard Policies[fn:1]
+* Standard Policies
 ** Honor Code
 
    All graded work in this class is to be pledged in accordance with
@@ -180,7 +180,7 @@
    must provide our Title IX coordinator with all relevant details.  I
    cannot, therefore, guarantee confidentiality.
 
-** Datails
+** Details
 
    Details specific to this course may be found in the subsequent
    pages of this syllabus. Those details will include at least the
@@ -189,12 +189,13 @@
    - A list of student learning outcomes for the course.
    - A summary of all course requirements.
    - An explanation of the grading system to be used in the course.
-   - Any course-specific attendance policies that go beyond the College policy.
+   - Any course-specific attendance policies that go beyond the
+     College policy.
    - Details about what constitutes acceptable and unacceptable
      student collaboration on graded work.
 
 * Course specific information
-** Assignments and Honor Code[fn:2]
+** Assignments and Honor Code
 
    There will be several assignments during the summer school,
    including programming assignments and multiple-choice tests. They
@@ -249,13 +250,11 @@
    please e-mail me or leave a message on my phone before the
    scheduled time, and we can make arrangements when you return.
 
-** Important Dates[fn:3]:
+** Attendance policy
 
-   | DATE    | DAY     | DESCRIPTION                 |
-   |---------+---------+-----------------------------|
-   | May 24  | Tuesday | Summer school classes begin |
-   | June 24 | Friday  | Summer school classes end   |
-   | June 24 | Friday  | Summer degrees conferred    |
+You must attend a minimum of 75% of non-cancelled meetings - you are
+allowed to miss *5 classes* over the whole summer school duration (or 1
+class per week) without risking a fail.
 
 ** Schedule and session content
 
@@ -303,11 +302,3 @@
    * The secret life of programs, by J E Steinhart
      (NoStarch, 2019)
 
-* Footnotes
-
-[fn:3]Academic calendar sent by the Provost.
-
-[fn:2]Adapted from David Sonnier with minor modifications.
-
-[fn:1]Sent by the Provost (spring 2022). Updated to reflect the change
-in COVID policy.

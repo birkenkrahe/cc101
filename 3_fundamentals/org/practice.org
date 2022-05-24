@@ -331,14 +331,75 @@
   : Speed of light (m/s): c = 299792458
   : Euler number: e = 2.7183
 
+* DONE Constants
 
-* TODO Constants
+  1) Create a C code block named [[constants]] with three different
+     constant definitions.
+
+  2) Define the Arkansas sales tax rate (6.5%) as ~SALES_TAX_AR~ using
+     the ~#define~ pre-processor macro.
+
+  3) Define the Euler number using ~M_E~ in ~math.h~, and call it ~EULER~.
+
+  4) Define the speed of light as ~SPEED_OF_LIGHT~ using ~const~.
+
+  5) Print all three definitions to get the output:
+
+     #+begin_example
+      The Euler number is: e = 2.7182818285
+      The AR sales tax is: 6.5%
+      The speed of light is: 299792458 m/s
+     #+end_example
+
+  ----- PUT CODE BLOCK HERE -----
+
+
+
+  ----- SOLUTION -----
+
+  #+name: constants
+  #+begin_src C
+    // Included libraries
+    #include <math.h>
+
+    // Constant declarations
+    #define EULER M_E // Euler number
+    #define SALES_TAX_AR 6.5f // AR sales tax
+    const int SPEED_OF_LIGHT = 299792458; // speed of light
+
+    // Print out
+    printf("The Euler number is: e = %.10f\n", EULER);
+    printf("The AR sales tax is: %.1f%\n",     SALES_TAX_AR);
+    printf("The speed of light is: %d m/s\n",  SPEED_OF_LIGHT);
+  #+end_src
+
+  #+RESULTS: constants
+  : The Euler number is: e = 2.7182818285
+  : The AR sales tax is: 6.5%
+  : The speed of light is: 299792458 m/s
+
+* DONE Standard math library
+
+  Open the file ~/usr/include/math.h~ and search for the definition of
+  ~M_PI~. What is the last non-zero digit?
+
+  ----- SOLUTION -----
+  
+  The answer is 6.
+
+  #+begin_example /usr/include/math.h line 1070
+  # define M_PI		3.14159265358979323846	/* pi */
+  #+end_example
+
 
 * TODO Reading input
 
+
 * TODO Naming identifiers
 
+
 * TODO Program layout
+
 
 * Footnotes
 
