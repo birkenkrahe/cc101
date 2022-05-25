@@ -73,6 +73,13 @@
     }
   #+end_src
 
+  #+RESULTS: firstProgram
+  : Element 0 is 9, 	its square is 81
+  : Element 1 is 2.9, 	its square is 8.41
+  : Element 2 is 0, 	its square is 0
+  : Element 3 is 7e-005, 	its square is 4.9e-009
+  : Element 4 is 3e+025, 	its square is 9e+050
+
   * [ ] What do you think this program does?
 
     - To answer such a question, don't get bogged down by detail
@@ -225,7 +232,7 @@
 
   * You can now see the executable file:
     #+begin_example bash
-    pi@raspberrypi:~/Documents/cc$ ls -l first
+    $ ls -l first
     -rwxr-xr-x 1 pi pi 8120 May  8 12:39 first
     #+end_example
 
@@ -238,7 +245,7 @@
     
   * You should now see the output in the terminal.
     #+begin_example bash
-    pi@raspberrypi:~/Documents/cc$ ./first
+    $ ./first
     Element 0 is 9, 	its square is 81
     Element 1 is 2.9, 	its square is 8.41
     Element 2 is 0, 	its square is 0

@@ -14,7 +14,7 @@
   * What you'll learn:
     - Finding out where you are on the computer
     - Climbing around the file system
-    - Listing filesy
+    - Listing files 
     - Downloading a file from the web
     - Compiling a simple C source file
     - Running an executable file
@@ -155,7 +155,7 @@
     #+begin_example
     -rw-r--r-- 1 pi pi 6382 May 14 18:38 README.org
     #+end_example
-
+    
 * Getting a source file from the web
 
   * The C source file ~hello.c~ is stored online at this place in
@@ -166,7 +166,7 @@
 
     #+name: ex:wget
     #+begin_example bash
-    wget tinyurl.com/mrxne2t3 -O hello.c -o log
+    wget tinyurl.com/crazylyons -O hello.c -o log
     #+end_example
 
     - ~wget~ copies content from the web[fn:1]
@@ -233,10 +233,12 @@
 * Summary
 
   * To find out where you are, use ~pwd~
+  * Linux has environment variables like $PWD, $HOME, $PS1
   * To move around use ~cd~ with explicit/implicit paths
-  * To list file information, use ~ls~
-  * To get files from the web, use ~wget~
-  * To compile a C source code file, use ~cc~
+  * To list file information, use ~ls~ (with/out options)
+  * To get files from the web, use ~wget~ (or ~curl~)
+  * To compile a C source code file, use ~cc~ (which is an alias for
+    GCC, the GNU C Compiler Suite, or ~c99~ (a compiler standard)
 
 * Glossary
 
