@@ -6,12 +6,13 @@
 #+PROPERTY: header-args:C :main yes :includes <stdio.h>
 * README
 
-- This file contains the agenda overview (what I had planned), the
-  objectives (what we managed to do) and (much of the) content of
-  each taught session of the course. I want to avoid splitting the
-  content up over many files - so that you have to navigate as
-  little as possible (like a book)!
+  Agenda overview - what I had planned and what we achieved in each
+  session of the course.
 
+  If we don't manage to finish a topic in one session, it'll be
+  finished in the subsequent session(s) without change of the
+  originally date.
+  
   See the [[file:syllabus.org][course syllabus]] for a detailed schedule.
   
 * Week 1 - Hello, world
@@ -149,10 +150,19 @@ Which key points do you remember [[https://www.youtube.com/watch?v=smGalmxPVYc][
 
 ** 25-May (Wed) - Hello, Emacs
 
+- [ ] Short recap   
+- [ ] C Toolchain practice
 - [ ] [[id:39c53d65-0958-4ef9-8c1a-d502701cceb8][Literate_programming]] with Emacs
 - [ ] Emacs tutorial - online practice (~C-h t~)
 - [ ] Download/complete Org-mode practice file practice.org
 - [ ] *Submit file practice.org to Schoology*
+
+** Short recap
+
+   - What (if anything) do you remember from the last session?
+   - What was important to you?
+   - What did you not understand?
+   - What would you like to hear more about?
 
 ** 26-May (Thu) - Introduction to C
 
