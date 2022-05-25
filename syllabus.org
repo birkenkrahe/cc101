@@ -1,6 +1,6 @@
 #+TITLE:CSC 100.01 Syllabus Summer I
 #+AUTHOR: Marcus Birkenkrahe
-#+SUBTITLE: Introduction to Programming in C/C++: Schedule
+#+SUBTITLE: Introduction to Programming in C/C++: Syllabus
 #+options: toc:nil
 * General Course Information
 
