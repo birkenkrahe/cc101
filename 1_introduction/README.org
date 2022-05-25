@@ -127,7 +127,7 @@
    4) *DISPLAY* results (RAM)
    5) *SAVE* result (NVM)
 
-** Complete process
+** Complete process 
 
    Specifically for C and our compiler GCC, this process looks
    technically like this:

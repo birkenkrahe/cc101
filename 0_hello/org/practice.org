@@ -14,7 +14,7 @@
   * What you'll learn:
     - Finding out where you are on the computer
     - Climbing around the file system
-    - Listing filesy
+    - Listing files 
     - Downloading a file from the web
     - Compiling a simple C source file
     - Running an executable file
@@ -155,7 +155,7 @@
     #+begin_example
     -rw-r--r-- 1 pi pi 6382 May 14 18:38 README.org
     #+end_example
-
+    
 * Getting a source file from the web
 
   * The C source file ~hello.c~ is stored online at this place in
@@ -166,7 +166,7 @@
 
     #+name: ex:wget
     #+begin_example bash
-    wget tinyurl.com/mrxne2t3 -O hello.c -o log
+    wget tinyurl.com/crazylyons -O hello.c -o log
     #+end_example
 
     - ~wget~ copies content from the web[fn:1]
@@ -176,7 +176,7 @@
   * [ ] Check that you got the right content by entering ~cat hello.c~
     at the command line. You should see this:
 
-    #+attr_html: :width 300px
+    #+attr_html: :width 400px
     #+caption: cat hello.c
     [[../img/cat.png]]
 
@@ -220,25 +220,48 @@
   * The path to the file can be explicit or implicit. Here is the
     explicit path solution:
 
-    #+attr_html: :width 300px
+    #+attr_html: :width 400px
     #+caption: run executable file (explicit path)
     [[../img/run1.png]]
 
   * The implicit path uses ~./~ to indicate the current directory:
 
-    #+attr_html: :width 300px
+    #+attr_html: :width 400px
     #+caption: run executable file (implicit path)
     [[../img/run.png]]
 
 * Summary
 
   * To find out where you are, use ~pwd~
+  * Linux has environment variables like $PWD, $HOME, $PS1
   * To move around use ~cd~ with explicit/implicit paths
-  * To list file information, use ~ls~
-  * To get files from the web, use ~wget~
-  * To compile a C source code file, use ~cc~
+  * To list file information, use ~ls~ (with/out options)
+  * To get files from the web, use ~wget~ (or ~curl~)
+  * To compile a C source code file, use ~cc~ (which is an alias for
+    GCC, the GNU C Compiler Suite, or ~c99~ (a compiler standard)
 
-[[id:7b22cd97-bf1a-4cde-af09-a67b6e65b599][cc-glossary]]    
+* Glossary
+
+  | TERM       | MEANING                 | WHAT?                            |
+  |------------+-------------------------+----------------------------------|
+  | UNIX       | Operating system (OS)   | Enables your computing           |
+  | Linux      | Operating system (OS)   | Enables your computing           |
+  | $PWD       | Print working directory | Where you are in the file system |
+  | $HOME      | Hhome directory (~)     | Where your files are             |
+  | Shell      | Connection to the OS    | E.g. ~bash~, scripting language    |
+  | Prompt     | Command line symbol     | Enter shell commands after it    |
+  | echo       | Displays its arguments  | E.g. ~echo hello~ prints ~hello~     |
+  | variable   | Memory location         | Can be declared/re/defined       |
+  | PATH       | Environment variable    | Where computer looks for pgms    |
+  | mkdir      | Make a new directory    | E.g. ~mkdir -v test~               |
+  | ls         | List files              | E.g. ~ls -l~ for a long listing    |
+  | wget       | Download web content    | Needs URL only                   |
+  | man        | UNIX manual pages       | E.g. ~man wget~                    |
+  | log        | Message file            | Log download process             |
+  | cat        | Viewing command         | E.g. ~cat hello.c~                 |
+  | cc         | C compiler (GCC)        | Includes flags like ~-o~           |
+  | compile    | Make executable file    | E.g. ~cc hello.c~                  |
+  | executable | Binary (machine) file   | Run e.g. with ~./hello~            |
 
 * Footnotes
 

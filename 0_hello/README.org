@@ -3,7 +3,7 @@
 #+AUTHOR:Marcus Birkenkrahe
 #+STARTUP:overview hideblocks
 #+OPTIONS: toc:1 ^:nil
-#+PROPERTY: header-args:C :main yes :includes <stdio.h> :comments both :exports both :results output
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :exports both :results output
 * README
 
   * This notebook follows chapter 1 of Modern C (Gustedt, 2020). But
@@ -48,7 +48,7 @@
   Here is a first program in C[fn:2]:
 
   #+name: firstProgram
-  #+begin_src C :tangle getting_started.c
+  #+begin_src C :tangle ./src/getting_started.c
     /* This may look like nonsense, but really is -*- mode: C -*- */
     #include <stdlib.h>
 
@@ -72,6 +72,13 @@
       return EXIT_SUCCESS;
     }
   #+end_src
+
+  #+RESULTS: firstProgram
+  : Element 0 is 9, 	its square is 81
+  : Element 1 is 2.9, 	its square is 8.41
+  : Element 2 is 0, 	its square is 0
+  : Element 3 is 7e-005, 	its square is 4.9e-009
+  : Element 4 is 3e+025, 	its square is 9e+050
 
   * [ ] What do you think this program does?
 
@@ -197,21 +204,38 @@
     into a C file ~getting_started.c~ and execute this command in a
     terminal (~$~ is the terminal prompt):
 
+    #+name: compilation
     #+begin_example bash
-    $  c99 -Wall -o first getting_started.c -lm
+    $  c99 -Wall -o first -lm getting_started.c 
     #+end_example
 
     - ~c99~ is really GCC, the GNU Project C compiler program
     - ~-Wall~ means GCC should warn us about anything it finds unusual
     - ~-o first~ means "give the /output file/ the name ~first~"
-    - ~getting_started.c~ is the compiler's /target/ C source code file
     - ~-lm~ means to add standard math functions if necessary
+    - ~getting_started.c~ is the compiler's /target/ C source code file
 
+  * The command in [[compilation]] follows a general template for shell
+    commands:
+
+    #+begin_example
+    [command] [options] [target]
+    #+end_example
+
+    - ~c99~ is the /command/
+    - ~-Wall -o -lm~ are the /options/
+    - ~getting_started.c~ is the /target/
+
+  * Since the compilation process has to be repeated many, many times
+    during program development, and since many files are potentially
+    involved, it is important to streamline it. One both efficient and
+    flexible way to do this is with [[https://www.gnu.org/software/make/][GNU make(1)]].
+  
 * Running the program
 
   * You can now see the executable file:
     #+begin_example bash
-    pi@raspberrypi:~/Documents/cc$ ls -l first
+    $ ls -l first
     -rwxr-xr-x 1 pi pi 8120 May  8 12:39 first
     #+end_example
 
@@ -224,7 +248,7 @@
     
   * You should now see the output in the terminal.
     #+begin_example bash
-    pi@raspberrypi:~/Documents/cc$ ./first
+    $ ./first
     Element 0 is 9, 	its square is 81
     Element 1 is 2.9, 	its square is 8.41
     Element 2 is 0, 	its square is 0
@@ -254,7 +278,7 @@
     messages, or /diagnostic output/, are your friends.
     
   * There are also more sophisticated tools to aid debugging, like the
-    [[https://sourceware.org/gdb/][GNU debugging program, GDB]]. 
+    [[https://sourceware.org/gdb/][GNU debugging program, GDB]][fn:4]. 
 
   * When your program generates errors, the most important thing is
     your attitude: be patient, be diligent, and celebrate success.
@@ -308,6 +332,9 @@
   * King (2008). C Programming - A Modern Approach. Norton.
 
 * Footnotes
+
+[fn:4]A great book on debugging is Matloff/Salzman, The Art of
+Debugging with GDB, DDD, and Eclipse ([[https://nostarch.com/debugging.htm][NoStarch Press, 2008]]).
 
 [fn:3]Curiously, the computer will not recognize the file if you only
 type its name. This is because any expression without a specific ~PATH~
