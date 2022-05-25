@@ -268,7 +268,7 @@
     messages, or /diagnostic output/, are your friends.
     
   * There are also more sophisticated tools to aid debugging, like the
-    [[https://sourceware.org/gdb/][GNU debugging program, GDB]]. 
+    [[https://sourceware.org/gdb/][GNU debugging program, GDB]][fn:4]. 
 
   * When your program generates errors, the most important thing is
     your attitude: be patient, be diligent, and celebrate success.
@@ -322,6 +322,9 @@
   * King (2008). C Programming - A Modern Approach. Norton.
 
 * Footnotes
+
+[fn:4]A great book on debugging is Matloff/Salzman, The Art of
+Debugging with GDB, DDD, and Eclipse ([[https://nostarch.com/debugging.htm][NoStarch Press, 2008]]).
 
 [fn:3]Curiously, the computer will not recognize the file if you only
 type its name. This is because any expression without a specific ~PATH~

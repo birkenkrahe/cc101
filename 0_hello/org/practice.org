@@ -176,7 +176,7 @@
   * [ ] Check that you got the right content by entering ~cat hello.c~
     at the command line. You should see this:
 
-    #+attr_html: :width 300px
+    #+attr_html: :width 400px
     #+caption: cat hello.c
     [[../img/cat.png]]
 
@@ -220,13 +220,13 @@
   * The path to the file can be explicit or implicit. Here is the
     explicit path solution:
 
-    #+attr_html: :width 300px
+    #+attr_html: :width 400px
     #+caption: run executable file (explicit path)
     [[../img/run1.png]]
 
   * The implicit path uses ~./~ to indicate the current directory:
 
-    #+attr_html: :width 300px
+    #+attr_html: :width 400px
     #+caption: run executable file (implicit path)
     [[../img/run.png]]
 
@@ -238,7 +238,28 @@
   * To get files from the web, use ~wget~
   * To compile a C source code file, use ~cc~
 
-[[id:7b22cd97-bf1a-4cde-af09-a67b6e65b599][cc-glossary]]    
+* Glossary
+
+  | TERM       | MEANING                 | WHAT?                            |
+  |------------+-------------------------+----------------------------------|
+  | UNIX       | Operating system (OS)   | Enables your computing           |
+  | Linux      | Operating system (OS)   | Enables your computing           |
+  | $PWD       | Print working directory | Where you are in the file system |
+  | $HOME      | Hhome directory (~)     | Where your files are             |
+  | Shell      | Connection to the OS    | E.g. ~bash~, scripting language    |
+  | Prompt     | Command line symbol     | Enter shell commands after it    |
+  | echo       | Displays its arguments  | E.g. ~echo hello~ prints ~hello~     |
+  | variable   | Memory location         | Can be declared/re/defined       |
+  | PATH       | Environment variable    | Where computer looks for pgms    |
+  | mkdir      | Make a new directory    | E.g. ~mkdir -v test~               |
+  | ls         | List files              | E.g. ~ls -l~ for a long listing    |
+  | wget       | Download web content    | Needs URL only                   |
+  | man        | UNIX manual pages       | E.g. ~man wget~                    |
+  | log        | Message file            | Log download process             |
+  | cat        | Viewing command         | E.g. ~cat hello.c~                 |
+  | cc         | C compiler (GCC)        | Includes flags like ~-o~           |
+  | compile    | Make executable file    | E.g. ~cc hello.c~                  |
+  | executable | Binary (machine) file   | Run e.g. with ~./hello~            |
 
 * Footnotes
 
