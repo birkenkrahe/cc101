@@ -659,6 +659,43 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
        printf("Tax on revenue %.2f is %.2f", revenue, tax);
      #+end_example
 
+* Reading input
+
+  * Before you can print output with ~printf~, you need to tell the
+    computer, which format it should prepare for.
+
+  * Just like ~printf~, the input function ~scanf~ needs to know what
+    format the input data will come in, otherwise it will print
+    nonsense (or rather, memory fragments from God knows where).
+
+  * The following statement reads an ~int~ value and stores it in the
+    variable ~i~. To run it, you have to tangle the code block (with
+    ~C-u C-c C-v t~), compile and run it on the command line - not on
+    the simulated ~eshell~ or the Emacs ~shell~, but on the Windows
+    CMD terminal command line[fn:13].
+    #+name: iscan
+    #+begin_src C :tangle iscan.c :main yes :includes <stdio.h>
+      int i;
+      puts("Enter an integer!");
+      scanf("%d", &i);
+      printf("You entered %d\n", i);
+    #+end_src
+
+  * [X] Class assignment:
+    - modify the program [[iscan]] to read a ~float~ instead of an ~int~
+    - tangle it as ~fscan.c~
+    - compile and run it in the terminal: ~gcc -o fscan fscan.c~
+
+  * SOLUTION: change ~int~ to ~float~ in the declaration, and ~%d~ to
+    ~%f~ in the ~scanf~ function.
+    #+name: fscan
+    #+begin_src C :main yes :includes <stdio.h> :tangle fscan.c
+      float i;
+      puts("Enter an floating point number!");
+      scanf("%f", &i);
+      printf("You entered %f\n", i);
+    #+end_src
+
 * Naming identifiers
 ** Naming conventions
 
@@ -747,43 +784,6 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
 
    * Your turn: name some illegal identifiers and see what the
      compiler says!
-
-* Reading input
-
-  * Before you can print output with ~printf~, you need to tell the
-    computer, which format it should prepare for.
-
-  * Just like ~printf~, the input function ~scanf~ needs to know what
-    format the input data will come in, otherwise it will print
-    nonsense (or rather, memory fragments from God knows where).
-
-  * The following statement reads an ~int~ value and stores it in the
-    variable ~i~. To run it, you have to tangle the code block (with
-    ~C-u C-c C-v t~), compile and run it on the command line - not on
-    the simulated ~eshell~ or the Emacs ~shell~, but on the Windows
-    CMD terminal command line[fn:13].
-    #+name: iscan
-    #+begin_src C :tangle iscan.c :main yes :includes <stdio.h>
-      int i;
-      puts("Enter an integer!");
-      scanf("%d", &i);
-      printf("You entered %d\n", i);
-    #+end_src
-
-  * [X] Class assignment:
-    - modify the program [[iscan]] to read a ~float~ instead of an ~int~
-    - tangle it as ~fscan.c~
-    - compile and run it in the terminal: ~gcc -o fscan fscan.c~
-
-  * SOLUTION: change ~int~ to ~float~ in the declaration, and ~%d~ to
-    ~%f~ in the ~scanf~ function.
-    #+name: fscan
-    #+begin_src C :main yes :includes <stdio.h> :tangle fscan.c
-      float i;
-      puts("Enter an floating point number!");
-      scanf("%f", &i);
-      printf("You entered %f\n", i);
-    #+end_src
 
 * Program Layout
 

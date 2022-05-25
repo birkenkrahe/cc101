@@ -83,7 +83,10 @@
 
   The analysis consists of a "phenomenological" part (discern
   meaning by looking closely at the program), and a "semantic"
-  part (use syntax rules of C to discern meaning).
+  part - discern the meaning.
+
+  In programming languages, you use "syntax" rules of C to discern
+  meaning.
 
   You'll often get into this situation: that you have to read and
   understand a program someone else has written. More often than
