@@ -196,7 +196,15 @@
      - [[https://vigou3.gitlab.io/emacs-modified-macos/][Preconfigured Emacs for R + LaTeX for MacOS]] (Vincent Goulet)
 
      - [[https://vigou3.gitlab.io/emacs-modified-windows/][Preconfigured Emacs for R + LaTeX for Windows]] (Vincent Goulet)
-  
+
+  4) Cheat sheets
+
+     - [[https://ccrma.stanford.edu/guides/package/emacs/emacs.html][Stanford Univ (efficient)]]
+
+     - [[https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf][GNU Emacs reference card]]
+
+     - [[https://sachachua.com/blog/2013/05/how-to-learn-emacs-a-hand-drawn-one-pager-for-beginners/][Sacha Chua cheat sheet (playful/hand drawn)]]
+       
 * Let's practice
 
 GNU Emacs practice includes two steps:
@@ -226,7 +234,7 @@ GNU Emacs practice includes two steps:
    #+end_example
 
 3) [ ] Download the GNU Emacs initialization file [[https://raw.githubusercontent.com/birkenkrahe/cc101/piHome/2_installation/.emacs][.emacs]] using ~wget~
-   on the command line:
+   on the command line (*I already did this for you on the Pis*):
 
    #+name: ex:wget2
    #+begin_example
