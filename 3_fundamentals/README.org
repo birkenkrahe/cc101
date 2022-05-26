@@ -3,11 +3,7 @@
 #+SUBTITLE:CSC100 Introduction to programming in C/C++ Summer 2022
 #+STARTUP: overview hideblocks
 #+OPTIONS: toc:1 ^:nil
-#+PROPERTY: header-args:C :main yes
-#+PROPERTY: header-args:C :includes <stdio.h>
-#+PROPERTY: header-args:C :exports both
-#+PROPERTY: header-args:C :results output
-#+PROPERTY: header-args:C :comments both
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :exports both :results output :comments both
 * README
 
   - This script summarizes and adds to the treatment by King (2008),
@@ -669,33 +665,24 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
     nonsense (or rather, memory fragments from God knows where).
 
   * The following statement reads an ~int~ value and stores it in the
-    variable ~i~. To run it, you have to tangle the code block (with
-    ~C-u C-c C-v t~), compile and run it on the command line - not on
-    the simulated ~eshell~ or the Emacs ~shell~, but on the Windows
-    CMD terminal command line[fn:13].
+    variable ~i~.[fn:13]. The input comes from the file ~./data/input~.
+
     #+name: iscan
-    #+begin_src C :tangle iscan.c :main yes :includes <stdio.h>
+    #+begin_src C :tangle iscan.c :cmdline < ./data/input
       int i;
       puts("Enter an integer!");
       scanf("%d", &i);
       printf("You entered %d\n", i);
     #+end_src
 
-  * [X] Class assignment:
-    - modify the program [[iscan]] to read a ~float~ instead of an ~int~
-    - tangle it as ~fscan.c~
-    - compile and run it in the terminal: ~gcc -o fscan fscan.c~
+    #+RESULTS: iscan
+    : Enter an integer!
+    : You entered 5
 
-  * SOLUTION: change ~int~ to ~float~ in the declaration, and ~%d~ to
-    ~%f~ in the ~scanf~ function.
-    #+name: fscan
-    #+begin_src C :main yes :includes <stdio.h> :tangle fscan.c
-      float i;
-      puts("Enter an floating point number!");
-      scanf("%f", &i);
-      printf("You entered %f\n", i);
-    #+end_src
-
+  * To input a floating-point (~float~) variable, you need to specify
+    the format with ~%f~ both in the ~scanf~ and in the ~printf~
+    statement. We'll learn more about format specifiers soon.
+  
 * Naming identifiers
 ** Naming conventions
 
@@ -1019,7 +1006,10 @@ volume.
 it in the MinGW directory - there's an ~/include~ subdirectory that
 contains many header/library files ~.h~.
 
-[fn:13]You could try and run it in Emacs. Can you explain the result?
+[fn:13]You cannot enter input in an Org-mode file interactively. You
+either have to tangle the code and compile/run it on the command line,
+or redirect the input using the ~:cmdline < file~ header argument,
+where ~file~ contains the input.
 
 [fn:14]The tokenization is an important sub-process of natural language
 processing, a data science discipline that is responsible for language
