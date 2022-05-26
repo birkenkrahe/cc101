@@ -14,7 +14,8 @@
 #+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
 #+REVEAL_REVEAL_JS_VERSION: 4
 #+REVEAL_INIT_OPTIONS: slideNumber:true
-#+REVEAL_THEME: black
+#+REVEAL_THEME: serif
+#+OPTIONS: timestamp:nil toc:1 num:nil
 :END:
 * README
 
@@ -27,6 +28,7 @@
 
 * What you will learn:
 
+  #+attr_reveal: :frag (appear)
 - What is literate programming
 - How to tangle code and weave documentation
 - Understanding Org-mode code blocks
@@ -39,9 +41,13 @@
   block "[[pgm:readme]]":
 
   #+name: pgm:readme
-  #+begin_src C :tangle ../src/readme.c
+  #+begin_src C :tangle ../src/readme.c :results outputs :includes <stdio.h.>
     puts("Yes, it works.");
   #+end_src
+
+  #+RESULTS: pgm:readme
+  | Yes | it works. |
+
 
   Anything else but the output ~Yes, it works~ spells trouble:
   + Check that you have a ~.emacs~ file in ~$HOME~.
@@ -71,7 +77,7 @@
 - A programming /paradigm/ that produces programs both for humans and
   for machines, invented by Donald Knuth since 1984.
 
-  #+attr_html: :width 700px
+  #+attr_html: :width 800px
   #+caption: What is literate programming? (2022)
   [[../img/litprog22.png]]
 
@@ -89,7 +95,7 @@
 - The code in this file can be /tangled/ into a C source code file,
   and it can be /woven/ into documentation (in different formats).
 
-  #+attr_html: :width 600px
+  #+attr_html: :width 800px
   #+caption: Tangling and weaving a literate program
   [[../img/cweb.png]]
 

@@ -195,6 +195,17 @@ Which key points do you remember [[https://www.youtube.com/watch?v=smGalmxPVYc][
 - [ ] Download/complete Org-mode practice file practice.org
 - [ ] *Submit file practice.org to Schoology*
 
+*** Recap
+
+    1) ~./~ stands for the current directory (~$PWD~)
+    2) There are usually many options to get the computer to do one and
+       the same thing - they differ by convenience, speed,...
+    3) You can use ~wget~ to download files from the web using only the
+       URL (the Uniform Resource Locator)
+    4) The ~ls~ command lists files (and directories)
+    5) Climbing around the file tree with ~cd ..~ (to get one directory
+       up from ~$PWD~. 
+
 ** 27-May (Fri) - Introduction to C
 
 - [ ] *Complete quiz 1 in Schoology*
