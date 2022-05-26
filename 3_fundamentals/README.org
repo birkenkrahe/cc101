@@ -1,9 +1,20 @@
 #+TITLE:C Basics
 #+AUTHOR:Marcus Birkenkrahe
 #+SUBTITLE:CSC100 Introduction to programming in C/C++ Summer 2022
+#+DATE: <2022-05-26 Thu>
 #+STARTUP: overview hideblocks
 #+OPTIONS: toc:1 ^:nil
-#+PROPERTY: header-args:C :main yes :includes <stdio.h> :exports both :results output :comments both
+:PROPERTIES:
+#+PROPERTY: header-args:C :main yes 
+#+PROPERTY: header-args:C :includes <stdio.h>
+#+PROPERTY: header-args:C :exports both
+#+PROPERTY: header-args:C :results output
+#+PROPERTY: header-args:C :comments both
+:END:
+:REVEAL_PROPERTIES:
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js
+#+REVEAL_REVEAL_JS_VERSION: 4
+:END:
 * README
 
   - This script summarizes and adds to the treatment by King (2008),
@@ -280,7 +291,7 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
     #+end_src
 
   - A /string literal/ assigned to a ~float~ variable contains a decimal
-    point and the letter ~f~, as shown in [[fp]].
+    point and the letter ~f~, as shown in [[fp1]].
 
     #+name: fp1
     #+begin_src C :results silent
