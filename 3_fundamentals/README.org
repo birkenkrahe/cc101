@@ -319,7 +319,7 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
   - [ ] Variables with values can be used to compute other values, as
     shown in [[compute]]
 
-    How many things does this little program have to do[fn:16]?
+    How many things does this little program have to do[fn:9]?
     
     #+name: compute
     #+begin_src C :results silent
@@ -350,7 +350,7 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
    * We use the built-in (via ~stdio.h~) function ~printf~ to print.
 
    * We also used ~puts~ in the past, which includes the newline
-     character ~\n~ that we need to add for ~printf~[fn:9].
+     character ~\n~ that we need to add for ~printf~[fn:10].
 
    * the standard input/output library ~stdio.h~ also contains
      ~putchar()~, which prints a character to the screen.
@@ -453,7 +453,7 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
   * Shipping fees are based on volume instead of weight. For the
     conversion, the volume is divided by 166. If the result exceeds
     the actual weight, the shipping fee is based on the "dimensional
-    weight"[fn:10].
+    weight"[fn:11].
 
   * [ ] We write a program to compute the dimensional ~weight~ of a box of
     given ~volume~ - we use ~/~ for division. Let's say the box is
@@ -489,7 +489,7 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
   * This is not what we need. When dividing one integer by another, C
     "truncates" the answer - the result is rounded down, but the
     shipping company wants us to round up. This can be achieved by
-    adding 165 to the volume before dividing by 166[fn:11] as shown in
+    adding 165 to the volume before dividing by 166[fn:12] as shown in
     [[dweight]].
 
     #+name: dweight
@@ -619,7 +619,7 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
      #+caption: Mathematical constants in /usr/include/math.h
      [[./img/math.png]]
 
-   * [ ] Where is ~math.h~ in Windows[fn:12]? Where in MacOS? Find the file,
+   * [ ] Where is ~math.h~ in Windows[fn:13]? Where in MacOS? Find the file,
      open and look at it in Emacs (the file is read-only).
 
      #+begin_src C
@@ -676,7 +676,7 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
     nonsense (or rather, memory fragments from God knows where).
 
   * The following statement reads an ~int~ value and stores it in the
-    variable ~i~.[fn:13]. The input comes from the file ~./data/input~.
+    variable ~i~.[fn:14]. The input comes from the file ~./data/input~.
 
     #+name: iscan
     #+begin_src C :tangle iscan.c :cmdline < ./data/input
@@ -785,103 +785,104 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
 
 * Program Layout
 
-  * You can think of a program statement as a series of tokens[fn:14]:
+   * You can think of a program statement as a series of tokens[fn:15]:
 
-    #+name: tokenization
-    #+begin_example
-     printf ( "Height: %d\n"   ,   height )  ;
-       1    2        3         2     5    6  7
-    #+end_example
+     #+name: tokenization
+     #+begin_example
+      printf ( "Height: %d\n"   ,   height )  ;
+	1    2        3         2     5    6  7
+     #+end_example
 
-    |   | TOKEN          | MEANING                              |
-    |---+----------------+--------------------------------------|
-    | 1 | identifier     | protected C keyword  (function)      |
-    | 2 | punctuation    | function call begins                 |
-    | 3 | string literal | text + formatting + escape character |
-    | 4 | punctuation    | separator                            |
-    | 5 | identifier     | integer variable                     |
-    | 6 | punctuation    | function call ends                   |
-    | 7 | punctuation    | statement closure                    |
+     |   | TOKEN          | MEANING                              |
+     |---+----------------+--------------------------------------|
+     | 1 | identifier     | protected C keyword  (function)      |
+     | 2 | punctuation    | function call begins                 |
+     | 3 | string literal | text + formatting + escape character |
+     | 4 | punctuation    | separator                            |
+     | 5 | identifier     | integer variable                     |
+     | 6 | punctuation    | function call ends                   |
+     | 7 | punctuation    | statement closure                    |
 
-  * You can have any amount of white (empty) space between program
-    tokens (this is not so for all programming languages[fn:15]).
+   * You can have any amount of white (empty) space between program
+     tokens (this is not so for all programming languages[fn:16]).
 
-  * [X] As an example, here is a version of ~dweight~ that works just
-    as well, on one line, with almost all whitespace deleted. Only in
-    one place, the space is needed. Can you see where?
+   * [ ] As an example, here is a version of ~dweight.c~ that works just
+     as well, on one line, with almost all whitespace deleted. Only in
+     one place, the space is needed. Can you see where?
 
-    #+name: dweight_one_line
-    #+begin_src C
-      int height,length,width,volume,weight;height=8;length=12;width=10;volume=height*length*width;weight=(volume+165)/166;printf("Dimensions: %dx%dx%d\n",length,width,height);printf("Volume (cubic inches): %d\n",volume);printf("Dimensional weight (pounds): %d\n",weight);
-    #+end_src
+     #+name: dweight_one_line
+     #+begin_src C
+       int height,length,width,volume,weight;height=8;length=12;width=10;volume=height*length*width;weight=(volume+165)/166;printf("Dimensions: %dx%dx%d\n",length,width,height);printf("Volume (cubic inches): %d\n",volume);printf("Dimensional weight (pounds): %d\n",weight);
+     #+end_src
 
-  * Another exception are the preprocessor directives - they need to
-    be on a line of their own.
+   * Another exception are the preprocessor directives - they need to
+     be on a line of their own[fn:17].
 
-    #+name: preprocessor
-    #+begin_src C :results silent
-      #include "stdio.h"
-      #define  CONSTANT 5
-    #+end_src
+     #+name: preprocessor
+     #+begin_src C :results silent
+       #include <stdio.h>
+       #define  CONSTANT 5
+     #+end_src
 
-  * You can divide statements over any number of lines as long as you
-    don't divide keywords or tokens. This works:
+   * You can divide statements over any number of lines as long as you
+     don't divide keywords or tokens. This works:
 
-    #+begin_src C
-      int
-      height
-      = 5
-        ;
-      printf
-      (
-       "height %d\n" ,
-       height)
-      ;
-    #+end_src
+     #+begin_src C
+       int
+       height
+       = 5
+         ;
+       printf
+       (
+	"height %d\n" ,
+	height)
+       ;
+     #+end_src
 
-    #+RESULTS:
-    : height 5
+     #+RESULTS:
+     : height 5
 
-  * But this does not:
+   * But this does not:
 
-    #+begin_example C :results silent
-      int
-      hei ght
-      = 5
-        ;
-      print f
-      (
-       "height
-       %d\n" ,
-       height)
-        ;
-    #+end_example
-    - The variable ~height~ is not declared
-    - The ~printf~ function is not recognized
-    - The string literal is not complete
+     #+begin_example C 
+       int
+       hei ght
+       = 5
+         ;
+       print f
+       (
+	"height
+	%d\n" ,
+	height)
+         ;
+     #+end_example
 
-  * Good practice:
-    - Space between tokens makes identification easier
-    - Indentation makes nesting easier to spot
-    - Blank lines can divide a program into logical units
+     - The variable ~height~ is not declared
+     - The ~printf~ function is not recognized
+     - The string literal is not complete
 
-  * [X] Practice: improve the layout of this program ([[https://drive.google.com/file/d/1FSc4gQVBf6f62qiAsJ81rGdHHkf5Tff2/view?usp=sharing][get it from
-    GDrive]]), then run it.
+   * Good practice:
+     - Space between tokens makes identification easier
+     - Indentation makes nesting easier to spot
+     - Blank lines can divide a program into logical units
 
-    #+name: layout
-    #+begin_src C :tangle src/layout.c :results output
-      int var1=1;int var2;var2=
-                            var1
-                            ,*100;
-      printf (      "Variable1=%d,variable2=%d\n",
-                    var1,
+   * [ ] Practice: improve the layout of this program ([[https://drive.google.com/file/d/1FSc4gQVBf6f62qiAsJ81rGdHHkf5Tff2/view?usp=sharing][get it from
+     GDrive]]), then run it.
 
-                    var2
-                    );
-    #+end_src
+     #+name: layout
+     #+begin_src C :tangle src/layout.c :results output
+       int var1=1;int var2;var2=
+                             var1
+                             ,*100;
+       printf (      "Variable1=%d,variable2=%d\n",
+                     var1,
 
-    #+RESULTS: layout
-    : Variable1=1,variable2=100
+                     var2
+                     );
+     #+end_src
+
+     #+RESULTS: layout
+     : Variable1=1,variable2=100
 
 * Summary
 
@@ -950,8 +951,6 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
     knking.com]].
 
 * Footnotes
-[fn:16] Answer: (1) memory allocation for four integer variables; (2)
-assignments for four variables; (3) multiplication of three integers.
 
 [fn:1] In our case, instead of weaving TeX files (~.tex~) to print, we
 weave Markdown files (~.md~), or WORD (~*.odt~) files, or we dispense with
@@ -992,9 +991,12 @@ before they can be used.
 
 [fn:8]The declaration must precede the use of the variable.
 
-[fn:9][[https://www.geeksforgeeks.org/puts-vs-printf-for-printing-a-string/][See here]] for a comparison of ~printf()~ vs. ~puts()~.
+[fn:9] Answer: (1) memory allocation for four integer variables; (2)
+assignments for four variables; (3) multiplication of three integers.
 
-[fn:10]
+[fn:10][[https://www.geeksforgeeks.org/puts-vs-printf-for-printing-a-string/][See here]] for a comparison of ~printf()~ vs. ~puts()~.
+
+[fn:11]
 #+begin_quote
 "Cargo space has physical limits based on the volume of the cargo and
 the weight. The reason why both volume & weight are evaluated can be
@@ -1010,23 +1012,27 @@ the transportation costs. The greater of the two weights is also
 commonly referred to as ‘chargeable weight’." (UniRelo 2020)
 #+end_quote
 
-[fn:11]165/166 is 0.9939759, so we've just messed with the actual
+[fn:12]165/166 is 0.9939759, so we've just messed with the actual
 volume.
 
-[fn:12]If you installed the MinGW compiler (GCC for Windows), look for
+[fn:13]If you installed the MinGW compiler (GCC for Windows), look for
 it in the MinGW directory - there's an ~/include~ subdirectory that
 contains many header/library files ~.h~.
 
-[fn:13]You cannot enter input in an Org-mode file interactively. You
+[fn:14]You cannot enter input in an Org-mode file interactively. You
 either have to tangle the code and compile/run it on the command line,
 or redirect the input using the ~:cmdline < file~ header argument,
 where ~file~ contains the input.
 
-[fn:14]The tokenization is an important sub-process of natural language
+[fn:15]The tokenization is an important sub-process of natural language
 processing, a data science discipline that is responsible for language
 assistants like Siri, robotic calls, auto-coding and machine
 translation (like Google translate).
 
-[fn:15]Python e.g. is white-space sensitive: the indentation level is
+[fn:16]Python e.g. is white-space sensitive: the indentation level is
 significant, it denotes code blocks, and needs to be consistent. The
 same goes for Org-mode markdown and code blocks.
+
+[fn:17]The ~<..>~ brackets indicate that the file in between the
+brackets can be found in the system ~PATH~. If a local file is included,
+use double apostrophes ~".."~.
