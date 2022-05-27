@@ -1,3 +1,6 @@
+#+TITLE: Emacs Org-mode practice file
+#+AUTHOR: Marcus Birkenkrahe [pledged]
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output
 * README
 
   * This file is a practice file for using the GNU Emacs editor with
@@ -66,6 +69,13 @@
   
   ----- Put your list here: -----
 
+  - butter
+  - honey
+  - bread
+  - milk
+  - [X] 
+  - [X] 
+  
 * TODO Establish meta header to run code blocks
 
   Here you create a C source code block with header arguments.
@@ -92,7 +102,7 @@
      look like this: ~#+begin_src C~
 
   3) This is now a C source code block. Name the code block by adding
-     ~#+name: 1st_pgm~ right above the ~#+begin_src C~.
+     ~#+name: 1st_pgm~ right above the ~#+begin_src C~. Link: [[1st_pgm]]
 
   4) Add some C code between the ~#+begin_src~ and ~#+end_src~. Click ~TAB~
      to auto-indent lines or ~M-q~ to auto-indent a marked region. Enter
@@ -103,10 +113,20 @@
 
      The result should show some /syntax highlighting/ - the layout
      highlights structures of the programming language. Here is [[https://github.com/birkenkrahe/cc101/blob/piHome/2_installation/img/pgm1.png][one
-     example]], and [[https://github.com/birkenkrahe/cc101/blob/piHome/2_installation/img/pgm1.png][here is another one]]. 
+     example]], and [[https://github.com/birkenkrahe/cc101/blob/piHome/2_installation/img/pgm2.png][here is another one]]. 
 
      ----- Put your 1st code block here: -----
-  
+
+     #+name: 1st_pgm
+     #+begin_src C
+       puts("To C or not to C,");
+       puts("that is the question.");
+     #+end_src
+
+     #+RESULTS: 1st_pgm
+     : To C or not to C,
+     : that is the question.
+
 * TODO Create another code block
 
   1) Create another code block and name it ~2nd_pgm~.
@@ -124,6 +144,16 @@
 
      ----- Put your 2nd code block here: -----
 
+     #+name: 2nd_pgm
+     #+begin_src C :tangle pgm.c 
+       puts("To C or not to C,");
+       puts("that is the question.");
+     #+end_src
+
+     #+RESULTS: 2nd_pgm
+     : To C or not to C,
+     : that is the question.
+  
 * TODO Reference a code block using its ~#+name~
 
 You can use the header argument ~:noweb yes~ to tangle named code chunks
@@ -136,11 +166,21 @@ into other code chunks.
 
 3) Change the name of the code chunk to [[3rd_pgm_2]] and run it again.
    
-#+name: 3rd_pgm_1
+#+name: 3rd_pgm_2
 #+begin_src C :noweb yes
-  ...
+  <<1st_pgm>>
   puts("Another line");
 #+end_src
+
+#+RESULTS: 3rd_pgm_2
+: To C or not to C,
+: that is the question.
+: Another line
+
+#+RESULTS: 3rd_pgm_1
+: To C or not to C,
+: that is the question.
+: Another line
 
 * TODO Run the code blocks
 

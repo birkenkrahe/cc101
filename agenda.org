@@ -210,9 +210,10 @@
 
 ** 27-May (Fri) - Introduction to C
 
-   - [ ] RECAP = *Complete quiz 1 in Schoology*
-   - [X] Download/complete Org-mode practice file practice.org
+   - [X] RECAP = *Complete quiz 1 in Schoology*
+   - [X] Complete Org-mode practice file practice.org
    - [ ] *Submit file practice.org to Schoology*
+   - [ ] Complete GNU Emacs tutorial
 
 *** Recommendations: memory lane
 
