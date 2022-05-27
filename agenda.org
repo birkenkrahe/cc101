@@ -212,7 +212,7 @@
 
    - [X] RECAP = *Complete quiz 1 in Schoology*
    - [X] Complete Org-mode practice file practice.org
-   - [ ] *Submit file practice.org to Schoology*
+   - [X] *Submit file practice.org to Schoology*
    - [ ] Complete GNU Emacs tutorial
 
 *** Recommendations: memory lane
