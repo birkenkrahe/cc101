@@ -19,7 +19,7 @@ DEADLINE: <2022-06-01 Wed 13:00>
    #+end_example
 8) Run the code block inside Emacs.
 9) Tangle the code block as a file ~hello.c~.
-10) Open a shell inside Egmacs with ~M-x shell~.
+10) Open a shell inside Emacs with ~M-x shell~.
 11) Compile and run the program ~hello.c~ in the shell.
 12) Compress the files ~hello.c~ and ~hello.org~ in the shell[fn:1]:
     #+begin_example
