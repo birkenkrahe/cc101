@@ -16,7 +16,7 @@
   See the [[file:syllabus.org][course syllabus]] for a detailed schedule.
 
 * Week 1 - Hello, world
-** 24-May (Tue) - Hello, C
+** Overview
 
    - [X] Entry quiz (Google Forms)
    - [X] Why C Programming Is Awesome (YouTube)
@@ -147,7 +147,7 @@
       4) unplug the USB-mouse and the HDMI cable
       5) stow mouse, cable and Pi 400 in the box
 
-** 25-May (Wed) - Hello, Linux
+** Hello, Linux
 
    - [X] Short recap
    - [X] C Toolchain practice
@@ -190,7 +190,7 @@
     #+attr_html: :width 300px
     [[./img/steinhart.png]]
 
-** 26-May (Thu) - Hello, Emacs
+** Hello, Emacs
 
    - [X] Literate Programming with Emacs
    - [X] Emacs tutorial - online practice (~C-h t~)
@@ -208,9 +208,9 @@
     5) Climbing around the file tree with ~cd ..~ (to get one directory
        up from ~$PWD~.
 
-** 27-May (Fri) - Introduction to C
+** Hello, Org-mode
 
-   - [X] RECAP = *Complete quiz 1 in Schoology*
+   - [X] Recap = *Complete quiz 1 in Schoology*
    - [X] Complete Org-mode practice file practice.org
    - [X] *Submit file practice.org to Schoology*
    - [ ] Complete GNU Emacs tutorial
@@ -241,14 +241,28 @@
       #+attr_html: :width 200px
       [[./img/unix.jpg]]
     
-*** Introduction to C
+* Week 2 - C Fundamentals
+** Housekeeping
+
+   - [ ] Update and upgrade OS
+   - [ ] Install and try ~treemacs~ package
+
+** Recap and assignment
+
+    - [ ] Recap = *Complete quiz 2 in Schoology* 
+    - [ ] Complete Emacs tutorial
+    - [ ] *Programming assignment 1*: Org-mode file (you can complete
+      this at the end of class or at home if you take the Pi home; or
+      you could [[https://github.com/birkenkrahe/org/blob/master/FAQ.org#how-can-i-install-emacs-as-a-data-science-ide-on-windows-10][install Emacs]] and [[https://github.com/birkenkrahe/org/blob/master/FAQ.org#how-to-install-gcc--a-c-compiler-under-windows-and-macos][install GCC]] on your Windows laptop,
+      see [[https://github.com/birkenkrahe/org/blob/master/FAQ.org][FAQ in GitHub]]).
+      
+** Introduction to C
 
     - [ ] What is C and why is it important?
     - [ ] How computers work
     - [ ] How programs are processed
     - [ ] C vs. C++
 
-* Week 2 - C Fundamentals / Flow control
 ** C Fundamentals
 
    - [ ] Commenting
@@ -259,12 +273,6 @@
    - [ ] Org-mode practice file
    - [ ] *Program assignment 1*
    - [ ] *Submit files to Schoology*
-
-* Week 3 - Iteration
-
-* Week 4 - Management
-
-* Week 5 - Applications
 
 * Footnotes
 

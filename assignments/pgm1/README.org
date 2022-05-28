@@ -1,0 +1,42 @@
+* IN PROGRESS Hello world program in Org-mode code block
+DEADLINE: <2022-06-01 Wed 13:00>
+
+1) Create an Org-mode file ~hello.org~ in Emacs (~C-x C-f hello.org~)
+2) In the file, add an Org-mode file header including the ~#title:~ and
+   you as the ~#+author:~, and include ~[pledged]~.
+3) Write a headline ~Hello World Program~. 
+4) Write a short text explaining the purpose of the program, and
+   include a link to a source code block named ~pgm:hello~.
+5) Create a C source code block named ~pgm:hello~. Remember ~<s TAB~ as a
+   shortcut.
+6) Add these header-arguments to the code block:
+   #+begin_example
+   :main yes :includes <stdio.h> :results output :tangle hello.c
+   #+end_example
+7) Put this C code into the code block: 
+   #+begin_example
+   puts("Hello, world!");
+   #+end_example
+8) Run the code block inside Emacs.
+9) Tangle the code block as a file ~hello.c~.
+10) Open a shell inside Egmacs with ~M-x shell~.
+11) Compile and run the program ~hello.c~ in the shell.
+12) Compress the files ~hello.c~ and ~hello.org~ in the shell[fn:1]:
+    #+begin_example
+    $  tar -cvf yourName.tar hello.c hello.org
+    #+end_example
+13) Submit the /tarball/ ~yourName.tar~ via Schoology[fn:2]
+
+* Footnotes
+
+[fn:2]You can do this exercise at the end or after class, or you can
+take the Raspberry Pi home to do it at home, or you can install Emacs
+and GCC on your Windows laptop (I'm happy to help). Emacs/GCC is also
+installed on all desktop computers in Lyon 104. For installation
+instructions, see
+https://github.com/birkenkrahe/org/blob/master/FAQ.org. Also, on
+Windows, use the CMD terminal outside of Emacs or the ~M-x eshell~
+program inside Emacs instead.
+
+[fn:1]If you do this on Windows, use ZIP instead of GNU ~tar~ and submit
+a ~.zip~ file instead.
