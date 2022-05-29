@@ -28,17 +28,11 @@ Submit your solution as an Emacs Org-mode file including the usual
 header information (title, author, pledged), in Schoology.
 
 The Org-mode file should also contain the output for the three test
-cases. Remember that each time you change the name of the code block,
-you get a different output:
+cases after the code block.
 
-#+name: Jordan
-#+begin_src C :export both
-char i1 = 100, i2 = 200;
-printf("%d\n", i2);
-#+end_src
+#+begin_example
+  : Marcus Birkenkrahe's height: 1.80 m = 1.9039e-16 light-years
+  : Michael Jordan's height:	 1.98 m = 2.0943e-16 light-years
+  : Napoleon Bonaparte's height: 1.67 m = 1.7664e-16 light-years
+#+end_example
 
-#+RESULTS: Jordan
-: 200
-
-#+RESULTS: Napoleon
-: 100
