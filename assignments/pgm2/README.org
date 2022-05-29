@@ -32,7 +32,7 @@ cases. Remember that each time you change the name of the code block,
 you get a different output:
 
 #+name: Jordan
-#+begin_src C
+#+begin_src C :export both
 char i1 = 100, i2 = 200;
 printf("%d\n", i2);
 #+end_src
