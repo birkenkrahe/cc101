@@ -1,0 +1,44 @@
+* Your height in light-years[fn:3]
+** Preamble
+
+The numerical value of many physical quantities depends on the unit
+one chooses to measure them. My height is 1.8 m or 180 cm, or 1.90e-16
+light-years.
+
+The use of light-years as a unit of distance is weird but common in
+physics: since 1983, the speed of light is defined to be exactly c =
+299,792,458 m/s, and this serves as a definition of the meter given
+the unit of time.
+
+** Problem
+
+Write a C program that computes three heights in light-years:
+
+| HEIGHT [m] | WHO                |
+|------------+--------------------|
+|        1.8 | Marcus Birkenkrahe |
+|       1.98 | Michael Jordan     |
+|       1.67 | Napoleon Bonaparte |
+
+Not considering leap years, a year is 31,536,000 seconds long.
+
+** Submission
+
+Submit your solution as an Emacs Org-mode file including the usual
+header information (title, author, pledged), in Schoology.
+
+The Org-mode file should also contain the output for the three test
+cases. Remember that each time you change the name of the code block,
+you get a different output:
+
+#+name: Jordan
+#+begin_src C
+char i1 = 100, i2 = 200;
+printf("%d\n", i2);
+#+end_src
+
+#+RESULTS: Jordan
+: 200
+
+#+RESULTS: Napoleon
+: 100
