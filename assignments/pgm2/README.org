@@ -38,6 +38,7 @@ cases after the code block.
 
 * Footnotes
 
-[fn:1]The idea for this program came from a new book, "Quantum Field
-Theory? A first introduction for mathematicians" (Talagrand, 2022).
+[fn:1]The idea for this program came from a new book that I'm reading
+now, [[https://www.amazon.com/Quantum-Field-Theory-Michel-Talagrand-ebook/dp/B09SV9GNDN]["Quantum Field Theory? A first introduction for mathematicians"
+(Talagrand, 2022)]].
 
