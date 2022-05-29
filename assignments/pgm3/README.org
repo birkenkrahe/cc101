@@ -1,0 +1,42 @@
+** IN PROGRESS Your height in light-years (reloaded)
+DEADLINE: <2022-06-06 Mon 13:00>
+
+*** Problem
+
+1) Modify the program that converted three specific height values from
+   meters to light-years to compute the light-year equivalent of any
+   height value in meters passed to the program as input.
+   
+2) Enter the three heights from the first program as test cases as
+   command line input. To do this in Emacs, use the ~:cmdline < input~
+   header argument.
+
+3) To generate the ~input~ file, you can use this code block:
+
+   #+begin_src bash
+     echo 1.67 > ./data/input  ## create input file
+     cat ./data/input ## check input file
+   #+end_src
+
+   #+RESULTS:
+   : 1.67
+
+   It redirects the number for the height into a file that is then
+   picked up by the code block.
+
+*** Submission
+
+Submit your solution as an Emacs Org-mode file including the usual
+header information (title, author, pledged), in Schoology.
+
+The solution should contain the output after the code block.
+
+#+begin_example
+  : A height of 1.80 m is equivalent to 1.9039e-16 light-years
+#+end_example
+
+PS. on a Windows box, you need to install a Linux program bundle like
+Cygwin to get bash and other tools. [[https://www.cygwin.com/install.html][The installation is easy]] and well
+worth it. Ask me for support if you're interested. Alternatively,
+there are different ways to get proper Linux on your Windows box.
+
