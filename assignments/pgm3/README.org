@@ -1,5 +1,12 @@
-** IN PROGRESS Your height in light-years (reloaded)
-DEADLINE: <2022-06-06 Mon 13:00>
+#+TITLE:Pgm 2: Your Height In Light-Years v2
+#+AUTHOR:Marcus Birkenkrahe
+#+SUBTITLE:Programming assignment 3 - Intro to Programming in C, Summer 2022
+#+STARTUP:overview hideblocks
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :exports both :comments both
+** Your height in light-years (reloaded)
+
+  [[https://lyon.schoology.com/assignment/5968584298/info][Assignment in Schoology]]
 
 *** Problem
 
@@ -39,4 +46,3 @@ PS. on a Windows box, you need to install a Linux program bundle like
 Cygwin to get bash and other tools. [[https://www.cygwin.com/install.html][The installation is easy]] and well
 worth it. Ask me for support if you're interested. Alternatively,
 there are different ways to get proper Linux on your Windows box.
-

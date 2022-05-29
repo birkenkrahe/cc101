@@ -1,4 +1,13 @@
+#+TITLE:Pgm 2: Your Height In Light-Years 
+#+AUTHOR:Marcus Birkenkrahe
+#+SUBTITLE:Programming assignment 2 - Intro to Programming in C, Summer 2022
+#+STARTUP:overview hideblocks
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :exports both :comments both
 * Your height in light-years[fn:1]
+
+  [[https://lyon.schoology.com/assignment/5968509731][Assignment in Schoology.]]
+
 ** Preamble
 
 The numerical value of many physical quantities depends on the unit

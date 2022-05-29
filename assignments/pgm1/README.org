@@ -1,5 +1,12 @@
-* IN PROGRESS Hello world program in Org-mode code block
-DEADLINE: <2022-06-01 Wed 13:00>
+#+TITLE:Pgm 1: Hello World Program in Org-Mode
+#+AUTHOR:Marcus Birkenkrahe
+#+SUBTITLE:Programming assignment 1 - Intro to Programming in C, Summer 2022
+#+STARTUP:overview hideblocks
+#+OPTIONS: toc:nil num:nil ^:nil
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :exports both :comments both
+* Hello world program in Org-mode code block
+
+[[https://lyon.schoology.com/assignment/5968463311][(Assignment in Schoology.)]]
 
 1) Create an Org-mode file ~hello.org~ in Emacs (~C-x C-f hello.org~)
 2) In the file, add an Org-mode file header including the ~#title:~ and
