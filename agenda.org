@@ -256,6 +256,12 @@ basics of the GitHub process, important for software development.
   In Emacs: M-x treemacs
   #+end_example
 
+- [ ] Pi @ home: *"If you break it, you buy it."*
+  #+begin_quote
+  If you break the Pi 400 computer (pour coffee over it, or damage it
+  in any way that makes it unusable), you must replace it (for [[https://www.amazon.com/seeed-studio-Raspberry-Personal-Computer/dp/B08T6KSF7F/][$100]]).
+  #+end_quote
+
 ** Recap and assignment
 
 - [ ] Recap = *Complete quiz 2 in Schoology*
