@@ -313,7 +313,7 @@ Big Think (Jun 13, 2011). Bjarne Stroustrup: Why the Programming
 Language C Is Obsolete | Big Think [video]. [[https://youtu.be/KlPC3O1DVcg][URL:
 youtu.be/KlPC3O1DVcg]].
 
-Brock (October 17, 2019). The Earliest Unix Code: An Anniversary
+pBrock (October 17, 2019). The Earliest Unix Code: An Anniversary
 Source Code Release [Blog]. URL: [[https://computerhistory.org/blog/the-earliest-unix-code-an-anniversary-source-code-release/][computerhistory.org]].
 
 Cass (6 Sept 2019). The Top Programming Languages 2019 > Python

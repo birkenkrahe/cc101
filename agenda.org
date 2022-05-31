@@ -287,7 +287,8 @@ basics of the GitHub process, important for software development.
 - [ ] *Programming assignment:* 3 ([[https://lyon.schoology.com/assignment/5968584298][height oulight-years reloaded]])
 - [ ] *Submit files to Schoology* (1 point less for 1 day late)
 
-**  George Pólya: "How to solve it"
+** Bonus content[fn:7]
+*** George Pólya: "How to solve it"
 
 #+attr_html: :width 200px
 #+caption: How To Solve It by George Pólya (1945)
@@ -297,7 +298,7 @@ basics of the GitHub process, important for software development.
 - [[https://youtu.be/zhL3EMFSm6o][YouTube: Illustration]] (2018)
 - [[https://youtu.be/h0gbw-Ur_do][YouTube: Pólya explains the problem solving technique]] (1966)
 
-** "Should you get a CS degree or can you teach yourself?"
+*** Steve Yegge: "Should you get a CS degree or can you teach yourself?"
 
 #+attr_html: :width 400px
 #+caption: Stevey's Tech Talk E42 (27 March 2022)
@@ -337,6 +338,8 @@ basics of the GitHub process, important for software development.
 
 *Subscribe to his channel!*
 
+* NEXT 
+
 * Glossary
 
 | TERM           | MEANING                  |
@@ -349,16 +352,9 @@ basics of the GitHub process, important for software development.
 | Generalization | Transfer solution        |
 
 * Footnotes
-[fn:6]What if you don't want to become a software engineer or computer
-scientist? Answer: doesn't matter because the ideas and demands of
-computer craft are, by now, ubiquitous and relevant to (almost) any
-job. This is because the success of machines has convinced most
-people, alas, that it's efficient to apply machine rules to
-everything. We know much more about machines now than about humans.
-
-[fn:5]Org-mode file (you can complete this at the end of class or at
-home if you take the Pi home; or you could [[https://github.com/birkenkrahe/org/blob/master/FAQ.org#how-can-i-install-emacs-as-a-data-science-ide-on-windows-10][install Emacs]] and [[https://github.com/birkenkrahe/org/blob/master/FAQ.org#how-to-install-gcc--a-c-compiler-under-windows-and-macos][install
-GCC]] on your Windows laptop, see [[https://github.com/birkenkrahe/org/blob/master/FAQ.org][FAQ in GitHub]]).
+[fn:7]"Bonus content" is content that I have sampled and that I
+present to you as is. Usually these are podcasts or videos, or
+articles that I found interesting and that you might also enjoy.
 
 [fn:1]Popular languages include: C++ (industry), C# (games), Java
 (enterprise), Python (machine learning), PHP (web dev),
@@ -376,3 +372,14 @@ up), managing processes, performance, and guarding the computer.
 e.g. by its use of /pointers/ which we will encounter in this course,
 though more technical memory management techniques are out of our
 reach.
+
+[fn:5]Org-mode file (you can complete this at the end of class or at
+home if you take the Pi home; or you could [[https://github.com/birkenkrahe/org/blob/master/FAQ.org#how-can-i-install-emacs-as-a-data-science-ide-on-windows-10][install Emacs]] and [[https://github.com/birkenkrahe/org/blob/master/FAQ.org#how-to-install-gcc--a-c-compiler-under-windows-and-macos][install
+GCC]] on your Windows laptop, see [[https://github.com/birkenkrahe/org/blob/master/FAQ.org][FAQ in GitHub]]).
+
+[fn:6]What if you don't want to become a software engineer or computer
+scientist? Answer: doesn't matter because the ideas and demands of
+computer craft are, by now, ubiquitous and relevant to (almost) any
+job. This is because the success of machines has convinced most
+people, alas, that it's efficient to apply machine rules to
+everything. We know much more about machines now than about humans.
