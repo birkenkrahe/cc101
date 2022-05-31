@@ -155,34 +155,35 @@ She's a beauty.
 * The Latin of programming languages
 
 The following languages are C-based:
-* C++ (OOP extension of C, games)
-* Java (OOP, VM-portable, and no pointers)
-* C# (Microsoft, games)
-* Perl (scripting, text mining)
+ - C++ (OOP extension of C, games)
+ - Java (OOP, VM-portable, and no pointers)
+ - C# (Microsoft, games)
+ - Perl (scripting, text mining)
 
 #+begin_quote
 "C is to programming languages what Latin is to Western natural
 languages." (Anonymous)
 #+end_quote
 
-* C is lightning fast and terribly tiny
+ - C is lightning fast and terribly tiny
 
-#+begin_quote
-"C is fast because it's the speed of light, and relativity?"[fn:6]
-([[https://stackoverflow.com/questions/418914/why-is-c-so-fast-and-why-arent-other-languages-as-fast-or-faster][Stackoverflow]])
-#+end_quote
+   #+begin_quote
+   "C is fast because it's the speed of light, and relativity?"[fn:6]
+   ([[https://stackoverflow.com/questions/418914/why-is-c-so-fast-and-why-arent-other-languages-as-fast-or-faster][Stackoverflow]])
+   #+end_quote
 
-[[./img/fast.png]]
+* Benchmarking
+     
+   #+caption: Image source: Kostya benchmark, GitHub, Nov 2021
+   [[./img/fast.png]]
 
-...
+    #+caption: Image source: Kostya benchmark, GitHub, Nov 2021
+    [[./img/slow.png]]
 
-[[./img/slow.png]]
-/Image source: [[https://github.com/kostya/benchmarks][Kostya benchmark, GitHub, Nov 2021]]/
-
-* Excerpts for parsing and printing a /Mandelbrot/ set
-* /Benchmarks/ depend on algorithm implementation
-* C always wins the size battle (/memory allocation/)
-* Some very /specialized/ languages are even faster
+ * Excerpts for parsing and printing a /Mandelbrot/ set
+ * /Benchmarks/ depend on algorithm implementation
+ * C always wins the size battle (/memory allocation/)
+ * Some very /specialized/ languages are even faster
 
 * Strengths and weaknesses of C
 
@@ -214,16 +215,16 @@ Source: Lemonaki, 2021.
 
 * Why are we not just learning C++?
 
-* Object-orientation is a difficult paradigm (C++)
-* System programming is pure power (C)
-* C is simpler, smaller, and faster
+ - Object-orientation is a difficult paradigm (C++)
+ - System programming is pure power (C)
+ - C is simpler, smaller, and faster
 
-#+caption: Computer Landscape. (Modified from: Steinhart, 2019)
-#+attr_html: :width 500px
-[[./img/power2.png]]
+ #+caption: Computer Landscape. (Modified from: Steinhart, 2019)
+ #+attr_html: :width 500px
+ [[./img/power2.png]]
 
-- Bjarne Stroustrup (2011): "[[https://youtu.be/KlPC3O1DVcg][C is obsolete]]"[fn:7]
-- Linus Torvalds (2007): "[[http://harmful.cat-v.org/software/c++/linus][C++ is a horrible language]]"[fn:8].
+ - Bjarne Stroustrup (2011): "[[https://youtu.be/KlPC3O1DVcg][C is obsolete]]"[fn:7]
+ - Linus Torvalds (2007): "[[http://harmful.cat-v.org/software/c++/linus][C++ is a horrible language]]"[fn:8].
 
   Also, there's this:
 
@@ -232,9 +233,9 @@ Source: Lemonaki, 2021.
   scientist than studying hammers makes you a carpenter." -[[https://qr.ae/pGzZ9z][Neilsen]]
   #+end_quote
 
-  * It's easy to pick up additional languages
-  * Data structures and algorithms are key to understanding
-  * First language could be anything[fn:9]
+  - It's easy to pick up additional languages
+  - Data structures and algorithms are key to understanding
+  - First language could be anything[fn:9]
 
 * Why am I teaching C/C++?
 
@@ -258,17 +259,17 @@ Whatever happens, good new for learning C.
 #+attr_html: :width 500px
 [[./img/future.png]]
 
-I increasingly see propaganda for [[https://www.incredibuild.com/blog/rust-vs-c-and-is-it-good-for-enterprise][replacing C++ by Rust]] (Kirsh,
-2021), another relatively new language with OOP support and better
-security properties.
+I increasingly see propaganda for [[https://www.incredibuild.com/blog/rust-vs-c-and-is-it-good-for-enterprise][replacing C++ by Rust]] (Kirsh, 2021),
+another relatively new language with OOP support and better security
+properties.
 
 * Summary
 
-* The C programming language was created 50 years ago
-* C is small, simple, very fast, and close to the computer
-* Linux (and Android) are largely written in C
-* The object-oriented programming (OOP) language C++ contains C
-* System programming is a powerful skill set
+ 1) The C programming language was created 50 years ago
+ 2) C is small, simple, very fast, and close to the computer
+ 3) Linux (and Android) are largely written in C
+ 4) The object-oriented programming (OOP) language C++ contains C
+ 5) System programming is a powerful skill set
 
 * Glossary
 
@@ -308,41 +309,56 @@ security properties.
 
 * References
 
-* Big Think (Jun 13, 2011). Bjarne Stroustrup: Why the Programming
+Big Think (Jun 13, 2011). Bjarne Stroustrup: Why the Programming
 Language C Is Obsolete | Big Think [video]. [[https://youtu.be/KlPC3O1DVcg][URL:
 youtu.be/KlPC3O1DVcg]].
-* Brock (October 17, 2019). The Earliest Unix Code: An Anniversary
+
+Brock (October 17, 2019). The Earliest Unix Code: An Anniversary
 Source Code Release [Blog]. URL: [[https://computerhistory.org/blog/the-earliest-unix-code-an-anniversary-source-code-release/][computerhistory.org]].
-* Cass (6 Sept 2019). The Top Programming Languages 2019 > Python
+
+Cass (6 Sept 2019). The Top Programming Languages 2019 > Python
 remains the big kahuna, but specialist languages hold their
 own. IEEE Spectrum. [[https://spectrum.ieee.org/the-top-programming-languages-2019][URL: spectrum.ieee.org]].
-* Chatley R., Donaldson A., Mycroft A. (2019) The Next 7000
-Programming Languages. In: Steffen B., Woeginger G. (eds)
-Computing and Software Science. Lecture Notes in Computer Science,
-vol 10000. Springer,
+
+Chatley R., Donaldson A., Mycroft A. (2019) The Next 7000 Programming
+Languages. In: Steffen B., Woeginger G. (eds) Computing and Software
+Science. Lecture Notes in Computer Science, vol 10000. Springer,
 Cham. https://doi.org/10.1007/978-3-319-91908-9_15
-* Data Flair (n.d.). Applications of C Programming That Will Make
+
+Data Flair (n.d.). Applications of C Programming That Will Make
 You Fall In Love With C [Tutorial]. URL: d[[https://data-flair.training/blogs/applications-of-c/][ata-flair.training.]]
-* DESY (Oct 25, 1995). The C++ Virtual Library. URL: [[https://www.desy.de/user/projects/C++.html][desy.de]]
-* Gustedt (2019). Modern C. Manning.
-* Hock-Chuan (2018). GCC and Make: Compiling, Linking and Building
+
+DESY (Oct 25, 1995). The C++ Virtual Library. URL: [[https://www.desy.de/user/projects/C++.html][desy.de]]
+
+Gustedt (2019). Modern C. Manning.
+
+Hock-Chuan (2018). GCC and Make: Compiling, Linking and Building
 C/C++ Applications [website]. [[https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html][URL: ntu.edu.sg]].
-* Kernighan/Ritchie (1978). The C Programming Language. Prentice
+
+Kernighan/Ritchie (1978). The C Programming Language. Prentice
 Hall. [[https://en.wikipedia.org/wiki/The_C_Programming_Language][Online: wikipedia.org]].
-* King (2008). C Programming - A Modern Approach. Norton. [[http://knking.com/books/c2/index.html][Online:
+
+King (2008). C Programming - A Modern Approach. Norton. [[http://knking.com/books/c2/index.html][Online:
 knking.com]].
-* Kirsh (September 13, 2021). Rust vs C++ and Is It Good for
+
+Kirsh (September 13, 2021). Rust vs C++ and Is It Good for
 Enterprise? [blog]. [[https://www.incredibuild.com/blog/rust-vs-c-and-is-it-good-for-enterprise][URL: www.incredibuild.com]].
-* Lemonaki, Dionysia (November 4, 2021). C vs. C++ - What's The
+
+Lemonaki, Dionysia (November 4, 2021). C vs. C++ - What's The
 Difference [blog]. URL: [[https://www.freecodecamp.org/news/c-vs-cpp-whats-the-difference/][freecodecamp.org.]]
-* Neilsen (Aug 14, 2020). Quora. URL: [[https://qr.ae/pGzZ9z][qr.ae/pGzZ9z]].
-* Steinhart (2019). The Secret Life of Programs. NoStarch
-Press. [[https://nostarch.com/foundationsofcomp][URL: nostarch.com.]]
-* TIOBE (Jan 2022). TIOBE Index for January 2022 [website]. [[https://www.tiobe.com/tiobe-index/][URL:
+
+Neilsen (Aug 14, 2020). Quora. URL: [[https://qr.ae/pGzZ9z][qr.ae/pGzZ9z]].
+
+Steinhart (2019). The Secret Life of Programs. NoStarch Press. [[https://nostarch.com/foundationsofcomp][URL:
+nostarch.com.]]
+
+TIOBE (Jan 2022). TIOBE Index for January 2022 [website]. [[https://www.tiobe.com/tiobe-index/][URL:
 tiobe.com]].
-* Torvalds (6 Sep 2007). Linus Torvalds on C++ [blog]. [[http://harmful.cat-v.org/software/c++/linus][URL:
+
+Torvalds (6 Sep 2007). Linus Torvalds on C++ [blog]. [[http://harmful.cat-v.org/software/c++/linus][URL:
 harmful.cat-v.org]].
-* xkcd(n.d.) Purity [cartoon]. [[https://xkcd.com/435/][URL: xkcd.com/]].
+
+xkcd(n.d.) Purity [cartoon]. [[https://xkcd.com/435/][URL: xkcd.com/]].
 
 * Footnotes
 
