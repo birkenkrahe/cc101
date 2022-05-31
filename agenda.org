@@ -6,275 +6,353 @@
 #+PROPERTY: header-args:C :main yes :includes <stdio.h>
 * README
 
-  Agenda overview - what I had planned and what we achieved in each
-  session of the course.
+Agenda overview - what I had planned and what we achieved in each
+session of the course.
 
-  If we don't manage to finish a topic in one session, it'll be
-  finished in the subsequent session(s) without change of the
-  originally date.
+If we don't manage to finish a topic in one session, it'll be
+finished in the subsequent session(s) without change of the
+originally date.
 
-  See the [[file:syllabus.org][course syllabus]] for a detailed schedule.
+See the [[file:syllabus.org][course syllabus]] for a detailed schedule.
 
 * Week 1 - Hello, world
 ** Overview
 
-   - [X] Entry quiz (Google Forms)
-   - [X] Why C Programming Is Awesome (YouTube)
-   - [X] Setting up the infrastructure
-   - [X] Information about the course
-   - [X] Hello, C - extended example
+- [X] Entry quiz (Google Forms)
+- [X] Why C Programming Is Awesome (YouTube)
+- [X] Setting up the infrastructure
+- [X] Information about the course
+- [X] Hello, C - extended example
 
 *** Why C Programming Is Awesome (2016)
 
-    Which key points do you remember [[https://www.youtube.com/watch?v=smGalmxPVYc][from this video]]?
+Which key points do you remember [[https://www.youtube.com/watch?v=smGalmxPVYc][from this video]]?
 
-    #+begin_quote Key points
-    1) Almost all popular languages are built on top of C[fn:1]
-    2) 500,000 lines of C code powered the Mars Curiosity Rover[fn:2]
-    3) Language of choice for /kernel/ development[fn:3]
-    4) Helps to understand how a computer actually works[fn:4]
-    5) Easy to land a job with C programming knowledge
-    6) Code is portable, efficient, reliable, small
-    #+end_quote
+#+begin_quote Key points
+1) Almost all popular languages are built on top of C[fn:1]
+2) 500,000 lines of C code powered the Mars Curiosity Rover[fn:2]
+3) Language of choice for /kernel/ development[fn:3]
+4) Helps to understand how a computer actually works[fn:4]
+5) Easy to land a job with C programming knowledge
+6) Code is portable, efficient, reliable, small
+#+end_quote
 
 *** Course information
 
-    - All materials are hosted on [[https://github.com/birkenkrahe/cc101][GitHub]]
-    - For formal requirements, grades etc. see [[https://github.com/birkenkrahe/cc101/blob/piHome/syllabus.org][Syllabus]]
-    - Classes include: lecture / practice / programming
-    - Weekly quizzes and final exam (in Schoology)
-    - Final exam is a selection from the weekly quizzes
-    - Programming assignments to be submitted in Schoology
+- All materials are hosted on [[https://github.com/birkenkrahe/cc101][GitHub]]
+- For formal requirements, grades etc. see [[https://github.com/birkenkrahe/cc101/blob/piHome/syllabus.org][Syllabus]]
+- Classes include: lecture / practice / programming
+- Weekly quizzes and final exam (in Schoology)
+- Final exam is a selection from the weekly quizzes
+- Programming assignments to be submitted in Schoology
 
 *** Setting up the hardware infrastructure
 
-    #+attr_html: :width 500px
-    #+caption: Raspberry Pi 400 (Source: raspberrypi.com)
-    [[./img/pi400.png]]
+#+attr_html: :width 500px
+#+caption: Raspberry Pi 400 (Source: raspberrypi.com)
+[[./img/pi400.png]]
 
-    - The Pi 400 contains a credit-card sized System-on-a-chip computer
+- The Pi 400 contains a credit-card sized System-on-a-chip computer
 
-    - For processor information, run ~cat /proc/cpuinfo~ in a terminal
+- For processor information, run ~cat /proc/cpuinfo~ in a terminal
 
-      #+name: cpuinfo
-      #+begin_src bash :results output
-        cat /proc/cpuinfo
-      #+end_src
+  #+name: cpuinfo
+  #+begin_src bash :results output
+    cat /proc/cpuinfo
+  #+end_src
 
-      #+RESULTS: cpuinfo
-      #+begin_example
-      processor     : 0
-      model name    : ARMv7 Processor rev 3 (v7l)
-      BogoMIPS      : 108.00
-      Features      : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32
-      CPU implementer       : 0x41
-      CPU architecture: 7
-      CPU variant   : 0x0
-      CPU part      : 0xd08
-      CPU revision  : 3
+  #+RESULTS: cpuinfo
+  #+begin_example
+  processor     : 0
+  model name    : ARMv7 Processor rev 3 (v7l)
+  BogoMIPS      : 108.00
+  Features      : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32
+  CPU implementer       : 0x41
+  CPU architecture: 7
+  CPU variant   : 0x0
+  CPU part      : 0xd08
+  CPU revision  : 3
 
-      processor     : 1
-      model name    : ARMv7 Processor rev 3 (v7l)
-      BogoMIPS      : 108.00
-      Features      : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32
-      CPU implementer       : 0x41
-      CPU architecture: 7
-      CPU variant   : 0x0
-      CPU part      : 0xd08
-      CPU revision  : 3
+  processor     : 1
+  model name    : ARMv7 Processor rev 3 (v7l)
+  BogoMIPS      : 108.00
+  Features      : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32
+  CPU implementer       : 0x41
+  CPU architecture: 7
+  CPU variant   : 0x0
+  CPU part      : 0xd08
+  CPU revision  : 3
 
-      processor     : 2
-      model name    : ARMv7 Processor rev 3 (v7l)
-      BogoMIPS      : 108.00
-      Features      : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32
-      CPU implementer       : 0x41
-      CPU architecture: 7
-      CPU variant   : 0x0
-      CPU part      : 0xd08
-      CPU revision  : 3
+  processor     : 2
+  model name    : ARMv7 Processor rev 3 (v7l)
+  BogoMIPS      : 108.00
+  Features      : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32
+  CPU implementer       : 0x41
+  CPU architecture: 7
+  CPU variant   : 0x0
+  CPU part      : 0xd08
+  CPU revision  : 3
 
-      processor     : 3
-      model name    : ARMv7 Processor rev 3 (v7l)
-      BogoMIPS      : 108.00
-      Features      : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32
-      CPU implementer       : 0x41
-      CPU architecture: 7
-      CPU variant   : 0x0
-      CPU part      : 0xd08
-      CPU revision  : 3
+  processor     : 3
+  model name    : ARMv7 Processor rev 3 (v7l)
+  BogoMIPS      : 108.00
+  Features      : half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32
+  CPU implementer       : 0x41
+  CPU architecture: 7
+  CPU variant   : 0x0
+  CPU part      : 0xd08
+  CPU revision  : 3
 
-      Hardware      : BCM2711
-      Revision      : c03114
-      Serial                : 10000000186afd4d
-      Model         : Raspberry Pi 4 Model B Rev 1.4
-      #+end_example
+  Hardware      : BCM2711
+  Revision      : c03114
+  Serial                : 10000000186afd4d
+  Model         : Raspberry Pi 4 Model B Rev 1.4
+  #+end_example
 
-    - For OS information, run ~cat /etc/os-release~ in a terminal
+- For OS information, run ~cat /etc/os-release~ in a terminal
 
-      #+name: osinfo
-      #+begin_src bash :results output
-        cat /etc/os-release
-      #+end_src
+  #+name: osinfo
+  #+begin_src bash :results output
+    cat /etc/os-release
+  #+end_src
 
-      #+RESULTS: osinfo
-      #+begin_example
-      PRETTY_NAME="Raspbian GNU/Linux 11 (bullseye)"
-      NAME="Raspbian GNU/Linux"
-      VERSION_ID="11"
-      VERSION="11 (bullseye)"
-      VERSION_CODENAME=bullseye
-      ID=raspbian
-      ID_LIKE=debian
-      HOME_URL="http://www.raspbian.org/"
-      SUPPORT_URL="http://www.raspbian.org/RaspbianForums"
-      BUG_REPORT_URL="http://www.raspbian.org/RaspbianBugs"
-      #+end_example
+  #+RESULTS: osinfo
+  #+begin_example
+  PRETTY_NAME="Raspbian GNU/Linux 11 (bullseye)"
+  NAME="Raspbian GNU/Linux"
+  VERSION_ID="11"
+  VERSION="11 (bullseye)"
+  VERSION_CODENAME=bullseye
+  ID=raspbian
+  ID_LIKE=debian
+  HOME_URL="http://www.raspbian.org/"
+  SUPPORT_URL="http://www.raspbian.org/RaspbianForums"
+  BUG_REPORT_URL="http://www.raspbian.org/RaspbianBugs"
+  #+end_example
 
-    - At the start of every session, you must:
-      1) unpack the Pi 400
-      2) connect the HDMI cable to your monitor
-      3) connect the mouse to on of the Pi 400 USB ports
-      4) pull the LAN cable from the desktop PC
-      5) connect the LAN cable to the Pi 400
-      6) plug the charger and connect it to the Pi 400
-      7) enter ~startx~ at the terminal prompt
-      8) open a browser to [[https://tinyurl.com/3ptbb7zz][tinyurl.com/3ptbb7zz]]
+- At the start of every session, you must:
+  1) unpack the Pi 400
+  2) connect the HDMI cable to your monitor
+  3) connect the mouse to on of the Pi 400 USB ports
+  4) pull the LAN cable from the desktop PC
+  5) connect the LAN cable to the Pi 400
+  6) plug the charger and connect it to the Pi 400
+  7) enter ~startx~ at the terminal prompt
+  8) open a browser to [[https://tinyurl.com/3ptbb7zz][tinyurl.com/3ptbb7zz]]
 
-    - At the end of every session, you must:
-      1) enter ~sudo shutdown now~ at the terminal prompt
-      2) unplug the power from the Pi 400
-      3) unplug the LAN cable and replug it into the desktop PC
-      4) unplug the USB-mouse and the HDMI cable
-      5) stow mouse, cable and Pi 400 in the box
+- At the end of every session, you must:
+  1) enter ~sudo shutdown now~ at the terminal prompt
+  2) unplug the power from the Pi 400
+  3) unplug the LAN cable and replug it into the desktop PC
+  4) unplug the USB-mouse and the HDMI cable
+  5) stow mouse, cable and Pi 400 in the box
 
 ** Hello, Linux
 
-   - [X] Short recap
-   - [X] C Toolchain practice
+- [X] Short recap
+- [X] C Toolchain practice
 
 *** Short recap
 
-    - What (if anything) do you remember from the last session?
-    - What was important to you?
-    - What did you not understand?
-    - What would you like to hear more about?
+- What (if anything) do you remember from the last session?
+- What was important to you?
+- What did you not understand?
+- What would you like to hear more about?
 
-    1) David/Boogie: The Linux guy Linus Torvalds developed both the
-       Linux kernel and the version control system 'Git' (as in
-       GitHub).
+1) David/Boogie: The Linux guy Linus Torvalds developed both the
+   Linux kernel and the version control system 'Git' (as in
+   GitHub).
 
-    2) Michael: the "kernel" (pronounced "colonel") is the nucleus or
-    heart of the operating system (OS).
+2) Michael: the "kernel" (pronounced "colonel") is the nucleus or
+   heart of the operating system (OS).
 
-    3) Rhett: computers depend on "daemons" (e.g. systemd) that wait in
-    the background until called upon; you cannot talk to them directly
+   3) Rhett: computers depend on "daemons" (e.g. systemd) that wait in
+      the background until called upon; you cannot talk to them directly
 
-    4) Keidrick: C code performs very well (it's fast)
+      4) Keidrick: C code performs very well (it's fast)
 
-    5) Alexandrea: (human-readable) C source code has to be compiled
-       into machine code to be executable (binary)
+      5) Alexandrea: (human-readable) C source code has to be compiled
+         into machine code to be executable (binary)
 
 *** GitHub
 
-    The GitHub hello world exercise: [[https://github.com/birkenkrahe/org/blob/master/FAQ.org#completing-the-github-hello-world-exercise][see FAQ]] - this will teach you the
-    basics of the GitHub process, important for software development.
+The GitHub hello world exercise: [[https://github.com/birkenkrahe/org/blob/master/FAQ.org#completing-the-github-hello-world-exercise][see FAQ]] - this will teach you the
+basics of the GitHub process, important for software development.
 
-    #+attr_html: :width 600px
-    #+caption: branch creation and merging (version control)
-    [[./img/github.png]]
+#+attr_html: :width 600px
+#+caption: branch creation and merging (version control)
+[[./img/github.png]]
 
 *** Computer architecture
 
-    [[https://nostarch.com/foundationsofcomp][Book recommendation - The Secret Life of Programs (Steinhart, 2019)]]
+[[https://nostarch.com/foundationsofcomp][Book recommendation - The Secret Life of Programs (Steinhart, 2019)]]
 
-    #+attr_html: :width 300px
-    [[./img/steinhart.png]]
+#+attr_html: :width 300px
+[[./img/steinhart.png]]
 
 ** Hello, Emacs
 
-   - [X] Literate Programming with Emacs
-   - [X] Emacs tutorial - online practice (~C-h t~)
-   - [X] Download/complete Org-mode practice file practice.org
-   - [ ] *Submit file practice.org to Schoology*
+- [X] Literate Programming with Emacs
+- [X] Emacs tutorial - online practice (~C-h t~)
+- [X] Download/complete Org-mode practice file practice.org
+- [ ] *Submit file practice.org to Schoology*
 
 *** Recap
 
-    1) ~./~ stands for the current directory (~$PWD~)
-    2) There are usually many options to get the computer to do one and
-       the same thing - they differ by convenience, speed,...
-    3) You can use ~wget~ to download files from the web using only the
-       URL (the Uniform Resource Locator)
-    4) The ~ls~ command lists files (and directories)
-    5) Climbing around the file tree with ~cd ..~ (to get one directory
-       up from ~$PWD~.
+1) ~./~ stands for the current directory (~$PWD~)
+2) There are usually many options to get the computer to do one and
+   the same thing - they differ by convenience, speed,...
+3) You can use ~wget~ to download files from the web using only the
+   URL (the Uniform Resource Locator)
+4) The ~ls~ command lists files (and directories)
+5) Climbing around the file tree with ~cd ..~ (to get one directory
+   up from ~$PWD~.
 
 ** Hello, Org-mode
 
-   - [X] Recap = *Complete quiz 1 in Schoology*
-   - [X] Complete Org-mode practice file practice.org
-   - [X] *Submit file practice.org to Schoology*
-   - [ ] Complete GNU Emacs tutorial
+- [X] Recap = *Complete quiz 1 in Schoology*
+- [X] Complete Org-mode practice file practice.org
+- [X] *Submit file practice.org to Schoology*
+- [ ] Complete GNU Emacs tutorial
 
 *** Recommendations: memory lane
 
-    - [[https://youtu.be/G1-wse8nsxY][C Programming Language | Brian Kernighan and Lex Fridman]] (2021)
+- [[https://youtu.be/G1-wse8nsxY][C Programming Language | Brian Kernighan and Lex Fridman]] (2021)
 
-      #+attr_html: :width 300px
-      [[./img/kernighan.png]]
-    
-    #+begin_quote
-    "It's important to understand the evolution of the technology that
-    we use and take for granted The decisions that shaped how that
-    technology developed and thus defined the paths that we took were
-    made by real people, working under the pressures and constraints
-    of time. The more we know about the history, the more we can
-    appreciate the inventive genius that led to Unix and perhaps
-    better understand why modern computer systems are as they are. If
-    nothing else, choices that might seem wrong-headed or perverse
-    today can often be seen as natural consequences of what was
-    understood and could be accomplished with the resources available
-    at the time." - Brian Kernighan (2019)
-    #+end_quote    
-    
-    - Unix: A History and a Memoir by Brian Kernighan (2019) | [[http://www.observationalhazard.com/2019/11/book-review-unix-history-and-memoir-by.html][review]]
+  #+attr_html: :width 300px
+  [[./img/kernighan.png]]
 
-      #+attr_html: :width 200px
-      [[./img/unix.jpg]]
-    
+  #+begin_quote
+  "It's important to understand the evolution of the technology that
+  we use and take for granted The decisions that shaped how that
+  technology developed and thus defined the paths that we took were
+  made by real people, working under the pressures and constraints
+  of time. The more we know about the history, the more we can
+  appreciate the inventive genius that led to Unix and perhaps
+  better understand why modern computer systems are as they are. If
+  nothing else, choices that might seem wrong-headed or perverse
+  today can often be seen as natural consequences of what was
+  understood and could be accomplished with the resources available
+  at the time." - Brian Kernighan (2019)
+  #+end_quote
+
+  - Unix: A History and a Memoir by Brian Kernighan (2019) | [[http://www.observationalhazard.com/2019/11/book-review-unix-history-and-memoir-by.html][review]]
+
+    #+attr_html: :width 200px
+    [[./img/unix.jpg]]
+
 * Week 2 - C Fundamentals
 ** Housekeeping
 
-   - [ ] Update and upgrade OS
-   - [ ] Install and try ~treemacs~ package
+- [ ] Update and upgrade OS daily:
+  #+begin_example
+  $ sudo apt update -y
+  $ sudo apt upgrade -y
+  #+end_example
+
+- [ ] Install and try ~treemacs~ package
+  #+begin_example
+  $ sudo apt install treemacs
+  In Emacs: M-x treemacs
+  #+end_example
 
 ** Recap and assignment
 
-    - [ ] Recap = *Complete quiz 2 in Schoology* 
-    - [ ] Complete Emacs tutorial
-    - [ ] *Programming assignment 1*: Org-mode file (you can complete
-      this at the end of class or at home if you take the Pi home; or
-      you could [[https://github.com/birkenkrahe/org/blob/master/FAQ.org#how-can-i-install-emacs-as-a-data-science-ide-on-windows-10][install Emacs]] and [[https://github.com/birkenkrahe/org/blob/master/FAQ.org#how-to-install-gcc--a-c-compiler-under-windows-and-macos][install GCC]] on your Windows laptop,
-      see [[https://github.com/birkenkrahe/org/blob/master/FAQ.org][FAQ in GitHub]]).
-      
+- [ ] Recap = *Complete quiz 2 in Schoology*
+- [ ] Complete the on-board Emacs tutorial
+- [ ] [[https://lyon.schoology.com/assignment/5968463311][Programming assignment 1]]: Org-mode hello world[fn:5]
+
 ** Introduction to C
 
-    - [ ] What is C and why is it important?
-    - [ ] How computers work
-    - [ ] How programs are processed
-    - [ ] C vs. C++
+- [ ] What is C and why is it important?
+- [ ] How computers work
+- [ ] How programs are processed
+- [ ] C vs. C++
 
 ** C Fundamentals
 
-   - [ ] Commenting
-   - [ ] Declaring and initializing variables
-   - [ ] Input and output
-   - [ ] Naming identifiers
-   - [ ] Program layout
-   - [ ] Org-mode practice file
-   - [ ] *Program assignment 1*
-   - [ ] *Submit files to Schoology*
+- [ ] Commenting
+- [ ] Declaring and initializing variables
+- [ ] Input and output
+- [ ] Naming identifiers
+- [ ] Program layout
+- [ ] Org-mode practice file
+- [ ] *Programing assignments:* 2 ([[https://lyon.schoology.com/assignment/5968509731][height in light-years]])
+- [ ] *Programming assignment:* 3 ([[https://lyon.schoology.com/assignment/5968584298][height oulight-years reloaded]])
+- [ ] *Submit files to Schoology* (1 point less for 1 day late)
+
+**  George Pólya: "How to solve it"
+
+#+attr_html: :width 200px
+#+caption: How To Solve It by George Pólya (1945)
+[[./img/polya.jpg]]
+
+- [[https://en.wikipedia.org/wiki/How_to_Solve_It][Wikipedia: How To Solve It]]
+- [[https://youtu.be/zhL3EMFSm6o][YouTube: Illustration]] (2018)
+- [[https://youtu.be/h0gbw-Ur_do][YouTube: Pólya explains the problem solving technique]] (1966)
+
+** "Should you get a CS degree or can you teach yourself?"
+
+#+attr_html: :width 400px
+#+caption: Stevey's Tech Talk E42 (27 March 2022)
+[[./img/yegge.png]]
+
+- Introducing [[https://en.wikipedia.org/wiki/Steve_Yegge][Steve Yegge]] - stellar software developer
+
+- Stevey's Tech Talk E42: [[https://youtu.be/Q4Y6ERYAwqw][Should I get a CS degree or can I teach myself?]]
+
+- Powerful learning advice, book and interviewing advice[fn:6]:
+
+  1) If you want something badly enough, you're going to get it!
+
+  2) You can teach yourself CS but you'll have to be very disciplined
+
+  3) The 100-300 level basics: discrete maths, theory of
+     computation, data structures, algorithms, stats, linear
+     algebra.
+
+  4) Most important: being able to identify the problem when it
+     comes at you - this will usually be tested in interviews.
+
+  5) Learn multiple programming languages (from different camps):
+     e.g. C/C++, Lisp (with Emacs!), R (statistical), SQL
+     (databases)
+
+  6) 400 level courses: operating systems (OS) (Linux!), and
+     compilers - focus on *efficiency*. There should be no layer of
+     "magic" for you when it comes to resource management. Include:
+     *machine learning* and *data science*.
+
+  7) Computer science in particular, and college in general teaches
+     you to teach yourself.
+
+  8) Force yourself to like stuff that you don't want to
+     learn. Especially if you're cramming (doing it too late).
+
+*Subscribe to his channel!*
+
+* Glossary
+
+| TERM           | MEANING                  |
+|----------------+--------------------------|
+| Heuristics     | Pattern-oriented solving |
+|                | Non-algorithmic solving  |
+| Algorithm      | Strict, formal solving   |
+|                | Non-heuristic            |
+| Abstraction    | Removal of details       |
+| Generalization | Transfer solution        |
 
 * Footnotes
+[fn:6]What if you don't want to become a software engineer or computer
+scientist? Answer: doesn't matter because the ideas and demands of
+computer craft are, by now, ubiquitous and relevant to (almost) any
+job. This is because the success of machines has convinced most
+people, alas, that it's efficient to apply machine rules to
+everything. We know much more about machines now than about humans.
+
+[fn:5]Org-mode file (you can complete this at the end of class or at
+home if you take the Pi home; or you could [[https://github.com/birkenkrahe/org/blob/master/FAQ.org#how-can-i-install-emacs-as-a-data-science-ide-on-windows-10][install Emacs]] and [[https://github.com/birkenkrahe/org/blob/master/FAQ.org#how-to-install-gcc--a-c-compiler-under-windows-and-macos][install
+GCC]] on your Windows laptop, see [[https://github.com/birkenkrahe/org/blob/master/FAQ.org][FAQ in GitHub]]).
 
 [fn:1]Popular languages include: C++ (industry), C# (games), Java
 (enterprise), Python (machine learning), PHP (web dev),

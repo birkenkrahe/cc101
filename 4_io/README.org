@@ -16,7 +16,7 @@
 
 * printf
 
-  When it is called, ~printf~ must be supplied with
+  When it is called, ~printf~ must be supplied with:
   1) a format string, like ~"The output is: %d\n~
   2) any number of values to be inserted into the string at printing
 
