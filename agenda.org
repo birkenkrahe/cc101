@@ -244,19 +244,22 @@ basics of the GitHub process, important for software development.
 * Week 2 - C Fundamentals
 ** Housekeeping
 
-- [ ] Update and upgrade OS daily:
+- [X] Update and upgrade OS daily:
   #+begin_example
   $ sudo apt update -y
   $ sudo apt upgrade -y
   #+end_example
 
-- [ ] Install and try ~treemacs~ package
-  #+begin_example
-  $ sudo apt install treemacs
-  In Emacs: M-x treemacs
+- [X] Install and try ~treemacs~ package - inside Emacs
+  #+begin_example emacs-lisp
+  M-x package-list-packages    ;; open package list
+  C-s treemacs                 ;; search for 'treemacs'
+  i                            ;; mark package for installation
+  x                            ;; install package
+  M-x treemacs                 ;; open/close treemacs
   #+end_example
 
-- [ ] Pi @ home: *"If you break it, you buy it."*
+- [X] Pi @ home: *"If you break it, you buy it."*
   #+begin_quote
   If you break the Pi 400 computer (pour coffee over it, or damage it
   in any way that makes it unusable), you must replace it (for [[https://www.amazon.com/seeed-studio-Raspberry-Personal-Computer/dp/B08T6KSF7F/][$100]]).
@@ -264,16 +267,16 @@ basics of the GitHub process, important for software development.
 
 ** Recap and assignment
 
-- [ ] Recap = *Complete quiz 2 in Schoology*
-- [ ] Complete the on-board Emacs tutorial
-- [ ] [[https://lyon.schoology.com/assignment/5968463311][Programming assignment 1]]: Org-mode hello world[fn:5]
+- [X] Recap = *Complete quiz 2 in Schoology*
+- [X] Complete the on-board Emacs tutorial (C-h t)
+- [X] [[https://lyon.schoology.com/assignment/5968463311][Programming assignment 1]]: Org-mode hello world[fn:5]
 
 ** Introduction to C
 
-- [ ] What is C and why is it important?
-- [ ] How computers work
-- [ ] How programs are processed
-- [ ] C vs. C++
+- [X] What is C and why is it important?
+- [X] How computers work
+- [X] How programs are processed
+- [X] C vs. C++
 
 ** C Fundamentals
 
@@ -288,6 +291,17 @@ basics of the GitHub process, important for software development.
 - [ ] *Submit files to Schoology* (1 point less for 1 day late)
 
 ** Bonus content[fn:7]
+*** Joseph Weizenbaum's Eliza psychotherapist
+
+    - To start Eliza in Emacs, enter ~M-x doctor~
+    - [[https://en.wikipedia.org/wiki/ELIZA][More information on Wikipedia]]
+    - [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Amusements.html][More toy programs in Emacs]]
+    - [[https://openlibrary.org/works/OL5069879W/Computer_power_and_human_reason][Computer Power and Human Reason]] by Joseph Weizenbaum (1976)
+    
+    #+attr_html: :width 400px
+    #+caption: A conversation with Eliza
+    [[./img/eliza.png]]
+    
 *** George Pólya: "How to solve it"
 
 #+attr_html: :width 200px
@@ -337,8 +351,6 @@ basics of the GitHub process, important for software development.
      learn. Especially if you're cramming (doing it too late).
 
 *Subscribe to his channel!*
-
-* NEXT 
 
 * Glossary
 

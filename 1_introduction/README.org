@@ -5,6 +5,7 @@
 #+OPTIONS: toc:1
 #+OPTIONS:hideblocks
 * What will you learn?
+
 - What is C?
 - What is its origin?
 - What is its importance?
