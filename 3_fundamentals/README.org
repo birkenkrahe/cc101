@@ -34,12 +34,12 @@
 
   - The ~main~ function has a body delimited by ~{...}~
 
-  - There can be /preprocessor/ /directives/ - ~#include~ or ~#define~. 
+  - There can be /pre-processor/ /directives/ - ~#include~ or ~#define~. 
 
   #+attr_html: :width 600px
   #+caption: main function structure (Collingbourne, 2017)
   [[./img/structure.png]]
-
+  
 * Hello world program
 ** "What a Tangled Web We Weave..."
 
@@ -81,6 +81,9 @@
       }
 #+end_src
 
+#+RESULTS: hello1
+: Hello world
+
 What happens in [[hello1]]:
   - A header file (~stdio.h~) is included for input/output
   - A function (~main~) without arguments (~void~) is defined
@@ -103,6 +106,9 @@ The program could also have been written much simpler:
        printf("Hello world\n");
      }
  #+end_src
+
+ #+RESULTS: hello2
+ : Hello world
 
 ** Hello World Version 3
 
@@ -166,9 +172,9 @@ Windows. Compare the two executables - what do you notice?
 | ~ls -l hello*~         | list files - you should see ~hello~, ~hello.c~    |
 | ~/.hello~              | execute program                               |
 
- - The /eshell/ is an Emacs Lisp simulation of a Linux shell (~bash~)
+- The /eshell/ is an Emacs Lisp simulation of a Linux shell (~bash~)
 
- - On Windows, ~PowerShell~ would also work (run with ~./pun[.exe]~)
+- On Windows, ~PowerShell~ would also work (run with ~./pun[.exe]~)
 
 * Syntax highlighting
 
@@ -194,14 +200,17 @@ Windows. Compare the two executables - what do you notice?
   part of your program - but both syntax highlighting and auto-indent
   in the editor will tip you off:
 
-  #+begin_src C :exports both :main yes :includes stdio.h
+  #+begin_src C :exports both :main yes :includes stdio.h :results output
 
     printf("My "); /* forgot to close this comment ... 
-                      printf("cat "); 
-                      printf("has ");  /* so it ends here */
+		      printf("cat "); 
+		      printf("has ");  /* so it ends here */
     printf("fleas");
 
   #+end_src
+
+  #+RESULTS:
+  : My fleas
 
   Let's fix this:
 
@@ -214,8 +223,6 @@ Windows. Compare the two executables - what do you notice?
 
   #+end_src
 
-  #+RESULTS:
-  : My cat has fleas
 
 * Let's practice!
 
@@ -270,6 +277,8 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
       height = 8;
     #+end_example
 
+    #+RESULTS: ex1
+
   - [ ] If you would try to run [[ex1]], you would get an error. Can you
     see why?[fn:7]
 
@@ -287,7 +296,8 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
     
     #+name: ex3
     #+begin_src C :results silent
-      int height; height = 8;
+      int height;
+      height = 8;
     #+end_src
 
   - A /string literal/ assigned to a ~float~ variable contains a decimal
@@ -306,7 +316,7 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
     #+begin_src C :results silent
       float profit;
       int iProfit;
-      iProfit = 2150.48;
+      iProfit = 2150.48;  // I should not do this!
     #+end_src
 
     #+name: fp3

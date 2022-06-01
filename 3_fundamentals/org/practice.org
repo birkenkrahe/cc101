@@ -68,7 +68,7 @@
     printf(" 'Milly'"); //* I really do! */
   #+end_src
 
-* DONE Comment program
+* TODO Comment program
 
    Write short comments in the program [[pgm:comment2]] to explain what each
    part of the program does (guess if you don't know for sure) -
