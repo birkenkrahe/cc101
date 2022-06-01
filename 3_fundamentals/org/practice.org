@@ -97,26 +97,7 @@
    The program contains so-called /inline/ comments ~//~ and /multi-line/
    comments: ~/* ... */.~
 
-   ----- SOLUTION -----
-
-   #+name: pgm:comment2_solution
-   #+begin_src C
-     #include <stdio.h> // include file stdio.h
-
-     int main (void)  // define main function (no arguments)
-     {
-       /* declare integer variable
-	  and initialize it with the value 1 */
-       int i = 1;
-
-       // print variable value
-       printf("%d\n", i);
-
-       return 0;
-     }
-   #+end_src
-
-* DONE Variable types and declarations
+* TODO Variable types and declarations
 
   1) Create a named C code block pgm:declarations [[pgm:declarations]] below.
 
@@ -131,15 +112,7 @@
   ----- PUT CODE BLOCK HERE -----
 
   
-  ----- SOLUTION -----
-
-  #+name: pgm:declarations
-  #+begin_src C :results silent
-    float fahrenheit;
-    float celsius;
-  #+end_src
-
-* DONE Fix the program
+* TODO Fix the program
 
   1) A couple of things are wrong in the code block [[pgm:declare1]].
 
@@ -155,7 +128,7 @@
       float freezing_point;
    #+end_src
 
-* DONE Variable assignments
+* TODO Variable assignments
 
   1) Create a code block [[pgm:assignments]] below.
 
@@ -167,14 +140,7 @@
   ----- PUT CODE BLOCK HERE -----
 
 
-  ----- SOLUTION -----
-
-  #+name: pgm:assignments
-  #+begin_src C :results silent
-    float freezing = 32.0f, factor = 5.0f/9.0f;
-  #+end_src
-
-* DONE Variable computations
+* TODO Variable computations
 
   1) The code from [[pgm:declarations]] and from [[pgm:assignments]] has
      been copied into the code block [[pgm:conversion]] below[fn:2].
@@ -202,23 +168,7 @@
   #+end_src
 
 
-  ----- SOLUTION -----
-
-  #+name: pgm:conversion_solution
-  #+begin_src C :noweb yes :tangle noweb.c
-    <<pgm:declarations>>
-    <<pgm:assignments>>
-    fahrenheit = 80.f;
-    celsius = (fahrenheit - freezing) * factor;
-    printf("Fahrenheit: %g\nCelsius equivalent: %.1f\n", 
-	   fahrenheit, celsius);
-  #+end_src
-
-  #+RESULTS: pgm:conversion_solution
-  : Fahrenheit: 80
-  : Celsius equivalent: 26.7
-
-* DONE Fix the program
+* TODO Fix the program
 
   The program [[pgm:assign_err]] declares and initializes the variable ~i~ with the
   value ~0~. After assigning ~1~ to ~i~, it should print out ~1~ but it prints
@@ -236,19 +186,7 @@
   #+RESULTS: assign
   : 0
 
-  ----- SOLUTION -----
-
-  #+name: pgm:assign_err_solution
-  #+begin_src C
-    int i = 0;
-    i = 1;
-    printf("%d\n", i);
-  #+end_src
-
-  #+RESULTS: pgm:assign_err_solution
-  : 1
-
-* DONE Formatting printout
+* TODO Formatting printout
 
   1) Define and initialize three variables in a code block named
      [[pgm:format]]:
@@ -274,29 +212,8 @@
      #+end_example
 
   ----- PUT CODE BLOCK HERE -----
-
-
-  ----- SOLUTION -----
-
-  #+name: pgm:format
-  #+begin_src C
-    int foo   = 100;  
-    float bar = 100.01f;
-    char baz  = 'A';
-
-    puts("Three variables:");
-    printf("foo = %d\nbar = %.2f\n", foo, bar);
-    printf("baz = "); 
-    putchar(baz);
-  #+end_src
-
-  #+RESULTS: pgm:format_solution
-  : Three variables:
-  : foo = 100
-  : bar = 100.01
-  : baz = A
-
-* DONE Fix the program
+  
+* TODO Fix the program
 
   The program [[pgm:format_error]] should print out
 
@@ -323,22 +240,8 @@
     printf("Euler number: e = %d\n", e);
   #+end_src
 
-  ----- SOLUTION -----
 
-  #+name: pgm:format_error_solution
-  #+begin_src C
-    int c = 299792458;
-    float e = 2.718282f;
-
-    printf("Speed of light (m/s): c = %d\n", c);
-    printf("Euler number: e = %.4f\n", e);
-  #+end_src
-
-  #+RESULTS: pgm:format_error_solution
-  : Speed of light (m/s): c = 299792458
-  : Euler number: e = 2.7183
-
-* DONE Constants
+* TODO Constants
 
   1) Create a C code block named [[pgm:constants]] with three different
      constant definitions.
@@ -361,44 +264,12 @@
   ----- PUT CODE BLOCK HERE -----
 
 
-
-  ----- SOLUTION -----
-
-  #+name: pgm:constants
-  #+begin_src C
-    // Included libraries
-    #include <math.h>
-
-    // Constant declarations
-    #define EULER M_E // Euler number
-    #define SALES_TAX_AR 6.5f // AR sales tax
-    const int SPEED_OF_LIGHT = 299792458; // speed of light
-
-    // Print out
-    printf("The Euler number is: e = %.10f\n", EULER);
-    printf("The AR sales tax is: %.1f%\n",     SALES_TAX_AR);
-    printf("The speed of light is: %d m/s\n",  SPEED_OF_LIGHT);
-  #+end_src
-
-  #+RESULTS: pgm:constants_solution
-  : The Euler number is: e = 2.7182818285
-  : The AR sales tax is: 6.5%
-  : The speed of light is: 299792458 m/s
-
-* DONE Standard math library
+* TODO Standard math library
 
   Open the file ~/usr/include/math.h~ and search for the definition of
   ~M_PI~. What is the last non-zero digit?
 
-  ----- SOLUTION -----
-  
-  The answer is 6.
-
-  #+begin_example /usr/include/math.h line 1070
-  # define M_PI		3.14159265358979323846	/* pi */
-  #+end_example
-
-* DONE Reading input
+* TODO Reading input
 
   1) Copy the code block [[pgm:iscan]] below into a code block [[pgm:fscan]]
 
@@ -424,21 +295,7 @@
   : Enter an integer!
   : You entered 5
 
-  ----- SOLUTION -----
-
-  #+name: pgm:fscan
-  #+begin_src C :cmdline < ./data/finput
-    float x;
-    puts("Enter a floating-point number!");
-    scanf("%f", &x);
-    printf("You entered %f\n", x);
-  #+end_src
-
-  #+RESULTS: pgm:fscan_solution
-  : Enter a floating-point number!
-  : You entered 3.141593
-
-* DONE Naming identifiers
+* TODO Naming identifiers
 
   Naming conventions dictate that you should use 
   - upper case letters for constants
@@ -475,32 +332,8 @@
     int ...
   #+end_src
 
-  ----- SOLUTION -----
 
-  #+name: pgm:nomenEstOmen_solution
-  #+begin_src C :results silent :flags -Wall
-    // integer constant for the speed of light
-    const int SPEED_OF_LIGHT = 299792458;
-
-    // floating-point constant for pi
-    #define PI 3.141593f
-
-    // integer variable for volume computations
-    int volume;
-
-    // character variable for last names
-    char lastName;
-
-    // function that adds two integers i and j
-    int add (int i, int j) {
-      return i + j;
-    }
-
-    // variable whose name contains "my", "next", and "birthday"
-    int my_next_birthday;
-  #+end_src
-
-* DONE Fix the program
+* TODO Fix the program
 
   The program statements in [[pgm:wrongNames]] contain multiple errors. Find
   them all and fix them if you can so that the program compiles and
@@ -521,24 +354,7 @@
     int bottles100 = 100;
   #+end_src
 
-  ----- SOLUTION -----
-
-  #+name: pgm:wrongNames_solution
-  #+begin_src C :flags -Wall :results silent
-    int _void = 1; // contained keyword 'void'
-
-    double _10_times;
-
-    float _long = 10.45;
-
-    char Else; // contained keyword 'else'
-
-    const int ui_1 = 1; // contained a dash '-'
-
-    int bottles100 = 100;
-  #+end_src
-
-* DONE Program layout
+* TODO Program layout
  
   The program [[pgm:layout1]] does not accommodate program layout
   conventions (though it will compile and run). Fix that.
@@ -564,33 +380,8 @@
 			      "%d*(%d)=%d\n",X,i,y
 			      ); // print constant
   #+end_src
-
-  ----- SOLUTION -----
-
-  #+name: pgm:layout1_solution
-  #+begin_src C
-    // declarations
-    const X=100.;
-    int y;
-
-    // print constant
-    puts("I'm gonna print a number now.");
-    printf("The number is %d\n", X);
-
-    // computation
-    int i=-1;
-    y = X * i;
- 
-    // print result of computation
-    printf("%d*(%d)=%d\n",X,i,y);
-  #+end_src
-
-  #+RESULTS: pgm:layout1_solution
-  : I'm gonna print a number now.
-  : The number is 100
-  : 100*(-1)=-100
   
-* DONE Fix the program
+* TODO Fix the program
 
   The program [[pgm:layout2]] violates layout standards and will not
   compile. Fix it and run it - the correct output is: ~1 is not 2~. 
@@ -603,18 +394,6 @@
     TWO 2
     printf("%d is not %d\n", ONE, TWO);
   #+end_src
-
-  ----- SOLUTION -----
-
-  #+name: pgm:layout2_solution
-  #+begin_src C
-    #define ONE 1
-    #define TWO 2
-    printf("%d is not %d\n", ONE, TWO);
-  #+end_src
-
-  #+RESULTS: pgm:layout2_solution
-  : 1 is not 2
 
 * Footnotes
 
