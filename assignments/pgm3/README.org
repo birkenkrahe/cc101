@@ -1,7 +1,7 @@
 #+TITLE:Pgm 2: Your Height In Light-Years v2
 #+AUTHOR:Marcus Birkenkrahe
 #+SUBTITLE:Programming assignment 3 - Intro to Programming in C, Summer 2022
-#+STARTUP:overview hideblocks
+#+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :exports both :comments both
 ** Your height in light-years (reloaded)
@@ -33,10 +33,15 @@
 
 *** Submission
 
-Submit your solution as an Emacs Org-mode file including the usual
-header information (title, author, pledged), in Schoology.
+- Submit your solution as an Emacs Org-mode file including the usual
+  header information (title, author, pledged), in Schoology.
 
-The solution should contain the output after the code block.
+- Add this line at the top of your file:
+  #+begin_example
+  #+STARTUP:overview hideblocks indent
+  #+end_example
+
+- The solution should contain the output after the code block.
 
 #+begin_example
   : A height of 1.80 m is equivalent to 1.9039e-16 light-years

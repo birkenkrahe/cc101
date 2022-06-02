@@ -1,12 +1,12 @@
-#+TITLE:Pgm 2: Your Height In Light-Years 
+#+TITLE:Pgm 2: Your Height In Light-Years
 #+AUTHOR:Marcus Birkenkrahe
 #+SUBTITLE:Programming assignment 2 - Intro to Programming in C, Summer 2022
-#+STARTUP:overview hideblocks
+#+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :exports both :comments both
 * Your height in light-years[fn:1]
 
-  [[https://lyon.schoology.com/assignment/5968509731][Assignment in Schoology.]]
+[[https://lyon.schoology.com/assignment/5968509731][Assignment in Schoology.]]
 
 ** Preamble
 
@@ -33,15 +33,21 @@ Not considering leap years, a year is 31,536,000 seconds long.
 
 ** Submission
 
-Submit your solution as an Emacs Org-mode file including the usual
-header information (title, author, pledged), in Schoology.
+- Submit your solution as an Emacs Org-mode file including the usual
+  header information (title, author, pledged), in Schoology.
 
-The Org-mode file should also contain the output for the three test
-cases after the code block.
+- Add the following line to the top of your Org-mode
+  file:
+  #+begin_example
+#+STARTUP:overview hideblocks indent
+  #+end_example
+
+- The Org-mode file should also contain the output for the three test
+  cases after the code block.
 
 #+begin_example
   : Marcus Birkenkrahe's height: 1.80 m = 1.9039e-16 light-years
-  : Michael Jordan's height:	 1.98 m = 2.0943e-16 light-years
+  : Michael Jordan's height:     1.98 m = 2.0943e-16 light-years
   : Napoleon Bonaparte's height: 1.67 m = 1.7664e-16 light-years
 #+end_example
 
@@ -50,4 +56,3 @@ cases after the code block.
 [fn:1]The idea for this program came from a new book that I'm reading
 now, [[https://www.amazon.com/Quantum-Field-Theory-Michel-Talagrand-ebook/dp/B09SV9GNDN]["Quantum Field Theory? A first introduction for mathematicians"
 (Talagrand, 2022)]].
-

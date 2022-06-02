@@ -1,7 +1,7 @@
 #+TITLE:Pgm 1: Hello World Program in Org-Mode
 #+AUTHOR:Marcus Birkenkrahe
 #+SUBTITLE:Programming assignment 1 - Intro to Programming in C, Summer 2022
-#+STARTUP:overview hideblocks
+#+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:nil num:nil ^:nil
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :exports both :comments both
 * Hello world program in Org-mode code block
