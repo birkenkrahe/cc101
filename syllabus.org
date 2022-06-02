@@ -2,6 +2,7 @@
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: Introduction to Programming in C/C++: Syllabus
 #+options: toc:nil
+#+startup: overview hideblocks
 * General Course Information
 
   * Meeting Times: Monday through Friday, 13:00-15:00 hrs

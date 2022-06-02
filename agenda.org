@@ -267,10 +267,16 @@ basics of the GitHub process, important for software development.
 
 ** Recap and assignment
 
-- [X] Recap = *Complete quiz 2 in Schoology*
+*** Tue-May-31
+- [X] Recap = Complete [[https://lyon.schoology.com/assignment/5968404984][quiz 2 in Schoology]]
 - [X] Complete the on-board Emacs tutorial (C-h t)
 - [X] [[https://lyon.schoology.com/assignment/5968463311][Programming assignment 1]]: Org-mode hello world[fn:5]
 
+*** Thu-June-2
+
+- [ ] Recap = Complete [[https://lyon.schoology.com/assignment/5977841845][quiz 3 in Schoology]]
+- [ ] [[https://lyon.schoology.com/assignment/5968509731][Programming assignment 2]]: Height to light-years[fn:5]
+  
 ** Introduction to C
 
 - [X] What is C and why is it important?
@@ -280,8 +286,8 @@ basics of the GitHub process, important for software development.
 
 ** C Fundamentals
 
-- [ ] Commenting
-- [ ] Declaring and initializing variables
+- [X] Commenting
+- [X] Declaring and initializing variables
 - [ ] Input and output
 - [ ] Naming identifiers
 - [ ] Program layout
