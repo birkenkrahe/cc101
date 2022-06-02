@@ -2,7 +2,7 @@
 #+AUTHOR:Marcus Birkenkrahe
 #+SUBTITLE: CSC 100 - Summer I, 2022
 #+OPTIONS: toc:1
-#+STARTUP: overview hideblocks
+#+STARTUP: overview hideblocks indent
 #+PROPERTY: header-args:C :main yes :includes <stdio.h>
 * README
 
@@ -288,10 +288,10 @@ basics of the GitHub process, important for software development.
 
 - [X] Commenting
 - [X] Declaring and initializing variables
+- [X] Org-mode practice file
 - [ ] Input and output
 - [ ] Naming identifiers
 - [ ] Program layout
-- [ ] Org-mode practice file
 - [ ] *Programing assignments:* 2 ([[https://lyon.schoology.com/assignment/5968509731][height in light-years]])
 - [ ] *Programming assignment:* 3 ([[https://lyon.schoology.com/assignment/5968584298][height oulight-years reloaded]])
 - [ ] *Submit files to Schoology* (1 point less for 1 day late)
@@ -314,6 +314,12 @@ basics of the GitHub process, important for software development.
 #+caption: How To Solve It by George Pólya (1945)
 [[./img/polya.jpg]]
 
+1) Understand the problem
+2) Devise a plan
+3) Carry out the plan
+4) Review and/or extend solution
+
+Further study:
 - [[https://en.wikipedia.org/wiki/How_to_Solve_It][Wikipedia: How To Solve It]]
 - [[https://youtu.be/zhL3EMFSm6o][YouTube: Illustration]] (2018)
 - [[https://youtu.be/h0gbw-Ur_do][YouTube: Pólya explains the problem solving technique]] (1966)

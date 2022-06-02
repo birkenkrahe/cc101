@@ -46,7 +46,6 @@
   ----- Put code block here -----
 
 
-
 * TODO Fix the program
 
   The program [[pgm:comment1]] should print out the sentence "~I love my
@@ -111,7 +110,6 @@
 
   ----- PUT CODE BLOCK HERE -----
 
-  
 * TODO Fix the program
 
   1) A couple of things are wrong in the code block [[pgm:declare1]].
@@ -139,7 +137,6 @@
 
   ----- PUT CODE BLOCK HERE -----
 
-
 * TODO Variable computations
 
   1) The code from [[pgm:declarations]] and from [[pgm:assignments]] has
@@ -166,7 +163,6 @@
     printf("Fahrenheit: %g\nCelsius equivalent: %.1f\n", 
 	   fahrenheit, celsius);
   #+end_src
-
 
 * TODO Fix the program
 
@@ -240,7 +236,6 @@
     printf("Euler number: e = %d\n", e);
   #+end_src
 
-
 * TODO Constants
 
   1) Create a C code block named [[pgm:constants]] with three different
@@ -262,7 +257,6 @@
      #+end_example
 
   ----- PUT CODE BLOCK HERE -----
-
 
 * TODO Standard math library
 
@@ -331,7 +325,6 @@
     // variable whose name contains "my", "next", and "birthday"
     int ...
   #+end_src
-
 
 * TODO Fix the program
 

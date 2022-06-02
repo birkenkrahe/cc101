@@ -2,7 +2,7 @@
 #+AUTHOR:Marcus Birkenkrahe
 #+SUBTITLE:CSC100 Introduction to programming in C/C++ Summer 2022
 #+DATE: <2022-05-26 Thu>
-#+STARTUP: overview hideblocks
+#+STARTUP: overview hideblocks indent
 #+OPTIONS: toc:1 ^:nil
 :PROPERTIES:
 #+PROPERTY: header-args:C :main yes 
@@ -223,7 +223,6 @@ Windows. Compare the two executables - what do you notice?
 
   #+end_src
 
-
 * Let's practice!
 
 Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete the first few exercises:
@@ -276,8 +275,6 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
     #+begin_example C
       height = 8;
     #+end_example
-
-    #+RESULTS: ex1
 
   - [ ] If you would try to run [[ex1]], you would get an error. Can you
     see why?[fn:7]
@@ -390,15 +387,17 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
 
      #+name: floatPrint
      #+begin_src C
-       float profit; // type declaration profit = 2150.48f; // variable
-       profit = 2150.f;
+       float profit; // type declaration
+       profit = 2150.48f; // variable assignment
 
        printf("The profit is: $%f\n", profit); // formatted printout
      #+end_src
 
+     
+   
 ** Change floating point precision
 
-   * By default, ~%f~ displays the result with six digits after the
+   - By default, ~%f~ displays the result with six digits after the
      decimal point. To change it to ~p~ digits, put ~.p~ between ~%~ and
      ~f~. E.g. to print it with 2 digits, ~p=2~:
 
@@ -407,13 +406,11 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
        float profit;       // type declaration
        profit = 2150.48f;  // variable assignment
 
-       printf("The profit is: $%.2f\n", profit); // formatted printout
+       // formatted printout: 2 digits after decimal point
+       printf("The profit is: $%.2f\n", profit); 
      #+end_src
 
-     #+RESULTS: digits
-     : The profit is: $2150.48
-
-   * Formatting instructions need to be precise: if you don't specify
+   - Formatting instructions need to be precise: if you don't specify
      ~p=2~, the computer simply makes digits up! The output below is
      ~$2150.479980~, which can be rounded to the correct result, but it
      is strictly not the same number!
@@ -426,9 +423,6 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
        printf("The profit is: $%f\n", profit); // formatted printout
      #+end_src
 
-     #+RESULTS:
-     : The profit is: $2150.479980
-
 ** Formatting errors
 
    * Bad things happen when you get the formatting wrong.
@@ -440,20 +434,22 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
      #+begin_src C :results output
        float foo;  // defined float
        foo = 3.14f;   // assigned float
-       printf("float as float: %.2f\n",foo);  // formatted float as float
-       printf("float as int: %d\n",foo);  // formatted float as int
+
+       // formatting float as float
+       printf("float as float: %.2f\n", foo);
+
+       // formating float as int
+       printf("float as int: %d\n", foo);
 
        int bar;  // defined int
        bar = 314;   // assigned int
-       printf("int as int: %d\n",bar);  // formatted int as int
-       printf("int as float: %.2f\n",bar);  // formatted int as float
-     #+end_src
 
-     #+RESULTS: format_test
-     : float as float: 3.14
-     : float as int: 0
-     : int as int: 314
-     : int as float: 0.00
+       // formatting int as int
+       printf("int as int: %d\n", bar);
+
+       // formatting int as float
+       printf("int as float: %.2f\n", bar);  // int as float
+     #+end_src
 
    * When you print an integer as a floating point number or vice
      versa, the results are in general unpredictable!
@@ -495,7 +491,7 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
       weight = volume / 166;  // assign and compute values
       printf("The dimensional weight is %d\n",weight); // print result
     #+end_src
-
+    
   * This is not what we need. When dividing one integer by another, C
     "truncates" the answer - the result is rounded down, but the
     shipping company wants us to round up. This can be achieved by
