@@ -334,7 +334,7 @@ Further study:
 - [[https://youtu.be/h0gbw-Ur_do][YouTube: Pólya explains the problem solving technique]] (1966)
 
 ** Reading input exercise
-#+options: toc:nil num:nil
+
 1) Create an Org-mode file ~input.org~
 2) Add this header at the top of the file and activate it with ~C-c C-c~
 
@@ -347,7 +347,7 @@ Further study:
 3) Enter the code in the code block:
    
    #+name: input
-   #+begin_src C :tangle input.c :results output :exports both
+   #+begin_src C :tangle input.c :results output
      // declare integer
      int i;
      // ask for input
@@ -357,9 +357,6 @@ Further study:
      // print input
      printf("You entered: %d\n", i);
    #+end_src
-
-   #+RESULTS: input
-   : Enter an integer number: You entered: 0
 
 4) Run the code inside Emacs - this does not work!
 5) Tangle the code (~C-c C-v t~).
@@ -382,7 +379,7 @@ Further study:
     you enter in the bash code block:
 
     #+name: input1
-    #+begin_src C :tangle input.c :results output :cmdline < input :exports both
+    #+begin_src C :results output :cmdline < input
      // declare integer
      int i;
      // ask for input
