@@ -279,10 +279,11 @@ basics of the GitHub process, important for software development.
 - [X] Understand code block substitution with ~:noweb yes~
 
 *** Fri-June-3
-- [ ] Recap: programming assignment
-- [ ] How to solve problems with George Pólya's method
+
+- [X] Recap: programming assignment
+- [X] How to solve problems with George Pólya's method
 - [ ] Reading input exercise
-- [ ] Understand constants, reading input, naming and program layout
+- [ ] Understand constants, naming and program layout
 - [ ] [[https://lyon.schoology.com/assignment/5968509731][Programming assignment 2]]: Height to light-years[fn:5]
 
 ** Introduction to C
@@ -317,7 +318,7 @@ basics of the GitHub process, important for software development.
     #+caption: A conversation with Eliza
     [[./img/eliza.png]]
     
-*** NEXT George Pólya: "How to solve it"
+*** DONE George Pólya: "How to solve it"
 
 #+attr_html: :width 200px
 #+caption: How To Solve It by George Pólya (1945)
@@ -336,9 +337,22 @@ Further study:
 ** Recap: programming assignment
 *** How did you approach this problem?
 
-???
+1. Figure out the math first (if in trouble, find a common or simpler
+   example)
+2. Identify constants (speed of light)
+3. Identify variables (height)
+4. Identify input and output
+5. Identify possible extensions
+6. Create an Org-mode file that will contain the solution
+7. Inside the file create a code block
+8. Begin to code: declare variables
+9. Initialize variables
+10. Compute output
+11. Print output
+12. Debugging
 
 *** Questions
+
 - What is 1 light-year in meters?
 - What is the conversion factor for meters to light-years?
 
@@ -379,6 +393,9 @@ Further study:
      printf("You entered: %d\n", i);
    #+end_src
 
+   #+RESULTS: input
+   : Enter an integer number: You entered: 10301340
+
 4) Run the code inside Emacs - this does not work!
 5) Tangle the code (~C-c C-v t~).
 6) Open a shell in another buffer window (~M-x shell~).
@@ -387,7 +404,7 @@ Further study:
 
    #+name: bash 
    #+begin_src bash :results silent
-     echo "15" > ./input
+     echo "100" > ./marcus
    #+end_src
 
    This block puts the number 15 into the file ~input~.
@@ -400,7 +417,7 @@ Further study:
     you enter in the bash code block:
 
     #+name: input1
-    #+begin_src C :results output :cmdline < input
+    #+begin_src C :results output :cmdline < marcus
      // declare integer
      int i;
      // ask for input
@@ -412,7 +429,9 @@ Further study:
    #+end_src
 
    #+RESULTS: input1
-   : Enter an integer number: You entered: 15
+   : Enter an integer number: You entered: 100
+
+
 
 * Week 3 - I/O, expressions, selection
 ** Housekeeping

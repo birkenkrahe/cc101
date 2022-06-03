@@ -581,7 +581,10 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
        printf("PI is %f\n",PI);
      #+end_src
 
-   * [ ] Can you see what mistake I made in [[constant_err_1]]? 
+     #+RESULTS: define
+     : PI is 3.141593
+
+   * [X] Can you see what mistake I made in [[constant_err_1]]? 
      
      #+name: constant_err_1
      #+begin_example C
@@ -619,6 +622,10 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
        #define WERT 2.0
        printf("Constant is %.2f\n", WERT);
      #+end_src
+
+     #+RESULTS: redefined
+     : Constant is 1.00
+     : Constant is 2.00
    
 ** Library definitions with ~#include~
 
@@ -655,8 +662,8 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
      #+caption: Mathematical constants in /usr/include/math.h
      [[./img/math.png]]
 
-   * [ ] Where is ~math.h~ in Windows[fn:13]? Where in MacOS? Find the file,
-     open and look at it in Emacs (the file is read-only).
+   * [ ] Where is ~math.h~ in Windows[fn:13]? Where in MacOS? Find the
+     file, open and look at it in Emacs (the file is read-only).
 
      #+begin_src C
        #include <math.h>
@@ -797,7 +804,7 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
      #+end_example
      These are good:
      #+begin_example
-     times10    get_next_char
+       times10    get_next_char
      #+end_example
 
    * There is no limit to the length of an identifier, so this name,
@@ -826,7 +833,7 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
      #+name: tokenization
      #+begin_example
       printf ( "Height: %d\n"   ,   height )  ;
-	1    2        3         2     5    6  7
+	1      2        3         2     5    6  7
      #+end_example
 
      |   | TOKEN          | MEANING                              |
@@ -846,10 +853,15 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
      as well, on one line, with almost all whitespace deleted. Only in
      one place, the space is needed. Can you see where?
 
-     #+name: dweight_one_line
+     #+name: dweight_one_line :results org
      #+begin_src C
        int height,length,width,volume,weight;height=8;length=12;width=10;volume=height*length*width;weight=(volume+165)/166;printf("Dimensions: %dx%dx%d\n",length,width,height);printf("Volume (cubic inches): %d\n",volume);printf("Dimensional weight (pounds): %d\n",weight);
      #+end_src
+
+     #+RESULTS: dweight_one_line
+     | Dimensions: | 12x10x8 |           |     |
+     | Volume      | (cubic  | inches):  | 960 |
+     | Dimensional | weight  | (pounds): |   6 |
 
    * Another exception are the preprocessor directives - they need to
      be on a line of their own[fn:17].
@@ -870,8 +882,8 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
          ;
        printf
        (
-	"height %d\n" ,
-	height)
+        "height %d\n" ,
+        height)
        ;
      #+end_src
 
