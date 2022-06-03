@@ -920,6 +920,19 @@ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete 
      #+RESULTS: layout
      : Variable1=1,variable2=100
 
+* Let's practice!
+
+ Go to the [[https://tinyurl.com/yckuhh2f][Org-mode practice file]] and complete the second batch of exercises:
+
+    1) Defining constants
+    2) Standard math library
+    3) Reading input with ~scanf~
+    4) Naming identifiers
+    5) Program layout
+
+    #+attr_html: :width 300px
+    [[./img/practice1.gif]]
+    
 * Summary
 
   * C programs must be compiled and linked

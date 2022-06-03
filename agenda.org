@@ -266,7 +266,6 @@ basics of the GitHub process, important for software development.
   #+end_quote
 
 ** Recap and assignment
-
 *** Tue-May-31
 - [X] Recap = Complete [[https://lyon.schoology.com/assignment/5968404984][quiz 2 in Schoology]]
 - [X] Complete the on-board Emacs tutorial (C-h t)
@@ -274,9 +273,18 @@ basics of the GitHub process, important for software development.
 
 *** Thu-June-2
 
-- [ ] Recap = Complete [[https://lyon.schoology.com/assignment/5977841845][quiz 3 in Schoology]]
+- [X] Recap = Complete [[https://lyon.schoology.com/assignment/5977841845][quiz 3 in Schoology]]
+- [X] Practice variable declaration, assignment, computation
+- [X] See complete program (dimensional weight)
+- [X] Understand code block substitution with ~:noweb yes~
+
+*** Fri-June-3
+- [ ] How to solve problems with George Pólya's method
+- [ ] Reading input exercise
+- [ ] Recap: first programming assignment
+- [ ] Understand constants, reading input, naming and program layout
 - [ ] [[https://lyon.schoology.com/assignment/5968509731][Programming assignment 2]]: Height to light-years[fn:5]
-  
+
 ** Introduction to C
 
 - [X] What is C and why is it important?
@@ -286,10 +294,11 @@ basics of the GitHub process, important for software development.
 
 ** C Fundamentals
 
+- [X] Org-mode practice file
 - [X] Commenting
 - [X] Declaring and initializing variables
-- [X] Org-mode practice file
-- [ ] Input and output
+- [X] Input and output
+- [ ] Constants
 - [ ] Naming identifiers
 - [ ] Program layout
 - [ ] *Programing assignments:* 2 ([[https://lyon.schoology.com/assignment/5968509731][height in light-years]])
@@ -297,7 +306,7 @@ basics of the GitHub process, important for software development.
 - [ ] *Submit files to Schoology* (1 point less for 1 day late)
 
 ** Bonus content[fn:7]
-*** Joseph Weizenbaum's Eliza psychotherapist
+*** DONE Joseph Weizenbaum's Eliza psychotherapist
 
     - To start Eliza in Emacs, enter ~M-x doctor~
     - [[https://en.wikipedia.org/wiki/ELIZA][More information on Wikipedia]]
@@ -308,7 +317,7 @@ basics of the GitHub process, important for software development.
     #+caption: A conversation with Eliza
     [[./img/eliza.png]]
     
-*** George Pólya: "How to solve it"
+*** NEXT George Pólya: "How to solve it"
 
 #+attr_html: :width 200px
 #+caption: How To Solve It by George Pólya (1945)
@@ -323,6 +332,74 @@ Further study:
 - [[https://en.wikipedia.org/wiki/How_to_Solve_It][Wikipedia: How To Solve It]]
 - [[https://youtu.be/zhL3EMFSm6o][YouTube: Illustration]] (2018)
 - [[https://youtu.be/h0gbw-Ur_do][YouTube: Pólya explains the problem solving technique]] (1966)
+
+** Reading input exercise
+#+options: toc:nil num:nil
+1) Create an Org-mode file ~input.org~
+2) Add this header at the top of the file and activate it with ~C-c C-c~
+
+   #+name: header
+   #+begin_example
+     #+STARTUP: overview hideblocks indent
+     #+PROPERTY: header-args:C :main yes :includes <stdio.h>
+   #+end_example
+   
+3) Enter the code in the code block:
+   
+   #+name: input
+   #+begin_src C :tangle input.c :results output :exports both
+     // declare integer
+     int i;
+     // ask for input
+     printf("Enter an integer number: ");
+     // get input
+     scanf("%d", &i);
+     // print input
+     printf("You entered: %d\n", i);
+   #+end_src
+
+   #+RESULTS: input
+   : Enter an integer number: You entered: 0
+
+4) Run the code inside Emacs - this does not work!
+5) Tangle the code (~C-c C-v t~).
+6) Open a shell in another buffer window (~M-x shell~).
+7) Compile and run the program ~input.c~ on the shell.
+8) Go back to the Org-file ~input.org~ and add a ~bash~ code block:
+
+   #+name: bash 
+   #+begin_src bash :results silent
+     echo "15" > ./input
+   #+end_src
+
+   This block puts the number 15 into the file ~input~.
+
+9) Now go back to your C code block and add the header argument
+   ~:cmdline < input~ to it.
+
+10) Run the C code block again. It should now give the correct
+    result and print out ~15~. You can try this with other numbers that
+    you enter in the bash code block:
+
+    #+name: input1
+    #+begin_src C :tangle input.c :results output :cmdline < input :exports both
+     // declare integer
+     int i;
+     // ask for input
+     printf("Enter an integer number: ");
+     // get input
+     scanf("%d", &i);
+     // print input
+     printf("You entered: %d\n", i);
+   #+end_src
+
+   #+RESULTS: input1
+   : Enter an integer number: You entered: 15
+
+* Week 3 - I/O, expressions, selection
+** Housekeeping
+
+** Bonus content
 
 *** Steve Yegge: "Should you get a CS degree or can you teach yourself?"
 

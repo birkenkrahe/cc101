@@ -1,0 +1,56 @@
+#+startup: overview hideblocks indent
+#+options: toc:nil num:nil
+* Reading input exercise
+1) Create an Org-mode file ~input.org~
+2) Add this header at the top of the file and activate it with ~C-c C-c~
+
+   #+name: header
+   #+begin_example
+     #+STARTUP: overview hideblocks indent
+     #+PROPERTY: header-args:C :main yes :includes <stdio.h>
+   #+end_example
+   
+3) Enter the code in the code block:
+   
+   #+name: input
+   #+begin_src C :tangle input.c :results output :exports both
+     int i;
+     printf("Enter an integer number: ");
+     scanf("%d", &i);
+     printf("You entered: %d\n", i);
+   #+end_src
+
+   #+RESULTS: input
+   : Enter an integer number: You entered: 0
+
+4) Run the code inside Emacs - this does not work!
+5) Tangle the code (~C-c C-v t~).
+6) Open a shell in another buffer window (~M-x shell~).
+7) Compile and run the program ~input.c~ on the shell.
+8) Go back to the Org-file ~input.org~ and add a ~bash~ code block:
+
+   #+name: bash 
+   #+begin_src bash :results silent
+     echo "15" > ./input
+   #+end_src
+
+   This block puts the number 15 into the file ~input~.
+
+9) Now go back to your C code block and add the header argument
+   ~:cmdline < input~ to it.
+
+10) Run the C code block again. It should now give the correct
+    result and print out ~15~. You can try this with other numbers that
+    you enter in the bash code block:
+
+    #+name: input1
+    #+begin_src C :tangle input.c :results output :cmdline < input :exports both
+     int i;
+     printf("Enter an integer number: ");
+     scanf("%d", &i);
+     printf("You entered: %d\n", i);
+   #+end_src
+
+   #+RESULTS: input1
+   : Enter an integer number: You entered: 15
+
