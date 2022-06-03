@@ -36,19 +36,19 @@
     | p | precision after point | ~%.3f~ prints ~3.141593~ as ~3.142~ |
     | X | conversion specifier  | ~d~, ~e~, ~f~, ~g~                  |
 
-  * [X] Let's check! Add the examples from the first two lines of
-    the table in the code block [[mpx]] and run it.
+  * Examples:
 
     #+name: mpx
-    #+begin_src C
-      printf("%4d\n", 123);
-      printf("%.3f\n", 3.141593);
+    #+begin_src C :results output
+      printf("|%8d|\n", 123); // print 123 right-aligned on 8 places
+      printf("|%-8d|\n", 123); // print 123 left-aligned on 8 places
+      printf("|%.3f   |\n", 3.141593); // print 3 decimal places of PI
     #+end_src
 
     #+RESULTS: mpx
-    |   123 |
-    | 3.142 |
-
+    : |     123|
+    : |123     |
+    : |3.142   |
 
   * The precision p depends on the conversion specifier X
 
