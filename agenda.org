@@ -279,9 +279,9 @@ basics of the GitHub process, important for software development.
 - [X] Understand code block substitution with ~:noweb yes~
 
 *** Fri-June-3
+- [ ] Recap: programming assignment
 - [ ] How to solve problems with George Pólya's method
 - [ ] Reading input exercise
-- [ ] Recap: first programming assignment
 - [ ] Understand constants, reading input, naming and program layout
 - [ ] [[https://lyon.schoology.com/assignment/5968509731][Programming assignment 2]]: Height to light-years[fn:5]
 
@@ -332,6 +332,27 @@ Further study:
 - [[https://en.wikipedia.org/wiki/How_to_Solve_It][Wikipedia: How To Solve It]]
 - [[https://youtu.be/zhL3EMFSm6o][YouTube: Illustration]] (2018)
 - [[https://youtu.be/h0gbw-Ur_do][YouTube: Pólya explains the problem solving technique]] (1966)
+
+** Recap: programming assignment
+*** How did you approach this problem?
+
+
+
+*** Questions
+- What is 1 light-year in meters?
+- What is the conversion factor for meters to light-years?
+
+*** Minimal solution
+  
+#+name: pgm2:solution
+#+begin_src C
+  float c = 299792458;  
+  float y =  31536000;
+  float height  = 1.8f;
+  float ly = c * y;
+
+  printf("%.1f m = %e light-years\n", height, height / ly );
+#+end_src
 
 ** Reading input exercise
 
