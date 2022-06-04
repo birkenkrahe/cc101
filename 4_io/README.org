@@ -47,7 +47,7 @@
 
     #+RESULTS: mpx
     : |     123|
-    : |123     |
+    : |123     | 
     : |3.142   |
 
   * The precision p depends on the conversion specifier X
@@ -103,7 +103,6 @@
 
   That's ~f~ as we already know it from many other examples. The
   precision p is defined as for ~e~. Trailing zeroes are shown.
-
 * Variable floating point "g"
 
   #+begin_quote
