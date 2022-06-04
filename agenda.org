@@ -431,8 +431,6 @@ Further study:
    #+RESULTS: input1
    : Enter an integer number: You entered: 100
 
-
-
 * Week 3 - I/O, expressions, selection
 ** Housekeeping
 

@@ -51,6 +51,30 @@ Not considering leap years, a year is 31,536,000 seconds long.
   : Napoleon Bonaparte's height: 1.67 m = 1.7664e-16 light-years
 #+end_example
 
+** Solution
+
+    - Constants: ~SPEED_OF_LIGHT = 299792458.f~, ~YEAR_IN_SECONDS = 31536000.f~
+    - Variables: h1 = 1.8f, h2 = 1.98f, h3 = 1.67f
+
+    #+name: lightyears
+    #+begin_src C :results output
+      const float  SPEED_OF_LIGHT = 299792458.f;
+      const float  YEAR_IN_SECONDS = 31536000.f;
+      float h1 = 1.8f, h2 = 1.98f, h3 = 1.67f;
+
+      printf("Marcus Birkenkrahe's height:%.2f m = %.2e light-years\n",
+             h1, h1/SPEED_OF_LIGHT / YEAR_IN_SECONDS);
+      printf("Michael Jordan's height:\t%.2f m = %.2e light-years\n",
+             h2, h2/SPEED_OF_LIGHT / YEAR_IN_SECONDS);
+      printf("Napoleon Bonaparte's height:%.2f m = %.2e light-years\n",
+             h3, h3/SPEED_OF_LIGHT / YEAR_IN_SECONDS);
+    #+end_src
+
+    #+RESULTS: lightyears
+    : Marcus Birkenkrahe's height:1.80 m = 1.90e-16 light-years
+    : Michael Jordan's height:  1.98 m = 2.09e-16 light-years
+    : Napoleon Bonaparte's height:1.67 m = 1.77e-16 light-years
+
 * Footnotes
 
 [fn:1]The idea for this program came from a new book that I'm reading
