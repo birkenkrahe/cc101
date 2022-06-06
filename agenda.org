@@ -432,6 +432,15 @@ Further study:
    : Enter an integer number: You entered: 100
 
 * Week 3 - I/O, expressions, selection
+
+** This week
+
+- three more programming assignments
+- three more quizzes
+- two old topics revisited (input/output)
+- two new topics (expressions/selection)
+- two bonus topics (CS careers/hype cycle)
+
 ** Agenda June 6, 2022
 
 - [ ] Recap: programming assignment 3
@@ -513,6 +522,7 @@ probably heading for "Mount Stupid".
 In fact, the curve looks suspiciously like a driven dampened, harmonic
 oscillator known in physics (a model that describes, e.g. the motion
 of a spring.
+
 
 * Glossary
 
