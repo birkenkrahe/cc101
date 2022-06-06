@@ -412,9 +412,9 @@ Further study:
 9) Now go back to your C code block and add the header argument
    ~:cmdline < input~ to it.
 
-10) Run the C code block again. It should now give the correct
-    result and print out ~15~. You can try this with other numbers that
-    you enter in the bash code block:
+10) Run the C code block again. It should now give the correct result
+    and print out ~15~. You can try this with other numbers that you
+    enter in the bash code block:
 
     #+name: input1
     #+begin_src C :results output :cmdline < marcus
@@ -443,15 +443,19 @@ Further study:
 
 ** Agenda June 6, 2022
 
-- [ ] Recap: programming assignment 3
-- [ ] Continue: C Basics practice (30 min)
-- [ ] Upload completed practice.org file to Schoology
-- [ ] Recap: Quiz 4 - C Basics (15 min)
+- [X] Recap: programming assignment 3
+- [X] Continue: C Basics practice (45 min)
+- [X] Upload completed practice.org file to Schoology
+- [X] Recap: Quiz 4 - C Basics (20 min)
 - [ ] More about input and output (lecture)
 - [ ] Download printf practice file: ~tinyurl.com/yt7stna9~
 - [ ] Complete the printf practice file
 
-** Pgm assignment 3
+#+begin_example bash
+$  wget tinyurl.com/yt7stna9 -O printf.org -o log
+#+end_example
+
+** Review: pgm assignment 3
 
 What's the issue here?
 
@@ -522,7 +526,6 @@ probably heading for "Mount Stupid".
 In fact, the curve looks suspiciously like a driven dampened, harmonic
 oscillator known in physics (a model that describes, e.g. the motion
 of a spring.
-
 
 * Glossary
 

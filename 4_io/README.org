@@ -22,6 +22,8 @@
 
   2) any number of values to be inserted into the string at printing
 
+  3) the values can also be computed
+
 * Conversion specification
 
   * A *conversion specification* is a placeholder like ~d~
