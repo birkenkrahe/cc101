@@ -439,6 +439,7 @@ Further study:
 - [ ] Upload completed practice.org file to Schoology
 - [ ] Recap: Quiz 4 - C Basics (15 min)
 - [ ] More about input and output (lecture)
+- [ ] Download printf practice file: ~tinyurl.com/yt7stna9~
 - [ ] Complete the printf practice file
 
 ** Pgm assignment 3
