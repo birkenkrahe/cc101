@@ -3,7 +3,7 @@
 #+Source: KN King C Programming
 #+SUBTITLE:CSC 100 Introduction to programming in C/C++, Summer 2022
 #+STARTUP: overview hideblocks indent
-#+OPTIONS: toc:nil num:nil ^:nil
+#+OPTIONS: toc:1 num:1 ^:nil
 #+PROPERTY: header-args:C :main yes :includes <stdio.h>
 #+PROPERTY: header-args:C :exports both :comments both
 * README
