@@ -1,4 +1,4 @@
-#+TITLE:CC Agenda
+Hi Li#+TITLE:CC Agenda
 #+AUTHOR:Marcus Birkenkrahe
 #+SUBTITLE: CSC 100 - Summer I, 2022
 #+OPTIONS: toc:1
@@ -432,7 +432,22 @@ Further study:
    : Enter an integer number: You entered: 100
 
 * Week 3 - I/O, expressions, selection
-** Housekeeping
+** Agenda June 6, 2022
+
+- [ ] Recap: programming assignment 3
+- [ ] Continue: C Basics practice (30 min)
+- [ ] Upload completed practice.org file to Schoology
+- [ ] Recap: Quiz 4 - C Basics (15 min)
+- [ ] More about input and output (lecture)
+- [ ] Complete the printf practice file
+
+** Pgm assignment 3
+
+What's the issue here?
+
+#+attr_html: :width 600px
+#+caption: Pgm 3 solution with issues
+[[./img/pgm3.png]]
 
 ** Bonus content
 
@@ -475,6 +490,28 @@ Further study:
      learn. Especially if you're cramming (doing it too late).
 
 *Subscribe to his channel!*
+
+*** Dunning-Kruger effect and hype cycle
+
+This curve is well-known in business technology where it is used to
+describe the evolution of innovative technologies (the so-called "hype
+cycle" - [[https://www.gartner.com/en/newsroom/press-releases/2021-08-23-gartner-identifies-key-emerging-technologies-spurring-innovation-through-trust-growth-and-change][Gartner 2021]]).
+
+#+attr_html: :width 800px
+#+caption: emerging technology hype cycle (hype vs. maturity)
+[[./img/hypecycle.png]]
+
+It is also used to describe the evolution of confidence when learning
+something for the first time (like programming). Timely, as you're
+probably heading for "Mount Stupid".
+
+#+attr_html: :width 600px
+#+caption: Dunning Kruger effect (confidence vs. competence)
+[[./img/dunningkruger.png]]
+
+In fact, the curve looks suspiciously like a driven dampened, harmonic
+oscillator known in physics (a model that describes, e.g. the motion
+of a spring.
 
 * Glossary
 

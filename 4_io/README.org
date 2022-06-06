@@ -40,92 +40,109 @@
 
     #+name: mpx
     #+begin_src C :results output
-      printf("|%8d|\n", 123); // print 123 right-aligned on 8 places
-      printf("|%-8d|\n", 123); // print 123 left-aligned on 8 places
-      printf("|%.3f   |\n", 3.141593); // print 3 decimal places of PI
+      printf("....|....|....|\n");
+      printf("%8d\n", 123); // print 123 on 8 places (right-aligned)
+      printf("%-8d\n", 123); // print 123 on 8 places (left-aligned)
+      printf("%10.3f\n", 3.141593); // print 3 decimals on 10 places (right)
+      printf("%-10.3f\n", 3.141593); // print 3 decimals on 10 places (left)
     #+end_src
 
     #+RESULTS: mpx
-    : |     123|
-    : |123     | 
-    : |3.142   |
-
-  * The precision p depends on the conversion specifier X
+    : ....|....|....|
+    :      123
+    : 123     
+    :      3.142
+    : 3.142     
 
 * Integer decimal "d"
 
-  #+begin_quote
-  ~d~ displays an integer in decimal (= base 10) form. p is the
-  minimum number of digits to display the integer. Default p=1.
-  #+end_quote
+  * ~d~ displays an integer in decimal (= base 10) form. p is the
+    minimum number of digits to display the integer. Default p=1.
 
-  * [X] Get coding! Show that the default for ~d~ is p=1. Print the
-    numbers 1, 1, 100 and 10000 with the specifiers ~%d~, ~%.1d~,
-    ~%.5d~, ~%.2d~. Print each expression on its own line.
+  * For example, the code below [[spec]] prints numbers with different
+    precision values:
+    - ~%d~ displays ~int~ in decimal form (minimum amount of space)
+    - ~%5d~ displays ~int~ in decimal form using 5 characters
+    - ~%-5d~ displays ~int~ on 5 characters, left-justified
+    - ~%5.3d~ displays ~int~ on 5 characters, at least 3 digits
 
     #+name: spec
-    #+begin_src C
-      printf("%d\n %.1d\n %.5d\n %.2d\n", 1, 1, 100, 10000);
+    #+begin_src C :results output
+      int i = 40;
+      printf("....|....|\n");
+      printf("%d\n",i); // decimal form (minimum amount of space)
+      printf("%5d\n",i); // decimal form using 5 characters
+      printf("%-5d\n",i); // on 5 characters, left-justified
+      printf("%5.4d\n",i); // on 5 characters, at least 3 digits
     #+end_src
 
     #+RESULTS: spec
-    |     1 |
-    |     1 |
-    |   100 |
-    | 10000 |
+    : ....|....|
+    : 40
+    :    40
+    : 40   
+    :  0040
 
 * Floating point exponential "e"
 
-  #+begin_quote
-  ~e~ displays a floating-point number in exponential
-  ("scientific") notation.  p = digits after decimal point. If
-  p=0, no decimal point is displayed.
-  #+end_quote
+- ~e~ displays a floating-point number in exponential ("scientific")
+  notation.
 
-  * [X] Get coding! Print 1, 1000, and 1000000000000000 using
-    %e%. Print each expression on its own line with its own print
-    function.
+- ~p~ = digits after decimal point. If ~p=0~, no decimal point is
+  displayed.
 
-    #+begin_src C
-      printf("%e\n", 1); // forgot the decimal point
-      printf("%e\n", 1.);
-      printf("%e\n", 1000.);
+What went wrong in the first two statements?
+
+  #+begin_src C :results output
+      printf("....|....|....|\n");
+      printf("%e\n", 1); 
+      printf("%100.3e\n", 1000.);
+      printf("%-.1e\n", 1.);
       printf("%e\n", 1000000000000000.);
-    #+end_src
+      printf("%15.f\n", 1000000000000000.);
+  #+end_src
 
-    #+RESULTS:
-    | 1.421737e-312 |
-    |           1.0 |
-    |        1000.0 |
-    |         1e+15 |
+  #+RESULTS:
+  : ....|....|....|
+  : 4.940656e-324
+  :                                                                                            1.000e+03
+  : 1.0e+00
+  : 1.000000e+15
+  : 1000000000000000
 
 * Floating point fixed decimal "f"
 
   That's ~f~ as we already know it from many other examples. The
   precision p is defined as for ~e~. Trailing zeroes are shown.
+
+#+name: floatexample
+#+begin_src C :results output
+      printf("....|....|\n");
+      printf("%10.3f\n", 100.1); 
+#+end_src
+
+#+RESULTS: floatexample
+: ....|....|
+:    100.100
+
 * Variable floating point "g"
 
-  #+begin_quote
-  ~g~ displays a floating point number in either exponential
-  format or fixed decimal format depending on the number's size. p
-  is the maximum number of *significant* digits (*not* digits
-  after the decimal point!) to be displayed. No trailing zeroes
-  are shown. If there are no decimal digits after the decimal
-  point, no decimal point is shown.
-  #+end_quote
+- ~g~ displays a floating point number in either exponential format or
+  fixed decimal format depending on the number's size.
+- ~p~ is the maximum number of *significant* digits (*not* digits after the
+  decimal point!) to be displayed.
+- No trailing zeroes are shown. If there are no decimal digits after
+  the decimal point, no decimal point is shown.
 
-  * [ ] Get coding! Use ~g~ to display the numbers: 200, 3.142574654
-    with p=8, 2.71 - print each on a line of its own, but use only
-    *one* ~printf~ statement to do it!
+#+name: gfactor :results output
+#+begin_src C
+printf("%g\n%g\n%g\n", 299792458., 1.45e+03, 8000);
+#+end_src
 
-    #+begin_src C
-      printf("%g\n %.8g\n %g\n", 200., 3.142574654, 2.71);
-    #+end_src
-
-    #+RESULTS:
-    |       200 |
-    | 3.1425747 |
-    |      2.71 |
+#+RESULTS: gfactor :results output
+| 299792000.0 |
+|        1450 |
+| 3.9525e-320 |
 
 * scanf
 

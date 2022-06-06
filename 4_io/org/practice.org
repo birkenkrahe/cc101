@@ -1,3 +1,0 @@
-#+TITLE: C Input/Output practice
-#+AUTHOR: [yourName] (pledged)
-#+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :comments both
