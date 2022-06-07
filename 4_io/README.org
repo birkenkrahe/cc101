@@ -8,119 +8,119 @@
 #+PROPERTY: header-args:C :exports both :comments both
 * README
 
-  - There is much more to ~scanf~ and ~printf~ than we've seen
+- There is much more to ~scanf~ and ~printf~ than we've seen
 
-  - I/O is where the pedal hits the metal - where man meets machine
+- I/O is where the pedal hits the metal - where man meets machine
 
-  - In this notebook: conversion specifications for printf and scanf
+- In this notebook: conversion specifications for printf and scanf
 
 * printf
 
-  When it is called, ~printf~ must be supplied with:
+When it is called, ~printf~ must be supplied with:
 
-  1) a format string, like ~"The output is: %d\n~
+1) a format string, like ~"The output is: %d\n~
 
-  2) any number of values to be inserted into the string at printing
+2) any number of values to be inserted into the string at printing
 
-  3) the values can also be computed
+3) the values can also be computed
 
 * Conversion specification
 
-  * A *conversion specification* is a placeholder like ~d~
+- A *conversion specification* is a placeholder like ~d~
 
-  * Binary (machine) format is converted to printed (human) format
+- Binary (machine) format is converted to printed (human) format
 
-  * General form: ~%m.pX~ where
+- General form: ~%m.pX~ where
 
-    |   | WHAT                  | EXAMPLE                             |
-    |---+-----------------------+-------------------------------------|
-    | m | minimum field width   | ~%4d~ prints ~123~ as ~_123~        |
-    | p | precision after point | ~%.3f~ prints ~3.141593~ as ~3.142~ |
-    | X | conversion specifier  | ~d~, ~e~, ~f~, ~g~                  |
+|   | WHAT                  | EXAMPLE                             |
+|---+-----------------------+-------------------------------------|
+| m | minimum field width   | ~%4d~ prints ~123~ as ~_123~        |
+| p | precision after point | ~%.3f~ prints ~3.141593~ as ~3.142~ |
+| X | conversion specifier  | ~d~, ~e~, ~f~, ~g~                  |
 
-  * Examples:
+* Examples:
 
-    #+name: mpx
-    #+begin_src C :results output
-      printf("....|....|....|\n");
-      printf("%8d\n", 123); // print 123 on 8 places (right-aligned)
-      printf("%-8d\n", 123); // print 123 on 8 places (left-aligned)
-      printf("%10.3f\n", 3.141593); // print 3 decimals on 10 places (right)
-      printf("%-10.3f\n", 3.141593); // print 3 decimals on 10 places (left)
-    #+end_src
+#+name: mpx
+#+begin_src C :results output
+  printf("....|....|....|\n");
+  printf("%8d\n", 123); // print 123 on 8 places (right-aligned)
+  printf("%-8d\n", 123); // print 123 on 8 places (left-aligned)
+  printf("%10.3f\n", 3.141593); // print 3 decimals on 10 places (right)
+  printf("%-10.3f\n", 3.141593); // print 3 decimals on 10 places (left)
+#+end_src
 
-    #+RESULTS: mpx
-    : ....|....|....|
-    :      123
-    : 123     
-    :      3.142
-    : 3.142     
+#+RESULTS: mpx
+: ....|....|....|
+:      123
+: 123
+:      3.142
+: 3.142
 
 * Integer decimal "d"
 
-  * ~d~ displays an integer in decimal (= base 10) form. p is the
-    minimum number of digits to display the integer. Default p=1.
+- ~d~ displays an integer in decimal (= base 10) form. ~p~ is the minimum
+  number of digits to display the integer. Default is ~p=1~.
 
-  * For example, the code below [[spec]] prints numbers with different
-    precision values:
-    - ~%d~ displays ~int~ in decimal form (minimum amount of space)
-    - ~%5d~ displays ~int~ in decimal form using 5 characters
-    - ~%-5d~ displays ~int~ on 5 characters, left-justified
-    - ~%5.3d~ displays ~int~ on 5 characters, at least 3 digits
+- For example, the code below [[spec]] prints numbers with different
+  precision values:
+  - ~%d~ displays ~int~ in decimal form (minimum amount of space)
+  - ~%5d~ displays ~int~ in decimal form using 5 characters
+  - ~%-5d~ displays ~int~ on 5 characters, left-justified
+  - ~%5.3d~ displays ~int~ on 5 characters, at least 3 digits
 
-    #+name: spec
-    #+begin_src C :results output
-      int i = 40;
-      printf("....|....|\n");
-      printf("%d\n",i); // decimal form (minimum amount of space)
-      printf("%5d\n",i); // decimal form using 5 characters
-      printf("%-5d\n",i); // on 5 characters, left-justified
-      printf("%5.4d\n",i); // on 5 characters, at least 3 digits
-    #+end_src
+  #+name: spec
+  #+begin_src C :results output
+    int i = 40;
+    printf("....|....|\n");
+    printf("%d\n",i); // decimal form (minimum amount of space)
+    printf("%5d\n",i); // decimal form using 5 characters
+    printf("%-5d\n",i); // on 5 characters, left-justified
+    printf("%5.4d\n",i); // on 5 characters, at least 3 digits
+  #+end_src
 
-    #+RESULTS: spec
-    : ....|....|
-    : 40
-    :    40
-    : 40   
-    :  0040
+  #+RESULTS: spec
+  : ....|....|
+  : 40
+  :    40
+  : 40
+  :  0040
 
 * Floating point exponential "e"
 
 - ~e~ displays a floating-point number in exponential ("scientific")
-  notation.
+  notation, e.g. ~10. * 10. * 10. = 1000. = 1.0e+03~.
 
-- ~p~ = digits after decimal point. If ~p=0~, no decimal point is
-  displayed.
+- ~p~ indicates the digits after decimal point. If ~p=0~, no decimal point
+  is displayed.
 
 What went wrong in the first two statements?
 
-  #+begin_src C :results output
-      printf("....|....|....|\n");
-      printf("%e\n", 1); 
-      printf("%100.3e\n", 1000.);
-      printf("%-.1e\n", 1.);
-      printf("%e\n", 1000000000000000.);
-      printf("%15.f\n", 1000000000000000.);
-  #+end_src
+#+begin_src C :results output
+  printf("....|....|....|\n");
+  printf("%e\n", 1);
+  printf("%100.3e\n", 1000.);
+  printf("%-.1e\n", 1.);
+  printf("%e\n", 1000000000000000.);
+  printf("%15.f\n", 1000000000000000.);
+#+end_src
 
-  #+RESULTS:
-  : ....|....|....|
-  : 4.940656e-324
-  :                                                                                            1.000e+03
-  : 1.0e+00
-  : 1.000000e+15
-  : 1000000000000000
+#+RESULTS:
+: ....|....|....|
+: 4.940656e-324
+:                                                                                            1.000e+03
+: 1.0e+00
+: 1.000000e+15
+: 1000000000000000
 
 * Floating point fixed decimal "f"
 
-  That's ~f~ as we already know it from many other examples. The
-  precision p is defined as for ~e~. Trailing zeroes are shown.
+That's ~f~ as we already know it from many other examples. The
+precision p is defined as for ~e~. Trailing zeroes are shown.
 
 #+name: floatexample
 #+begin_src C :results output
-      printf("....|....|\n");
-      printf("%10.3f\n", 100.1); 
+  printf("....|....|\n");
+  printf("%10.3f\n", 100.1);
 #+end_src
 
 #+RESULTS: floatexample
@@ -138,7 +138,7 @@ What went wrong in the first two statements?
 
 #+name: gfactor :results output
 #+begin_src C
-printf("%g\n%g\n%g\n", 299792458., 1.45e+03, 8000);
+  printf("%g\n%g\n%g\n", 299792458., 1.45e+03, 8000);
 #+end_src
 
 #+RESULTS: gfactor :results output
@@ -148,207 +148,157 @@ printf("%g\n%g\n%g\n", 299792458., 1.45e+03, 8000);
 
 * scanf
 
-  * A ~scanf~ format string may contain ordinary characters and
-    conversion specifications like ~d~, ~e~, ~f~, ~g~
+- A ~scanf~ *format string* may contain ordinary characters and
+conversion specifications like ~d~, ~e~, ~f~, ~g~
 
-  * The conversions allowed with ~scanf~ are essentially the same as
-    those used with ~printf~
+- *The *conversions* allowed with ~scanf~ are essentially the same as
+  those used with ~printf~
 
-  * The ~scanf~ format string tends to contain only conversion specs
+- The ~scanf~ format string tends to contain *only* conversion specs
 
-  * [ ] What will this sample input assign to the variables in [[tscanf]]
-    below?
+* First example
 
-    #+begin_example
-      1  -20  .3   -4.0e3
-    #+end_example
+- Example input:
+  #+begin_example
+  1  -20  .3   -4.0e3
+  #+end_example
 
-    #+name: tscanf
-    #+begin_src C :cmdline < io_scanf_input :results output
-      int i, j;
-      float x, y;
+  Example program to read this input:
+  #+name: pgm:tscanf
+  #+begin_src C :cmdline < ./data/io_scanf_input :results output
+    int i, j;
+    float x, y;
 
-      scanf("%d%d%f%f", &i, &j, &x, &y);
+    scanf("%d%d%f%f", &i, &j, &x, &y);
 
-      printf("|%5d|%5d|%5.1f|%5.1f|\n", i, j, x, y);
-    #+end_src
+    printf("|%5d|%5d|%5.1f|%10.1f|\n", i, j, x, y);
+  #+end_src
 
-    #+RESULTS: tscanf
-    : |    1|  -20|  0.3|-4000.0|
+  #+RESULTS: pgm:tscanf
+  : |    1|  -20|  0.3|   -4000.0|
+
+  Create the input file:
+  #+name: pgm:io_scanf_input
+  #+begin_src bash :results silent
+    echo "1  -20 .3 -4.0e+3" > ./data/io_scanf_input
+  #+end_src
 
 * Main traps
 
-  * The compiler will not check that specs and input match
+- The compiler will not check that specs and input match
 
-  * The & symbol may not miss in front of the input variable
+- The ~&~ symbol may not miss in front of the input variable
+
 * How scanf works
 
-  * ~scanf~ tries to math input groups with specs
+- ~scanf~ is a pattern-matching function: it tries to math input groups
+  with conversion specifications in the format string
 
-  * For each spec, it tries to locate an item in input
+- For each spec, it tries to locate an item in input
 
-  * It reads the item, and stops when it can't match
+- It reads the item, and stops when it can't match
 
-  * If an item is not read successfully, ~scanf~ aborts
+- If an item is not read successfully, ~scanf~ aborts
 
-  #+caption: How scanf works
-  #+attr_html: :width 400px
-  [[./img/scanf.png]]
+#+caption: How scanf works (Event-controlled Process Chain diagram)
+#+attr_html: :width 400px
+[[./img/scanf.png]]
 
-  * White-space characters are ignored: SPC, TAB, new-line
+- White-space characters are ignored: space, TAB (~\t~), new-line (~\n~)
 
-  * In [[tscanf]] above, the lines can be on one line or spread over
-    several lines:
+- In [[pgm:tscanf]] above, the lines can be on one line or spread over
+several lines:
 
-  #+caption: Input file for tscanf
-  #+attr_html: :width 300px
-  [[./img/input.png]]
+#+caption: Input file for tscanf
+#+attr_html: :width 300px
+[[./img/input.png]]
 
-  * ~scanf~ sees a character stream (¤ = new-line, s=skip'd, r= read):
+- ~scanf~ sees a character stream (~¤~ = new-line, ~s~ = skip'd, ~r~ = read):
 
-    #+begin_example
-    ••1¤-20•••.3¤•••-4.0e3¤
-    ssrsrrrsssrrssssrrrrrr
-    #+end_example
+  #+begin_example
+  ••1¤-20•••.3¤•••-4.0e3¤
+  ssrsrrrsssrrssssrrrrrr
+  #+end_example
 
-  * When asked to read an integer (~%d~ or ~%i~), ~scanf~ searches for
-    a digit, +/- sign, then reads until a non-digit
+  - When asked to read an *integer* (~%d~ or ~%i~), ~scanf~ searches for a
+    digit, or a +/- sign, then reads until it encounters a non-digit
 
-  * When asked to read a float (~%f~, ~%g~, ~%e~), ~scanf~ looks for
-    +/- sign, digits, decimal point, exponent (~e+02~, ~e-02~)
+  - When asked to read a *float* (~%f~, ~%g~, ~%e~), ~scanf~ looks for +/- sign,
+    digits, decimal point, or an exponent (~e+02~, ~e-02~)
 
-  * When used with ~scanf~, ~%e~, ~%f~, ~%g~ are interchangeable
+  - When used with ~scanf~, ~%e~, ~%f~, ~%g~ are interchangeable
 
-  * When it finds a character that cannot be part of the current item,
+  - When it finds a character that cannot be part of the current item,
     the character is returned to be read again during the scanning of
     the next input item or the next call of ~scanf~
 
-  * The extended example below has the same spec as [[tscanf]] -
-    ~"%d%d%f%f",&i,&j&x&y~
+* Walk through example
 
-    #+name: sampleInput
-    #+begin_example C
-      1-20.3-4.0e3¤
-    #+end_example
-    
-    1) ~%d~. Stores ~1~ in ~i~, returns ~-~
+The extended example below has the same spec as [[pgm:tscanf]] -
+~"%d%d%f%f",&i,&j&x&y~
 
-    2) ~%d~. Stores ~-20~ in ~j~, returns ~.~
+#+name: ex:sampleInput
+#+begin_example
+  1-20.3-4.0e3¤
+#+end_example
 
-    3) ~%f~. Stores ~0.3~ in ~x~, returns ~-~
+1) Expects ~%d~. Stores ~1~ in ~i~, returns ~-~
 
-    4) ~%f~. Stores ~-4.0 x 10^3~ in ~y~, returns ~¤~
+2) Expects ~%d~. Stores ~-20~ in ~j~, returns ~.~
+
+3) Expects ~%f~. Stores ~0.3~ in ~x~, returns ~-~
+
+4) Expects ~%f~. Stores ~-4.0 x 10^3~ in ~y~, returns ~¤~
+
 * Ordinary characters in format strings
 
-  * ~scanf~ reads white-space until it reaches a symbol
+- ~scanf~ reads white-space until it reaches a symbol
 
-  * When it reaches a symbol, it tries to match to next input
+- When it reaches a symbol, it tries to match to next input
 
-  * It now either continues processing or aborts
+- It now either continues processing or aborts
 
-  * Example:
+* Example with ordinary characters
 
-    If the format string is ~"%d/%d"~ and the input is ~•5/•96~,
-    ~scanf~ succeeds.
+- If the format string is ~"%d/%d"~ and the input is ~•5/•96~, ~scanf~
+  succeeds.
 
-    If the input is ~•5•/•96~ , ~scanf~ fails, because the ~/~ in the
-    format string doesn’t match the space in the input.
+- If the input is ~•5•/•96~ , ~scanf~ fails, because the ~/~ in the format
+  string doesn’t match the space in the input.
 
-  * To allow spaces after the first number, use ~"%d /%d"~ instead
+- Upon encountering the ~/~ in ~•5•/•96~, ~scanf~ will abort, since it
+  expects a digit or a +/- sign.
 
-  * [ ] Let's try it. Run the block [[ordTest]] first with two input files:
-    - the input file ~ord1~ contains ~•5/•96~ and should succeed
-    - the input file ~ord2~ contains ~•5 /•96~ and should fail
+- To allow spaces after the first number, use ~"%d /%d"~ instead.
 
-    #+name: ordTest
-    #+begin_src C :cmdline < ord1
-      int i,j;
+* Common mistakes:
 
-      scanf("%d/%d", &i, &j);
+1. putting ~&~ in front of variables in a ~printf~ call
 
-      printf("|%5d|%5d|\n", i, j);
-    #+end_src
+   #+name: pointer
+   #+begin_example
+    printf("%d %d\n", &i, &j);  /*** WRONG ***/
+   #+end_example
 
-  * [ ] Next, fix the ~scanf~ format string below to allow input from ~ord2~:
+2. assuming that ~scanf~ should resemble ~printf~ formats
 
-    #+name: ordTest1
-    #+begin_src C :cmdline < ord2
-      int i,j;
+   #+name: notPrintf
+   #+begin_example
+    scanf("%d, %d", &i, &j);
+   #+end_example
 
-      scanf("%d / %d", &i, &j);
+   - After storing ~i~, ~scanf~ will try to match a comma with the
+     next input character. If it's a space, it will abort.
 
-      printf("|%5d|%5d|\n", i, j);
-    #+end_src
+   - Only this input will work: ~100, 100~ but not ~100 100~
 
-    #+RESULTS: ordTest1
-    |   | 5 | 96 |
-* Confusing printf with scanf
+3. putting a ~\n~ character at the end of ~scanf~ string
 
-  * Calls to these only appear similar but they aren't
+   #+name: noNewline
+   #+begin_example
+    scanf("%d\n", &i);
+   #+end_example
 
-  * Common mistakes:
-
-    1. putting ~&~ in front of variables in a ~printf~ call
-
-       #+name: pointer
-       #+begin_example
-        printf("%d %d\n", &i, &j);  /*** WRONG ***/
-       #+end_example
-
-    2. assuming that ~scanf~ should resemble ~printf~ formats
-
-       #+name: notPrintf
-       #+begin_example
-        scanf("%d, %d", &i, &j);
-       #+end_example
-
-       - After storing ~i~, ~scanf~ will try to match a comma with the
-         next input character. If it's a SPC, it will abort.x
-       - Only this input will work: ~100, 100~ but not ~100 100~
-
-    3. putting a ~\n~ character at the end of ~scanf~ string
-
-       #+name: noNewline
-       #+begin_example
-        scanf("%d\n", &i);
-       #+end_example
-
-       - To ~scanf~, the new-line is a SPC. It will advance to the
-         next white-space character
-       - This can cause the program to hang (wait forever for input)
-* Get coding: sample program
-
-  * The [[addfrac]] program prompts the user to add two fractions and then
-    display their sum.
-
-    Sample output:
-    #+begin_example
-      Enter first fraction: 5/6
-      Enter second fraction: 3/4
-      The sum is 38/24
-    #+end_example
-
-  * [ ] Complete the format strings below so that the program runs as
-    intended! The sample input is already stored in the
-    ~addfrac_input~ file in the format shown.
-
-    #+name: addfrac
-    #+begin_src C :cmdline < addfrac_input :results output
-      int num1, denom1, num2, denom2, result_num, result_denom;
-
-      printf("Enter first fraction: ");
-      scanf("%d/%d", &num1, &denom1);
-
-      printf("Enter second fraction: ");
-      scanf("%d/%d", &num2, &denom2);
-
-      result_num = num1 * denom2 + num2 *denom1;
-      result_denom = denom1 * denom2;
-
-      printf("\nThe sum is %d/%d\n",result_num, result_denom);
-    #+end_src
-
-    #+RESULTS:
-    : Enter first fraction: Enter second fraction: 
-    : The sum is 38/24
+   - To ~scanf~, the new-line is /white-space/. It will advance to the
+     next white-space character and not finding one will hang forever
 
