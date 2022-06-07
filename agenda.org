@@ -432,7 +432,6 @@ Further study:
    : Enter an integer number: You entered: 100
 
 * Week 3 - I/O, expressions, selection
-
 ** This week
 
 - three more programming assignments
@@ -457,7 +456,7 @@ $  wget tinyurl.com/yt7stna9 -O printf.org -o log
 
 ** Agenda June 7, 2022
 
-- [ ] More about input and output (lecture)
+- [X] More about input and output (lecture)
 - [ ] Download scanf practice file: ~tinyurl.com/3euuvhuc~
 - [ ] Complete the scanf practice file
 
