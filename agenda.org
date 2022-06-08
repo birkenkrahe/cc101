@@ -448,20 +448,10 @@ Further study:
 - [X] Recap: Quiz 4 - C Basics (20 min)
 - [X] More about input and output (lecture)
 - [X] Download printf practice file: ~tinyurl.com/yt7stna9~
-- [ ] Complete the printf practice file
+- [X] Complete the printf practice file
 
 #+begin_example bash
 $  wget tinyurl.com/yt7stna9 -O printf.org -o log
-#+end_example
-
-** Agenda June 7, 2022
-
-- [X] More about input and output (lecture)
-- [ ] Download scanf practice file: ~tinyurl.com/3euuvhuc~
-- [ ] Complete the scanf practice file
-
-#+begin_example bash
-$  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 #+end_example
 
 ** Review: pgm assignment 3
@@ -472,8 +462,32 @@ What's the issue here?
 #+caption: Pgm 3 solution with issues
 [[./img/pgm3.png]]
 
-** Bonus content
+** Agenda June 7, 2022
 
+- [X] More about input and output (lecture)
+- [X] Download scanf practice file: ~tinyurl.com/3euuvhuc~
+- [X] Complete the scanf practice file
+- [X] Upload printf and scanf Org practice files
+
+#+begin_example bash
+$  wget tinyurl.com/3euuvhuc -O scanf.org -o log
+#+end_example
+
+** Agenda June 8, 2022
+
+- [ ] Syllabus check
+- [ ] Recap: Quiz 5 (15 questions - 30 min)
+- [ ] Review Quiz 5
+- [ ] Lecture: Operators in C, Pseudocode, Flowcharts
+- [ ] Practice: Registration with SAP Signavio
+- [ ] Practice: Create a simple process model
+
+#+attr_html: :width 60%
+#+caption: SAP Signavio registration screen
+[[./img/signavio.png]]
+
+
+** Bonus content
 *** Steve Yegge: "Should you get a CS degree or can you teach yourself?"
 
 #+attr_html: :width 400px

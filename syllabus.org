@@ -266,16 +266,16 @@ class per week) without risking a fail.
    |  3 | Thu-26-May |            |            | +2 C Fundamentals+         |
    |  4 | Fri-27-May | +Quiz 1+     |            |                          |
    |----+------------+------------+------------+--------------------------|
-   |  5 | Mon-30-May | +Quiz 2+     | +Program 1+  | 3 Formatted Input/Output |
+   |  5 | Mon-30-May | +Quiz 2+     | +Program 1+  | +3 Formatted Input/Output+ |
    |  6 | Tue-31-May |            |            |                          |
    |  7 | Wed-01-Jun | +Quiz 3+     | +Program 2+  | 4 Expressions            |
    |  8 | Thu-02-Jun |            |            |                          |
-   |  9 | Fri-03-Jun | Quiz 4     | +Program 3+  | 5 Selection statements   |
+   |  9 | Fri-03-Jun | +Quiz 4+     | +Program 3+  | 5 Selection statements   |
    |----+------------+------------+------------+--------------------------|
    | 10 | Mon-06-Jun |            |            |                          |
-   | 11 | Tue-07-Jun | Quiz 5     | Program 4  | 6 Loops                  |
+   | 11 | Tue-07-Jun | +Quiz 5+     | +Program 4+  | 6 Loops                  |
    | 12 | Wed-08-Jun |            |            |                          |
-   | 13 | Thu-09-Jun | Quiz 6     | Program 5  | 7 Basic Types            |
+   | 13 | Thu-09-Jun | Quiz 6     | Program 5  | /7 Basic Types/            |
    | 14 | Fri-10-Jun |            |            |                          |
    |----+------------+------------+------------+--------------------------|
    | 15 | Mon-13-Jun | Quiz 7     | Program 6  | 8 Arrays                 |
@@ -285,7 +285,7 @@ class per week) without risking a fail.
    | 19 | Fri-17-Jun | Quiz 9     | Program 8  | 11 Pointers              |
    |----+------------+------------+------------+--------------------------|
    | 20 | Mon-20-Jun |            |            |                          |
-   | 21 | Tue-21-Jun | Quiz 10    | Program 9  | 12 Pointers and Arrays   |
+   | 21 | Tue-21-Jun | Quiz 10    | Program 9  | /12 Pointers and Arrays/   |
    | 22 | Wed-22-Jun |            |            |                          |
    | 23 | Thu-23-Jun | Final exam | Program 10 | 13 Strings               |
    | 24 | Fri-24-Jun |            |            |                          |

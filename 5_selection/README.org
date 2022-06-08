@@ -1,0 +1,946 @@
+#+TITLE:Selection
+#+AUTHOR:Marcus Birkenkrahe
+#+SUBTITLE:CSC100 Introduction to programming in C/C++ (Summer 2022)
+#+STARTUP: overview hideblocks indent
+#+OPTIONS: toc:1 ^:nil
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :exports both :results output :comments both
+* README
+
+  - In this section of the course, we go beyond simple statements and
+    turn to program flow and evaluation of logical conditions
+ 
+  - This section follows chapter 3 in Davenport/Vine (2015) and
+    chapters 4 and 5 in King (2008).
+
+* Preamble
+
+- *Algorithms* are the core of programming
+
+- Example for an algorithm: /"When you come to a STOP sign, stop."/
+
+- The human form of algorithm is *heuristics*
+
+- Example for a heuristic: /"To get to the college, go straight."/
+
+- For *programming*, you need both algorithms and heuristics
+
+- Useful tools to master when designing algorithms:
+  - *Pseudocode* (task flow description)
+  - *Flow charts* (task flow visualization)
+
+* Operators in C
+
+  - Mathematically, operators are really functions: ~f(i,j)=i+j~
+
+  - C has many operators, both unary (~-1~) and binary (~1+1~)
+
+  - Types of operators in C:
+
+    | OPERATOR            | WHY                   | EXAMPLES  | EXPRESSION |
+    |---------------------+-----------------------+-----------+------------|
+    | Arithmetic          | compute               | * + - / % | i * j + k  |
+    | Relational          | compare               | < > <= >= | i > j      |
+    | Equality            | compare (in/equality) | == !=       | i == j     |
+    | Logical             | confirm (truth)       | && !      | i && j     |
+    | Assignment          | change                | =         | i = j      |
+    | Increment/decrement | change stepwise       | ++, +-    | ++i        |
+
+  - Conditional operators used in C are important for program flow:
+
+    | OPERATOR | DESCRIPTION              | EXPRESSION | VALUE |
+    |----------+--------------------------+------------+-------|
+    | ==       | Equal                    | 5 == 5     | true  |
+    | !=       | Not equal                | 5 != 5     | false |
+    | >        | Greater than             | 5 > 5      | false |
+    | <        | Less than                | 5 < 5      | false |
+    | >=       | Greater than or equal to | 5 >= 5     | true  |
+    | <=       | Less than or equal to    | 5 <= 5     | true  |
+
+  - The value of an evaluated conditional operator is *Boolean*
+    (logical) - e.g. ~2==2~ evaluates as ~TRUE~ or ~1~.
+
+* Operators in other languages
+
+ - Different programming languages differ greatly rgd. operators. For
+    example, in the language R, the ~|>~ operator ("pipe") passes a data
+    set to a function[fn:6].
+
+    #+begin_example R
+    ## pipe data set into function
+    mtcars |> head()
+    #+end_example
+
+    Output:    
+    #+begin_example
+               mpg cyl disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+
+    #+end_example
+
+ - You met the ~>~ operator of the ~bash~ shell language that redirects
+   standard output to a file:
+
+   #+begin_example bash
+     ## create empty file called "empty"
+     > empty
+   #+end_example
+   
+* Pseudocode
+** Overview
+
+- *Pseudocode* is a method to write down/analyze an /algorithm/ or a
+  /heuristic/ without having to bother with /syntax/
+
+- The prefix pseudo- comes from Ancient Greek [[https://en.wiktionary.org/wiki/%CF%88%CE%B5%CF%85%CE%B4%CE%AE%CF%82][ψευδής]], meaning
+  "lying", "false" or "untrue", as in "pseudoscience" or "pseudonym"
+
+- Pseudocode does not need to compile or run so it is closer to a
+  heuristic than to an exact algorithm.
+
+- Code however needs to be exact and is always algorithmic
+
+** Example
+
+   - Example: player problem statement in [[problem1]] below:
+
+     #+name: problem1
+     #+begin_quote
+     "Drink a health potion when a character's health is 100 or
+     less. If health reaches 100 or more, resume battle."
+     #+end_quote
+
+   - Given the problem [[problem1]], this is the pseudocode [[pseudocode1]][fn:1]:
+
+     #+name: pseudocode1
+     #+begin_example C
+     if health is less than 100
+       Drink health potion
+     else
+       Resume battle
+     end if
+     #+end_example
+
+   - The code in [[pseudocode1]] would not compile as a C program (you can
+     test yourself: which mistakes would the compiler find?[fn:2])
+
+   - The conceptual "trick" with generating pseudocode from a prose
+     description is to identify the *logical condition* so that you can
+     perform a comparison (= apply a *conditional operator*)
+
+   - The pseudocode [[pseudocode1]] leads to the condition ~health <= 100~:
+
+     #+name: pseudocode11
+     #+begin_example C
+     if health <= 100
+       Drink health potion
+     else
+       Resume battle
+     end if
+     #+end_example
+
+   - Notice that you could also use another operator: ~>~ This operator
+     would have had the same effect but it is not what you were
+     supposed to code.
+
+     #+name: pseudocode12
+     #+begin_example C
+     if health > 100
+       Resume battle       
+     else
+       Drink health potion
+     end if
+     #+end_example
+     
+   - Rule: when making models (via *abstraction*), always stay as close
+     to the problem description as possible - in terms of language,
+     logic, tone, etc. If you're unsure, ask.
+   
+** Let's practice!
+
+
+
+   
+* Flowcharts
+** Overview
+
+   * Flowcharts are popular among computing analysts and programmers
+
+   * Flowcharts are a special case of process models
+
+   * Process modeling is a key 21st century skill
+
+   * Rather than use flowcharts, we use BPMN - Business Process Model
+     and Notation - see figure [[bpmnfig]] below for an overview of the
+     whole language (you can get this poster at [[https://www.signavio.com/downloads/short-reads/free-bpmn-2-0-poster/][SAP Signavio]]).
+
+     #+name: bpmnfig
+     #+attr_html: :width 500
+     #+caption: (Free) BPMN 2.0 poster from SAP Signavio
+     [[./img/bpmn.png]]
+
+** SAP Signavio
+
+   * [[https://signavio.com][SAP Signavio]] is a state-of-the-art process modeling environment
+
+   * It includes process mining and workflow management tools. The
+     figure [[signavio]] below shows the app dashboard.
+
+     #+name: signavio
+     #+attr_html: :width 500px
+     #+caption: SAP Signavio dashboard / explorer
+     [[./img/signavio.png]]
+
+   * Register in my Signavio workspace if you haven't done it yet
+
+   * Use the link in Schoology to register
+
+** Practice
+
+   * [X] Open Signavio Process Manager
+
+   * [X] Create a simple BPMN based on the battle [[problem1]].
+
+     #+attr_html: :width 500px
+     #+caption: Health potion algorithm (battle problem) as BPMN diagram
+     [[./img/battle.png]]
+
+   * [X] In the next models, change "Insufficient funds" to "Do not
+     withdraw gold" (tasks need to be articulated as active).
+
+   * [X] Create a model based on [[pseudogold1]].
+
+     #+attr_html: :width 500px
+     #+caption: Gold deposit algorithm as BPMN diagram - version 1
+     [[./img/gold1.png]]
+
+   * [X] Create a model based on [[pseudogold2]]
+
+     #+attr_html: :width 500px
+     #+caption: Gold deposit algorithm as BPMN diagram - version 2
+     [[./img/gold2.png]]
+
+   * What changes if you use [[pseudogold3]] instead?
+
+     #+attr_html: :width 500px
+     #+caption: Gold deposit algorithm as BPMN diagram - version 3
+     [[./img/gold3.png]]
+
+** Points to remember
+
+   * Every model needs a pool = process owner
+   * Conditions become gateways
+   * Use active sentences for tasks
+   * When the flow is split, it must be rejoined
+   * All elements must be named
+   * Do not change the size of elements
+   * All elements can be "overloaded"
+
+** BPMN elements
+
+   * Roles (pools, lanes, participants)
+   * Tasks (things to do)
+   * Events (status)
+   * Flow (between tasks or events)
+   * Gateways (decision points, condition check)
+
+* Simple and nested 'if' structures
+** Overview and example
+
+   * If structure in C is very similar to pseudocode
+
+   * [[battle1]] is the C version of the pseudocode [[problem1]] from earlier.
+
+     #+name: battle1
+     #+begin_example C
+     if (health <= 100)
+       // drink health potion
+     else
+       //resume battle
+     #+end_example
+
+   * Differences: condition needs parentheses; no "end if" statement
+
+   * The health check results in a Boolean answer: ~true~ or ~false~
+
+   * To run, the program needs a declaration of the ~health~ variable
+
+   * Multiple statements need to be included in braces
+
+   * Here is a version that will run. The variable has been initialized
+
+     #+name: battle2
+     #+begin_src C :main yes :includes <stdio.h> :results output
+       int health = 99;
+
+       if (health <= 100) {
+         // drink health potion
+         printf("\nDrinking health potion!\n");
+        }
+        else {
+          // resume battle
+          printf("\nResuming battle!\n");
+        }
+     #+end_src
+
+     #+RESULTS: battle2
+     : 
+     : Drinking health potion!
+
+** Battle by numbers
+
+   * The last version [[battle3]] below reads input from a file.
+
+     #+name: battleinput
+     #+begin_src bash :results silent
+       echo "1" > drink
+     #+end_src
+
+   * We only have two simple if structures, and no nesting.
+
+     #+name: battle3
+     #+begin_src C :tangle battle.c :main yes :includes <stdio.h> :cmdline < drink :results output
+       int response = 0; // initialize response
+
+       puts("\n\tIn-Battle Healing\n\n1:\tDrink health potion\n\n2:\tResume battle\n");
+
+       printf("\nEnter your selection: ");
+       scanf("%d", &response);
+
+       if (response == 1)
+         printf("\nDrinking health potion!\n");
+
+       if (response == 2)
+         printf("\nResuming battle!\n");
+
+     #+end_src
+
+     #+RESULTS: battle3
+     #+begin_example
+
+	     In-Battle Healing
+
+     1:	Drink health potion
+
+     2:	Resume battle
+
+
+     Enter your selection: 
+     Drinking health potion!
+     #+end_example
+
+   * You can also tangle the file and run ~battle.c~ from the
+     commandline:
+
+     #+begin_example bash
+       C-c C-v t
+       gcc -o battle battle.c
+       battle
+     #+end_example
+
+* Boolean algebra
+
+  * [ ] What is algebra about?[fn:3]
+
+  * Algebra allows you to form small worlds with fixed laws so that
+    you know exactly what's going on - what the output must be for a
+    given input. This certainty is what is responsible for much of the
+    magic of mathematics.
+
+  * Boole's (or Boolean) algebra, or the algebra of logic, uses the
+    values of TRUE (or 1) and FALSE (or 0) and the operators AND (or
+    "conjunction"), OR (or "disjunction"), and NOT (or "negation").
+
+  * Truth tables are the traditional way of showing Boolean scenarios:
+
+    #+name: AND
+    | p     | q     | p AND q   |
+    |-------+-------+-----------|
+    | TRUE  | TRUE  | TRUE      |
+    | TRUE  | FALSE | FALSE     |
+    | FALSE | TRUE  | FALSE     |
+    | FALSE | FALSE | FALSE     |
+
+    #+name: OR
+    | p     | q     | p OR q     |
+    |-------+-------+-----------|
+    | TRUE  | TRUE  | TRUE      |
+    | TRUE  | FALSE | TRUE      |
+    | FALSE | TRUE  | TRUE      |
+    | FALSE | FALSE | FALSE     |
+
+    #+name: NOT
+    | p     | NOT p    |
+    |-------+----------|
+    | TRUE  | FALSE    |
+    | FALSE | TRUE     |
+
+  * Using the three basic operators, other operators can be built. In
+    electronics, and modeling, the "exclusive OR" operator or "XOR",
+    is e.g. equivalent to (p AND NOT q) OR (NOT p AND q)
+
+    #+name: XOR
+    | p     | q     | p XOR q | P = p AND (NOT q) | Q = (NOT p) AND q | P OR Q |
+    |-------+-------+---------+-------------------+-------------------+--------|
+    | TRUE  | TRUE  | TRUE    | FALSE             | FALSE             | FALSE  |
+    | TRUE  | FALSE | FALSE   | TRUE              | FALSE             | TRUE   |
+    | FALSE | TRUE  | FALSE   | FALSE             | TRUE              | TRUE   |
+    | FALSE | FALSE | TRUE    | FALSE             | FALSE             | FALSE  |
+
+  * XOR is the operator that we've used in our BPMN models for
+    pseudocode as a gateway operator - only one of its outcomes can be
+    true but never both of them
+
+  * [ ] What is the result of each of the following expressions?
+
+    | Expression        | Result |
+    |-------------------+--------|
+    | 3 == 3 AND 4 == 4 |TRUE    |
+    |-------------------+--------|
+    | 3 == 4 AND 4 == 4 |        |
+    |-------------------+--------|
+    | 4 == 3 OR 4 == 4  |        |
+    |-------------------+--------|
+    | NOT ( 4 == 4 )    |        |
+    |-------------------+--------|
+    | NOT ( 3 == 4 )    |        |
+    |-------------------+--------|
+
+  * Algebraic operations are more elegant and insightful than truth
+    tables. Watch "Proving Logical Equivalences without Truth Tables"
+    [[logic][(2012)]] as an example.
+
+* Order of operator operations
+
+  * In compound operations (multiple operators), you need to know the
+    order of operator precedence
+
+  * C has almost 50 operators. The most unusual are compound
+    increment/decrement operators[fn:4]:
+
+    | STATEMENT  | COMPOUND | PREFIX | POSTFIX |
+    |------------+----------+--------+---------|
+    | i = i + 1; | i += 1;  | ++i;   | i++;    |
+    | j = j - 1; | j -= 1;  | --i;   | i--;    |
+
+  * ++ and -- have side effects: they modify the values of their
+    operands: ++i yields i+1 and increments i:
+
+    #+name: prefix
+    #+begin_src C :results output :exports both
+      int i = 1;
+      printf("i is %d\n", ++i);  // prints "i is 2"
+      printf("i is %d\n", i);  // prints "i is 2"
+    #+end_src
+
+    #+RESULTS: prefix
+    : i is 2
+    : i is 2
+
+    #+name: postfix
+    #+begin_src C :results output :exports both
+      int j = 1;
+      printf("j is %d\n", j++);  // prints "j is 1"
+      printf("j is %d\n", j);  // prints "j is 2"
+    #+end_src
+
+    #+RESULTS: postfix
+    : j is 1
+    : j is 2
+
+  * Here is another illustration with an assignment of post and prefix
+    increment operators:
+
+    #+name: postfixprefix
+    #+begin_src C :exports both :results output
+      int num1 = 10, num2 = 0;
+      puts("start: num1 = 10, num2 =0");
+
+      num2 = num1++;
+      printf("num2 = num1++, so num2 = %d, num1 = %d\n", num2, num1);
+
+      num1 = 10;
+      num2 = ++num1;
+      printf("num2 = ++num1, so num2 = %d, num1 = %d\n", num2, num1);
+    #+end_src
+
+    #+RESULTS: postfixprefix
+    : start: num1 = 10, num2 =0
+    : num2 = num1++, so num2 = 10, num1 = 11
+    : num2 = ++num1, so num2 = 11, num1 = 11
+
+  * The table [[order]] shows a partial list of operators and their
+    order of precedence from 1 (highest precedence, i.e. evaluated
+    first) to 5 (lowest precedence, i.e. evaluated last)
+
+    #+name: order
+    | ORDER | OPERATOR            | SYMBOL           | ASSOCIATIVITY |
+    |-------+---------------------+------------------+---------------|
+    |     1 | increment (postfix) | ++               | left          |
+    |       | decrement (postfix) | --               |               |
+    |-------+---------------------+------------------+---------------|
+    |     2 | increment (prefix)  | ++               | right         |
+    |       | decrement (prefix)  | --               |               |
+    |       | unary plus          | +                |               |
+    |       | unary minus         | -                |               |
+    |-------+---------------------+------------------+---------------|
+    |     3 | multiplicative      | * / %            | left          |
+    |-------+---------------------+------------------+---------------|
+    |     4 | additive            | + -              | left          |
+    |-------+---------------------+------------------+---------------|
+    |     5 | assignment          | = *= /= %= += -= | right         |
+
+  * Left/right associativity means that the operator groups from
+    left/right. Examples:
+
+    #+name: associativity
+    | EXPRESSION | EQUIVALENCE | ASSOCIATIVITY |
+    |------------+-------------+---------------|
+    | i - j - k  | (i - j) - k | left          |
+    | i * j / k  | (i * j) / k | left          |
+    | -+j        | - (+j)      | right         |
+    | i %=j      | i = (i % j) | right         |
+    | i +=j      | i = (j + 1) | right         |
+
+  * [ ] Make sure to write some of these out yourself and run
+    examples. I found ~%=~ quite challenging: a modulus and assignment
+    operator. ~i %= j~ computes ~i%j~ (i modulus j) and assigns it to
+    ~i~.
+
+    What is the value of ~i~ after running the code below?
+
+    #+name: %=
+    #+begin_src C :exports both
+      int i = 10, j = 5;
+      i%=j;
+      printf("i was 10 and is now %d = 10 %% 5\n", i);
+    #+end_src
+
+    #+RESULTS: %=
+    : i was 10 and is now 0 = 10 % 5
+
+
+  * [ ] Let's write a program [[compound_check]] to check the equivalence
+    claimed in the table [[compound]].
+
+    #+name: compound
+    | OPERATOR | EXAMPLE | EQUIVALENT TO |
+    |----------+---------+---------------|
+    | +=       | a += b  | a = a + b     |
+    | -=       | a -= b  | a = a - b     |
+    | *=       | a *= b  | a = a * b     |
+    | /=       | a /= b  | a = a / b     |
+    | %=       | a %= b  | a = a % b     |
+
+    #+name: compound_check
+    #+begin_src C :results output :exports both
+      int a = 10, b = 2;
+
+      printf("10 += 2 is %d\n", a += b); a = 10; b = 2;
+      printf("10 -= 2 is %d\n", a -= b); a = 10; b = 2;
+      printf("10 *= 2 is %d\n", a *= b); a = 10; b = 2;
+      printf("10 /= 2 is %d\n", a /= b); a = 10; b = 2;
+      printf("10 %%= 2 is %d\n", a %= b);
+    #+end_src
+
+    #+RESULTS: compound_check
+    : 10 += 2 is 12
+    : 10 -= 2 is 8
+    : 10 *= 2 is 20
+    : 10 /= 2 is 5
+    : 10 %= 2 is 0
+
+
+  * [ ] Using the table [[order]], parenthesize the following expression:
+
+    #+name: simplify
+    #+begin_example C
+    a = b += c++ -d + --e / -f
+    #+end_example
+
+    Group 1:
+    #+begin_example C
+    a = b += (c++) -d + --e / -f
+    #+end_example
+
+    Group 2:
+    #+begin_example C
+    a = b += (c++) -d + (--e) / (-f)
+    #+end_example
+
+    Group 3:
+    #+begin_example C
+    a = b += ((c++) -d) + ((--e) / (-f))  // -,+ group from left to right
+    #+end_example
+
+    Group 4:
+    #+begin_example C
+    (a = (b += ((c++) -d) + ((--e) / (-f))))) // =, += group from right to left
+    #+end_example
+
+    Much better to write this like as a series of commands:
+    #+begin_example C
+    c++;  // c = c + 1
+    e--;  // e = e - 1
+    -f;   // f = -f
+    c = c - d;
+    e = e / f;
+    b = b + c + e;
+    a = b;
+    #+end_example
+
+* Compound if structures and input validation
+** Booleans in C
+
+   * C evaluates all non-zero values as TRUE, and all zero values as
+     FALSE:
+
+     #+name: boolean
+     #+begin_src C :results output :exports both
+       if (3) puts("3 is TRUE"); // non-zero expression
+       if (!0) puts("0 is FALSE"); // !0 is literally non-zero
+     #+end_src
+
+     #+RESULTS: boolean
+     : 3 is TRUE
+     : 0 is FALSE
+ 
+   * The Boolean operators AND, OR and NOT are represented in C by
+     the logical operators ~&&~, ~||~ and ~!~, respectively
+
+** ! operator
+
+   * The ! operator is a "unary" operator that is evaluated from the
+     left. It is TRUE when its argument is FALSE, and vice versa.
+
+   * [X] If ~i = 100~, what is ~!i~?
+
+   * [X] If ~j = 1.0e-15~, what is ~!i~?
+
+   * Let's check!
+
+     #+name: negation
+     #+begin_src C :results output :exports both
+       int i = 100;
+       double j = 1.e-15;
+       printf("!%d is %d because %d is non-zero!\n", i, !i, i);
+       printf("!(%.1e) is %d because %.1e is non-zero!\n", j, !j, j);
+     #+end_src
+
+     #+RESULTS: negation
+     : !100 is 0 because 100 is non-zero!
+     : !(1.0e-015) is 0 because 1.0e-015 is non-zero!
+
+** && operator (logical AND)
+
+   * Evaluates a Boolean expression from left to right
+
+   * Value is TRUE if and only if both sides of the operator are TRUE
+
+   * Examples:
+
+     #+name: &&_op_true
+     #+begin_src C :exports both
+       if ( 3 > 1 && 5 < 10 ) // = TRUE AND TRUE = TRUE
+         printf("The entire expression is true.\n");
+     #+end_src
+
+     #+RESULTS: &&_op_true
+     : The entire expression is true.
+
+     #+name: &&_op_false
+     #+begin_src C :exports both
+       if (!(3 > 5 && 5 < 5) ) // = NOT (FALSE AND FALSE) = TRUE
+         printf("The entire expression (except the !) is false.\n");
+     #+end_src
+
+     #+RESULTS: &&_op_false
+     : The entire expression (except the !) is false.
+
+** || operator (logical OR)
+
+   * Evaluates a Boolean expression from left to right
+
+   * It is FALSE if and only if both sides of the operator are FALSE
+
+   * It is TRUE if either side of the operator is TRUE
+
+   * Examples:
+
+     #+name: ||_op_true
+     #+begin_src C :exports both
+       if ( 3 > 5 || 5 == 5 ) // TRUE OR TRUE = TRUE
+         printf("The entire expression is true.\n");
+     #+end_src
+
+     #+RESULTS: ||_op_true
+     : The entire expression is true.
+
+     Remember to use the logical comparison operator ==, and not the
+     assignment operator =
+     
+     #+name: ||_op_false
+     #+begin_src C :exports both
+       if ( 3 > 5 || 6 < 5 ) { }// = FALSE OR FALSE = FALSE
+        else printf("The entire expression is false.\n");
+     #+end_src
+     
+   * Practice that using the GDrive notebook!
+
+** Checking for upper and lower case
+
+   * Characters are represented by ASCII[fn:5] character sets
+
+   * E.g. ~a~ and ~A~ are represented by the ASCII codes 97 and 65,
+     resp.
+
+   * [ ] Let's check that.
+
+     #+name: ascii_input
+     #+begin_src bash :results silent
+       echo "a A" > ascii
+     #+end_src
+
+     #+name: ascii
+     #+begin_src C :cmdline < ascii :results output :export both
+       char a, A;
+       scanf("%c %c", &a, &A);
+       printf("The ASCII value of %c is %d\n", a, a);
+       printf("The ASCII value of %c is %d\n", A, A);
+     #+end_src
+
+     #+RESULTS: ascii
+     : The ASCII value of a is 97
+     : The ASCII value of A is 65
+
+   * User-friendly programs should use compound conditions to check
+     for both lower and upper case letters:
+
+     #+name: ascii_both
+     #+begin_example C
+     if (response == 'A' || response == 'a')
+     #+end_example
+
+   * Practice that using the GDrive notebook!
+
+** Checking for a range of values
+
+   * To validate input, you often need to check a range of values
+
+   * This is a common use of compound conditions, logical and
+     relational operators
+
+   * We first create an input file ~num~.
+
+     #+name: valid_input
+     #+begin_src bash :results silent
+       echo 5 > num
+     #+end_src
+
+   * [ ] What does the code in [[validate]] do? Will it run? What will the
+     output be for our choice of input?
+
+     #+name: validate
+     #+begin_src C :cmdline < num :exports both
+
+       int response = 0;
+
+       scanf("%d", &response);
+
+       if ( response < 1 || response > 10 ) {
+         puts("Number not in range.");
+        } else {
+         puts("Number in range.");
+        }
+     #+end_src
+
+     #+RESULTS: validate
+     : Number in range.
+
+   * Head to the practice notebook for some challenging exercises!
+
+* The switch structure
+
+  * The ~switch~ statement is fairly complex: it combines conditional
+    expressions, constant expressions, default and break statements.
+
+    #+begin_example C
+    switch ( expression ) {
+    case constant expression : statements
+    ...
+    case constant expression : statements
+    default : statements
+    }
+    #+end_example
+
+  1. *Controlling expression:* an integer expression in parentheses,
+     like ~(5)~. Characters are treated as integers in C and cannot be
+     tested, so ~('a')~ is not allowed.
+
+  2. *Case labels:* each case begins with a constant expression, like
+     ~Case 5:~ - this is like any other expression except that it
+     cannot contain variables or function calls.
+
+  3. *Statements:* any number of statements. No braces required around
+     the statements. The last statement is usually ~break~ to close
+     the case.
+
+** Simple example
+
+   * In the example code [[switch]], the ~grade~ is set in the variable
+     declaration. Depending on the value, a ~case~ is triggered and
+     the corresponding statements are executed.
+
+   * [ ] What is the output of the code in [[switch]] for different
+     values:
+     | VALUE | OUTPUT        |
+     |-------+---------------|
+     |     5 | Failing       |
+     |     3 | Passing       |
+     |     0 | Illegal grade |
+     |    -1 | Illegal grade |
+     |   0.5 | Illegal grade |
+
+     What does the program implement?
+
+     #+name: switch
+     #+begin_src C :results output :exports both
+       int grade = 3;
+
+       switch (grade) {
+        case 4:
+        case 3:
+        case 2:
+        case 1:
+          printf("Passing");
+          break;
+        case 5:
+        case 6:
+          printf("Failing");
+          break;
+        default:
+          printf("Illegal grade");
+          break;
+        }
+     #+end_src
+
+     #+RESULTS: switch
+     : Illegal grade
+
+   * [ ] Q: Which problem/solution set does the program implement?
+
+     #+begin_quote
+     Answer: The program reflects "passing" grades 4,3,2,1, and "failing"
+     grade 0. Any other grade value is not allowed. (This happens to be
+     the European grade scale, which is A = 1 to D = 4, and F = 5 or 6.)
+     #+end_quote
+
+   * You can also put several case labels on the same line as in
+     [[switch1]], which is otherwise identical to [[switch]].
+
+     #+name: switch1
+     #+begin_src C :results output :exports both
+       int grade = 3;
+
+       switch (grade) {
+        case 4: case 3: case 2: case 1:
+          printf("Passing");
+          break;
+        case 5: case 6:
+          printf("Failing");
+          break;
+        default:
+          printf("Illegal grade");
+          break;
+        }
+     #+end_src
+
+     #+RESULTS: switch1
+     : Passing
+
+   * Note: You cannot write a case label for a range of values.
+
+   * The default case (when none of the case expressions apply) is
+     optional, and it does not have to come last.
+
+** The role of the ~break~ statement
+
+   * The ~switch~ statement is a controlled jump. The case label is
+     but a marker indicating a position within the switch.
+
+   * [ ] Let's run the previous program again, without the ~break~
+     statements. What do you think the output will be?
+
+     #+name: switch2
+     #+begin_src C :results output :exports both
+       int grade = 3;
+
+       switch (grade) {
+        case 4:
+        case 3:
+        case 2:
+        case 1:
+          printf("Passing");
+        case 5:
+        case 6:
+          printf("Failing");
+        default:
+          printf("Illegal grade");
+        }
+     #+end_src
+
+   * [ ] What happens without the ~break~ statements?
+
+     #+begin_quote
+     Answer: When the last statement in a case has been executed,
+     control falls through to the first statement in the following
+     case; its case label is ignored. Without ~break~ (or some other
+     jump statement, like ~return~ or ~goto~, control flows from one
+     case to the next.
+     #+end_quote
+
+   * Deliberate falling through (omission of ~break~) should be
+     indicated with an explicit comment.
+
+   * Let's practice - head over to switch.org in GDrive for some
+     exercises.
+
+* References
+
+  * Davenport/Vine (2015) C Programming for the Absolute Beginner
+    (3ed). Cengage Learning.
+  * <<logic>> GVSUmath (Aug 10, 2012). Proving Logical Equivalences
+    without Truth Tables [video]. [[https://youtu.be/iPbLzl2kMHA][URL: youtu.be/iPbLzl2kMHA]].
+  * Kernighan/Ritchie (1978). The C Programming Language
+    (1st). Prentice Hall.
+  * King (2008). C Programming - A modern approach (2e). W A Norton.
+  * Orgmode.org (n.d.). 16 Working with Source Code [website]. [[https://orgmode.org/manual/Working-with-Source-Code.html][URL:
+    orgmode.org]]
+
+* Footnotes
+[fn:6]Only from R version 4.1 - before that, you have to use the
+magrittr pipe operator ~%>%~.
+
+[fn:5] ASCII stands for the [[https://en.wikipedia.org/wiki/ASCII][American Standard Code for Information
+Interchange]].
+
+[fn:4]These operators were inherited from Ken Thompson's earlier B
+language. They are not faster just shorter and more convenient.
+
+[fn:3]Algebra is the branch of mathematics that allows you to
+represent problems in the form of abstract, or formal,
+expressions. The abstraction is encapsulated in the notion of a
+variable (an expression of changing value), and of an operator acting
+on one or more variables (a function having the variable as an
+argument, and using it to compute something).
+
+[fn:2]Undeclared variable ~health~, missing closure semi-colons after
+the statements, functions ~Drink~ and ~Resume~ not known, and more.
+
+[fn:1]In Org mode, you can use the language as an example header
+argument to enable syntax highlighting. For pseudocode, this will of
+course not work perfectly, since most syntax elements are not in C.
