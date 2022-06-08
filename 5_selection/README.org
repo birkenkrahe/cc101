@@ -162,73 +162,123 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
    
 ** Let's practice!
 
+Get the practice file from GitHub:
 
-
+#+begin_src bash :results silent
+wget tinyurl.com/prsmbhvh -O pseudo.org -o log
+#+end_src
    
 * Flowcharts
 ** Overview
 
-   * Flowcharts are popular among computing analysts and programmers
+- Flowcharts are popular among computing analysts and programmers
 
-   * Flowcharts are a special case of process models
+- Flowcharts are a special case of process models
 
-   * Process modeling is a key 21st century skill
+- Process modeling is a key 21st century skill
 
-   * Rather than use flowcharts, we use BPMN - Business Process Model
-     and Notation - see figure [[bpmnfig]] below for an overview of the
-     whole language (you can get this poster at [[https://www.signavio.com/downloads/short-reads/free-bpmn-2-0-poster/][SAP Signavio]]).
+- Rather than use flowcharts, we use BPMN - Business Process Model and
+  Notation - see figure [[bpmnfig]] below for an overview of the whole
+  language (you can get this poster at [[https://www.signavio.com/downloads/short-reads/free-bpmn-2-0-poster/][SAP Signavio]]).
 
-     #+name: bpmnfig
-     #+attr_html: :width 500
-     #+caption: (Free) BPMN 2.0 poster from SAP Signavio
-     [[./img/bpmn.png]]
+  #+name: bpmnfig
+  #+attr_html: :width 500
+  #+caption: (Free) BPMN 2.0 poster from SAP Signavio
+  [[./img/bpmn.png]]
 
 ** SAP Signavio
 
-   * [[https://signavio.com][SAP Signavio]] is a state-of-the-art process modeling environment
+- [[https://signavio.com][SAP Signavio]] is a state-of-the-art process modeling environment
 
-   * It includes process mining and workflow management tools. The
-     figure [[signavio]] below shows the app dashboard.
+- It includes process mining and workflow management tools. The figure
+  [[signavio]] below shows the app dashboard.
 
-     #+name: signavio
-     #+attr_html: :width 500px
-     #+caption: SAP Signavio dashboard / explorer
-     [[./img/signavio.png]]
+  #+name: signavio
+  #+attr_html: :width 500px
+  #+caption: SAP Signavio dashboard / explorer
+  [[./img/signavio.png]]
 
-   * Register in my Signavio workspace if you haven't done it yet
+- Register in my Signavio workspace if you haven't done it yet
 
-   * Use the link in Schoology to register
+- Use the link in Schoology to register
 
-** Practice
+** Let's practice!
+*** Battle problem
+- [ ] Open Signavio Process Manager
 
-   * [X] Open Signavio Process Manager
+- [ ] Create a simple BPMN based on the battle [[problem1]].
 
-   * [X] Create a simple BPMN based on the battle [[problem1]].
+  #+attr_html: :width 500px
+  #+caption: Health potion algorithm (battle problem) as BPMN diagram
+  [[./img/battle.png]]
 
-     #+attr_html: :width 500px
-     #+caption: Health potion algorithm (battle problem) as BPMN diagram
-     [[./img/battle.png]]
+- In the next models, change "Insufficient funds" to "Do not withdraw
+  gold" (tasks need to be articulated as active).
 
-   * [X] In the next models, change "Insufficient funds" to "Do not
-     withdraw gold" (tasks need to be articulated as active).
+*** Gold withdrawal problem 1
 
-   * [X] Create a model based on [[pseudogold1]].
+Create a /model/ based on [[ex:pseudogold1]]:
 
-     #+attr_html: :width 500px
-     #+caption: Gold deposit algorithm as BPMN diagram - version 1
-     [[./img/gold1.png]]
+    #+name: ex:pseudogold1
+    #+begin_example C
+    if action == deposit
+       Deposit gold into account
+    else
+       Withdraw gold from account
+    end if
+    #+end_example
 
-   * [X] Create a model based on [[pseudogold2]]
+*** Gold withdrawal solution 1
 
-     #+attr_html: :width 500px
-     #+caption: Gold deposit algorithm as BPMN diagram - version 2
-     [[./img/gold2.png]]
+#+attr_html: :width 500px
+#+caption: Gold deposit algorithm as BPMN diagram - version 1
+[[./img/gold1.png]]
 
-   * What changes if you use [[pseudogold3]] instead?
+*** Gold withdrawal problem 2
 
-     #+attr_html: :width 500px
-     #+caption: Gold deposit algorithm as BPMN diagram - version 3
-     [[./img/gold3.png]]
+Create a model based on [[ex:pseudogold2]]:
+
+  #+name: pseudogold2_solution1
+  #+begin_example C
+  if action == deposit
+     Deposit gold into account
+  else
+       if balance < amount requested
+          Insufficient funds
+       else         
+          Withdraw gold from account
+       end if
+  end if
+  #+end_example
+
+*** Gold withdrawal solution 2
+
+  #+attr_html: :width 500px
+  #+caption: Gold deposit algorithm as BPMN diagram - version 2
+  [[./img/gold2.png]]
+
+*** Gold withdrawal problem 3  
+
+What changes if you use [[ex:pseudogold3]] instead? Make the changes.
+
+#+name: ex:pseudogold3
+  #+begin_example C
+  if action == deposit
+     Deposit gold into account
+  else
+       if balance >= amount requested
+          Withdraw gold from account
+       else         
+          Insufficient funds
+       end if
+  end if
+  #+end_example
+
+*** Gold withdrawal solution 3
+
+  #+attr_html: :width 500px
+  #+caption: Gold deposit algorithm as BPMN diagram - version 3
+  [[./img/gold3.png]]
 
 ** Points to remember
 
