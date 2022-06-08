@@ -26,7 +26,7 @@
 
 - Useful tools to master when designing algorithms:
   - *Pseudocode* (task flow description)
-  - *Flow charts* (task flow visualization)
+  - *Visual modeling* (task flow visualization)
 
 * Operators in C
 
@@ -41,20 +41,20 @@
     | Arithmetic          | compute               | * + - / % | i * j + k  |
     | Relational          | compare               | < > <= >= | i > j      |
     | Equality            | compare (in/equality) | == !=       | i == j     |
-    | Logical             | confirm (truth)       | && !      | i && j     |
+    | Logical             | confirm (truth)       | &&        | i && j     |
     | Assignment          | change                | =         | i = j      |
     | Increment/decrement | change stepwise       | ++, +-    | ++i        |
 
   - Conditional operators used in C are important for program flow:
 
-    | OPERATOR | DESCRIPTION              | EXPRESSION | VALUE |
-    |----------+--------------------------+------------+-------|
-    | ==       | Equal                    | 5 == 5     | true  |
-    | !=       | Not equal                | 5 != 5     | false |
-    | >        | Greater than             | 5 > 5      | false |
-    | <        | Less than                | 5 < 5      | false |
-    | >=       | Greater than or equal to | 5 >= 5     | true  |
-    | <=       | Less than or equal to    | 5 <= 5     | true  |
+    | OPERATOR | DESCRIPTION              | EXPRESSION | BOOLEAN VALUE |
+    |----------+--------------------------+------------+---------------|
+    | ==       | Equal                    | 5 == 5     | true          |
+    | !=       | Not equal                | 5 != 5     | false         |
+    | >        | Greater than             | 5 > 5      | false         |
+    | <        | Less than                | 5 < 5      | false         |
+    | >=       | Greater than or equal to | 5 >= 5     | true          |
+    | <=       | Less than or equal to    | 5 <= 5     | true          |
 
   - The value of an evaluated conditional operator is *Boolean*
     (logical) - e.g. ~2==2~ evaluates as ~TRUE~ or ~1~.
@@ -62,12 +62,12 @@
 * Operators in other languages
 
  - Different programming languages differ greatly rgd. operators. For
-    example, in the language R, the ~|>~ operator ("pipe") passes a data
-    set to a function[fn:6].
+   example, in the language R, the ~|>~ operator ("pipe") passes a data
+   set to a function[fn:6].
 
     #+begin_example R
     ## pipe data set into function
-    mtcars |> head()
+    mtcars |> head()  ## same as head(mtcars)
     #+end_example
 
     Output:    
@@ -132,31 +132,31 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
      description is to identify the *logical condition* so that you can
      perform a comparison (= apply a *conditional operator*)
 
-   - The pseudocode [[pseudocode1]] leads to the condition ~health <= 100~:
+   - The pseudocode [[pseudocode1]] leads to the condition ~health < 100~:
 
      #+name: pseudocode11
      #+begin_example C
-     if health <= 100
+     if health < 100
        Drink health potion
      else
        Resume battle
      end if
      #+end_example
 
-   - Notice that you could also use another operator: ~>~ This operator
+   - Notice that you could also use another operator: ~>=~ This operator
      would have had the same effect but it is not what you were
      supposed to code.
 
      #+name: pseudocode12
      #+begin_example C
-     if health > 100
+     if health >= 100
        Resume battle       
      else
        Drink health potion
      end if
      #+end_example
      
-   - Rule: when making models (via *abstraction*), always stay as close
+   - *Rule:* when making models (via *abstraction*), always stay as close
      to the problem description as possible - in terms of language,
      logic, tone, etc. If you're unsure, ask.
    

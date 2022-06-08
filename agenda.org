@@ -475,17 +475,16 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 
 ** Agenda June 8, 2022
 
-- [ ] Syllabus check
-- [ ] Recap: Quiz 5 (15 questions - 30 min)
-- [ ] Review Quiz 5
+- [X] Syllabus check - we're late but it's okay
+- [X] Recap: Quiz 5 (15 questions - 30 min)
+- [X] Review Quiz 5
 - [ ] Lecture: Operators in C, Pseudocode, Flowcharts
 - [ ] Practice: Registration with SAP Signavio
 - [ ] Practice: Create a simple process model
 
-#+attr_html: :width 60%
+#+attr_html: :width 500px
 #+caption: SAP Signavio registration screen
 [[./img/signavio.png]]
-
 
 ** Bonus content
 *** Steve Yegge: "Should you get a CS degree or can you teach yourself?"

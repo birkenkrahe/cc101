@@ -265,7 +265,8 @@ The extended example below has the same spec as [[pgm:tscanf]] -
   string doesn’t match the space in the input.
 
 - Upon encountering the ~/~ in ~•5•/•96~, ~scanf~ will abort, since it
-  expects a digit or a +/- sign.
+  expects a digit or a +/- sign. The resulting value in the second
+  variable is not ~96~ but some other random number or memory address.
 
 - To allow spaces after the first number, use ~"%d /%d"~ instead.
 
