@@ -195,7 +195,7 @@ wget tinyurl.com/prsmbhvh -O pseudo.org -o log
   #+attr_html: :width 500
   #+caption: (Free) BPMN 2.0 poster from SAP Signavio
   [[./img/bpmn.png]]
-
+  
 ** SAP Signavio
 
 - [[https://signavio.com][SAP Signavio]] is a state-of-the-art process modeling environment
@@ -214,21 +214,21 @@ wget tinyurl.com/prsmbhvh -O pseudo.org -o log
 
 ** Points to remember
 
-   * Every model needs a pool = process owner
-   * Conditions become gateways
-   * Use active sentences for tasks
-   * When the flow is split, it must be rejoined
-   * All elements must be named
-   * Do not change the size of elements
-   * All elements can be "overloaded"
+- Every model needs a pool = process owner
+- Conditions become gateways
+- Use active sentences for tasks
+- When the flow is split, it must be rejoined
+- All elements must be named
+- Do not change the size of elements
+- All elements can be "overloaded"
 
 ** BPMN elements
 
-   * Roles (pools, lanes, participants)
-   * Tasks (things to do)
-   * Events (status)
-   * Flow (between tasks or events)
-   * Gateways (decision points, condition check)
+- Roles (pools, lanes, participants)
+- Tasks (things to do)
+- Events (status)
+- Flow (between tasks or events)
+- Gateways (decision points, condition check)
 
 ** Let's practice
 
