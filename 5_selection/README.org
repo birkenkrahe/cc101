@@ -221,6 +221,25 @@ wget tinyurl.com/prsmbhvh -O pseudo.org -o log
    * Flow (between tasks or events)
    * Gateways (decision points, condition check)
 
+** Let's practice
+
+Download the [raw] Org-mode file ~bpmn.org~ from GitHub:
+
+#+begin_src bash
+  wget tinyurl.com/58mw8wuc -O bpmn.org -o log
+  file bpmn.org
+#+end_src 
+
+Download the [raw] image file ~battle.png~ from GitHub
+
+#+begin_src bash
+  wget tinyurl.com/2s3f3t9c -O battle.png -o log
+  file battle.png
+#+end_src 
+
+The new ~file~ command provides file type information. It should tell
+you that ~bpmn.org~ is a ~text~, and that ~battle.png~ is a ~PNG~ file.
+
 * Simple and nested 'if' structures
 ** Overview and example
 
