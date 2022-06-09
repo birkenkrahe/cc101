@@ -80,7 +80,7 @@ Objective: learn to create, debug and save a process model.
      #+attr_html: :width 500px
      #+name: fig:bpmn1
      #+caption: [add figure title] (PNG)
-     [ path to PNG file, e.g. ~./file.png~ ]
+     [ path to PNG file, e.g. ~./file.png~ enclosed by ~[[~ ~]]~ ]
 
    - PDF file as inline image link: add a caption, and add the path to
      the PDF file: include the path in *TWO* square brackets (~[[...]]~)
@@ -89,7 +89,7 @@ Objective: learn to create, debug and save a process model.
 
      #+name: fig:bpmn2
      #+caption: [add figure title] (PDF)
-     [ path to PDF file, e.g. ~./file.pdf~ ]
+     [ path to PDF file, e.g. ~./file.pdf~ enclosed by ~[[ ]]~ ]
 
 * TODO Gold withdrawal problem 2
 
