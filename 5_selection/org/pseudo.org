@@ -1,6 +1,6 @@
 #+title: cc-practice-pseudo
 #+AUTHOR: [yourName] (pledged)
-#+startup: overview hideblocks indent
+#+startup: overview hideblocks
 * READ README
 
 - This file is a practice file for pseudocode
@@ -48,29 +48,29 @@
 
 * TODO Refine problem and  pseudocode
 
-1) The problem from [[gold1]] is refined in [[gold2]]:
+  1) The problem from [[gold1]] is refined in [[gold2]]:
 
-   #+name: gold2
-   #+begin_quote
-   "Allow a player to deposit or withdraw gold from a game bank
-   account. If a player elects to withdraw gold, ensure that
-   sufficient funds exist."
-   #+end_quote
+     #+name: gold2
+     #+begin_quote
+     "Allow a player to deposit or withdraw gold from a game bank
+     account. If a player elects to withdraw gold, ensure that
+     sufficient funds exist."
+     #+end_quote
 
-2) Turn the problem [[gold2]] into pseudocode.
+  2) Turn the problem [[gold2]] into pseudocode.
 
-3) List the variables and the conditional operators used.
+  3) List the variables and the conditional operators used.
 
------ PUT YOUR CODE HERE -----
+  ----- PUT YOUR CODE HERE -----
 
-Pseudocode:
-#+name: ex:pseudogold2
+  Pseudocode:
+  #+name: ex:pseudogold2
 
 
 
-Variables and operators used: (make a list)
-1)
-  
+  Variables and operators used: (make a list)
+  1)
+
 ----- SOLUTION -----
 
 Pseudocode:
