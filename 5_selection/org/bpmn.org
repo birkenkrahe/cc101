@@ -19,11 +19,22 @@
 
 Objective: learn to create, debug and save a process model.
 
-1) Open Signavio Process Manager
+1) Open the Signavio Process Manager at https://academic.signavio.com/
 
-2) Create a simple BPMN based on the battle [[problem1]]. The model
-   should look like figure [[fig:battle]].
+2) Create a simple BPMN based on the pseudocode [[pgm:pseudobattle]] for
+   the battle problem. The model should look like figure [[fig:battle]].
 
+   Pseudocode:
+   #+name: pgm:pseudobattle
+   #+begin_example C
+     if health is less than 100
+       Drink health potion
+     else
+       Resume battle
+     end if
+   #+end_example
+
+   BPMN Model for the pseudocode [[pgm:pseudobattle]]:
    #+name: fig:battle
    #+attr_html: :width 500px
    #+caption: Health potion algorithm (battle problem) as BPMN diagram
