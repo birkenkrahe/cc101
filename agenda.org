@@ -492,6 +492,11 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 #+attr_html: :width 500px
 #+caption: SAP Signavio registration screen
 [[./img/signavio.png]]
+** Agenda June 10, 2022
+
+- [ ] Lecture: C control flow statements - Selection
+- [ ] Lecture: Operator precedence in C
+- [ ] Practice: notebook battle.org in GitHub
   
 ** Bonus content
 *** Steve Yegge: "Should you get a CS degree or can you teach yourself?"
@@ -555,6 +560,7 @@ probably heading for "Mount Stupid".
 In fact, the curve looks suspiciously like a driven dampened, harmonic
 oscillator known in physics (a model that describes, e.g. the motion
 of a spring.
+
 
 * Glossary
 
