@@ -2,16 +2,16 @@
 #+AUTHOR: Marcus Birkenkrahe
 #+SUBTITLE: Introduction to Programming in C/C++: Syllabus
 #+options: toc:nil
-#+startup: overview hideblocks
+#+startup: overview hideblocks indent
 * General Course Information
 
-  * Meeting Times: Monday through Friday, 13:00-15:00 hrs
-  * Meeting place: Lyon Building computer lab room 104
-  * Professor: Marcus Birkenkrahe
-  * Office: Derby Science Building 210
-  * Phone: (870) 307-7254 (office) / (501) 422-4725 (private)
-  * Office hours: Monday through Friday after class (ask me)
-  * Textbook: King (2008). C Programming - A Modern Approach. New
+  - Meeting Times: Monday through Friday, 13:00-15:00 hrs
+  - Meeting place: Lyon Building computer lab room 104
+  - Professor: Marcus Birkenkrahe
+  - Office: Derby Science Building 210
+  - Phone: (870) 307-7254 (office) / (501) 422-4725 (private)
+  - Office hours: Monday through Friday after class (ask me)
+  - Textbook: King (2008). C Programming - A Modern Approach. New
     York: Norton. [[http://knking.com/books/c2/index.html][Online: knking.com]]
 
 ** About reading the book / further studies
@@ -51,13 +51,13 @@
    Students who complete CSC 100.01 "Introduction to programming in
    C/C++", will be able to:
 
-   * Master basic sequential programming skills (conditional
+   - Master basic sequential programming skills (conditional
      statements, loops, functions, input/output, use of data types)
-   * Explain the basic components of a procedural programming language
-   * Apply the basics of programming to solve a variety of
+   - Explain the basic components of a procedural programming language
+   - Apply the basics of programming to solve a variety of
      quantitative problems
-   * Master computing infrastructure (compiler, editor, shell)
-   * Know how to effectively present assignment results
+   - Master computing infrastructure (compiler, editor, shell)
+   - Know how to effectively present assignment results
 
 ** Course requirements
 
@@ -107,7 +107,6 @@
     |--------+-----------------+---------------|
     |   49-0 | F               | F (failed)    |
     |--------+-----------------+---------------|
-
 
 *** Quizzes (10%)
 
@@ -205,13 +204,13 @@
    has not been turned in.  Late programs will not be accepted without
    an extension. Extensions will *not* be granted for reasons such as:
 
-   * You could not get to a computer
-   * You could not get a computer to do what you wanted it to do
-   * The network was down
-   * The printer was out of paper or toner
-   * You erased your files, lost your homework, or misplaced your
+   - You could not get to a computer
+   - You could not get a computer to do what you wanted it to do
+   - The network was down
+   - The printer was out of paper or toner
+   - You erased your files, lost your homework, or misplaced your
      flash drive
-   * You had other coursework or family commitments that interfered
+   - You had other coursework or family commitments that interfered
      with your work in this course
 
    Put “Pledged” and a note of any collaboration in the comments of
@@ -224,21 +223,21 @@
 
    What is cheating on an assignment? Here are a few examples:
 
-   * Having someone else write your assignment, in whole or in part
-   * Copying an assignment someone else wrote, in whole or in part
-   * Collaborating with someone else to the extent that your
+   - Having someone else write your assignment, in whole or in part
+   - Copying an assignment someone else wrote, in whole or in part
+   - Collaborating with someone else to the extent that your
      submissions are identifiably very similar, in whole or in part
-   * Turning in a submission with the wrong name on it
+   - Turning in a submission with the wrong name on it
 
    What is not cheating?  Here are some examples:
 
-   * Talking to someone in general terms about concepts involved in an
+   - Talking to someone in general terms about concepts involved in an
      assignment
-   * Asking someone for help with a specific error message or bug in
+   - Asking someone for help with a specific error message or bug in
      your program
-   * Getting help with the specifics of language syntax or citation
+   - Getting help with the specifics of language syntax or citation
      style
-   * Utilizing information given to you by the instructor
+   - Utilizing information given to you by the instructor
 
    Any assistance must be clearly explained in the comments at the
    beginning of your submission.  If you have any questions about
@@ -253,9 +252,9 @@
 
 ** Attendance policy
 
-You must attend a minimum of 75% of non-cancelled meetings - you are
-allowed to miss *5 classes* over the whole summer school duration (or 1
-class per week) without risking a fail.
+   You must attend a minimum of 75% of non-cancelled meetings - you are
+   allowed to miss *5 classes* over the whole summer school duration (or 1
+   class per week) without risking a fail.
 
 ** Schedule and session content
 
@@ -293,13 +292,12 @@ class per week) without risking a fail.
 
 * References
 
-   * C for beginners, by H Collingbourne (Udemy, 2022).
+  * C for beginners, by H Collingbourne (Udemy, 2022).
 
-   * Head First C, by D and D Griffiths (O'Reilly, 2014)
+  * Head First C, by D and D Griffiths (O'Reilly, 2014)
 
-   * C Programming - A Modern Approach (2e), by R N King
-     (Norton, 2008)
+  * C Programming - A Modern Approach (2e), by R N King
+    (Norton, 2008)
 
-   * The secret life of programs, by J E Steinhart
-     (NoStarch, 2019)
-
+  * The secret life of programs, by J E Steinhart
+    (NoStarch, 2019)

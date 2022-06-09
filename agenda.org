@@ -1,4 +1,4 @@
-Hi Li#+TITLE:CC Agenda
+#+TITLE:CC Agenda
 #+AUTHOR:Marcus Birkenkrahe
 #+SUBTITLE: CSC 100 - Summer I, 2022
 #+OPTIONS: toc:1
@@ -309,15 +309,15 @@ basics of the GitHub process, important for software development.
 ** Bonus content[fn:7]
 *** DONE Joseph Weizenbaum's Eliza psychotherapist
 
-    - To start Eliza in Emacs, enter ~M-x doctor~
-    - [[https://en.wikipedia.org/wiki/ELIZA][More information on Wikipedia]]
-    - [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Amusements.html][More toy programs in Emacs]]
-    - [[https://openlibrary.org/works/OL5069879W/Computer_power_and_human_reason][Computer Power and Human Reason]] by Joseph Weizenbaum (1976)
-    
-    #+attr_html: :width 400px
-    #+caption: A conversation with Eliza
-    [[./img/eliza.png]]
-    
+- To start Eliza in Emacs, enter ~M-x doctor~
+- [[https://en.wikipedia.org/wiki/ELIZA][More information on Wikipedia]]
+- [[https://www.gnu.org/software/emacs/manual/html_node/emacs/Amusements.html][More toy programs in Emacs]]
+- [[https://openlibrary.org/works/OL5069879W/Computer_power_and_human_reason][Computer Power and Human Reason]] by Joseph Weizenbaum (1976)
+
+  #+attr_html: :width 400px
+  #+caption: A conversation with Eliza
+  [[./img/eliza.png]]
+
 *** DONE George Pólya: "How to solve it"
 
 #+attr_html: :width 200px
@@ -357,10 +357,10 @@ Further study:
 - What is the conversion factor for meters to light-years?
 
 *** Minimal solution
-  
+
 #+name: pgm2:solution
 #+begin_src C
-  float c = 299792458;  
+  float c = 299792458;
   float y =  31536000;
   float height  = 1.8f;
   float ly = c * y;
@@ -378,9 +378,9 @@ Further study:
      #+STARTUP: overview hideblocks indent
      #+PROPERTY: header-args:C :main yes :includes <stdio.h>
    #+end_example
-   
+
 3) Enter the code in the code block:
-   
+
    #+name: input
    #+begin_src C :tangle input.c :results output
      // declare integer
@@ -402,7 +402,7 @@ Further study:
 7) Compile and run the program ~input.c~ on the shell.
 8) Go back to the Org-file ~input.org~ and add a ~bash~ code block:
 
-   #+name: bash 
+   #+name: bash
    #+begin_src bash :results silent
      echo "100" > ./marcus
    #+end_src
@@ -418,18 +418,18 @@ Further study:
 
     #+name: input1
     #+begin_src C :results output :cmdline < marcus
-     // declare integer
-     int i;
-     // ask for input
-     printf("Enter an integer number: ");
-     // get input
-     scanf("%d", &i);
-     // print input
-     printf("You entered: %d\n", i);
-   #+end_src
+      // declare integer
+      int i;
+      // ask for input
+      printf("Enter an integer number: ");
+      // get input
+      scanf("%d", &i);
+      // print input
+      printf("You entered: %d\n", i);
+    #+end_src
 
-   #+RESULTS: input1
-   : Enter an integer number: You entered: 100
+    #+RESULTS: input1
+    : Enter an integer number: You entered: 100
 
 * Week 3 - I/O, expressions, selection
 ** This week
@@ -484,21 +484,47 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 
 ** Agenda June 9, 2022
 
-- [ ] Lecture: BPMN process models
-- [ ] Practice: Create a simple process model
-- [ ] Learn how to add inline images in Org-mode
-- [ ] Pgm 5: divide numbers (deadline: Monday)
+- [X] Lecture: BPMN process models
+- [X] Practice: Create a simple process model
+- [X] Learn how to add inline images in Org-mode
+- [X] Pgm 5: divide numbers (deadline: Monday)
 
 #+attr_html: :width 500px
 #+caption: SAP Signavio registration screen
 [[./img/signavio.png]]
+
+- [X] What you should tell the youth:
+  - Web creation
+  - How was it growing up in Germany
+  - My path through the edu jungles
+  - How did you start out
+  - How is the food over there
+  - What is your favorite food
+  - Recommendation: Texas Day Brazil in Memphis
+  - What were your hardships in life & career
+  - What about money in your life?
+  - Recommendation: Fogode chao in Texas
+  - How about gaming above 50?
+
 ** Agenda June 10, 2022
 
+- [ ] Image sizing: add this line to your ~.emacs~ file
+  #+begin_example emacs-lisp
+  (setq org-image-actual-width nil)
+  #+end_example
+  - Now execute ~M-x eval-buffer~ inside the ~.emacs~ buffer and save the
+    file for the future.
+  
+  - This will enable you to control the inline image width and height:
+    #+begin_example
+    #+attr_html: :width 500px
+    #+end_example
 - [ ] Lecture: C control flow statements - Selection
 - [ ] Lecture: Operator precedence in C
 - [ ] Practice: notebook battle.org in GitHub
-  
+
 ** Bonus content
+
 *** Steve Yegge: "Should you get a CS degree or can you teach yourself?"
 
 #+attr_html: :width 400px
@@ -538,6 +564,7 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
      learn. Especially if you're cramming (doing it too late).
 
 *Subscribe to his channel!*
+
 
 *** Dunning-Kruger effect and hype cycle
 

@@ -250,7 +250,7 @@ Download the [raw] image file ~battle.png~ from GitHub
 #+end_src 
 
 #+RESULTS:
-| battle.png: PNG image data | 627 x 367 | 8-bit/color RGBA | non-interlaced |
+: battle.png: PNG image data, 627 x 367, 8-bit/color RGBA, non-interlaced
 
 The new ~file~ command provides file type information. It should tell
 you that ~bpmn.org~ is a ~text~, and that ~battle.png~ is a ~PNG~ file.
