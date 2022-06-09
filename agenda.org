@@ -468,6 +468,7 @@ What's the issue here?
 - [X] Download scanf practice file: ~tinyurl.com/3euuvhuc~
 - [X] Complete the scanf practice file
 - [X] Upload printf and scanf Org practice files
+- [X] Pgm 4: phone number conversion (deadline: Friday)
 
 #+begin_example bash
 $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
@@ -478,14 +479,19 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 - [X] Syllabus check - we're late but it's okay
 - [X] Recap: Quiz 5 (15 questions - 30 min)
 - [X] Review Quiz 5
-- [ ] Lecture: Operators in C, Pseudocode, Flowcharts
-- [ ] Practice: Registration with SAP Signavio
+- [X] Lecture: Operators in C, Pseudocode
+- [X] Practice: Create some pseudocode
+
+** Agenda June 9, 2022
+
+- [ ] Lecture: BPMN process models
 - [ ] Practice: Create a simple process model
+- [ ] Pgm 5: divide numbers (deadline: Monday)
 
 #+attr_html: :width 500px
 #+caption: SAP Signavio registration screen
 [[./img/signavio.png]]
-
+  
 ** Bonus content
 *** Steve Yegge: "Should you get a CS degree or can you teach yourself?"
 
