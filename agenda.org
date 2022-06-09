@@ -486,6 +486,7 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 
 - [ ] Lecture: BPMN process models
 - [ ] Practice: Create a simple process model
+- [ ] Learn how to add inline images in Org-mode
 - [ ] Pgm 5: divide numbers (deadline: Monday)
 
 #+attr_html: :width 500px
