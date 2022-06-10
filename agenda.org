@@ -597,6 +597,11 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 *Subscribe to his channel!*
 
 
+* Week 4 - loops, arrays, functions
+** This week
+
+** Bonus content
+
 *** Dunning-Kruger effect and hype cycle
 
 This curve is well-known in business technology where it is used to
