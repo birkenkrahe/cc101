@@ -274,7 +274,7 @@
    | 10 | Mon-06-Jun |            |            |                          |
    | 11 | Tue-07-Jun | +Quiz 5+     | +Program 4+  | 6 Loops                  |
    | 12 | Wed-08-Jun |            |            |                          |
-   | 13 | Thu-09-Jun | Quiz 6     | Program 5  | /7 Basic Types/            |
+   | 13 | Thu-09-Jun | Quiz 6     | +Program 5+  | /7 Basic Types/            |
    | 14 | Fri-10-Jun |            |            |                          |
    |----+------------+------------+------------+--------------------------|
    | 15 | Mon-13-Jun | Quiz 7     | Program 6  | 8 Arrays                 |

@@ -519,6 +519,27 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
     #+begin_example
     #+attr_html: :width 500px
     #+end_example
+
+- [ ] Screenshots with ~scrot~ - ridiculously easy. Make a directory for
+  screenshots, ~/shots~ and screenshot a Signavio PDF output using the
+  command:
+  #+begin_example bash
+  $ mkdir -v /home/pi/shots
+  $ scrot -d 1 'bpmn.png' -e 'mv $f /home/pi/shots'
+  #+end_example
+  - With this command, ~scrot~ will take a screenshot after 5 seconds
+    and save it as ~/home/pi/shots/bpmn.png~
+  - ~scrot~ will by default screenshot the entire screen (you can
+    customize this easily - look up the man page in Emacs (~M-x man
+    RET~)
+
+- [ ] Screenshot selections with ~screenshot~. Install with:
+  #+begin_example bash
+    $ sudo apt install gnome-screenshot
+  #+end_example
+  - Try this. Select the model on a zoomed PDF and save it as ~bpmn.png~
+    where you want to.
+  
 - [ ] Lecture: C control flow statements - Selection
 - [ ] Lecture: Operator precedence in C
 - [ ] Practice: notebook battle.org in GitHub
