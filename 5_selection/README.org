@@ -352,7 +352,7 @@ Download the practice file ~battle.org~ from GitHub and check its
 file type:
 
 #+begin_src bash
-  wget tinyurl.com/   -O battle.org -o log
+  wget tinyurl.com/z526bwuh -O battle.org -o log
   file battle.org
 #+end_src
 
