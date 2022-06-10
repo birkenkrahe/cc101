@@ -168,14 +168,14 @@ Get the practice file from GitHub:
   wget tinyurl.com/prsmbhvh -O pseudo.org -o log
 #+end_src
 
-* IN PROGRESS Process models
+* DONE Process models
 ** Objectives
 
-- [ ] Understand what a process manager (software) is and does
-- [ ] Learn the basics of Business Process Model and Notation (BPMN)
-- [ ] Learn how to create simple models in BPMN
-- [ ] Apply modeling skills to creating pseudocode models
-- [ ] Adding Pseudocode/BPMN models to future programming assignments
+- [X] Understand what a process manager (software) is and does
+- [X] Learn the basics of Business Process Model and Notation (BPMN)
+- [X] Learn how to create simple models in BPMN
+- [X] Apply modeling skills to creating pseudocode models
+- [X] Adding Pseudocode/BPMN models to future programming assignments
   will give you bonus points (5 extra points per assignment)
 
 ** Overview
@@ -257,7 +257,7 @@ you that ~bpmn.org~ is a ~text~, and that ~battle.png~ is a ~PNG~ file.
 
 Now open the file ~bpmn.org~ in Emacs.
 
-* Simple and nested 'if' structures
+* IN PROGRESS Simple and nested 'if' structures
 ** Overview and example
 
 - ~If~ statement structure in C is very similar to pseudocode ~If~
@@ -285,20 +285,23 @@ Now open the file ~bpmn.org~ in Emacs.
 
   #+name: battle2
   #+begin_src C :main yes :includes <stdio.h> :results output
-    int health = 99;
+    int health = 101;
 
     if (health <= 100) {
       // drink health potion
+      puts("This is what you do:");
       printf("Drinking health potion!\n");
      }
      else {
        // resume battle
+       puts("This is what you do:");
        printf("Resuming battle!\n");
      }
   #+end_src
 
   #+RESULTS: battle2
-  : Drinking health potion!
+  : This is what you do:
+  : Resuming battle!
 
 ** Single vs. nested IF structures
 

@@ -508,7 +508,7 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 
 ** Agenda June 10, 2022
 
-1) [ ] Image sizing: add this line to your ~.emacs~ file
+1) [X] Image sizing: add this line to your ~.emacs~ file
    #+begin_example emacs-lisp
    (setq org-image-actual-width nil)
    #+end_example
@@ -533,7 +533,7 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
      customize this easily - look up the man page in Emacs (~M-x man
      RET~)
 
-3) [ ] Screenshot selections with ~screenshot~. Install with:
+3) [X] Screenshot selections with ~screenshot~. Install with:
        #+begin_example bash
        $ sudo apt install gnome-screenshot
        #+end_example
@@ -544,7 +544,7 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 
 5) [ ] Complete *Quiz 6* - Pseudocode and BPMN modeling
 
-6) [ ] Lecture: *Operator precedence* in C
+6) [ ] Lecture: IF ELSE statements
 
 7) [ ] Practice: notebook ~battle.org~ in GitHub
 
