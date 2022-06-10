@@ -434,11 +434,11 @@ Further study:
 * Week 3 - I/O, expressions, selection
 ** This week
 
-- three more programming assignments
-- three more quizzes
-- two old topics revisited (input/output)
-- two new topics (expressions/selection)
-- two bonus topics (CS careers/hype cycle)
+- [X] three more programming assignments
+- [X] three more quizzes
+- [X] two old topics revisited (input/output)
+- [X] two new topics (expressions/selection)
+- [X] two bonus topics (CS careers/hype cycle)
 
 ** Agenda June 6, 2022
 
@@ -508,42 +508,52 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 
 ** Agenda June 10, 2022
 
-- [ ] Image sizing: add this line to your ~.emacs~ file
-  #+begin_example emacs-lisp
-  (setq org-image-actual-width nil)
-  #+end_example
-  - Now execute ~M-x eval-buffer~ inside the ~.emacs~ buffer and save the
-    file for the future.
+1) [ ] Image sizing: add this line to your ~.emacs~ file
+   #+begin_example emacs-lisp
+   (setq org-image-actual-width nil)
+   #+end_example
+   - Now execute ~M-x eval-buffer~ inside the ~.emacs~ buffer and save the
+     file for the future.
   
-  - This will enable you to control the inline image width and height:
-    #+begin_example
-    #+attr_html: :width 500px
-    #+end_example
+   - This will enable you to control the inline image width and height:
+     #+begin_example
+     #+attr_html: :width 500px
+     #+end_example
 
-- [ ] Screenshots with ~scrot~ - ridiculously easy. Make a directory for
-  screenshots, ~/shots~ and screenshot a Signavio PDF output using the
-  command:
-  #+begin_example bash
-  $ mkdir -v /home/pi/shots
-  $ scrot -d 1 'bpmn.png' -e 'mv $f /home/pi/shots'
-  #+end_example
-  - With this command, ~scrot~ will take a screenshot after 5 seconds
-    and save it as ~/home/pi/shots/bpmn.png~
-  - ~scrot~ will by default screenshot the entire screen (you can
-    customize this easily - look up the man page in Emacs (~M-x man
-    RET~)
+2) [ ] Screenshots with ~scrot~ - ridiculously easy. Make a directory for
+   screenshots, ~/shots~ and screenshot a Signavio PDF output using the
+   command:
+   #+begin_example bash
+   $ mkdir -v /home/pi/shots
+   $ scrot -d 1 'bpmn.png' -e 'mv $f /home/pi/shots'
+   #+end_example
+   - With this command, ~scrot~ will take a screenshot after 5 seconds
+     and save it as ~/home/pi/shots/bpmn.png~
+   - ~scrot~ will by default screenshot the entire screen (you can
+     customize this easily - look up the man page in Emacs (~M-x man
+     RET~)
 
-- [ ] Screenshot selections with ~screenshot~. Install with:
-  #+begin_example bash
-    $ sudo apt install gnome-screenshot
-  #+end_example
-  - Try this. Select the model on a zoomed PDF and save it as ~bpmn.png~
-    where you want to.
-  
-- [ ] Lecture: C control flow statements - Selection
-- [ ] Lecture: Operator precedence in C
-- [ ] Practice: notebook battle.org in GitHub
+3) [ ] Screenshot selections with ~screenshot~. Install with:
+       #+begin_example bash
+       $ sudo apt install gnome-screenshot
+       #+end_example
+   - Try this. Select the model on a zoomed PDF and save it as
+     ~bpmn.png~ where you want to.
 
+4) [ ] Complete BPMN practice notebook and submit to Schoology
+
+5) [ ] Complete *Quiz 6* - Pseudocode and BPMN modeling
+
+6) [ ] Lecture: *Operator precedence* in C
+
+7) [ ] Practice: notebook ~battle.org~ in GitHub
+
+8) [ ] 2 bonus programming assignments:
+   + Pgm 6: Boolean operators (Deadline Friday 17 June)
+   + Pgm 7: Compound operators (Deadline Friday 17 June)
+
+9) [ ] *Bonus:* Dunning-Kruger effect and technology hype cycle    
+     
 ** Bonus content
 
 *** Steve Yegge: "Should you get a CS degree or can you teach yourself?"
@@ -612,14 +622,16 @@ of a spring.
 
 * Glossary
 
-| TERM           | MEANING                  |
-|----------------+--------------------------|
-| Heuristics     | Pattern-oriented solving |
-|                | Non-algorithmic solving  |
-| Algorithm      | Strict, formal solving   |
-|                | Non-heuristic            |
-| Abstraction    | Removal of details       |
-| Generalization | Transfer solution        |
+| TERM                  | MEANING                   |
+|-----------------------+---------------------------|
+| Heuristics            | Pattern-oriented solving  |
+|                       | Non-algorithmic solving   |
+| Algorithm             | Strict, formal solving    |
+|                       | Non-heuristic             |
+| Abstraction           | Removal of details        |
+| Generalization        | Transfer solution         |
+| Dunning-Kruger effect | Confidence vs. competence |
+| Hype Cycle            | Technology hype over time |
 
 * Footnotes
 [fn:7]"Bonus content" is content that I have sampled and that I
