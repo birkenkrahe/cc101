@@ -314,7 +314,7 @@ Now open the file ~bpmn.org~ in Emacs.
        if ( i == 1 )
        // do one thing
 
-       if ( i == 2) 
+       if ( i == 2)
        // do another thing
   #+end_example
 
@@ -344,7 +344,7 @@ Now open the file ~bpmn.org~ in Emacs.
   #+attr_html: :width 500px
   #+caption: Single IF statements
   [[./img/nested.png]]
-  
+
 - Which one of these you implement, depends strongly on the problem
   and on your performance requirements (they're quite different in
   speed - which you do you think performs better?)
@@ -528,22 +528,26 @@ file type:
 * Compound if structures and input validation
 ** Download the practice file
 
+- get the file
+- check the file type
+- display the first 2 lines
 
+#+begin_src bash :results output
+  wget tinyurl.com/2y6wut43 -O ops.org -o log
+  file ops.org
+  head -n 2 ops.org
+#+end_src
 
 ** Booleans in C
 
-- C evaluates all non-zero values as TRUE, and all zero values as
-  FALSE:
+- C evaluates all non-zero values as ~TRUE~ (~1~), and all zero values as
+  ~FALSE~ (~0~):
 
   #+name: boolean
   #+begin_src C :results output :exports both
     if (3) puts("3 is TRUE"); // non-zero expression
     if (!0) puts("0 is FALSE"); // !0 is literally non-zero
   #+end_src
-
-  #+RESULTS: boolean
-  : 3 is TRUE
-  : 0 is FALSE
 
 - The Boolean operators AND, OR and NOT are represented in C by
   the logical operators ~&&~, ~||~ and ~!~, respectively

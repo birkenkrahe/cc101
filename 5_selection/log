@@ -1,0 +1,17 @@
+URL transformed to HTTPS due to an HSTS policy
+--2022-06-11 08:15:23--  https://tinyurl.com/2y6wut43
+Resolving tinyurl.com (tinyurl.com)... 104.20.138.65, 172.67.1.225, 104.20.139.65, ...
+Connecting to tinyurl.com (tinyurl.com)|104.20.138.65|:443... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: https://raw.githubusercontent.com/birkenkrahe/cc101/piHome/5_selection/org/operators.org [following]
+--2022-06-11 08:15:24--  https://raw.githubusercontent.com/birkenkrahe/cc101/piHome/5_selection/org/operators.org
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.108.133, 185.199.111.133, 185.199.110.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.108.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 664 [text/plain]
+Saving to: ‘ops.org’
+
+     0K                                                       100% 6.88M=0s
+
+2022-06-11 08:15:24 (6.88 MB/s) - ‘ops.org’ saved [664/664]
+

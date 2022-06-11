@@ -1,0 +1,21 @@
+#+title: cc-practice-ops
+#+AUTHOR: [yourName] (pledged)
+#+startup: overview hideblocks indent
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :comments both
+* READ README
+
+- This file is a practice file for logical and compound operators
+
+- Time: approx. 30 min.
+
+- When you're done with a section move the cursor on the section
+  heading and type ~S-<right>~ (or SHIFT+<right-arrow>).
+
+- This section follows chapter 3 in Davenport/Vine (2015) and chapters
+  4 and 5 in King (2008).
+  
+* TODO Identify yourself
+
+- replace the placeholder ~[yourName]~ in the header of this file by
+  your name and save the file (~C-x C-s~).
+
