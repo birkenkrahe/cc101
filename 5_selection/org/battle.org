@@ -4,7 +4,7 @@
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :comments both
 * READ README
 
-- This file is a practice file for operators
+- This file is a practice file for ~if...else~ statements
 
 - Time: approx. 30 min.
 

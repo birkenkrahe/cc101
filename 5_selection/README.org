@@ -257,7 +257,7 @@ you that ~bpmn.org~ is a ~text~, and that ~battle.png~ is a ~PNG~ file.
 
 Now open the file ~bpmn.org~ in Emacs.
 
-* IN PROGRESS Simple and nested 'if' structures
+* DONE Simple and nested 'if' structures
 ** Overview and example
 
 - ~If~ statement structure in C is very similar to pseudocode ~If~
@@ -383,12 +383,12 @@ file type:
   | FALSE | FALSE | FALSE     |
 
   #+name: OR
-  | p     | q     | p OR q     |
-  |-------+-------+-----------|
-  | TRUE  | TRUE  | TRUE      |
-  | TRUE  | FALSE | TRUE      |
-  | FALSE | TRUE  | TRUE      |
-  | FALSE | FALSE | FALSE     |
+  | p     | q     | p OR q |
+  |-------+-------+--------|
+  | TRUE  | TRUE  | TRUE   |
+  | TRUE  | FALSE | TRUE   |
+  | FALSE | TRUE  | TRUE   |
+  | FALSE | FALSE | FALSE  |
 
   #+name: NOT
   | p     | NOT p    |
@@ -429,8 +429,9 @@ file type:
   | i = i + 1; | i += 1;  | ++i;   | i++;    |
   | j = j - 1; | j -= 1;  | --i;   | i--;    |
 
-- ++ and -- have side effects: they modify the values of their
-  operands: ++i yields i+1 and increments i:
+- ~++~ and ~--~ have side effects: they modify the values of their
+  operands: the /prefix/ operator ~++i~ increments ~i+1~ and then fetches
+  the value ~i~:
 
   #+name: prefix
   #+begin_src C :results output :exports both
@@ -442,6 +443,9 @@ file type:
   #+RESULTS: prefix
   : i is 2
   : i is 2
+
+- The /postfix/ operator ~++j~ also means ~j = j + 1~ but here, the value of
+  ~j~ is fetched, and then incremented.
 
   #+name: postfix
   #+begin_src C :results output :exports both
@@ -482,21 +486,21 @@ file type:
   #+name: order
   | ORDER | OPERATOR            | SYMBOL           | ASSOCIATIVITY |
   |-------+---------------------+------------------+---------------|
-  |     1 | increment (postfix) | ++               | left          |
-  |       | decrement (postfix) | --               |               |
+  |     1 | increment (postfix) | ~++~               | left          |
+  |       | decrement (postfix) | ~--~               |               |
   |-------+---------------------+------------------+---------------|
-  |     2 | increment (prefix)  | ++               | right         |
-  |       | decrement (prefix)  | --               |               |
-  |       | unary plus          | +                |               |
-  |       | unary minus         | -                |               |
+  |     2 | increment (prefix)  | ~++~               | right         |
+  |       | decrement (prefix)  | ~--~               |               |
+  |       | unary plus          | ~+~                |               |
+  |       | unary minus         | ~-~                |               |
   |-------+---------------------+------------------+---------------|
-  |     3 | multiplicative      | * / %            | left          |
+  |     3 | multiplicative      | ~* / %~            | left          |
   |-------+---------------------+------------------+---------------|
-  |     4 | additive            | + -              | left          |
+  |     4 | additive            | ~+ -~              | left          |
   |-------+---------------------+------------------+---------------|
-  |     5 | assignment          | = *= /= %= += -= | right         |
+  |     5 | assignment          | ~= *= /= %= += -=~ | right         |
 
-- Left/right associativity means that the operator groups from
+- Left/right /associativity/ means that the operator groups from
   left/right. Examples:
 
   #+name: associativity
@@ -508,21 +512,24 @@ file type:
   | i %=j      | i = (i % j) | right         |
   | i +=j      | i = (j + 1) | right         |
 
-- [ ] Make sure to write some of these out yourself and run
-  examples. I found ~%=~ quite challenging: a modulus and assignment
-  operator. ~i %= j~ computes ~i%j~ (i modulus j) and assigns it to
-  ~i~.
+- Write some of these out yourself and run examples. I found ~%=~ quite
+  challenging: a modulus and assignment operator. ~i %= j~ computes ~i%j~
+  (i modulus j) and assigns it to ~i~.
 
-  What is the value of ~i~ after running the code below?
+- What is the value of ~i = 10~ after running the code below?
 
   #+name: %=
   #+begin_src C :exports both
     int i = 10, j = 5;
-    i %= j;
+    i %= j; // compute modulus of i and j and assigns it to i
     printf("i was 10 and is now %d = 10 %% 5\n", i);
   #+end_src
 
 * Compound if structures and input validation
+** Download the practice file
+
+
+
 ** Booleans in C
 
 - C evaluates all non-zero values as TRUE, and all zero values as
