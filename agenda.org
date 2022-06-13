@@ -514,7 +514,7 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
    #+end_example
    - Now execute ~M-x eval-buffer~ inside the ~.emacs~ buffer and save the
      file for the future.
-  
+
    - This will enable you to control the inline image width and height:
      #+begin_example
      #+attr_html: :width 500px
@@ -534,9 +534,9 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
      RET~)
 
 3) [X] Screenshot selections with ~screenshot~. Install with:
-       #+begin_example bash
-       $ sudo apt install gnome-screenshot
-       #+end_example
+   #+begin_example bash
+   $ sudo apt install gnome-screenshot
+   #+end_example
    - Try this. Select the model on a zoomed PDF and save it as
      ~bpmn.png~ where you want to.
 
@@ -552,8 +552,8 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
    + Pgm 6: Boolean operators (Deadline Friday 17 June)
    + Pgm 7: Compound operators (Deadline Friday 17 June)
 
-9) [ ] *Bonus:* Dunning-Kruger effect and technology hype cycle    
-     
+9) [ ] *Bonus:* Dunning-Kruger effect and technology hype cycle
+
 ** Bonus content
 
 *** Steve Yegge: "Should you get a CS degree or can you teach yourself?"
@@ -599,12 +599,13 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 * Week 4 - loops, arrays, functions
 ** This week
 
-- [ ] Conditions in selection statements
+- [X] Conditions in selection statements
+- [X] Practice notebook ~operators.org~
 - [ ] ~SWITCH...CASE~ selection statement
-- [ ] Quiz 7 (Wed) and pgm 8 (until Fri)
-- [ ] ~for~, ~while~ and ~do~ loops
-- [ ] Several practice notebooks
-- [ ] Quiz 8 on loops (Fri) 
+- [ ] Practice notebook ~switch.org~
+- [ ] Quiz 7 (Wed) and pgm 8 "grades" (until Fri)
+- [ ] ~for~, ~while~ and ~do~ loops- [ ] Practice notebooks for loops
+- [ ] Quiz 8 on loops (Fri)
 
 ** Bonus content
 
@@ -629,7 +630,6 @@ probably heading for "Mount Stupid".
 In fact, the curve looks suspiciously like a driven dampened, harmonic
 oscillator known in physics (a model that describes, e.g. the motion
 of a spring.
-
 
 * Glossary
 

@@ -14,7 +14,6 @@
 - This section follows chapter 3 in Davenport/Vine (2015) and chapters
   4 and 5 in King (2008).
   
-
 * TODO Identify yourself
 
 - replace the placeholder ~[yourName]~ in the header of this file by

@@ -750,7 +750,7 @@ file type:
 
 Open and complete the ~operators.org~ practice file.
 
-* The switch structure
+* NEXT The switch structure
 ** Download the practice file
 
 - Get the file with ~wget~
@@ -795,8 +795,8 @@ Open and complete the ~operators.org~ practice file.
   declaration. Depending on the value, a ~case~ is triggered and
   the corresponding statements are executed.
 
-- [ ] What is the output of the code in [[switch]] for different
-  values:
+- [ ] What is the output of [[switch]] for different values:
+
   | VALUE | OUTPUT        |
   |-------+---------------|
   |     5 | Failing       |
@@ -856,9 +856,6 @@ Open and complete the ~operators.org~ practice file.
      }
   #+end_src
 
-  #+RESULTS: switch1
-  : Passing
-
 - Note: You cannot write a case label for a range of values.
 
 - The default case (when none of the case expressions apply) is
@@ -866,8 +863,8 @@ Open and complete the ~operators.org~ practice file.
 
 ** The role of the ~break~ statement
 
-- The ~switch~ statement is a controlled jump. The case label is
-  but a marker indicating a position within the switch.
+- The ~switch~ statement is a /controlled jump/. The ~case~ label is but a
+  marker indicating a position within the switch.
 
 - [ ] Let's run the previous program again, without the ~break~
   statements. What do you think the output will be?
@@ -903,92 +900,9 @@ Open and complete the ~operators.org~ practice file.
 - Deliberate falling through (omission of ~break~) should be
   indicated with an explicit comment.
 
-- Let's practice - head over to switch.org in GDrive for some
-  exercises.
-
 ** Let's practice!
 
 Open and complete the ~switch.org~ practice file.
-
-* Recap: selection statements
-** Selection statements
-
-- ~if~ and ~switch~ statements allow a program to select a
-  particular execution path from a set of alternatives.
-
-- What is the output of this code?
-
-  #+name: if1
-  #+begin_src C :results output
-
-    if (0) printf("1"); else printf("0");
-
-  #+end_src
-
-  #+RESULTS: if1
-  : 0
-
-  The following if statements have the same output:
-  #+name: if2
-  #+begin_src C :results output
-
-    if (5 < 2) printf("1"); else printf("0\n");
-
-    if (!(2 * 2) && 1) printf("1"); else printf("0\n");
-
-    if (!'A') printf("1"); else printf("0\n");
-
-  #+end_src
-
-  #+RESULTS: if2
-  : 0
-  : 0
-  : 0
-
-- Which alternative is chosen depends on the value of the
-  expression in parentheses:
-
-  | EXPRESSION    | BOOLEAN   | WHY                                |
-  |---------------+-----------+------------------------------------|
-  | 5 < 2         | FALSE (0) | 5 is smaller than 2                |
-  | !(2 * 2) && 1 | FALSE (0) | !4 is 0                            |
-  | !'A'          | FALSE (0) | A is converted to non-zero integer |
-
-** The "dangling else" problem
-
-- The following example illustrates the importance of braces: to
-  which of the two statements does the ~else~ clause belong?
-
-  #+name: dangling1
-  #+begin_example C
-    if (y != 0)
-      if (x != 0)
-        result = x / y;
-      else
-        printf("Error: y is equal to 0\n");
-  #+end_example
-
-- If ~y~ is non-zero, the second if clause is entered, and if ~x~
-  is also non-zero, the variable ~result~ is computed.
-
-- The rule in C is that an ~else~ clause belongs to the nearest
-  ~if~ statement that has not already been paired with another
-  ~else~. This is what Emacs does, too.
-
-- Alas: if y is non-zero and x is zero, we are told that y
-  is 0. The print statement should be aligned with the first if,
-  not with the second.
-
-- To make the clause part of the outer statement, use braces:
-
-  #+name: dangling2
-  #+begin_example C
-    if (y != 0) {
-      if (x != 0)
-        result = x / y;
-     } else
-      printf("Error: y is equal to 0\n");
-  #+end_example
 
 * References
 
