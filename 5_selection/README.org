@@ -359,7 +359,7 @@ file type:
   file battle.org
 #+end_src
 
-* Boolean algebra
+* TODO Boolean algebra
 
 - [ ] What is algebra about?[fn:3]
 
@@ -416,7 +416,7 @@ file type:
   tables. Watch "Proving Logical Equivalences without Truth Tables"
   [[logic][(2012)]] as an example.
 
-* Order of operator operations
+* TODO Order of operator operations
 
 - In compound operations (multiple operators), you need to know the
   order of operator precedence
@@ -525,7 +525,7 @@ file type:
     printf("i was 10 and is now %d = 10 %% 5\n", i);
   #+end_src
 
-* Compound if structures and input validation
+* TODO Compound if structures and input validation
 ** Download the practice file
 
 - Get the file with ~wget~
@@ -639,34 +639,32 @@ file type:
 - E.g. ~a~ and ~A~ are represented by the ASCII codes 97 and 65,
   resp.
 
-- [ ] Let's check that.
+- Let's check that.
 
   #+name: ascii_input
   #+begin_src bash :results silent
-    echo "a A" > ascii
+    echo "a A" > ./src/ascii
+    cat ./src/ascii
   #+end_src
 
+  In [[ascii]], two characters are scanned and then printed as characters
+  and as integers:
+  
   #+name: ascii
-  #+begin_src C :cmdline < ascii :results output :export both
+  #+begin_src C :cmdline < ./src/ascii :results output :export both
     char a, A;
     scanf("%c %c", &a, &A);
     printf("The ASCII value of %c is %d\n", a, a);
     printf("The ASCII value of %c is %d\n", A, A);
   #+end_src
 
-  #+RESULTS: ascii
-  : The ASCII value of a is 97
-  : The ASCII value of A is 65
-
-- User-friendly programs should use compound conditions to check
-  for both lower and upper case letters:
+- User-friendly programs should use compound conditions to check for
+  both lower and upper case letters:
 
   #+name: ascii_both
   #+begin_example C
   if (response == 'A' || response == 'a')
   #+end_example
-
-- Practice that using the GDrive notebook!
 
 ** Checking for a range of values
 
@@ -675,11 +673,12 @@ file type:
 - This is a common use of compound conditions, logical and
   relational operators
 
-- We first create an input file ~num~.
+- We first create an input file ~num~ with a number in it.
 
   #+name: valid_input
   #+begin_src bash :results silent
-    echo 5 > num
+    echo 5 > ./src/num
+    cat ./src/num
   #+end_src
 
 - [ ] What does the code in [[validate]] do? Will it run? What will the
@@ -688,10 +687,11 @@ file type:
   #+name: validate
   #+begin_src C :cmdline < num :exports both
 
-    int response = 0;
+    int response = 0; // declare and initialize integer
 
-    scanf("%d", &response);
+    scanf("%d", &response);  // scan integer input
 
+    // check if input was in range or not
     if ( response < 1 || response > 10 ) {
       puts("Number not in range.");
      } else {
@@ -699,14 +699,9 @@ file type:
      }
   #+end_src
 
-  #+RESULTS: validate
-  : Number in range.
-
-- Head to the practice notebook for some challenging exercises!
-
 ** Let's practice
 
-Open and complete operators.org
+Open and complete the ~operators.org~ practice file.
 
 * The switch structure
 ** Download the practice file
@@ -716,7 +711,7 @@ Open and complete operators.org
 - Display the first 2 lines with ~head~
 
 #+begin_src bash :results output
-  wget tinyurl.com/2y6wut43 -O switch.org -o log
+  wget tinyurl.com/2p95hxrp -O switch.org -o log
   file switch.org
   head -n 2 switch.org
 #+end_src
@@ -785,9 +780,6 @@ Open and complete operators.org
        break;
      }
   #+end_src
-
-  #+RESULTS: switch
-  : Illegal grade
 
 - [ ] Q: Which problem/solution set does the program implement?
 
@@ -869,7 +861,7 @@ Open and complete operators.org
 
 ** Let's practice!
 
-Open and complete switch.org
+Open and complete the ~switch.org~ practice file.
 
 * Recap: selection statements
 ** Selection statements
