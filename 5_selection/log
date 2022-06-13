@@ -1,0 +1,16 @@
+--2022-06-13 13:36:37--  http://tinyurl.com/2y6wut43
+Resolving tinyurl.com (tinyurl.com)... 172.67.1.225, 104.20.138.65, 104.20.139.65, ...
+Connecting to tinyurl.com (tinyurl.com)|172.67.1.225|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: https://raw.githubusercontent.com/birkenkrahe/cc101/piHome/5_selection/org/operators.org [following]
+--2022-06-13 13:36:37--  https://raw.githubusercontent.com/birkenkrahe/cc101/piHome/5_selection/org/operators.org
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.110.133, 185.199.111.133, 185.199.108.133, ...
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.110.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 6650 (6.5K) [text/plain]
+Saving to: ‘ops.org’
+
+     0K ......                                                100% 30.5M=0s
+
+2022-06-13 13:36:38 (30.5 MB/s) - ‘ops.org’ saved [6650/6650]
+

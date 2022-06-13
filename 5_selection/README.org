@@ -359,7 +359,7 @@ file type:
   file battle.org
 #+end_src
 
-* TODO Boolean algebra
+* DONE Boolean algebra
 
 - [ ] What is algebra about?[fn:3]
 
@@ -403,10 +403,10 @@ file type:
   #+name: XOR
   | p     | q     | p XOR q | P = p AND (NOT q) | Q = (NOT p) AND q | P OR Q |
   |-------+-------+---------+-------------------+-------------------+--------|
-  | TRUE  | TRUE  | TRUE    | FALSE             | FALSE             | FALSE  |
-  | TRUE  | FALSE | FALSE   | TRUE              | FALSE             | TRUE   |
-  | FALSE | TRUE  | FALSE   | FALSE             | TRUE              | TRUE   |
-  | FALSE | FALSE | TRUE    | FALSE             | FALSE             | FALSE  |
+  | TRUE  | TRUE  | FALSE   | FALSE             | FALSE             | FALSE  |
+  | TRUE  | FALSE | TRUE    | TRUE              | FALSE             | TRUE   |
+  | FALSE | TRUE  | TRUE    | FALSE             | TRUE              | TRUE   |
+  | FALSE | FALSE | FALSE   | FALSE             | FALSE             | FALSE  |
 
 - XOR is the operator that we've used in our BPMN models for
   pseudocode as a gateway operator - only one of its outcomes can be
@@ -416,7 +416,7 @@ file type:
   tables. Watch "Proving Logical Equivalences without Truth Tables"
   [[logic][(2012)]] as an example.
 
-* TODO Order of operator operations
+* DONE Order of operator operations
 
 - In compound operations (multiple operators), you need to know the
   order of operator precedence
@@ -443,6 +443,7 @@ file type:
   #+RESULTS: prefix
   : i is 2
   : i is 2
+  
 
 - The /postfix/ operator ~++j~ also means ~j = j + 1~ but here, the value of
   ~j~ is fetched, and then incremented.
@@ -525,7 +526,10 @@ file type:
     printf("i was 10 and is now %d = 10 %% 5\n", i);
   #+end_src
 
-* TODO Compound if structures and input validation
+  #+RESULTS: %=
+  : i was 10 and is now 0 = 10 % 5
+
+* DONE Compound if structures and input validation
 ** Download the practice file
 
 - Get the file with ~wget~
@@ -538,6 +542,11 @@ file type:
   head -n 2 ops.org
 #+end_src
 
+#+RESULTS:
+: ops.org: cannot open `ops.org\015' (No such file or directory)
+: #+title: cc-practice-ops
+: #+AUTHOR: [yourName] (pledged)
+
 ** Booleans in C
 
 - C evaluates all non-zero values as ~TRUE~ (~1~), and all zero values as
@@ -545,9 +554,14 @@ file type:
 
   #+name: boolean
   #+begin_src C :results output :exports both
-    if (3) puts("3 is TRUE"); // non-zero expression
-    if (!0) puts("0 is FALSE"); // !0 is literally non-zero
+    if (3) {
+      puts("3 is TRUE"); // non-zero expression
+     }
+    if (!!0) puts("0 is FALSE"); // !0 is literally non-zero
   #+end_src
+
+  #+RESULTS: boolean
+  : 3 is TRUE
 
 - The Boolean operators AND, OR and NOT are represented in C by
   the logical operators ~&&~, ~||~ and ~!~, respectively
@@ -558,9 +572,14 @@ file type:
   left. It is ~TRUE~ when its argument is ~FALSE~ (~0~), and it is ~FALSE~
   when its argument is ~TRUE~ (non-zero).
 
-- [ ] If ~i = 100~, what is ~!i~?
+- [X] If ~i = 100~, what is ~!i~?
 
-- [ ] If ~j = 1.0e-15~, what is ~!i~?
+  The Boolean value of ~100~ is TRUE. Therefore, ~!100~ = ~!TRUE~ = ~FALSE~
+
+- [X] If ~j = 1.0e-15~, what is ~!j~?
+
+  The Boolean value of ~1.0e-15~ is TRUE. Therefore, ~!1.0e-15~ = ~!TRUE~ =
+  ~FALSE~
 
 - [ ] Let's check!
 
@@ -576,7 +595,7 @@ file type:
 
   #+RESULTS: negation
   : !100 is 0 because 100 is non-zero!
-  : !(1.0e-15) is 0 because 1.0e-15 is non-zero!
+  : !(1.0e-015) is 0 because 1.0e-015 is non-zero!
 
 ** && operator (logical AND)
 
@@ -584,25 +603,31 @@ file type:
 
 - Its value is ~TRUE~ if and only if *both* sides of the operator are ~TRUE~
 
-- [ ] Example: guess the outcome first
+- [X] Example: guess the outcome first
 
   #+name: &&_op_true
   #+begin_src C :exports both
-    if ( 3 > 1 && 5 < 10 )
+    if ( 3 > 1 && 5 == 10 )
       printf("The expression is TRUE.\n");
      else
        printf("The expression is FALSE.\n");
   #+end_src
 
+  #+RESULTS: &&_op_true
+  : The expression is FALSE.
+
 - [ ] Example: guess the outcome first
   #+name: &&_op_false
   #+begin_src C :exports both
-    if (3 > 5 && 5 < 5 )
+    if (3 < 5 && 5 == 5 )
       printf("The expression is TRUE.\n");
      else
        printf
          ("The expression is FALSE.\n");
   #+end_src
+
+  #+RESULTS: &&_op_false
+  : The expression is TRUE.
 
 ** || operator (logical OR)
 
@@ -612,7 +637,7 @@ file type:
 
 - It is ~TRUE~ if either side of the operator is ~TRUE~
 
-- [ ] Example: guess the outcome first
+- [X] Example: guess the outcome first
 
   #+name: ||_op_true
   #+begin_src C :exports both
@@ -622,7 +647,10 @@ file type:
        printf("The expression is FALSE.\n");
   #+end_src
 
-- [ ] Example: guess the outcome first
+  #+RESULTS: ||_op_true
+  : The expression is TRUE.
+
+- [X] Example: guess the outcome first
 
   #+name: ||_op_false
   #+begin_src C :exports both
@@ -631,6 +659,9 @@ file type:
      else
        printf("The expression is FALSE.\n");
   #+end_src
+
+  #+RESULTS: ||_op_false
+  : The expression is FALSE.
 
 ** Checking for upper and lower case
 
@@ -652,11 +683,15 @@ file type:
   
   #+name: ascii
   #+begin_src C :cmdline < ./src/ascii :results output :export both
-    char a, A;
-    scanf("%c %c", &a, &A);
-    printf("The ASCII value of %c is %d\n", a, a);
-    printf("The ASCII value of %c is %d\n", A, A);
+    char c1, c2;
+    scanf("%c %c", &c1, &c2);
+    printf("The ASCII value of %c is %d\n", c1, c1);
+    printf("The ASCII value of %c is %d\n", c2, c2);
   #+end_src
+
+  #+RESULTS: ascii
+  : The ASCII value of a is 97
+  : The ASCII value of A is 65
 
 - User-friendly programs should use compound conditions to check for
   both lower and upper case letters:
@@ -685,7 +720,7 @@ file type:
   output be for our choice of input?
 
   #+name: validate
-  #+begin_src C :cmdline < num :exports both
+  #+begin_src C :cmdline < ./src/num :exports both
 
     int response = 0; // declare and initialize integer
 
@@ -698,6 +733,18 @@ file type:
       puts("Number in range.");
      }
   #+end_src
+
+  #+RESULTS: validate
+  : Number in range.
+
+- How can you translate a range like ~![1,10]~ into a conditional
+  expression? It means that we want to test if a number is outside of
+  the closed interval ~[1,10]~.
+
+- The numbers that fulfil this condition are smaller than 1 or greater
+  than 10, hence the condition is ~x < 1 || x > 10~.
+
+- This is more conveniently written as ~x < 1 || 10 < x~.
 
 ** Let's practice
 
@@ -723,10 +770,10 @@ Open and complete the ~operators.org~ practice file.
 
   #+begin_example C
   switch ( expression ) {
-  case constant expression : statements
-  ...
-  case constant expression : statements
-  default : statements
+    case constant expression : statements
+    ...
+    case constant expression : statements
+    default : statements
   }
   #+end_example
 

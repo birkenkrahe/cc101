@@ -596,7 +596,6 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 
 *Subscribe to his channel!*
 
-
 * Week 4 - loops, arrays, functions
 ** This week
 
