@@ -600,6 +600,13 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 * Week 4 - loops, arrays, functions
 ** This week
 
+- [ ] Conditions in selection statements
+- [ ] ~SWITCH...CASE~ selection statement
+- [ ] Quiz 7 (Wed) and pgm 8 (until Fri)
+- [ ] ~for~, ~while~ and ~do~ loops
+- [ ] Several practice notebooks
+- [ ] Quiz 8 on loops (Fri) 
+
 ** Bonus content
 
 *** Dunning-Kruger effect and hype cycle
