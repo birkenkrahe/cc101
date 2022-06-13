@@ -1,10 +1,10 @@
-#+title: cc-practice-ops
+#+title: cc-practice-switch
 #+AUTHOR: [yourName] (pledged)
 #+startup: overview hideblocks indent
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :results output :exports both :comments both
 * READ README
 
-- This file is a practice file for logical and compound operators
+- This file is a practice file for the ~SWITCH...CASE~ selection
 
 - Time: approx. 30 min.
 

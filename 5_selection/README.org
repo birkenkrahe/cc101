@@ -528,9 +528,9 @@ file type:
 * Compound if structures and input validation
 ** Download the practice file
 
-- get the file
-- check the file type
-- display the first 2 lines
+- Get the file with ~wget~
+- Check the file type with ~file~
+- Display the first 2 lines with ~head~
 
 #+begin_src bash :results output
   wget tinyurl.com/2y6wut43 -O ops.org -o log
@@ -552,84 +552,85 @@ file type:
 - The Boolean operators AND, OR and NOT are represented in C by
   the logical operators ~&&~, ~||~ and ~!~, respectively
 
-** ! operator
+** ! operator (logical NOT)
 
 - The ! operator is a "unary" operator that is evaluated from the
-  left. It is TRUE when its argument is FALSE, and vice versa.
+  left. It is ~TRUE~ when its argument is ~FALSE~ (~0~), and it is ~FALSE~
+  when its argument is ~TRUE~ (non-zero).
 
-- [X] If ~i = 100~, what is ~!i~?
+- [ ] If ~i = 100~, what is ~!i~?
 
-- [X] If ~j = 1.0e-15~, what is ~!i~?
+- [ ] If ~j = 1.0e-15~, what is ~!i~?
 
-- Let's check!
+- [ ] Let's check!
 
   #+name: negation
   #+begin_src C :results output :exports both
+    // declare and assign variables
     int i = 100;
     double j = 1.e-15;
+    // print output
     printf("!%d is %d because %d is non-zero!\n", i, !i, i);
     printf("!(%.1e) is %d because %.1e is non-zero!\n", j, !j, j);
   #+end_src
 
   #+RESULTS: negation
   : !100 is 0 because 100 is non-zero!
-  : !(1.0e-015) is 0 because 1.0e-015 is non-zero!
+  : !(1.0e-15) is 0 because 1.0e-15 is non-zero!
 
 ** && operator (logical AND)
 
 - Evaluates a Boolean expression from left to right
 
-- Value is TRUE if and only if both sides of the operator are TRUE
+- Its value is ~TRUE~ if and only if *both* sides of the operator are ~TRUE~
 
-- Examples:
+- [ ] Example: guess the outcome first
 
   #+name: &&_op_true
   #+begin_src C :exports both
-    if ( 3 > 1 && 5 < 10 ) // = TRUE AND TRUE = TRUE
-      printf("The entire expression is true.\n");
+    if ( 3 > 1 && 5 < 10 )
+      printf("The expression is TRUE.\n");
+     else
+       printf("The expression is FALSE.\n");
   #+end_src
 
-  #+RESULTS: &&_op_true
-  : The entire expression is true.
-
+- [ ] Example: guess the outcome first
   #+name: &&_op_false
   #+begin_src C :exports both
-    if (!(3 > 5 && 5 < 5) ) // = NOT (FALSE AND FALSE) = TRUE
-      printf("The entire expression (except the !) is false.\n");
+    if (3 > 5 && 5 < 5 )
+      printf("The expression is TRUE.\n");
+     else
+       printf
+         ("The expression is FALSE.\n");
   #+end_src
-
-  #+RESULTS: &&_op_false
-  : The entire expression (except the !) is false.
 
 ** || operator (logical OR)
 
 - Evaluates a Boolean expression from left to right
 
-- It is FALSE if and only if both sides of the operator are FALSE
+- It is ~FALSE~ if and only *both* sides of the operator are ~FALSE~
 
-- It is TRUE if either side of the operator is TRUE
+- It is ~TRUE~ if either side of the operator is ~TRUE~
 
-- Examples:
+- [ ] Example: guess the outcome first
 
   #+name: ||_op_true
   #+begin_src C :exports both
-    if ( 3 > 5 || 5 == 5 ) // TRUE OR TRUE = TRUE
-      printf("The entire expression is true.\n");
+    if ( 3 > 5 || 5 == 5 )
+      printf("The expression is TRUE.\n");
+     else
+       printf("The expression is FALSE.\n");
   #+end_src
 
-  #+RESULTS: ||_op_true
-  : The entire expression is true.
-
-  Remember to use the logical comparison operator ==, and not the
-  assignment operator =
+- [ ] Example: guess the outcome first
 
   #+name: ||_op_false
   #+begin_src C :exports both
-    if ( 3 > 5 || 6 < 5 ) { }// = FALSE OR FALSE = FALSE
-     else printf("The entire expression is false.\n");
+    if ( 3 > 5 || 6 < 5 )
+      printf("The expression is TRUE.\n");
+     else
+       printf("The expression is FALSE.\n");
   #+end_src
-
-- Practice that using the GDrive notebook!
 
 ** Checking for upper and lower case
 
@@ -703,7 +704,24 @@ file type:
 
 - Head to the practice notebook for some challenging exercises!
 
+** Let's practice
+
+Open and complete operators.org
+
 * The switch structure
+** Download the practice file
+
+- Get the file with ~wget~
+- Check the file type with ~file~
+- Display the first 2 lines with ~head~
+
+#+begin_src bash :results output
+  wget tinyurl.com/2y6wut43 -O switch.org -o log
+  file switch.org
+  head -n 2 switch.org
+#+end_src
+
+** Overview
 
 - The ~switch~ statement is fairly complex: it combines conditional
   expressions, constant expressions, default and break statements.
@@ -848,6 +866,90 @@ file type:
 
 - Let's practice - head over to switch.org in GDrive for some
   exercises.
+
+** Let's practice!
+
+Open and complete switch.org
+
+* Recap: selection statements
+** Selection statements
+
+- ~if~ and ~switch~ statements allow a program to select a
+  particular execution path from a set of alternatives.
+
+- What is the output of this code?
+
+  #+name: if1
+  #+begin_src C :results output
+
+    if (0) printf("1"); else printf("0");
+
+  #+end_src
+
+  #+RESULTS: if1
+  : 0
+
+  The following if statements have the same output:
+  #+name: if2
+  #+begin_src C :results output
+
+    if (5 < 2) printf("1"); else printf("0\n");
+
+    if (!(2 * 2) && 1) printf("1"); else printf("0\n");
+
+    if (!'A') printf("1"); else printf("0\n");
+
+  #+end_src
+
+  #+RESULTS: if2
+  : 0
+  : 0
+  : 0
+
+- Which alternative is chosen depends on the value of the
+  expression in parentheses:
+
+  | EXPRESSION    | BOOLEAN   | WHY                                |
+  |---------------+-----------+------------------------------------|
+  | 5 < 2         | FALSE (0) | 5 is smaller than 2                |
+  | !(2 * 2) && 1 | FALSE (0) | !4 is 0                            |
+  | !'A'          | FALSE (0) | A is converted to non-zero integer |
+
+** The "dangling else" problem
+
+- The following example illustrates the importance of braces: to
+  which of the two statements does the ~else~ clause belong?
+
+  #+name: dangling1
+  #+begin_example C
+    if (y != 0)
+      if (x != 0)
+        result = x / y;
+      else
+        printf("Error: y is equal to 0\n");
+  #+end_example
+
+- If ~y~ is non-zero, the second if clause is entered, and if ~x~
+  is also non-zero, the variable ~result~ is computed.
+
+- The rule in C is that an ~else~ clause belongs to the nearest
+  ~if~ statement that has not already been paired with another
+  ~else~. This is what Emacs does, too.
+
+- Alas: if y is non-zero and x is zero, we are told that y
+  is 0. The print statement should be aligned with the first if,
+  not with the second.
+
+- To make the clause part of the outer statement, use braces:
+
+  #+name: dangling2
+  #+begin_example C
+    if (y != 0) {
+      if (x != 0)
+        result = x / y;
+     } else
+      printf("Error: y is equal to 0\n");
+  #+end_example
 
 * References
 
