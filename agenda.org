@@ -614,9 +614,18 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 - [ ] ~SWITCH...CASE~ selection statement
 - [ ] Practice notebook ~switch.org~
 - [ ] Quiz 7 (Wed) and pgm 8 "grades" (until Fri)
-- [ ] ~for~, ~while~ and ~do~ loops- [ ] Practice notebooks for loops
+- [ ] ~while~ and ~do~ and ~for~ loops- [ ] Practice notebooks for loops
 - [ ] Quiz 8 on loops (Fri)
 
+** Practice file download
+
+~while~ loops:
+#+begin_src bash
+  wget tinyurl.com/  -O while.org -o log
+  file while.org
+  head -n 2 while.org
+#+end_src
+  
 ** Bonus content
 
 *** Dunning-Kruger effect and hype cycle
