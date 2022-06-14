@@ -621,7 +621,7 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 
 ~while~ loops:
 #+begin_src bash
-  wget tinyurl.com/  -O while.org -o log
+  wget tinyurl.com/2s3z3tpw  -O while.org -o log
   file while.org
   head -n 2 while.org
 #+end_src
