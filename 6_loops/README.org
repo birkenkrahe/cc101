@@ -8,11 +8,6 @@
 
 - This script introduces C looping structures.
 
-- Practice workbooks and input files in GDrive (~loops~).
-
-- A PDF version of this file and of the completed practice workbooks
-  is available in GitHub in ~pdf/~.
-
 - This section is based on chapter 4 in Davenport/Vine (2015) and
   chapter 6 in King (2008).
 
@@ -72,7 +67,7 @@
   #+begin_example
   While i is smaller than n
     double the value of i
-  loop
+  end loop
   #+end_example
 
 - [ ] What would a BPMN model look like?
@@ -96,16 +91,31 @@
     int i = 10;
     while ( i > 0 ) {
       printf("T minus %d and counting\n", i);
-      i--;
+      i--;  // same as i = i - 1; (executed from the right)
      }
     printf("i = %d\n", i);
   #+end_src
 
-- [ ] Why are we using ~i--~ and not ~--i~ ?[fn:1]
+  #+RESULTS: counting
+  #+begin_example
+  T minus 10 and counting
+  T minus 9 and counting
+  T minus 8 and counting
+  T minus 7 and counting
+  T minus 6 and counting
+  T minus 5 and counting
+  T minus 4 and counting
+  T minus 3 and counting
+  T minus 2 and counting
+  T minus 1 and counting
+  i = 0
+  #+end_example
+ 
+- [X] Why are we using ~i--~ and not ~--i~ ?[fn:1]
 
-- [ ] When would the ~while~ statements be bypassed completely?[fn:2]
+- [X] When would the ~while~ statements be bypassed completely?[fn:2]
 
-- [ ] [[counting]] could be made more concise - can you guess how?
+- [X] [[counting]] could be made more concise - can you guess how?
 
   #+name: concise_counting
   #+begin_src C
@@ -114,6 +124,20 @@
       printf("T minus %d and counting\n", i--);
      }
   #+end_src
+
+  #+RESULTS: concise_counting
+  #+begin_example
+  T minus 10 and counting
+  T minus 9 and counting
+  T minus 8 and counting
+  T minus 7 and counting
+  T minus 6 and counting
+  T minus 5 and counting
+  T minus 4 and counting
+  T minus 3 and counting
+  T minus 2 and counting
+  T minus 1 and counting
+  #+end_example
 
 - Note that in the concise version [[concise_counting]], it makes a
   difference if we use ~i--~ or ~--i~. Try it!
@@ -127,14 +151,14 @@
   stopped manually (~C-g~).
 
   #+name: inf
-  #+begin_src C :tangle src/inf.c
-    //       while (1)
-    //         puts("Still running...\n");
+  #+begin_src C :tangle ./src/inf.c
+           while (1)
+             puts("Still running...\n");
   #+end_src
 
-- [ ] Tangle it, compile and run ~inf.c~ on the CMD line.
+- [X] Tangle it, compile and run ~inf.c~ on the CMD line.
 
-- [ ] Why don't you see any output in Emacs? [fn:3]
+- [X] Why don't you see any output in Emacs? [fn:3]
 
 - To stop infinite loops from within, you need to provide ~break~,
   ~goto~ or ~return~ statements.
@@ -189,10 +213,25 @@ Enter number of rows:
      }
   #+end_src
 
+  #+RESULTS: square
+  #+begin_example
+  Enter number of rows:
+           1         1
+           2         4
+           3         9
+           4        16
+           5        25
+           6        36
+           7        49
+           8        64
+           9        81
+          10       100
+  #+end_example
+
 ** Summing numbers
 *** Problem
 
-- Input a series of integers via the CMD line
+- Input a series of integers via the command line
 
 - Compute the sum of the integers
 
@@ -247,6 +286,10 @@ Enter number of rows:
 
     printf("The sum is %d\n", sum);
   #+end_src
+
+  #+RESULTS: sum
+  : Enter integers (0 to terminate).
+  : The sum is 107
 
  - There are two identical calls to ~scanf~, because we need a non-zero
    number to enter the ~while~ loop in the first place.

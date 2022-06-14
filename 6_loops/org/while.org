@@ -62,7 +62,9 @@ of ~i~ and ~n~, then run the program for different values of ~n~.
   2) Inside the loop,
      - sum um with ~sum += n~
      - scan the next number ~n~
-  3) Run the code block with the preset input file
+  3) Run the code block with an input file that contains integers
+     ending in 0, e.g.  ~5 10 15 0~. When the last element of the list
+     is reached, the loop ends.
   4) Tangle the file, compile and run it on the CMD line
 
   #+name: sum

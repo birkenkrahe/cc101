@@ -1,29 +1,10 @@
-/* Solution */
 
-/*     * Scan numbers one after the other */
 
-/*     * The program should exit when a ~0~ is scanned */
+/* - Code: */
 
-/*     * To sum, we can use the compound operator ~+=~ */
+/*   #+name: sum */
 
-/*     * Pseudocode: */
-
-/*       #+begin_example */
-/*       declare and initialize variables */
-/*       scan first integer */
-
-/*       while integer non-zero */
-/*         sum integer */
-/*         scan integer */
-
-/*       print the sum */
-/*       #+end_example */
-      
-/*     * Code: */
-      
-/*       #+name: sum */
-
-/* [[file:README.org::sum][sum]] */
+/* [[file:../README.org::sum][sum]] */
 #include <stdio.h>
 
 
@@ -35,10 +16,9 @@ int main() {
 int n, sum = 0;
 
 printf("Enter integers (0 to terminate).\n");
-scanf("%d", &n);
+scanf("%d", &n);    // need non-zero number to start
 while ( n != 0 ) {
   sum += n;         // sum = sum + n
-  printf("%d\n", n);
   scanf("%d", &n);
  }
 
@@ -46,3 +26,35 @@ printf("The sum is %d\n", sum);
 return 0;
 }
 /* sum ends here */
+
+/* Summing numbers */
+
+/* - [ ] Go to the practice workbook and rewrite the summing numbers */
+/*   program [[sum]] using ~do...while~. */
+
+/* - Solution: */
+
+/*   #+name: sum1 */
+
+/* [[file:../README.org::sum1][sum1]] */
+#include <stdio.h>
+
+
+
+
+
+
+int main() {
+int n=0, sum = 0;
+
+printf("Enter integers (0 to terminate).\n");
+
+do {
+  sum += n;
+  scanf("%d", &n);
+ } while ( n != 0 );
+
+printf("The sum is %d\n", sum);
+return 0;
+}
+/* sum1 ends here */

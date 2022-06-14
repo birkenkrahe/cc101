@@ -599,22 +599,24 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 * Week 4 - loops, arrays, functions
 ** Housekeeping
 
-- [ ] ABOUT YOUR RECENT SUBMISSIONS
+- [X] ABOUT YOUR RECENT SUBMISSIONS
   - You do not need C style comments outside of code blocks
   - Go the extra tenth of a mile to add minimal documentation
   - Run your Org-mode files to make sure they work
   - Double check your submissions (aka professional attitude)
   - Deadline for all submissions is Friday 24 June, 4 pm
   - Sample solutions for the programming assignments in GitHub
+  - Send me an email if you resubmit a submission
 
 ** This week
 
 - [X] Conditions in selection statements
 - [X] Practice notebook ~operators.org~
-- [ ] ~SWITCH...CASE~ selection statement
-- [ ] Practice notebook ~switch.org~
+- [X] ~SWITCH...CASE~ selection statement
+- [X] Practice notebook ~switch.org~
 - [ ] Quiz 7 (Wed) and pgm 8 "grades" (until Fri)
-- [ ] ~while~ and ~do~ and ~for~ loops- [ ] Practice notebooks for loops
+- [ ] ~while~ and ~do~ and ~for~ loops
+- [ ] Practice notebooks for loops
 - [ ] Quiz 8 on loops (Fri)
 
 ** Practice file download

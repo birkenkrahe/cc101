@@ -809,7 +809,7 @@ Open and complete the ~operators.org~ practice file.
 
   #+name: switch
   #+begin_src C :results output :exports both
-    int grade = 3;
+    int grade = 2;
 
     switch (grade) {
      case 4:
@@ -827,6 +827,9 @@ Open and complete the ~operators.org~ practice file.
        break;
      }
   #+end_src
+
+  #+RESULTS: switch
+  : Passing
 
 - [ ] Q: Which problem/solution set does the program implement?
 
@@ -850,11 +853,13 @@ Open and complete the ~operators.org~ practice file.
      case 5: case 6:
        printf("Failing");
        break;
-     default:
-       printf("Illegal grade");
-       break;
-     }
+      default: 
+        printf("Illegal grade"); 
+        break; 
+     } 
   #+end_src
+
+  #+RESULTS: switch1
 
 - Note: You cannot write a case label for a range of values.
 
@@ -871,20 +876,21 @@ Open and complete the ~operators.org~ practice file.
 
   #+name: switch2
   #+begin_src C :results output :exports both
-    int grade = 3;
+      int grade = 3;
 
-    switch (grade) {
-     case 4:
-     case 3:
-     case 2:
-     case 1:
-       printf("Passing");
-     case 5:
-     case 6:
-       printf("Failing");
-     default:
-       printf("Illegal grade");
-     }
+      switch (grade) {
+        // cases 4,3,2,1 all lead to a passing grade
+       case 4:
+       case 3:
+       case 2:
+       case 1:
+         printf("Passing");
+       case 5:
+       case 6:
+         printf("Failing");
+       default:
+         printf("Illegal grade");
+       }
   #+end_src
 
 - [ ] What happens without the ~break~ statements?
