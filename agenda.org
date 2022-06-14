@@ -597,6 +597,16 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 *Subscribe to his channel!*
 
 * Week 4 - loops, arrays, functions
+** Housekeeping
+
+- [ ] ABOUT YOUR RECENT SUBMISSIONS
+  - You do not need C style comments outside of code blocks
+  - Go the extra tenth of a mile to add minimal documentation
+  - Run your Org-mode files to make sure they work
+  - Double check your submissions (aka professional attitude)
+  - Deadline for all submissions is Friday 24 June, 4 pm
+  - Sample solutions for the programming assignments in GitHub
+
 ** This week
 
 - [X] Conditions in selection statements
