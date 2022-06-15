@@ -1,0 +1,13 @@
+#+title: cc-practice-for
+#+STARTUP: overview hideblocks indent
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :exports both :results output :comments both
+* README
+
+- Practice workbook for ~for~ loops in C.
+
+* TODO Identify yourself
+
+- replace the placeholder ~[yourName]~ in the header of this file by
+  your name and save the file (~C-x C-s~).
+
+ 

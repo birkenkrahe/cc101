@@ -621,15 +621,30 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 
 ** Practice file download
 
-~while~ loops:
-#+begin_src bash
-  wget tinyurl.com/2s3z3tpw  -O while.org -o log
-  file while.org
-  head -n 2 while.org
-#+end_src
-  
-** Bonus content
+1) Practice ~while~ loops:
+   #+begin_src bash
+     wget tinyurl.com/2s3z3tpw  -O while.org -o log
+     file while.org
+     head -n 2 while.org
+   #+end_src
 
+2) Practice ~do...while~ loops:
+   
+   #+begin_src bash
+     wget tinyurl.com/  -O do.org -o log
+     file do.org
+     head -n 2 do.org
+   #+end_src
+
+3) Practice ~for~ loops:
+   
+   #+begin_src bash
+     wget tinyurl.com/  -O for.org -o log
+     file for.org
+     head -n 2 for.org
+   #+end_src
+   
+** Bonus content
 *** Dunning-Kruger effect and hype cycle
 
 This curve is well-known in business technology where it is used to

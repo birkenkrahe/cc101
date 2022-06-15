@@ -5,6 +5,10 @@
 
 - Practice workbook for ~while~ loops in C.
 
+* TODO Identify yourself
+
+- replace the placeholder ~[yourName]~ in the header of this file by
+  your name and save the file (~C-x C-s~).
 * Simple example
 
 Insert a print trace statement in the ~while~ loop to print the values
