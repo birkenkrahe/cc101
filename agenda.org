@@ -614,35 +614,57 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 - [X] Practice notebook ~operators.org~
 - [X] ~SWITCH...CASE~ selection statement
 - [X] Practice notebook ~switch.org~
-- [ ] Quiz 7 (Wed) and pgm 8 "grades" (until Fri)
-- [ ] ~while~ and ~do~ and ~for~ loops
-- [ ] Practice notebooks for loops
+- [X] Pgm 8 "grades" (until Fri)
+- [ ] Quiz 7 (Wed) ~if...else~ and ~switch...case~
+- [X] Lecture ~while~ loops
+- [X] Practice notebooks ~while~ loops
+- [ ] Lecture ~do...while~ loops
+- [ ] Practice notebooks ~do...while~ loops
+  [ ] Lecture ~for~ loops
+- [ ] Practice notebooks ~for~ loops
+- [ ] Lecture on array data structures
+- [ ] Practice notebook for arrays
 - [ ] Quiz 8 on loops (Fri)
 
 ** Practice file download
 
 1) Practice ~while~ loops:
-   #+begin_src bash
+   #+begin_src bash :results output
      wget tinyurl.com/2s3z3tpw  -O while.org -o log
      file while.org
      head -n 2 while.org
    #+end_src
 
+   #+RESULTS:
+   : while.org: ASCII text
+   : #+title: cc-practice-while
+   : #+STARTUP: overview hideblocks indent
+
 2) Practice ~do...while~ loops:
    
-   #+begin_src bash
-     wget tinyurl.com/  -O do.org -o log
+   #+begin_src bash :results output
+     wget tinyurl.com/yc674edp  -O do.org -o log
      file do.org
      head -n 2 do.org
    #+end_src
 
+   #+RESULTS:
+   : do.org: ASCII text
+   : #+title: cc-practice-do-while
+   : #+STARTUP: overview hideblocks indent
+
 3) Practice ~for~ loops:
    
-   #+begin_src bash
-     wget tinyurl.com/  -O for.org -o log
+   #+begin_src bash :results output
+     wget tinyurl.com/bde6fert  -O for.org -o log
      file for.org
      head -n 2 for.org
    #+end_src
+
+   #+RESULTS:
+   : for.org: ASCII text
+   : #+title: cc-practice-for
+   : #+STARTUP: overview hideblocks indent
    
 ** Bonus content
 *** Dunning-Kruger effect and hype cycle

@@ -110,7 +110,7 @@
   T minus 1 and counting
   i = 0
   #+end_example
- 
+
 - [X] Why are we using ~i--~ and not ~--i~ ?[fn:1]
 
 - [X] When would the ~while~ statements be bypassed completely?[fn:2]
@@ -152,8 +152,8 @@
 
   #+name: inf
   #+begin_src C :tangle ./src/inf.c
-           while (1)
-             puts("Still running...\n");
+    while (1)
+      puts("Still running...\n");
   #+end_src
 
 - [X] Tangle it, compile and run ~inf.c~ on the CMD line.
@@ -266,10 +266,13 @@ Enter number of rows:
 - Generate test input file:
 
   #+name: sum_input
-  #+begin_src bash :results silent
+  #+begin_src bash :results output
     echo 8 23 71 5 0 > ./src/sum_input
     cat ./src/sum_input
   #+end_src
+
+  #+RESULTS: sum_input
+  : 8 23 71 5 0
 
 - Code:
 
@@ -277,22 +280,22 @@ Enter number of rows:
   #+begin_src C :cmdline < ./src/sum_input :tangle src/sum.c
     int n, sum = 0;
 
-    printf("Enter integers (0 to terminate).\n");
-    scanf("%d", &n);    // need non-zero number to start
+    printf("Enter integers (0 to terminate): ");
+    scanf("%d", &n);  printf("%d ", n);   // need non-zero number to start
     while ( n != 0 ) {
       sum += n;         // sum = sum + n
-      scanf("%d", &n);
+      scanf("%d", &n); printf("%d ", n);
      }
 
-    printf("The sum is %d\n", sum);
+    printf("\nThe sum is %d\n", sum);
   #+end_src
 
   #+RESULTS: sum
-  : Enter integers (0 to terminate).
+  : Enter integers (0 to terminate): 8 23 71 5 0 
   : The sum is 107
 
- - There are two identical calls to ~scanf~, because we need a non-zero
-   number to enter the ~while~ loop in the first place.
+  - There are two identical calls to ~scanf~, because we need a non-zero
+    number to enter the ~while~ loop in the first place.
 
 * The ~do~ statement
 ** General form
@@ -304,78 +307,92 @@ Enter number of rows:
 - It's like a ~while~ statement whose controlling expression is
   tested /after/ each execution of the loop body.
 
-** Countdown example
+- When a ~do~ statement is executed, the loop body is executed first,
+  then the controlling /expression/ is evaluated.
 
-- [ ] Go to the practice workbook and rewrite [[counting]] using a
-  ~do...while~ statement
+- If the value of the /expression/ is non-zero, the loop body is
+  executed again and the expression is evaluated once more.
 
-- Here is the pseudocode:
+- Execution of the ~do~ statement terminates when the controlling
+  /expression/ has the value ~0~ (/FALSE/) *after* the loop body has been
+  executed.
 
-  #+begin_example C
-    do {
-     print i
-     decrement i by 1
-     } while i is greater than 0
+- Always use braces ~{...}~ around /all/ ~do~ statements, because otherwise
+  it can be mistaken for a ~while~ statement.
+
+** Calculating the number of digits in an integer
+
+- ~do~ is handy for loops that must execute at least once.
+
+- Let's write a program that calculates the number of digits in an
+  integer entered by the user.
+
+- Sample output:
+  #+name: ex:dowhile
+  #+begin_example
+    Enter a nonnegative integer: 656
+    The number has 2 digits(s).
   #+end_example
 
-- Solution:
+- Strategy: /digits/ correspond to base 10 - if we divide the input by
+  10 repeatedly until it becomes 0 (via integer truncation), the
+  number of divisions performed is the number of digits.
 
-  This is the concise version with the decrement operator inside
-  the function call.
-
-  #+name: counting3
-  #+begin_src C
-    int i = 10;
-
-    do {
-      printf("T minus %d and counting\n", i--);
-     } while (i > 0);
+  #+begin_example
+    656 / 10 => 65 (remainder 6/10)
+    65  / 10 => 6  (remainder 5/10)
+    6   / 10 => 0  (remainder 6/10)
+   #+end_example
+ 
+- Sample input:
+  #+name in:dowhile
+  #+begin_src bash :results output
+    echo 656 > ./src/dowhile
+    cat ./src/dowhile
   #+end_src
 
-  #+RESULTS: counting3
-  #+begin_example
-  T minus 10 and counting
-  T minus 9 and counting
-  T minus 8 and counting
-  T minus 7 and counting
-  T minus 6 and counting
-  T minus 5 and counting
-  T minus 4 and counting
-  T minus 3 and counting
-  T minus 2 and counting
-  T minus 1 and counting
+  #+RESULTS:
+  : 656
+
+- Pseudocode:
+  #+name: pseudo:dowhile
+  #+begin_example C
+  do 
+    divide input n by 10
+    add result to digits
+  while n is greater than 0
   #+end_example
 
-- The main difference to the ~while~ statement is that the loop body
-  is executed at least once.
+- Code:
+  #+name: pgm:dowhile  
+  #+begin_src C :cmdline < ./src/dowhile
+    int digits = 0; // number of digits
+    int n;  // input
 
-- Always use braces ~{...}~ around /all/ ~do~ statements, because
-  otherwise it can be mistaken for a ~while~ statement.
+    printf("Enter a non-negative integer: ");
+    scanf("%d", &n); printf("%d\n", n);
+
+    do {
+      n /= 10;
+      digits++;
+     } while ( n > 0 );
+
+    printf("The number has %d digit(s).\n", digits);
+  #+end_src
+
+- ~int~ is actually a so-called /signed integer/, a 32-bit datum that
+  encodes integers in the range ~[-2147483647,2147483647]~. Any integer
+  larger than this will not work - we have to use long integer types
+  (and a different conversion specifier).
+  
+** Counting down
+- Go to the practice workbook and rewrite [[counting]] using a
+  ~do...while~ statement.
 
 ** Summing numbers
 
-- [ ] Go to the practice workbook and rewrite the summing numbers
-  program [[sum]] using ~do...while~.
-
-- Solution:
-
-  #+name: sum1
-  #+begin_src C :cmdline < data/sum_input :tangle src/sum.c
-    int n=0, sum = 0;
-
-    printf("Enter integers (0 to terminate).\n");
-
-    do {
-      sum += n;
-      scanf("%d", &n);
-     } while ( n != 0 );
-
-    printf("The sum is %d\n", sum);
-  #+end_src
-
-  #+RESULTS: sum1
-  : Enter integers (0 to terminate).
-  : The sum is 107
+- Go to the practice workbook and rewrite the summing numbers program
+  [[sum]] using ~do...while~.
 
 * The ~for~ statement
 ** General form
@@ -425,8 +442,28 @@ Enter number of rows:
     }
   #+end_example
 
-- Studying the equivalent ~while~ loop can yield important
-  insights. For example
+- Studying the equivalent ~while~ loop can yield important insights: you
+  remember what happened when we swapped the postfix for a prefix
+  operator in the ~while~ loop [[concise_counting]]. Rewriting this program
+  as a ~for~ loop, we get:
+
+  #+begin_example C
+    int i = 10;  /* expr1 */
+    while ( i > 0 /* expr2 */) {
+      printf("T minus %d and counting\n", i-- /* expr3 */ );
+     }
+  #+end_example
+
+- [ ] What should the argument of ~for~ look like?
+  
+  #+begin_src C
+    int i;
+    for ( ??? )
+      printf("T minus %d and counting\n", i );
+  #+end_src
+
+- Since the first and third expressions in a ~for~ statement are
+  executed as statements, their values are irrelevant.
 
 ** ~for~ statement patterns
 
@@ -451,26 +488,10 @@ Enter number of rows:
 
     #+name: init
     #+begin_src C
-      //       int i;
-
+      // int i;
       for ( int i = 10 ; i > 0 ; i--)
         printf("T minus %d and counting\n", i);
     #+end_src
-
-    #+RESULTS: init
-    #+begin_example
-    T minus 10 and counting
-    T minus 9 and counting
-    T minus 8 and counting
-    T minus 7 and counting
-    T minus 6 and counting
-    T minus 5 and counting
-    T minus 4 and counting
-    T minus 3 and counting
-    T minus 2 and counting
-    T minus 1 and counting
-    #+end_example
-
 
 ** Omitting expressions
 
@@ -488,20 +509,6 @@ Enter number of rows:
       printf("T minus %d and counting\n", i);
   #+end_src
 
-  #+RESULTS: omit1
-  #+begin_example
-  T minus 10 and counting
-  T minus 9 and counting
-  T minus 8 and counting
-  T minus 7 and counting
-  T minus 6 and counting
-  T minus 5 and counting
-  T minus 4 and counting
-  T minus 3 and counting
-  T minus 2 and counting
-  T minus 1 and counting
-  #+end_example
-
 - If the *third* expression is omitted, the loop body is responsible
   for ensuring that the value of the 2nd expression eventually
   becomes false so that the loop ends:
@@ -513,20 +520,6 @@ Enter number of rows:
     for ( i = 10 ; i > 0 ; )
       printf("T minus %d and counting\n", i--);
   #+end_src
-
-  #+RESULTS: omit2
-  #+begin_example
-  T minus 10 and counting
-  T minus 9 and counting
-  T minus 8 and counting
-  T minus 7 and counting
-  T minus 6 and counting
-  T minus 5 and counting
-  T minus 4 and counting
-  T minus 3 and counting
-  T minus 2 and counting
-  T minus 1 and counting
-  #+end_example
 
 - If the *first* and *third* expressions are omitted, the resulting
   loop is nothing but a ~while~ statement in disguise:

@@ -277,11 +277,11 @@ class per week) without risking a fail.
 | 13 | Thu-09-Jun | +Quiz 6+     | +Program 5+  | /7 Basic Types/            |
 | 14 | Fri-10-Jun |            |            |                          |
 |----+------------+------------+------------+--------------------------|
-| 15 | Mon-13-Jun | Quiz 7     | +Program 6+  | 8 Arrays                 |
+| 15 | Mon-13-Jun | +Quiz 7+     | +Program 6+  | 8 Arrays                 |
 | 16 | Tue-14-Jun |            |            |                          |
 | 17 | Wed-15-Jun | Quiz 8     | +Program 7+  | 9 Functions              |
 | 18 | Thu-16-Jun |            |            |                          |
-| 19 | Fri-17-Jun | Quiz 9     | Program 8  | 11 Pointers              |
+| 19 | Fri-17-Jun | Quiz 9     | +Program 8+  | 11 Pointers              |
 |----+------------+------------+------------+--------------------------|
 | 20 | Mon-20-Jun |            |            |                          |
 | 21 | Tue-21-Jun | Quiz 10    | Program 9  | /12 Pointers and Arrays/   |
@@ -292,12 +292,10 @@ class per week) without risking a fail.
 
 * References
 
-* C for beginners, by H Collingbourne (Udemy, 2022).
+ - C for beginners, by H Collingbourne (Udemy, 2022).
 
-* Head First C, by D and D Griffiths (O'Reilly, 2014)
+ - Head First C, by D and D Griffiths (O'Reilly, 2014)
 
-* C Programming - A Modern Approach (2e), by R N King
-(Norton, 2008)
+ - C Programming - A Modern Approach (2e), by R N King (Norton, 2008)
 
-* The secret life of programs, by J E Steinhart
-(NoStarch, 2019)
+ - The secret life of programs, by J E Steinhart (NoStarch, 2019)

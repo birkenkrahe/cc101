@@ -1,0 +1,85 @@
+#+title: cc-practice-while
+#+STARTUP: overview hideblocks indent
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :exports both :results output :comments both
+* README
+
+- Practice workbook for ~while~ loops in C.
+
+* TODO Identify yourself
+
+- replace the placeholder ~[yourName]~ in the header of this file by
+  your name and save the file (~C-x C-s~).
+* Simple example
+
+Insert a print trace statement in the ~while~ loop to print the values
+of ~i~ and ~n~, then run the program for different values of ~n~.
+
+#+name: trace
+#+begin_src C
+  int i = 1, n = ???;
+  while ( i < n ) {
+    i = i * 2;
+   }
+#+end_src
+
+* Countdown example
+
+- Write a program that counts down from ~i=10~ and prints both the
+  counter variable and the end value ~n=10~.
+
+- Use a compound operator ~i--~ for counting down
+
+- Change the operator to ~--i~ and check if there's a difference
+   
+- Create a more concise version of the code by pulling the counting
+  statement into the ~printf~ statement.
+
+* Infinite loops
+
+- Let's produce an infinite loop!
+
+#+name: inf
+#+begin_src C :tangle inf.c
+  while (1)
+    puts("Still running...\n");
+#+end_src
+
+- Tangle the code in [[inf]], compile and run it on the command line
+- Remember ~C-c C-v t~ to tangle
+- Why don't you see any output in Emacs when you run this code?
+
+* Printing table of square
+
+1) Declare integer variables ~i~ and ~n~
+2) Scan ~n~ from an input file
+3) Initialize ~i~ to ~1~
+4) Write a ~while~ statement that
+   - prints ~i~ and ~i * i~
+   - increments ~i~ by one
+5) Run the program.
+
+* Summing numbers
+
+- The program [[sum]] below is only missing the ~while~ statement.
+
+  1) Use ~n !=0~ as the controlling expression
+  2) Inside the loop,
+     - sum um with ~sum += n~
+     - scan the next number ~n~
+  3) Run the code block with an input file that contains integers
+     ending in 0, e.g.  ~5 10 15 0~. When the last element of the list
+     is reached, the loop ends.
+  4) Tangle the file, compile and run it on the CMD line
+
+  #+name: sum
+  #+begin_src C :cmdline < sum_input :tangle sum.c
+    int n, sum = 0;
+
+    printf("Enter integers (0 to terminate).\n");
+    scanf("%d", &n);
+    _______________ // sum up
+    _______________ // scan n
+    }
+
+    printf("The sum is %d\n", sum);
+  #+end_src
