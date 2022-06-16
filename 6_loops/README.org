@@ -163,7 +163,7 @@
 - To stop infinite loops from within, you need to provide ~break~,
   ~goto~ or ~return~ statements.
 
-** Printing table of squares
+** Printing a table of squares
 *** Problem
 
 - Prompt the users to enter a number ~n~
@@ -203,8 +203,8 @@ Enter number of rows:
   #+begin_src C :cmdline < ./src/square_input
     int i, n;
 
-    printf("Enter number of rows:\n");
-    scanf("%d", &n);
+    printf("Enter number of rows: ");
+    scanf("%d", &n); printf("%d\n", n);
 
     i = 1;
     while ( i <= n ) {
@@ -215,7 +215,7 @@ Enter number of rows:
 
   #+RESULTS: square
   #+begin_example
-  Enter number of rows:
+  Enter number of rows: 10
            1         1
            2         4
            3         9
@@ -590,6 +590,85 @@ statement.
     //         printf("T minus %d and counting\n", i);
   #+end_src
 
+** Printing a table of squares
+
+- The program [[square]] can be improved by converting its ~while~ loop to a
+  ~for~ loop:
+
+  #+name: square1
+  #+begin_src C :cmdline < ./src/square1_input
+    int i, n;
+
+    printf("This program prints a table of squares.\n");
+    printf("Enter number of entries in table: ");
+    scanf("%d", &n); printf("%d\n", n);
+
+    for ( i = 1; i <= n; i++)
+      printf("%10d%10d\n", i, i * i);
+  #+end_src
+
+  #+RESULTS: square1
+  : This program prints a table of squares.
+  : Enter number of entries in table: 5
+  :          1         1
+  :          2         4
+  :          3         9
+  :          4        16
+  :          5        25
+
+- Inputfile
+  #+name: input:square1
+  #+begin_src bash
+    echo "5" > ./src/square1_input
+    cat ./src/square1_input
+  #+end_src
+
+- In [[square1]], all three expressions are controlled by the variable ~i~
+  for initialization, testing, and updating. However, *there is no
+  requirement that they be related in any way*: the version [[square2]] of
+  the same program demonstrates this:
+
+  #+name: square2
+  #+begin_src C :cmdline < ./src/square1_input
+    int i; // testing variable
+    int n; // upper bound constant
+    int odd; // incrementing variable
+    int square; // initialization variable
+
+    printf("This program prints a table of squares.\n");
+    printf("Enter number of entries in table: ");
+    scanf("%d", &n); printf("%d\n", n);
+
+    i   = 1;
+    odd = 3;
+    puts("         i    square       odd");
+    puts("------------------------------");    
+
+    for ( square = 1; i <= n; odd += 2) {
+      printf("%10d%10d%10d\n", i, square, odd);
+      ++i;
+      square += odd;
+      }
+  #+end_src
+
+  #+RESULTS: square2
+  : This program prints a table of squares.
+  : Enter number of entries in table: 5
+  :          i    square       odd
+  : ------------------------------
+  :          1         1         3
+  :          2         4         5
+  :          3         9         7
+  :          4        16         9
+  :          5        25        11
+
+- The ~for~ statement in [[square2]] initializes one variable (~square~),
+  tests another (~i~), and increments a third (~odd~).
+
+  ~i~ is the number to be squared, ~square~ is the square of ~i~, and ~odd~ is
+  the odd number that must be added to the current square to get the
+  next square (without having to multiply anything). 
+
 * Exiting from a loop
 ** Overview
 
@@ -741,6 +820,7 @@ statement.
   : 2
   : 3 is prime
 
+* Extended example: balancing a checkbook
 * References
 
 - Davenport/Vine (2015) C Programming for the Absolute Beginner
