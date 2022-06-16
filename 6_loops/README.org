@@ -834,7 +834,7 @@ Code:
 What if there was no ~continue~ available?
 
 Download the practice file ~continue.org~ and change the program
-accordingly, from: ~tinyurl.com/
+accordingly, from: ~tinyurl.com/475m5x4n~
 
 ** The ~goto~ statement
 

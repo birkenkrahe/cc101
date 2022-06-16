@@ -48,44 +48,6 @@ Code:
 : sum is 10
 * Problem
 
-Change the code in [[pgm:continue]] so that you do not use ~continue~ but still get the
-desired result.
+Change the code in [[pgm:continue]] so that you do not use ~continue~ but
+still get the desired result.
 
-* Solution
-
-Answer: change the ~if~ statement so that the summing is bypassed.
-#+begin_example C
-  if ( i != 0 ) {
-     sum += i;
-     n++;
-     }
-#+end_example
-
-Pseudo code:
-#+begin_example C
-while n smaller than 10
-  get input i           // scanf
-  if input is NOT 0
-     add input to sum   // sum += i
-     increment n        // n++
-print sum               // printf
-#+end_example
-
-Code:
-#+name: pgm:continue_solution
-#+begin_src C :cmdline < ./src/continue
-  int n=0, sum = 0;
-  int i;
-
-  while ( n < 10 ) {
-    scanf("%d", &i);
-    if ( i != 0 ) {
-      sum += i;
-      n++;
-    }
-   }
-  printf("sum is %d\n", sum);
-#+end_src
-
-#+RESULTS:
-: sum is 10
