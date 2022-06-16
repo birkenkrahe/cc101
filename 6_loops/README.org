@@ -380,15 +380,18 @@ Enter number of rows:
     printf("The number has %d digit(s).\n", digits);
   #+end_src
 
+  #+RESULTS: pgm:dowhile
+  : Enter a non-negative integer: -79993
+  : The number has 1 digit(s).
+
 - ~int~ is actually a so-called /signed integer/, a 32-bit datum that
   encodes integers in the range ~[-2147483647,2147483647]~. Any integer
   larger than this will not work - we have to use long integer types
   (and a different conversion specifier).
   
 ** Counting down
-- Go to the practice workbook and rewrite [[counting]] using a
-  ~do...while~ statement.
-
+Go to the practice workbook and rewrite [[counting]] using a ~do...while~
+statement.
 ** Summing numbers
 
 - Go to the practice workbook and rewrite the summing numbers program
@@ -399,7 +402,7 @@ Enter number of rows:
 
 - The ~for~ statement has the general form
 
-  ~for ( /expr1 ; expr2 ; expr3/ ) /statement/ ) ;~
+  ~for ( /expr1 ; expr2 ; expr3/ ) /statement/ ;~
 
 - Here, ~expr1~, ~expr2~ and ~expr3~ are expressions.
 
@@ -415,23 +418,10 @@ Enter number of rows:
 
     for ( i = 10; i > 0; i-- )
       printf("T minus %d and counting\n", i);
-
   #+end_src
 
-  #+RESULTS: for
-  #+begin_example
-  T minus 10 and counting
-  T minus 9 and counting
-  T minus 8 and counting
-  T minus 7 and counting
-  T minus 6 and counting
-  T minus 5 and counting
-  T minus 4 and counting
-  T minus 3 and counting
-  T minus 2 and counting
-  T minus 1 and counting
-  #+end_example
-
+** Swapping ~for~ and ~while~ 
+  
 - ~for~ loops can be replaced by ~while~ loops:
 
   #+begin_example C
@@ -454,85 +444,15 @@ Enter number of rows:
      }
   #+end_example
 
-- [ ] What should the argument of ~for~ look like?
+- [X] What should the argument of ~for~ look like?
   
   #+begin_src C
     int i;
-    for ( ??? )
+    for ( i = 10; i > 0 ; i-- )
       printf("T minus %d and counting\n", i );
   #+end_src
 
-- Since the first and third expressions in a ~for~ statement are
-  executed as statements, their values are irrelevant.
-
-** ~for~ statement patterns
-
-- ~for~ loops are best when counting up or down
-
-  | PATTERN / IDIOM             | CODE                           |
-  |-----------------------------+--------------------------------|
-  | Counting up from ~0~ to ~n-1~   | ~for ( i = 0; i < n; i++ )~      |
-  | Counting up from ~1~ to ~n~     | ~for ( i = 1; i <= n; i++ )~     |
-  | Counting down from ~n-1~ to ~0~ | ~for ( i = n-1; i >= 0; i-- )~ |
-  | Counting down from ~n~ to ~1~   | ~for ( i = n; i > 0; i-- )~      |
-
-  - Counting up loops rely on ~<~ and ~<=~, while counting down loops
-    rely on ~>~ and ~>=~ operators.
-
-  - Note that the controlling expression does *not* use ~==~ but ~=~
-    instead - we're not looking for Boolean/truth values but for
-    beginning numerical values.
-
-  - This is cool (but also dangerous): you can initialize the
-    counting variable inside the first expression:
-
-    #+name: init
-    #+begin_src C
-      // int i;
-      for ( int i = 10 ; i > 0 ; i--)
-        printf("T minus %d and counting\n", i);
-    #+end_src
-
-** Omitting expressions
-
-- Some ~for~ loops may not need all 3 expressions, though the
-  separators ~;~ must all three be present
-
-- If the *first* expression is omitted, no initialization is
-  performed before the loop is executed:
-
-  #+name: omit1
-  #+begin_src C
-    int i = 10;
-
-    for ( ; i > 0 ; --i)
-      printf("T minus %d and counting\n", i);
-  #+end_src
-
-- If the *third* expression is omitted, the loop body is responsible
-  for ensuring that the value of the 2nd expression eventually
-  becomes false so that the loop ends:
-
-  #+name: omit2
-  #+begin_src C
-    int i;
-
-    for ( i = 10 ; i > 0 ; )
-      printf("T minus %d and counting\n", i--);
-  #+end_src
-
-- If the *first* and *third* expressions are omitted, the resulting
-  loop is nothing but a ~while~ statement in disguise:
-
-  #+name: omit3
-  #+begin_src C
-    int i = 10;
-
-    for ( ; i > 0 ; )
-      printf("T minus %d and counting\n", i--);
-  #+end_src
-
-  #+RESULTS: omit3
+  #+RESULTS:
   #+begin_example
   T minus 10 and counting
   T minus 9 and counting
@@ -545,6 +465,95 @@ Enter number of rows:
   T minus 2 and counting
   T minus 1 and counting
   #+end_example
+
+
+- Since the first and third expressions in a ~for~ statement are
+  executed as statements, their values are irrelevant.
+
+** ~for~ statement patterns
+
+- ~for~ loops are best when counting up or down
+
+  | PATTERN / IDIOM             | CODE                         |
+  |-----------------------------+------------------------------|
+  | Counting up from ~0~ to ~n-1~   | ~for ( i = 0; i < n; i++ )~    |
+  | Counting up from ~1~ to ~n~     | ~for ( i = 1; i <= n; i++ )~   |
+  | Counting down from ~n-1~ to ~0~ | ~for ( i = n-1; i >= 0; i-- )~ |
+  | Counting down from ~n~ to ~1~   | ~for ( i = n; i > 0; i-- )~    |
+
+  - Counting up loops rely on ~<~ and ~<=~, while counting down loops
+    rely on ~>~ and ~>=~ operators.
+
+  - Note that the controlling expression does *not* use ~==~ but ~=~
+    instead - we're not looking for Boolean/truth values but for
+    beginning numerical values.
+
+  - The following is cool (but also dangerous): you can initialize the
+    counting variable inside the first expression:
+
+    #+name: init
+    #+begin_src C
+      // int i;
+      for ( int i = 3 ; i > 0 ; i--)
+        printf("T minus %d and counting\n", i);
+    #+end_src
+
+    #+RESULTS: init
+    : T minus 3 and counting
+    : T minus 2 and counting
+    : T minus 1 and counting
+
+** Omitting expressions
+
+- Some ~for~ loops may not need all 3 expressions, though the
+  separators ~;~ must all three be present
+
+- If the *first* expression is omitted, no initialization is
+  performed before the loop is executed:
+
+  #+name: omit1
+  #+begin_src C
+    int i = 3;
+
+    for ( ; i > 0 ; --i)
+      printf("T minus %d and counting\n", i);
+  #+end_src
+
+  #+RESULTS: omit1
+  : T minus 3 and counting
+  : T minus 2 and counting
+  : T minus 1 and counting
+
+- If the *third* expression is omitted, the loop body is responsible
+  for ensuring that the value of the 2nd expression eventually
+  becomes false so that the loop ends:
+
+  #+name: omit2
+  #+begin_src C
+     for (int i = 3 ; i > 0 ; )
+      printf("T minus %d and counting\n", i--);
+  #+end_src
+
+  #+RESULTS: omit2
+  : T minus 3 and counting
+  : T minus 2 and counting
+  : T minus 1 and counting
+
+- If the *first* and *third* expressions are omitted, the resulting
+  loop is nothing but a ~while~ statement in disguise:
+
+  #+name: omit3
+  #+begin_src C
+    int i = 3;
+
+    for ( ; i > 0 ; )
+      printf("T minus %d and counting\n", i--);
+  #+end_src
+
+  #+RESULTS: omit3
+  : T minus 3 and counting
+  : T minus 2 and counting
+  : T minus 1 and counting
 
 - The ~while~ version is clearer and to be preferred:
 
