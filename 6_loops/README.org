@@ -2,7 +2,7 @@
 #+AUTHOR:Marcus Birkenkrahe
 #+SUBTITLE:CSC100 / Introduction to programming in C/C++ - Summer 2022
 #+STARTUP: overview hideblocks indent
-#+OPTIONS: toc:nil ^:nil num:nil
+#+OPTIONS: toc:1 ^:nil num:1
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :exports both :results output :comments both
 * README
 
@@ -607,15 +607,6 @@ statement.
       printf("%10d%10d\n", i, i * i);
   #+end_src
 
-  #+RESULTS: square1
-  : This program prints a table of squares.
-  : Enter number of entries in table: 5
-  :          1         1
-  :          2         4
-  :          3         9
-  :          4        16
-  :          5        25
-
 - Inputfile
   #+name: input:square1
   #+begin_src bash
@@ -947,7 +938,7 @@ accordingly, from: ~tinyurl.com/475m5x4n~
   ~checking.c~, compile and run it on the command line.
 
   #+name: pgm:checkbook
-  #+begin_src C :tangle ./src/checking.c :comments none
+  #+begin_src C :tangle ./src/checking.c :comments none :cmdline < exit
     /* Balances a checkbook */
     #include <stdio.h>
 
