@@ -607,6 +607,15 @@ statement.
       printf("%10d%10d\n", i, i * i);
   #+end_src
 
+  #+RESULTS: square1
+  : This program prints a table of squares.
+  : Enter number of entries in table: 5
+  :          1         1
+  :          2         4
+  :          3         9
+  :          4        16
+  :          5        25
+
 - Inputfile
   #+name: input:square1
   #+begin_src bash
@@ -667,7 +676,7 @@ statement.
   loop body.
 
 - You can exit a loop (or any other statement) in the middle,
-  too using: ~break~, ~continue~, and ~goto~.
+  too using: ~break~, ~continue~, and ~goto~, (and ~return~). 
 
 ** The ~break~ statement
 *** Overview
@@ -714,6 +723,21 @@ statement.
     printf("n is %d\n", n);
   #+end_src
 
+  #+RESULTS: pgm:break
+  #+begin_example
+  loop: n is 10
+  loop: n is 9
+  loop: n is 8
+  loop: n is 7
+  loop: n is 6
+  loop: n is 5
+  loop: n is 4
+  loop: n is 3
+  loop: n is 2
+  loop: n is 1
+  n is 0
+  #+end_example
+
 - A good way to check/record an algorithm: pseudo code!
 
   Here is the pseudo code for the program *with* ~break~:
@@ -725,6 +749,7 @@ statement.
            break for loop
         else
            print the integer
+    print the integer (0)
   #+end_example
 
   Here is the pseudo code for the program *without* ~break~:
@@ -797,7 +822,7 @@ Pseudo code:
 #+begin_example C
 while n smaller than 10
   get input i           // scanf
-  if input is 0 go back // continue
+  if input is 0 go on   // continue
   else add input to sum // sum += i
   increment n           // n++
 print sum               // printf
@@ -821,6 +846,7 @@ Code:
 
 #+RESULTS:
 : sum is 10
+
 
 *** Practice: world without ~continue~
 
@@ -982,7 +1008,7 @@ accordingly, from: ~tinyurl.com/475m5x4n~
       }
     }
   #+end_src
-
+  
 - Get the program: ~tinyurl.com/2p975xs4~ - tangle, compile and run it.
 
 * References

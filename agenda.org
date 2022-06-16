@@ -724,9 +724,9 @@ of a spring.
 
 - [ ] Final exam on Friday, June 24 (2 hours)
 - [ ] Three more topics: arrays, functions, pointers
+- [ ] Introduction to OOP and C++ on Thursday
 - [ ] Quiz 9 and Quiz 10 on Tue/Thu
 - [ ] Pgm assignments on Mon, Tue, Wed
-- [ ] Introduction to OOP and C++ on Thursday
 
 * Glossary
 
