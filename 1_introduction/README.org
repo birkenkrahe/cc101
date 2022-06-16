@@ -1,7 +1,7 @@
 #+TITLE:Introduction to C
 #+AUTHOR:Marcus Birkenkrahe
 #+SUBTITLE:CSC101 Introduction to programming in C/C++ SUMMER 2022
-#+STARTUP:overview
+#+STARTUP:overview hideblocks indent
 #+OPTIONS: toc:1
 #+OPTIONS:hideblocks
 * What will you learn?
