@@ -10,8 +10,8 @@ is skipped, but we're still inside the loop.
 
 Input file:
 #+begin_src bash
-  echo 1 1 1 1 1 1 1 1 0 1 1 > ./src/continue
-  cat ./src/continue
+  echo 1 1 1 1 1 1 1 1 0 1 1 > continue
+  cat continue
 #+end_src
 
 #+RESULTS:
@@ -29,7 +29,7 @@ print sum               // printf
 
 Code:
 #+name: pgm:continue
-#+begin_src C :cmdline < ./src/continue
+#+begin_src C :cmdline < continue
   int n=0, sum = 0;
   int i;
 
