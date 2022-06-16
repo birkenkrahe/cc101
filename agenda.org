@@ -431,7 +431,7 @@ Further study:
     #+RESULTS: input1
     : Enter an integer number: You entered: 100
 
-* Week 3 - I/O, expressions, selection
+* Week 3 - I/O, expressions, operators
 ** This week
 
 - [X] three more programming assignments
@@ -552,8 +552,6 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
    + Pgm 6: Boolean operators (Deadline Friday 17 June)
    + Pgm 7: Compound operators (Deadline Friday 17 June)
 
-9) [ ] *Bonus:* Dunning-Kruger effect and technology hype cycle
-
 ** Bonus content
 
 *** Steve Yegge: "Should you get a CS degree or can you teach yourself?"
@@ -596,7 +594,7 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 
 *Subscribe to his channel!*
 
-* Week 4 - loops, arrays, functions
+* Week 4 - Selection statements, loops
 ** Housekeeping
 
 - [X] ABOUT YOUR RECENT SUBMISSIONS
@@ -618,9 +616,9 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 - [ ] Quiz 7 (Wed) ~if...else~ and ~switch...case~
 - [X] Lecture ~while~ loops
 - [X] Practice notebooks ~while~ loops
-- [ ] Lecture ~do...while~ loops
-- [ ] Practice notebooks ~do...while~ loops
-  [ ] Lecture ~for~ loops
+- [X] Lecture ~do...while~ loops
+- [X] Practice notebooks ~do...while~ loops
+- [X] Lecture ~for~ loops
 - [ ] Practice notebooks ~for~ loops
 - [ ] Lecture on array data structures
 - [ ] Practice notebook for arrays
@@ -688,6 +686,21 @@ probably heading for "Mount Stupid".
 In fact, the curve looks suspiciously like a driven dampened, harmonic
 oscillator known in physics (a model that describes, e.g. the motion
 of a spring.
+
+** No class on Friday, June 17
+
+*Instead use your time well:*
+1) Catch up on unsubmitted assignments (class, programming)
+2) Complete quizzes that you did not ace (= 100%) yet
+3) Look through your notes for things you didn't understand
+4) Complete quiz 8 (loops)
+
+* Week 5 - arrays, functions, pointers
+
+- [ ] Final exam on Friday, June 24 (2 hours)
+- [ ] Three more topics: arrays, functions, pointers
+- [ ] Quiz 9 and Quiz 10 on Tue/Thu
+- [ ] Pgm assignments on Mon, Tue, Wed
 
 * Glossary
 

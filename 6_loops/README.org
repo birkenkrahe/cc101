@@ -291,7 +291,7 @@ Enter number of rows:
   #+end_src
 
   #+RESULTS: sum
-  : Enter integers (0 to terminate): 8 23 71 5 0 
+  : Enter integers (0 to terminate): 8 23 71 5 0
   : The sum is 107
 
   - There are two identical calls to ~scanf~, because we need a non-zero
@@ -343,7 +343,7 @@ Enter number of rows:
     65  / 10 => 6  (remainder 5/10)
     6   / 10 => 0  (remainder 6/10)
    #+end_example
- 
+
 - Sample input:
   #+name in:dowhile
   #+begin_src bash :results output
@@ -357,14 +357,14 @@ Enter number of rows:
 - Pseudocode:
   #+name: pseudo:dowhile
   #+begin_example C
-  do 
+  do
     divide input n by 10
     add result to digits
   while n is greater than 0
   #+end_example
 
 - Code:
-  #+name: pgm:dowhile  
+  #+name: pgm:dowhile
   #+begin_src C :cmdline < ./src/dowhile
     int digits = 0; // number of digits
     int n;  // input
@@ -388,7 +388,7 @@ Enter number of rows:
   encodes integers in the range ~[-2147483647,2147483647]~. Any integer
   larger than this will not work - we have to use long integer types
   (and a different conversion specifier).
-  
+
 ** Counting down
 Go to the practice workbook and rewrite [[counting]] using a ~do...while~
 statement.
@@ -420,8 +420,8 @@ statement.
       printf("T minus %d and counting\n", i);
   #+end_src
 
-** Swapping ~for~ and ~while~ 
-  
+** Swapping ~for~ and ~while~
+
 - ~for~ loops can be replaced by ~while~ loops:
 
   #+begin_example C
@@ -445,7 +445,7 @@ statement.
   #+end_example
 
 - [X] What should the argument of ~for~ look like?
-  
+
   #+begin_src C
     int i;
     for ( i = 10; i > 0 ; i-- )
@@ -530,7 +530,7 @@ statement.
 
   #+name: omit2
   #+begin_src C
-     for (int i = 3 ; i > 0 ; )
+    for (int i = 3 ; i > 0 ; )
       printf("T minus %d and counting\n", i--);
   #+end_src
 
@@ -642,13 +642,13 @@ statement.
     i   = 1;
     odd = 3;
     puts("         i    square       odd");
-    puts("------------------------------");    
+    puts("------------------------------");
 
     for ( square = 1; i <= n; odd += 2) {
       printf("%10d%10d%10d\n", i, square, odd);
       ++i;
       square += odd;
-      }
+     }
   #+end_src
 
   #+RESULTS: square2
@@ -667,7 +667,7 @@ statement.
 
   ~i~ is the number to be squared, ~square~ is the square of ~i~, and ~odd~ is
   the odd number that must be added to the current square to get the
-  next square (without having to multiply anything). 
+  next square (without having to multiply anything).
 
 * Exiting from a loop
 ** Overview
@@ -679,6 +679,7 @@ statement.
   too using: ~break~, ~continue~, and ~goto~.
 
 ** The ~break~ statement
+*** Overview
 
 - Remember the use of ~break~ after a ~switch~ statement:
 
@@ -696,57 +697,89 @@ statement.
   loop.
 
 - Especially useful when breaking a loop as soon as a particular
-  value is entered:
+  value is entered.
+
+*** Example
+
+- Let's create an input file. We want to break a loop as soon as the
+  number ~0~ is reached.
 
   #+begin_src bash :results silent
-    echo 10 9 8 7 6 5 4 3 2 1 0 > break
+    echo 10 9 8 7 6 5 4 3 2 1 0 > ./src/break_input
+    cat ./src/break_input
   #+end_src
 
-- [ ] Example: first we need to get the program to compile.
-  - What's wrong with the code below?
-  - What would happen without the ~break~ statement?
+- Here's some code: what does it do? What would happen without the
+  ~break~ statement? Would you know how to test that?
 
-    #+begin_src C :cmdline < break
-      int n;
-      for (;;) {
-        scanf("%d", &n);
-        if (n == 0) break;
-        printf("n is %d\n", n);
-       }
-    #+end_src
+  #+name: pgm:break
+  #+begin_src C :cmdline < ./src/break_input :tangle ./src/breakInf.c
+    int n;
+    for (;;) {
+      scanf("%d", &n);
+      if (n == 0) break;
+      printf("loop: n is %d\n", n);
+     }
+    printf("n is %d\n", n);
+  #+end_src
 
-    #+RESULTS:
-    #+begin_example
-    n is 10
-    n is 9
-    n is 8
-    n is 7
-    n is 6
-    n is 5
-    n is 4
-    n is 3
-    n is 2
-    n is 1
-    #+end_example
+- A good way to check/record an algorithm: pseudo code!
 
-    - *Important:* the ~break~ statement only breaks out of the *innermost*
-      loop statement. If statements are nested, it can only escape one
-      level of nesting.
+  Here is the pseudo code for the program *with* ~break~:
+  #+name: pseudoBreak
+  #+begin_example C
+    for ever
+        scan an integer
+        if integer is 0
+           break for loop
+        else
+           print the integer
+  #+end_example
 
-    - Example: The ~break~ only gets you out of the ~switch~ but not the
-      ~while~ statement.
+  Here is the pseudo code for the program *without* ~break~:
+  #+name: pseudoBreak
+  #+begin_example C
+    for ever
+        scan an integer
+        if integer is 0
+           print the integer
+  #+end_example
 
-      #+begin_example C
-        while (...) {
-          switch (...) {
-           ...
-           break;
-           ...
-           }
-        }
-      #+end_example
+- [ ] Let's tangle the code and run it with/without the ~break~ on the
+  command line.
+
+*** Practice
+
+- *Important:* the ~break~ statement only breaks out of the *innermost* loop
+  statement. If statements are nested, it can only escape *one* level of
+  nesting.
+
+- Example: The ~break~ only gets you out of the ~switch~ but not the ~while~
+  statement.
+
+  #+begin_example C
+    while (...) {
+      switch (...) {
+         ...
+         break;
+       ...
+      }
+    }
+  #+end_example
+
+- [ ] *Do-It-Yourself practice:*
+
+  1) Open Emacs, create a file, put in the appropriate header,
+     and construct an example demonstrating this behavior of ~break~.
+
+  2) For the ~while~ loop, re-use the counting program, counting up
+     to 3.
+
+  3) For the ~switch ... case~ selection, label the cases 1,2,3 and
+     print the label.
 
 ** The ~continue~ statement
+*** Overview
 
 - The ~continue~ statement does not exit from a loop. It brings you
   to a point just before the end of the loop body.
@@ -756,36 +789,52 @@ statement.
 
 - ~continue~ is limited to loops, it does not work with ~switch~.
 
-- Example: summing up numbers.
+*** Example: summing up numbers.
 
-  The loop terminates when 10 non-zero numbers have been
-  read. Whenever the number 0 is read, ~continue~ is executed, the
-  rest of the loop body is skipped, but we're still inside the
-  loop.
+The loop terminates when 10 non-zero numbers have been read. Whenever
+the number ~0~ is read, ~continue~ is executed, the rest of the loop body
+is skipped, but we're still inside the loop.
 
-  #+begin_src bash :results silent
-    echo 1 1 1 1 1 1 1 1 0 1 1 > continue
-  #+end_src
+Input file:
+#+begin_src bash 
+  echo 1 1 1 1 1 1 1 1 0 1 1 > ./src/continue
+  cat ./src/continue
+#+end_src
 
-  #+begin_src C :cmdline < continue
-    int n=0, sum = 0;
-    int i;
+Pseudo code:
+#+begin_example C
+while n smaller than 10
+  get input i           // scanf
+  if input is 0 go back // continue
+  else add input to sum // sum += i
+  increment n           // n++
+print sum               // printf
+#+end_example
 
-    while ( n < 10 ) {
-      scanf("%d", &i);
-      if ( i == 0 )
-        continue;
-      sum += i;
-      n++;
-      /* continue jumps to here */
-     } printf("sum is %d\n", sum);
-  #+end_src
+Code:
+#+begin_src C :cmdline < ./src/continue
+  int n=0, sum = 0;
+  int i;
 
-  #+RESULTS:
-  : sum is 10
+  while ( n < 10 ) {
+    scanf("%d", &i);
+    if ( i == 0 )
+      continue;
+    sum += i;
+    n++;
+    /* continue jumps to here */
+   }
+  printf("sum is %d\n", sum);
+#+end_src
 
-- [ ] What would you have to do for this program if there was no
-  ~continue~ available?[fn:4]
+#+RESULTS:
+: sum is 10
+
+*** Practice: world without ~continue~
+What if there was no ~continue~ available?
+
+Download the practice file ~continue.org~ and change the program
+accordingly, from: ~tinyurl.com/
 
 ** The ~goto~ statement
 
@@ -821,6 +870,54 @@ statement.
   : 3 is prime
 
 * Extended example: balancing a checkbook
+
+- Let's develop a program that maintains a checkbook balance.
+
+- The program will offer the user a menu of choices:
+  1) clear the account balance
+  2) credit money to the account
+  3) debit money from the account
+  4) display the current balance
+  5) exit the program
+
+- These choices are represented by integers 0,1,2,3,4 resp. which are
+  implemented as ~switch~ ~case~ labels.
+
+- Here is a sample program session:
+
+  #+name: ex:checkbook
+  #+begin_example
+
+  #+end_example
+
+  When the user enters the command ~4~ (exit), the program needs to exit
+  from the ~switch~ statement /and/ the surrounding loop: the ~break~
+  statement won't help, and we prefer not to use a ~goto~
+  statement. Instead, the program executes a ~return~ statement, which
+  will cause the ~main~ function to return to the operating system.
+
+- Because the session interactivity is essential, we tangle the file
+  ~checking.c~, compile and run it on the command line.
+
+  #+name: pgm:checkbook
+  #+begin_src C :tangle ./src/checking.c :comments none
+    /* Balances a checkbook */
+    #include <stdio.h>
+
+    int main(void)
+    {
+      int cmd; // user choice 0...4
+      float balance = 0.0f, credit, debit;
+
+      printf("*** ACME checkbook-balancing program ***\n");
+      printf("
+
+
+
+
+             return 0;
+             }
+  #+end_src
 * References
 
 - Davenport/Vine (2015) C Programming for the Absolute Beginner
@@ -832,14 +929,6 @@ statement.
   orgmode.org]]
 
 * Footnotes
-
-[fn:4]Answer: change the ~if~ statement so that the summing is bypassed.
-#+begin_example C
-  if ( i != 0 ) {
-     sum += i;
-     n++;
-     }
-#+end_example
 
 [fn:3]Because the program never reaches the end, it never gets to
 ~return 0;~
