@@ -907,7 +907,7 @@ accordingly, from: ~tinyurl.com/475m5x4n~
   statement won't help, and we prefer not to use a ~goto~
   statement. Instead, the program executes a ~return~ statement, which
   will cause the ~main~ function to return to the operating system.
-
+  
 - Pseudo code:
 
   #+name: pseudoCheckbook

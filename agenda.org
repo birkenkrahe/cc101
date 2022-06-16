@@ -701,6 +701,7 @@ of a spring.
 - [ ] Three more topics: arrays, functions, pointers
 - [ ] Quiz 9 and Quiz 10 on Tue/Thu
 - [ ] Pgm assignments on Mon, Tue, Wed
+- [ ] Introduction to OOP and C++ on Thursday
 
 * Glossary
 
