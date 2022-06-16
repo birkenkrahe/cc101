@@ -152,8 +152,8 @@
 
   #+name: inf
   #+begin_src C :tangle ./src/inf.c
-    while (1)
-      puts("Still running...\n");
+//    while (1)
+  //    puts("Still running...\n");
   #+end_src
 
 - [X] Tangle it, compile and run ~inf.c~ on the CMD line.
@@ -899,15 +899,30 @@ accordingly, from: ~tinyurl.com/475m5x4n~
 
   #+name: ex:checkbook
   #+begin_example 
+    pi@raspberrypi:~$ ./checking
+    --- ACME checkbook-balancing program ---
+    Commands: 0=clear, 1=credit, 2=debit, 3=balance, 4=exit
 
-    #+end_example
+    Enter command: 3
+    Current balance: $0.00
+    Enter command: 1
+    Enter amount of credit: 100.00
+    Enter command: 3
+    Current balance: $100.00
+    Enter command: 2
+    Enter amount of debit: 50.00
+    Enter command: 3
+    Current balance: $50.00
+    Enter command: 4
+    pi@raspberrypi:~$
+  #+end_example
 
   When the user enters the command ~4~ (exit), the program needs to exit
   from the ~switch~ statement /and/ the surrounding loop: the ~break~
   statement won't help, and we prefer not to use a ~goto~
   statement. Instead, the program executes a ~return~ statement, which
   will cause the ~main~ function to return to the operating system.
-
+  
 - Pseudo code:
 
   #+name: pseudoCheckbook
@@ -977,7 +992,7 @@ accordingly, from: ~tinyurl.com/475m5x4n~
     }
   #+end_src
 
-- Get the program: ~tinyurl.com/ - then tangle, compile and run it.
+- Get the program: ~tinyurl.com/2p975xs4~ - tangle, compile and run it.
 
 * References
 

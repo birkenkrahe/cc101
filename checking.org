@@ -16,22 +16,7 @@
 
   #+name: ex:checkbook
   #+begin_example 
-    pi@raspberrypi:~$ ./checking
-    --- ACME checkbook-balancing program ---
-    Commands: 0=clear, 1=credit, 2=debit, 3=balance, 4=exit
 
-    Enter command: 3
-    Current balance: $0.00
-    Enter command: 1
-    Enter amount of credit: 100.00
-    Enter command: 3
-    Current balance: $100.00
-    Enter command: 2
-    Enter amount of debit: 50.00
-    Enter command: 3
-    Current balance: $50.00
-    Enter command: 4
-    pi@raspberrypi:~$
     #+end_example
 
   When the user enters the command ~4~ (exit), the program needs to exit

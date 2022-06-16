@@ -663,6 +663,31 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
    : for.org: ASCII text
    : #+title: cc-practice-for
    : #+STARTUP: overview hideblocks indent
+
+4) Practice ~continue~ exit statement:
+
+   #+begin_src bash :results output
+     wget tinyurl.com/475m5x4n  -O continue.org -o log
+     file continue.org
+     head -n 2 continue.org
+   #+end_src
+
+   #+RESULTS:
+   : continue.org: ASCII text
+   : #+title: cc-practice-continue
+   : #+author: Marcus Birkenkrahe [pledged]
+
+5) Extended example download
+
+   #+begin_src bash :results output
+     wget tinyurl.com/2p975xs4  -O checking.org -o log
+     file checking.org
+     head -n 1 checking.org
+   #+end_src
+
+   #+RESULTS:
+   : checking.org: C source, ASCII text
+   : * Extended example: balancing a checkbook
    
 ** Bonus content
 *** Dunning-Kruger effect and hype cycle
