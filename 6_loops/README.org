@@ -87,7 +87,7 @@
 - [ ] What does the following statement do?
 
   #+name: counting
-  #+begin_src C
+  #+begin_src C :tangle counting.c
     int i = 10;
     while ( i > 0 ) {
       printf("T minus %d and counting\n", i);
