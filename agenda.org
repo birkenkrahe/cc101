@@ -689,6 +689,22 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
    : checking.org: C source, ASCII text
    : * Extended example: balancing a checkbook
    
+** No class on Friday, June 17
+
+*Instead use your time well:*
+1) Catch up on unsubmitted assignments (class, programming)
+2) Complete quizzes that you did not ace (= 100%) yet
+3) Look through your notes for things you didn't understand
+4) Complete quiz 8 (loops)
+
+* Week 5 - arrays, functions, pointers
+
+- [ ] Final exam on Friday, June 24 (2 hours)
+- [ ] Three more topics: arrays, functions, pointers
+- [ ] Introduction to OOP and C++ on Thursday
+- [ ] Quiz 9 and Quiz 10 on Tue/Thu
+- [ ] Pgm assignments on Mon, Tue, Wed
+
 ** Bonus content
 *** Dunning-Kruger effect and hype cycle
 
@@ -711,22 +727,6 @@ probably heading for "Mount Stupid".
 In fact, the curve looks suspiciously like a driven dampened, harmonic
 oscillator known in physics (a model that describes, e.g. the motion
 of a spring.
-
-** No class on Friday, June 17
-
-*Instead use your time well:*
-1) Catch up on unsubmitted assignments (class, programming)
-2) Complete quizzes that you did not ace (= 100%) yet
-3) Look through your notes for things you didn't understand
-4) Complete quiz 8 (loops)
-
-* Week 5 - arrays, functions, pointers
-
-- [ ] Final exam on Friday, June 24 (2 hours)
-- [ ] Three more topics: arrays, functions, pointers
-- [ ] Introduction to OOP and C++ on Thursday
-- [ ] Quiz 9 and Quiz 10 on Tue/Thu
-- [ ] Pgm assignments on Mon, Tue, Wed
 
 * Glossary
 
