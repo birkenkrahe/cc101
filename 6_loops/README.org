@@ -11,6 +11,8 @@
 - This section is based on chapter 4 in Davenport/Vine (2015) and
   chapter 6 in King (2008).
 
+- Practice workbooks, input files and PDF solution files in GitHub
+
 * Loops
 
 - A *loop* is a statement whose job is to repeatedly execute over
@@ -64,7 +66,7 @@
 
 - [ ] What would the pseudocode look like?
 
-  #+begin_example
+  #+begin_example 
   While i is smaller than n
     double the value of i
   end loop

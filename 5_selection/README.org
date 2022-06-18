@@ -10,7 +10,9 @@
   turn to program flow and evaluation of logical conditions
 
 - This section follows chapter 3 in Davenport/Vine (2015) and
-  chapters 4 and 5 in King (2008).
+  chapters 4 and 5 in King (2008)
+
+- Practice workbooks, input files and PDF solution files in GitHub
 
 * DONE Preamble
 
