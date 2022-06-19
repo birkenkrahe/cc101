@@ -394,7 +394,7 @@ memory, then ~i~ will be reset to ~0~, causing the loop to start over!
   
 * Let's practice!
 
-Download ~array1.org~ from GitHub. The raw file is at
+[[https://raw.githubusercontent.com/birkenkrahe/cc101/piHome/7_arrays/org/array1.org][Download ~array1.org~ from GitHub]]: *tinyurl.com/27uv358b* 
 
 * Multi-dimensional arrays
 ** Setup
@@ -508,7 +508,7 @@ Download ~array1.org~ from GitHub. The raw file is at
 
 * Let's practice!
 
-- [X] Head over [[https://drive.google.com/drive/folders/1mJ4HN7_Gq27LgXJBkcB_w3Aam3YjI5u_?usp=sharing][to GDrive]] for the second workbook ~array2.org~.
+[[https://raw.githubusercontent.com/birkenkrahe/cc101/piHome/7_arrays/org/array1.org][Download ~array2.org~ from GitHub]]: *tinyurl.com/3hazjds8*
 
 * References
 

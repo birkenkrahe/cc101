@@ -1,5 +1,6 @@
 #+TITLE:Practicing multi-dimensional arrays
-#+STARTUP: overview hideblocks
+#+AUTHOR: yourName [pledged]
+#+STARTUP: overview hideblocks indent
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :exports both :results output :comments both
 * README
 
