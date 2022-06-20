@@ -202,121 +202,121 @@
 
 - An array subscript may be an integer expression, therefore it's easy
   to miss subscript violations.
-  
+
   #+begin_example C
     foo[i+j*10] = 0; // e.g. i=-10, j=1 => foo[0]
     bar[i++];        // e.g. i = -1 => bar[0]
   #+end_example
 ** Weird ~while~ loop
 
-  - As an example for the weird effects, trace this code:
+- As an example for the weird effects, trace this code:
 
-    #+name: trace
-    #+begin_example C
-      i = 0;
-      while ( i < N )
-         a[i++] = 0;
-    #+end_example
+  #+name: trace
+  #+begin_example C
+    i = 0;
+    while ( i < N )
+       a[i++] = 0;
+  #+end_example
 
-  - After ~i~ is set to ~0~, the ~while~ statement checks whether ~i~ is less
-    than ~N~: to test this, we need to introduce a support variable.
+- After ~i~ is set to ~0~, the ~while~ statement checks whether ~i~ is less
+  than ~N~: to test this, we need to introduce a support variable.
 
-    #+name: pgm:arrayTest
-    #+begin_src C
-      #define N 10
-      int i = 0, a[N]; int j;
-      while ( i < N ) {
-        printf("%d < N\t", i);  // print condition
-        j = i;  // support variable
-        a[i++] = 0; // store 0 in a[i] then i = i + 1
-        printf("a[%d] = %d\n", j, a[j]); // print i then a[i]
-       }
-    #+end_src
+  #+name: pgm:arrayTest
+  #+begin_src C
+    #define N 10
+    int i = 0, a[N]; int j;
+    while ( i < N ) {
+      printf("%d < N\t", i);  // print condition
+      j = i;  // support variable
+      a[i++] = 0; // store 0 in a[i] then i = i + 1
+      printf("a[%d] = %d\n", j, a[j]); // print i then a[i]
+     }
+  #+end_src
 
-    #+RESULTS: pgm:arrayTest
-    #+begin_example
-    0 < N a[0] = 0
-    1 < N a[1] = 0
-    2 < N a[2] = 0
-    3 < N a[3] = 0
-    4 < N a[4] = 0
-    5 < N a[5] = 0
-    6 < N a[6] = 0
-    7 < N a[7] = 0
-    8 < N a[8] = 0
-    9 < N a[9] = 0
-    #+end_example
+  #+RESULTS: pgm:arrayTest
+  #+begin_example
+  0 < N a[0] = 0
+  1 < N a[1] = 0
+  2 < N a[2] = 0
+  3 < N a[3] = 0
+  4 < N a[4] = 0
+  5 < N a[5] = 0
+  6 < N a[6] = 0
+  7 < N a[7] = 0
+  8 < N a[8] = 0
+  9 < N a[9] = 0
+  #+end_example
 
-  - Without the support variable, we would get weird printing results:
-    can you explain them?
+- Without the support variable, we would get weird printing results:
+  can you explain them?
 
-    #+name: pgm:arrayTest1
-    #+begin_src C
-      #define N 10
-      int i = 0, a[N];
-      while ( i < N ) {
-        printf("%d < N\t", i);  // print condition
-        a[i++] = 0; // store 0 in a[i] then i = i + 1
-        printf("a[%d] = %d\n", i, a[i]); // print i then a[i]
-       }
-    #+end_src
+  #+name: pgm:arrayTest1
+  #+begin_src C
+    #define N 10
+    int i = 0, a[N];
+    while ( i < N ) {
+      printf("%d < N\t", i);  // print condition
+      a[i++] = 0; // store 0 in a[i] then i = i + 1
+      printf("a[%d] = %d\n", i, a[i]); // print i then a[i]
+     }
+  #+end_src
 
-    #+RESULTS: pgm:arrayTest1
-    #+begin_example
-    0 < N a[1] = -1225538288
-    1 < N a[2] = -1225795368
-    2 < N a[3] = -1225792072
-    3 < N a[4] = 66748
-    4 < N a[5] = 66708
-    5 < N a[6] = 0
-    6 < N a[7] = 66328
-    7 < N a[8] = 0
-    8 < N a[9] = 0
-    9 < N a[10] = 10
-    #+end_example
+  #+RESULTS: pgm:arrayTest1
+  #+begin_example
+  0 < N a[1] = -1225538288
+  1 < N a[2] = -1225795368
+  2 < N a[3] = -1225792072
+  3 < N a[4] = 66748
+  4 < N a[5] = 66708
+  5 < N a[6] = 0
+  6 < N a[7] = 66328
+  7 < N a[8] = 0
+  8 < N a[9] = 0
+  9 < N a[10] = 10
+  #+end_example
 
-  - *Explanation 1:* in [[pgm:arrayTest1]], the condition test is printed
-    alright, because ~i~ has not been incremented. But after the
-    assignment, ~a[i]~ is the next index that has not been assigned a 0
-    yet, so all values are random.  When we print ~a[1]~ for example, it
-    has not been assigned to ~0~ yet. ~a[10]~ is not declared or assigned a
-    value at all, because ~a[N]~ has the elements ~{a[0] ... a[N-1]}~.
+- *Explanation 1:* in [[pgm:arrayTest1]], the condition test is printed
+  alright, because ~i~ has not been incremented. But after the
+  assignment, ~a[i]~ is the next index that has not been assigned a 0
+  yet, so all values are random.  When we print ~a[1]~ for example, it
+  has not been assigned to ~0~ yet. ~a[10]~ is not declared or assigned a
+  value at all, because ~a[N]~ has the elements ~{a[0] ... a[N-1]}~.
 
-  - What would happen if the assignment were with ~a[++i]~? Let's see:
+- What would happen if the assignment were with ~a[++i]~? Let's see:
 
-    #+name: pgm:arrayTest2
-    #+begin_src C
-      #define N 10
-      int i = 0, a[N]; int j;
-      while ( i < N ) {
-        printf("%d < N\t", i);  // print condition
-        j = i;  // support variable
-        a[++i] = 0; // store 0 in a[i] then i = i + 1
-        printf("a[%d] = %d\n", j, a[j]); // print i then a[i]
-       }
-    #+end_src
+  #+name: pgm:arrayTest2
+  #+begin_src C
+    #define N 10
+    int i = 0, a[N]; int j;
+    while ( i < N ) {
+      printf("%d < N\t", i);  // print condition
+      j = i;  // support variable
+      a[++i] = 0; // store 0 in a[i] then i = i + 1
+      printf("a[%d] = %d\n", j, a[j]); // print i then a[i]
+     }
+  #+end_src
 
-    #+RESULTS: pgm:arrayTest2
-    #+begin_example
-    0 < N	a[0] = 66110
-    1 < N	a[1] = 0
-    2 < N	a[2] = 0
-    3 < N	a[3] = 0
-    4 < N	a[4] = 0
-    5 < N	a[5] = 0
-    6 < N	a[6] = 0
-    7 < N	a[7] = 0
-    8 < N	a[8] = 0
-    9 < N	a[0] = 66110
-    #+end_example
+  #+RESULTS: pgm:arrayTest2
+  #+begin_example
+  0 < N a[0] = 66110
+  1 < N a[1] = 0
+  2 < N a[2] = 0
+  3 < N a[3] = 0
+  4 < N a[4] = 0
+  5 < N a[5] = 0
+  6 < N a[6] = 0
+  7 < N a[7] = 0
+  8 < N a[8] = 0
+  9 < N a[0] = 66110
+  #+end_example
 
-  - *Explanation 2:* ~a[++i]~ would not be right, because ~0~ would be assigned
-    to ~a[0] during the first loop iteration - remember that ~++i~
-    increments ~i~ first and then stores the result in ~i~. The last
-    iteration tries to assign 0 to ~a[11]~ which is undeclared. You can
-    test that by initializing ~int i = -1~ at the start. Same problem at
-    the end, for ~i=9~, the computer tries to initialize ~a[10]~, which is
-    not declared.
+- *Explanation 2:* ~a[++i]~ would not be right, because ~0~ would be assigned
+  to ~a[0] during the first loop iteration - remember that ~++i~
+  increments ~i~ first and then stores the result in ~i~. The last
+  iteration tries to assign 0 to ~a[11]~ which is undeclared. You can
+  test that by initializing ~int i = -1~ at the start. Same problem at
+  the end, for ~i=9~, the computer tries to initialize ~a[10]~, which is
+  not declared.
 
 ** Copying arrays into one another
 
@@ -365,36 +365,37 @@ memory, then ~i~ will be reset to ~0~, causing the loop to start over!
   #+name: ex:for_array_1
   #+begin_example C
     for (i = 0; i < 10 ; i++ )
-      a[i] = 0; 
+      a[i] = 0;
   #+end_example
 
-  #+begin_quote 
-  *Answer 1:* ~0~ is assigned to ~a[0]~ through ~a[9]~. 
+  #+begin_quote
+  *Answer 1:* ~0~ is assigned to ~a[0]~ through ~a[9]~.
   #+end_quote
-  
+
   #+name: ex:for_array_2
   #+begin_example C
     for (i = 0; i < 10 ; i++ )
       scanf("%d", &a[i]);
   #+end_example
 
-  #+begin_quote 
+  #+begin_quote
   *Answer 2:* external integer input is assigned to ~a[0]~ through ~a[9]~.
   #+end_quote
-  
+
   #+name: ex:for_array_3
   #+begin_example C
     for (i = 0; i < 10 ; i++ )
       sum += a[i];
   #+end_example
 
-  #+begin_quote 
+  #+begin_quote
   *Answer 3:* The values ~a[0]~ through ~a[9]~ are summed up.
   #+end_quote
-  
+
 * Let's practice!
 
-[[https://raw.githubusercontent.com/birkenkrahe/cc101/piHome/7_arrays/org/array1.org][Download ~array1.org~ from GitHub]]: *tinyurl.com/27uv358b* 
+- [[https://raw.githubusercontent.com/birkenkrahe/cc101/piHome/7_arrays/org/array1.org][Download ~array1.org~ from GitHub]]: *tinyurl.com/27uv358b*
+- Download fibonacci.org from GitHub: [[https://tinyurl.com/m7usajm9][tinyurl.com/m7usajm9]]
 
 * Multi-dimensional arrays
 ** Setup

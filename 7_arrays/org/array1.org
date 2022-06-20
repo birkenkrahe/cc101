@@ -25,7 +25,7 @@
 
 * TODO Fibonacci series
 
-Download and complete the file ~fibonacci.org~ from tinyurl.com/
+Download and complete the file ~fibonacci.org~: tinyurl.com/m7usajm9
 
 * TODO Sample program: reversing numbers
 ** Problem
