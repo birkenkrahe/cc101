@@ -60,12 +60,6 @@
       str(ToothGrowth)
     #+end_src
 
-    #+RESULTS: Rdf
-    : 'data.frame':     60 obs. of  3 variables:
-    :  $ len : num  4.2 11.5 7.3 5.8 6.4 10 11.2 11.2 5.2 7 ...
-    :  $ supp: Factor w/ 2 levels "OJ","VC": 2 2 2 2 2 2 2 2 2 2 ...
-    :  $ dose: num  0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 ...
-
 ** What is an array?
 
 - An *array* is a /data structure/ containing a number of data values,
