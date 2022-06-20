@@ -11,7 +11,6 @@
 - replace the placeholder ~[yourName]~ in the header of this file by
   your name and save the file (~C-x C-s~).
 
-
 * TODO Declare and initialize array
 ** Problem
 

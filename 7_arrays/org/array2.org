@@ -4,89 +4,71 @@
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :exports both :results output :comments both
 * README
 
-  * Practice workbook for multi-dimensional arrays in C
-  * See GitHub for script/solutions
+- Practice workbook for multidimensional-dimensional arrays in C
 
-* Emacs setup (optional)
-** Hide emphatic characters like ~, *
+* TODO Identify yourself
 
-   To *not* see the emphatic characters like ~ or * or / in the Org file
-   text, run the following code chunk (or put the code in your ~/.emacs~
-   file): if successful, you should see ~"t"~ in the minibuffer.
+- replace the placeholder ~[yourName]~ in the header of this file by
+  your name and save the file (~C-x C-s~).
 
-   #+begin_src emacs-lisp :results silent
-     (setq-default org-hide-emphasis-markers t)
-   #+end_src
+* TODO Print a 2-dimensional array
 
-   This will only work for new buffers. If you don't put it in your
-   ~/.emacs~ file, the command will only work for the current Emacs
-   session.
+  - Declare a 4 x 3 matrix and print it in 2 dimensions. Complete the
+    sample code below to get the output shown.
 
-   *Close and reopen this file to see an effect.*
+  - Initialize the matrix ~m[][]~ with the elements 1 through 12.
 
-** Change your theme
+  - Define two nested ~for~ loops looping over rows and columns
 
-   * In Emacs, type ~M-x custom-themes~
-   * In the buffer that appears, select ~Leuven~
-   * Select ~Apply and Save Setting~
-   * This will work immediately
-
-* Print a 2-dimensional array
-
-  * [ ] Declare a 4 x 3 matrix and print it in 2 dimensions. Complete
-    the sample code below to get the output shown.
-
-    Output:
+  - Output:
     #+begin_example
-    #+RESULTS:
-    :  1  2  3
-    :  4  5  6
-    :  7  8  9
-    : 11 12  0
-    #+end_example
-
-    Code:
-    #+begin_src C
-      int m[?][?] = {1,2,3,4,5,6,7,8,9,11,12};
-
-      for (int i = 0; i < ? ; i++) {
-        for(int j = 0; j < ? ; j++) {
-          printf("???", m[?][?]);
-        }
-
-       }
-    #+end_src
-
     #+RESULTS:
     :  1  2  3
     :  4  5  6
     :  7  8  9
     : 10 11 12
-
-* Use ~sizeof~ in a ~for~ loop
-
-  * [ ] The code block below defines an array ~a~ of length 5. Complete
-    the ~for~ loop using the ~sizeof~ operator to get the output
-    shown. The loop re-initializes ~a~.
-
-    Output:
-    #+begin_example
-    #+RESULTS:
-    : a[0] = 1
-    : a[1] = 1
-    : a[2] = 1
-    : a[3] = 1
-    : a[4] = 1
     #+end_example
 
-    #+begin_src C
-      int a[5] = {0};
+  - Code: 
 
-      for (int i = 0; ??? ; i++) {
-        a[i] = 1;
-        printf("a[%d] = %d\n", i, a[i]);
+    #+name: matrix    
+    #+begin_src C
+      ... // declare and initialize matrix
+
+      for (...) {  // loop over rows
+        for(...) {  // loop over columns
+          ... // print matrix elements
+        }
+        printf("\n");
        }
     #+end_src
 
-  * [ ] To check, change the length of the array to 10 and re-run the
-    code.
+
+* TODO Use ~sizeof~ in a ~for~ loop
+
+- The code block below defines an array ~a~ of length ~5~. Complete the
+  ~for~ loop using the ~sizeof~ operator to get the output shown. The loop
+  re-initializes the array ~a~.
+
+- Run the code, then change the length of the array and re-run the
+  code.
+
+- Code:
+
+  #+name: sizeof
+  #+begin_src C
+    int a[5] = {0}; // initialize array 
+
+    for (int i = 0; i < sizeof(a)/sizeof(a[0]); i++) {
+      a[i] = 1; // re-initialize array
+      printf("a[%d] = %d\n", i, a[i]);
+     }
+  #+end_src
+
+* TODO Use ~sizeof~ to print a matrix
+
+- Modify the code in [[matrix]] so that you no longer have to change the
+  ~for~ loops if you change the size of the matrix.
+
+ 
+
