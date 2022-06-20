@@ -65,10 +65,5 @@
      }
   #+end_src
 
-* TODO Use ~sizeof~ to print a matrix
-
-- Modify the code in [[matrix]] so that you no longer have to change the
-  ~for~ loops if you change the size of the matrix.
-
  
 
