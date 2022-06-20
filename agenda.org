@@ -705,6 +705,12 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 - [ ] Quiz 9 and Quiz 10 on Tue/Thu
 - [ ] Pgm assignments on Mon, Tue, Wed
 
+** Remember ~tar~? and ~gzip~? 
+
+- [ ] Create a gzipped /tarball/ of the *completed* practice files
+  ~array1.org~, ~array2.org~, and ~fibonacci.org~ and upload the tarball on
+  Schoology.
+
 ** Bonus content
 *** Dunning-Kruger effect and hype cycle
 
