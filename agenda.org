@@ -712,7 +712,7 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 - [ ] Practice Org-mode files ~array1.org~ and ~array2.org~
 
   1) [[https://raw.githubusercontent.com/birkenkrahe/cc101/piHome/7_arrays/org/array1.org][Download ~array1.org~ from GitHub]]: *tinyurl.com/27uv358b*
-  2) Download ~array2.org~ from GitHub]]: *tinyurl.com/3hazjds8*
+  2) Download ~array2.org~ from GitHub: *tinyurl.com/3hazjds8*
 
 - [ ] Create a gzipped /tarball/ of the *completed* practice files
   ~array1.org and ~array2.org~ and upload the tarball on Schoology.
