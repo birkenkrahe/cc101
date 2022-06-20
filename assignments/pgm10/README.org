@@ -1,0 +1,169 @@
+* Program assignment No. 10 - Fibonacci Series
+
+- A Fibonacci series is a series of numbers where each number is the
+  sum of the previous two numbers in the series. (i.e. 0 1 1 2 3
+  5....).
+
+- Write a C program that puts the first ~30~ numbers of the Fibonacci
+  series into an /array/ and then prints them out.
+
+- Use the Org-mode file fibonacci.org (GitHub) as a template and
+  simply work through the file step by step and submit the completed
+  file.
+
+- In this exercise, you will once again use the ~noweb~ option to insert
+  pre-defined code blocks into other code blocks to build up a program
+  step by step. This is a precursor to object-oriented programming,
+  and it is also a literate programming technique.
+
+- The exercise includes 3 optional bonus challenges each worth 10
+  points.
+
+* Org-mode code block and header options
+
+1) Add a title and an author header line with "pledged".
+
+2) Add an Emacs Org-mode file header line ~#+PROPERTY:~
+
+3) Add the following options to the Org-mode file header line:
+   #+begin_example
+   C :main yes :includes <stdio.h> :tangle fibonacci.c :results output
+   #+end_example
+
+4) Once you created the line, run it with ~C-c C-c~ so that the
+   settings are applied to the whole Org-mode file.
+
+5) Make your own code block below this line, and print "~Hello World~"
+   to make sure the setup works. Name the code block ~hello_world~.
+
+----- put code here -----
+
+
+* Pseudo code
+
+1) Write the pseudo code for the Fibonacci series program.
+
+2) Use an ~example~ block (Org template: ~<e TAB~) and name it.
+
+3) Tip: the Fibonacci series needs to be initialized with the first
+   two elements of the series, ~fibo[0]=0~ and ~fibo[1]=1~.
+
+4) Tip: write (incomplete) code next to the pseudo code like so:
+
+   #+begin_example
+     declare array of n elements  // fibo[n]
+   #+end_example
+
+----- put code below this line -----
+
+* Declarations
+
+1) Copy the code block you created above and yank it, or create a
+   new C code block named ~declarations~.
+
+2) You will need to declare an /integer array/ ~fib~ of size ~30~ and an
+   integer variable ~i~ for looping purposes.
+
+3) Make your code block below and run it with ~C-c C-c~ to make sure it
+   is syntactically correct. Since there is no output, add ~:results
+   silent~ to the header arguments.
+
+----- PUT CODE BELOW THIS LINE -----
+
+* Initialization
+
+1) Create a new code block named ~initialize~ below, and add the header
+   options ~:results silent~ and ~:noweb yes~.
+
+2) In the code block, write ~<<declarations>> in the first line. When
+   you run this code block, the block [[declarations]] will be inserted.
+
+3) You will need to assign the first two numbers of the Fibonacci
+   series to the array. This gives the computer the starting point to
+   start from. Remember as stated above the Fibonacci series is a
+   series of numbers where every number is the sum of the previous two
+   numbers.
+
+----- PUT CODE BELOW THIS LINE -----
+
+* Loop over array
+
+1) Create a new code block named [[loop]] below, and add the header
+   options ~:results silent~ and ~:noweb yes~.
+
+2) In the code block, write ~<<initialize>>~ in the first line. When you
+   run this code block, the block [[initialize]] will be inserted. Notice
+   that this includes both the declarations and the initialization.
+
+3) Now write the main loop to compute the Fibonacci numbers for the
+   entire array ~fib[30]~.
+
+----- put your code below this line -----
+
+* Print and check results
+
+1) The array ~fib~ should now hold the first 30 Fibonacci numbers: $0,
+   1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987,
+   1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393,
+   196418, 317811, 514229$.
+
+2) Print your numbers. The output should look like this:
+
+   #+begin_example
+   The first N = 30 Fibonacci numbers:
+   fib[ 0] = 0
+   fib[ 1] = 1
+   fib[ 2] = 1
+   ...
+   fib[10] = 55
+   ...
+   #+end_example
+
+3) Import the code block [[loop]] in the final code block as shown
+   below. You only have to add the printing statements.
+
+4) Run the block and include the results in your submission.
+
+   #+name: pgm:fibonacci
+   #+begin_src C :noweb yes :results output
+     <<loop>> // includes: [[declarations]] and [[initialize]]
+     ...
+     ...
+   #+end_src
+
+* Bonus challenge 1 - check result
+
+1) Compare your result them with the correct Fibonacci sequence, which
+   is stored [[https://raw.githubusercontent.com/birkenkrahe/cc101/piHome/7_arrays/src/fibonacci][in GitHub as fibonacci]] - download: [[https://tinyurl.com/4djnkr6h][tinyurl.com/4djnkr6h]].
+
+2) You have to read the file into your computer using ~scanf~ and then
+   compare two arrays element by element.
+
+3) Tip: use an ~IF...ELSE~ or ~SWITCH...CASE~~ selection statement to
+   perform the check.
+
+* Bonus challenge 2 - vary printing format
+
+Print the first 30 Fibonacci numbers as a 6 x 5 matrix.
+
+#+begin_example
+   fib[ 0] = 0   ... fib[23] = 28657
+   fib[ 1] = 1   ... fib[24] = 46368
+   fib[ 2] = 1   ... fib[25] = 75025
+   fib[ 3] = 2   ... fib[26] = 121393
+   fib[ 4] = 3   ... fib[27] = 196418 
+   fib[ 5] = 5   ... fib[28] = 317811
+   fib[ 6] = 8   ... fib[29] = 514229
+#+end_example
+
+* Bonus challenge 3 - variable array length
+
+As a bonus challenge (10 points), generalize your final program to
+allow to input the array length ~N~ so that you could, e.g. compute the
+first ~N~ Fibonacci numbers. Add the complete program as a code block
+below, and include a sample result for ~N=35~.
+
+----- Put code below this line -----
+
+----- Solution -----
+
