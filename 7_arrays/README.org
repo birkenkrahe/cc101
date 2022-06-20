@@ -41,24 +41,24 @@
 
 - Example with Python: a /dictionary/ of car data.
 
-    #+name: PyDict
-    #+begin_src python
-      thisDict = {
-          "brand": "Ford",
-          "model": "Mustang",
-          "year": 1964
-      }
-      print(thisDict)
-    #+end_src
+  #+name: PyDict
+  #+begin_src python
+    thisDict = {
+        "brand": "Ford",
+        "model": "Mustang",
+        "year": 1964
+    }
+    print(thisDict)
+  #+end_src
 
 - Example with R: a /data frame/ of tooth growth data, consisting of
-    three different vectors of the same length but different data
-    types.
+  three different vectors of the same length but different data
+  types.
 
-    #+name: Rdf
-    #+begin_src R
-      str(ToothGrowth)
-    #+end_src
+  #+name: Rdf
+  #+begin_src R
+    str(ToothGrowth)
+  #+end_src
 
 ** What is an array?
 
@@ -385,7 +385,6 @@ memory, then ~i~ will be reset to ~0~, causing the loop to start over!
 * Let's practice!
 
 - [[https://raw.githubusercontent.com/birkenkrahe/cc101/piHome/7_arrays/org/array1.org][Download ~array1.org~ from GitHub]]: *tinyurl.com/27uv358b*
-- Download fibonacci.org from GitHub: [[https://tinyurl.com/m7usajm9][tinyurl.com/m7usajm9]]
 
 * Multi-dimensional arrays
 ** Setup
@@ -427,10 +426,11 @@ memory, then ~i~ will be reset to ~0~, causing the loop to start over!
 
 - Nested ~for~ loops are ideal for processing multi-dimensional arrays.
 
-- Here is the code to initialize a 10x10 /identity/ matrix.
+- The code in [[identityMatrix]] initializes a 10x10 /identity/ matrix.
 
-  #+begin_src C :results silent
-    #define N 10
+  #+name: identityMatrix
+  #+begin_src C 
+    #define N 5
 
     double ident[N][N];
     int row, col;
@@ -444,28 +444,40 @@ memory, then ~i~ will be reset to ~0~, causing the loop to start over!
             } else {
               ident[row][col] = 0.0;
             }
+            printf("%g ", ident[row][col]);
           }
+        printf("\n");
       }
   #+end_src
 
 - To initialize an array, you can use brackets as in the 1-dim case.
 
+- [ ] What happens in [[initArray]]? What do you think the output looks
+  like?
+
+  #+name: initArray
   #+begin_src C
     int m[3][3] = {1,2,3,4,5,6,7,8,9};
 
     for (int i=0;i<3;i++) {
       for(int j=0;j<3;j++) {
-        printf("%d", m[i][j]);
+        printf("%d ", m[i][j]);
       }
       printf("\n");
      }
   #+end_src
 
-  #+RESULTS:
-  : 123
-  : 456
-  : 789
+  #+RESULTS: initArray
+  : 1 2 3 
+  : 4 5 6 
+  : 7 8 9 
 
+- [ ] How could you populate the matrix column-wise instead of row-wise?
+
+  #+begin_quote Answer
+  By swapping the indices in the ~printf~ statement.
+  #+end_quote
+  
 * The size of arrays
 
 - The ~sizeof~ operator can determine the size of arrays (in bytes).
@@ -473,17 +485,18 @@ memory, then ~i~ will be reset to ~0~, causing the loop to start over!
 - If ~a~ is an array of ~10~ integers, then ~sizeof(a)~ is 40 provided
   each integer requires 4 bytes of storage[fn:2].
 
+- The block [[sizeof]] declares and initializes an array of 10 elements
+  and prints its size in bytes.
+  
+  #+name: sizeof
   #+begin_src C
     int a[10] = {0};
     printf("%d", sizeof(a));
   #+end_src
 
-  #+RESULTS:
-  : 40
-
-- You can use the operator also to measure the size of an array
-  element: dividing the array size by the element size gives you the
-  length of the array:
+- You can use the operator also to measure the size of an array:
+  dividing the array size by the element size gives you the length of
+  the array:
 
   #+begin_src C
     int a[10] = {0};
