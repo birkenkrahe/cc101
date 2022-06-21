@@ -95,7 +95,7 @@
   #+begin_src C :results silent
     double average ( double a, double b)
     {
-      return (a + b) / 2;
+      return (a + b) / 2.;
     }
   #+end_src
 
@@ -212,7 +212,7 @@
   #+begin_src C :cmdline < ./src/input
     // function definition
     double average(double a,double b) {
-      return (a+b)/2;
+      return (a+b)/2.;
     }
 
     int main (void)

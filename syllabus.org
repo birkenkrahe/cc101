@@ -267,27 +267,27 @@ class per week) without risking a fail.
 |----+------------+------------+------------+--------------------------|
 |  5 | Mon-30-May | +Quiz 2+     | +Program 1+  | +3 Formatted Input/Output+ |
 |  6 | Tue-31-May |            |            |                          |
-|  7 | Wed-01-Jun | +Quiz 3+     | +Program 2+  | 4 Expressions            |
+|  7 | Wed-01-Jun | +Quiz 3+     | +Program 2+  | +4 Expressions+            |
 |  8 | Thu-02-Jun |            |            |                          |
-|  9 | Fri-03-Jun | +Quiz 4+     | +Program 3+  | 5 Selection statements   |
+|  9 | Fri-03-Jun | +Quiz 4+     | +Program 3+  | +5 Selection statements+   |
 |----+------------+------------+------------+--------------------------|
 | 10 | Mon-06-Jun |            |            |                          |
-| 11 | Tue-07-Jun | +Quiz 5+     | +Program 4+  | 6 Loops                  |
+| 11 | Tue-07-Jun | +Quiz 5+     | +Program 4+  | +6 Loops+                  |
 | 12 | Wed-08-Jun |            |            |                          |
-| 13 | Thu-09-Jun | +Quiz 6+     | +Program 5+  | /7 Basic Types/            |
+| 13 | Thu-09-Jun | +Quiz 6+     | +Program 5+  |                          |
 | 14 | Fri-10-Jun |            |            |                          |
 |----+------------+------------+------------+--------------------------|
 | 15 | Mon-13-Jun | +Quiz 7+     | +Program 6+  | 8 Arrays                 |
 | 16 | Tue-14-Jun |            |            |                          |
-| 17 | Wed-15-Jun | Quiz 8     | +Program 7+  | 9 Functions              |
-| 18 | Thu-16-Jun |            |            |                          |
-| 19 | Fri-17-Jun | Quiz 9     | +Program 8+  | 11 Pointers              |
+| 17 | Wed-15-Jun | +Quiz 8+     | +Program 7+  |                          |
+| 18 | Thu-16-Jun |            |            | 9 Functions              |
+| 19 | Fri-17-Jun | +Quiz 9+     | +Program 8+  |                          |
 |----+------------+------------+------------+--------------------------|
 | 20 | Mon-20-Jun |            |            |                          |
-| 21 | Tue-21-Jun | Quiz 10    | Program 9  | /12 Pointers and Arrays/   |
+| 21 | Tue-21-Jun |            | +Program 9+  | 11 Pointers              |
 | 22 | Wed-22-Jun |            |            |                          |
-| 23 | Thu-23-Jun | Final exam | Program 10 | 13 Strings               |
-| 24 | Fri-24-Jun |            |            |                          |
+| 23 | Thu-23-Jun | Final exam | +Program 10+ |                          |
+| 24 | Fri-24-Jun |            | +Program 11+ |                          |
 |----+------------+------------+------------+--------------------------|
 
 * References
