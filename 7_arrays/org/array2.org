@@ -43,7 +43,6 @@
        }
     #+end_src
 
-
 * TODO Use ~sizeof~ in a ~for~ loop
 
 - The code block below defines an array ~a~ of length ~5~. Complete the

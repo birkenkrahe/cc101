@@ -267,15 +267,15 @@ s#+TITLE:Arrays
 
   #+RESULTS: pgm:arrayTest1
   #+begin_example
-  0 < N	a[1] = 0
-  1 < N	a[2] = 1
-  2 < N	a[3] = 67
-  3 < N	a[4] = 11874204
-  4 < N	a[5] = 6422376
-  5 < N	a[6] = 4200091
-  6 < N	a[7] = 4199984
+  0 < N	a[1] = -1225222896
+  1 < N	a[2] = -1225479976
+  2 < N	a[3] = -1225476680
+  3 < N	a[4] = 66748
+  4 < N	a[5] = 66708
+  5 < N	a[6] = 0
+  6 < N	a[7] = 66328
   7 < N	a[8] = 0
-  8 < N	a[9] = 67
+  8 < N	a[9] = 0
   9 < N	a[10] = 10
   #+end_example
 
@@ -302,16 +302,16 @@ s#+TITLE:Arrays
 
   #+RESULTS: pgm:arrayTest2
   #+begin_example
-  0 < N a[0] = 66110
-  1 < N a[1] = 0
-  2 < N a[2] = 0
-  3 < N a[3] = 0
-  4 < N a[4] = 0
-  5 < N a[5] = 0
-  6 < N a[6] = 0
-  7 < N a[7] = 0
-  8 < N a[8] = 0
-  9 < N a[0] = 66110
+  0 < N	a[0] = 66110
+  1 < N	a[1] = 0
+  2 < N	a[2] = 0
+  3 < N	a[3] = 0
+  4 < N	a[4] = 0
+  5 < N	a[5] = 0
+  6 < N	a[6] = 0
+  7 < N	a[7] = 0
+  8 < N	a[8] = 0
+  9 < N	a[0] = 66110
   #+end_example
 
 - *Explanation 2:* ~a[++i]~ would not be right, because ~0~ would be assigned
@@ -525,6 +525,65 @@ memory, then ~i~ will be reset to ~0~, causing the loop to start over!
 - You can use this last fact to write a ~for~ loop that goes over the
   whole /length/ of an array - then the array does not have to be
   modified if its length changes.
+
+* Use ~sizeof~ to print a matrix
+
+  - If an array of ~N~ elements has length ~N * 4~ (one for every byte of
+    length 4), what is the length of a matrix of size ~M x N~?
+
+    #+name: sizeof1
+    #+begin_src C
+      int B[3][3] = {0};
+      printf("%d", sizeof(B));
+    #+end_src
+
+    #+begin_quote Answer
+    It is the number of matrix elements (stored linearly) times the
+    byte length.
+    #+end_quote
+
+  - Storing a matrix:
+
+    #+name: 2x3matrix
+    #+begin_src C :results silent
+      #define M 4
+      #define N 3
+      int C[M][N] = {1,2,3,4,5,6,7,8,9,10,11,12};
+    #+end_src
+
+  - Can we use ~sizeof~ when looping over rows and columns? [[matrixLoop]]
+    executes such a loop.
+
+    #+name: matrixLoop
+    #+begin_src C :noweb yes
+      <<2x3matrix>>
+      for (int i = 0; i < M ; i++) {
+       for(int j = 0; j < N; j++) {
+         printf("%3d", C[i][j]);
+       }
+       printf("\n");
+      }
+    #+end_src
+
+    #+RESULTS: matrixLoop
+    :  1  2  3
+    :  4  5  6
+    :  7  8  9
+    : 10 11 12
+
+  - The length of the row vectors:
+
+    #+begin_src C :noweb yes
+      <<2x3matrix>>
+      printf("%d\n", sizeof(C)); // size of matrix C
+      printf("%d\n", sizeof(C)/sizeof(C[0][0])); // size of row
+      printf("%d\n", sizeof(C)/sizeof(C[0][0])*M/N); // size of column
+    #+end_src
+
+    #+RESULTS:
+    : 48
+    : 12
+    : 16
 
 * Let's practice!
 

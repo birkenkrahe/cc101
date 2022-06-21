@@ -697,26 +697,24 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 3) Look through your notes for things you didn't understand
 4) Complete quiz 8 (loops)
 
-* Week 5 - arrays, functions, pointers
+* Week 5 - Arrays, functions, pointers
 
 - [ ] Final exam on Friday, June 24 (2 hours)
 - [ ] Three more topics: arrays, functions, pointers
 - [ ] Introduction to OOP and C++ on Thursday
-- [ ] Quiz 9 and Quiz 10 on Tue/Thu
+- [ ] Quiz 9 and Quiz 10 on Wed/Thu
 - [ ] Pgm assignments on Mon, Tue, Wed
-
-** Monday, June 20, 2022 - Arrays
-
 - [ ] Lecture: one- and multi-dimensional arrays
-
 - [ ] Practice Org-mode files ~array1.org~ and ~array2.org~
-
   1) [[https://raw.githubusercontent.com/birkenkrahe/cc101/piHome/7_arrays/org/array1.org][Download ~array1.org~ from GitHub]]: *tinyurl.com/27uv358b*
   2) Download ~array2.org~ from GitHub: *tinyurl.com/3hazjds8*
-
 - [ ] Create a gzipped /tarball/ of the *completed* practice files
   ~array1.org and ~array2.org~ and upload the tarball on Schoology.
-
+- [ ] Lecture: functions
+- [ ] Practice Org-mode file ~functions.org~
+- [ ] Quiz 9: Arrays and Functions (Wed)
+- [ ] Quiz 10: Pointers (Thu)
+  
 ** Bonus content
 *** Dunning-Kruger effect and hype cycle
 
