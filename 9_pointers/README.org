@@ -1,67 +1,64 @@
 #+TITLE:Pointers
 #+AUTHOR:Marcus Birkenkrahe
 #+SUBTITLE:CSC100 / Introduction to programming in C/C++
-#+STARTUP: overview hideblocks
+#+STARTUP: overview hideblocks indent
 #+OPTIONS: toc:nil ^:nil num:nil
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :exports both :results output :comments both
 * README
 
-  * This script introduces C pointers in theory and practice.
+  - This script introduces C pointers in theory and practice.
 
-  * Practice workbooks and input files [[https://drive.google.com/drive/folders/12FZkGSRdzfxFd1-QEMxMkw0Q-Alz4F3U?usp=sharing][in GDrive]].
+  - Practice workbook in GitHub (tinyurl.com/bdd7rcpr)
 
-  * PDF version of this file and of the completed practice workbooks
-    is available [[https://github.com/birkenkrahe/cc100/tree/main/pdf][in GitHub]].
-
-  * This section, including some sample code, is based on: chapter 11
+  - This section, including some sample code, is based on: chapter 11
     in King (2008), and chapter 7 in Davenport/Vine.
 
 * Overview
 
-  * Computer memory is like a list of /locations/
+  - Computer memory is like a list of /locations/
 
-  * Each chunk of memory has an /address/ to a location
+  - Each chunk of memory has an /address/ to a location
 
-  * /Pointers/ point to these addresses
+  - /Pointers/ point to these addresses
 
     #+caption: pointer p points to address of i
     [[./img/pointer.png]]
 
-  * The /address/ is not the house, it's a /reference/
+  - The /address/ is not the house, it's a /reference/
 
     #+attr_html: :width 300px
     #+caption: envelope = pointer to an address
     [[./img/letter.png]]
 
-  * C#, Java, Pascal, Python...do not offer pointers (easily)[fn:1]
+  - C#, Java, Pascal, Python...do not offer pointers (easily)[fn:1]
 
-  * C and C++ offer pointer variables and operators naturally
+  - C and C++ offer pointer variables and operators naturally
 
-  * This gives you a lot more control over the computer
+  - This gives you a lot more control over the computer
 
-  * Examples:
+  - Examples:
     - *String manipulation* (working with text - e.g. when creating
     fast-performing chat bots or AI agents)
     - *Dynamic memory allocation* - the process of assigning memory
       during the execution time (when a program typically competes
       with thousands of other processes)
 
-  * It's mind control: You can essentially decide what the computer
+  - It's mind control: You can essentially decide what the computer
     should think with which part of its "brain" (great potential to
     mess up, too), e.g. when you mis-allocate resources.
 
 * Indirection (concept)
 
-  * Imagine you have a /variable/ ~iResult~ that contains the /value/ ~75~.
+  - Imagine you have a /variable/ ~iResult~ that contains the /value/ ~75~.
 
-  * The variable is /located/ at a memory address ~0061FEC8~.
+  - The variable is /located/ at a memory address ~0061FEC8~.
 
-  * Imagine you have a /pointer variable/ ~myPointer~ that contains the
+  - Imagine you have a /pointer variable/ ~myPointer~ that contains the
     address ~0061FEC8~ of the variable ~iResult~.
 
-  * This means that ~myPointer~ /indirectly/ points to the value ~75~.
+  - This means that ~myPointer~ /indirectly/ points to the value ~75~.
 
-  * You already worked with pointers: an /array name/ ~a~ is a pointer to
+  - You already worked with pointers: an /array name/ ~a~ is a pointer to
     the start of the array, the address of ~a[0]~.
 
     #+begin_src C
@@ -74,7 +71,7 @@
     : a[1]=1000
     : &a=0061FEC8
 
-  * You already worked with pointers: arguments in the call of ~scanf~~
+  - You already worked with pointers: arguments in the call of ~scanf~~
     are /pointers/: without the ~&~, the function would be supplied with
     the /value/ of ~i~, not the /address/.
 
@@ -85,14 +82,14 @@
 
 * Indirection (code)
 
-  * There are two /unary/ pointer operators:
+  - There are two /unary/ pointer operators:
     - the /address/ (or referencing) operator ~&~
     - the /indirection/ (or dereferencing) operator ~*~
 
-  * The unary /address/ operator ~&~ returns a computer memory address,
+  - The unary /address/ operator ~&~ returns a computer memory address,
     e.g. ~&iResult = 6422216~ - it /references/ the memory location
 
-  * The unary /indirection/ operator ~*~ returns a value, e.g. ~*myPointer
+  - The unary /indirection/ operator ~*~ returns a value, e.g. ~*myPointer
     = 75~ if ~myPointer~ points at ~&iResult~. T
 
     #+begin_src C
@@ -119,7 +116,7 @@
 
 * ~*~ and ~&~ are inverse to one another
 
-  * Address and indirection operator are /inverse/ to one another
+  - Address and indirection operator are /inverse/ to one another
     (i.e. they reverse each other's operation - applying both amounts
     to doing nothing).
 
@@ -138,9 +135,9 @@
     : iResult=75 => *&iResult=75
     : myPointer=0061FEC8 => &*myPointer=0061FEC8
 
-  * Applying ~&~ to a variable produces a pointer to the variable
+  - Applying ~&~ to a variable produces a pointer to the variable
 
-  * Applying ~*~ to the pointer takes us back to the original variable
+  - Applying ~*~ to the pointer takes us back to the original variable
 
     #+begin_example C
       j = *&i  // same as j = i
@@ -148,14 +145,14 @@
 
 * Pointers  must be initialized
 
-  * Not initialized pointers lead to invalid data or expressions.
+  - Not initialized pointers lead to invalid data or expressions.
 
-  * Pointer variables should always be initialized with:
+  - Pointer variables should always be initialized with:
     - another variable's memory address (e.g. ~&i~), or
     - with 0, or
     - with the keyword ~NULL~.
 
-  * Here are some /valid/ pointer initializations - ~printf~ uses the
+  - Here are some /valid/ pointer initializations - ~printf~ uses the
     format specifier ~%p~ for pointers.
 
     #+begin_src C
@@ -174,7 +171,7 @@
     #+RESULTS:
     : 0061FEB8 00000000 00000000
 
-  * [ ] Here are a few non-valid initializations:
+  - [ ] Here are a few non-valid initializations:
     - can you tell why?
     - can you right the wrongs?
 
@@ -186,7 +183,7 @@
       iPtr = 7;   // wrong because iPtr cannot hold a variable value
     #+end_src
 
-  * Solution:
+  - Solution:
     
     #+begin_src C :results output
       int i = 5; // 
@@ -203,19 +200,19 @@
 
 * Let's practice!
 
-  * [ ] Head over [[https://drive.google.com/drive/folders/1mJ4HN7_Gq27LgXJBkcB_w3Aam3YjI5u_?usp=sharing][to GDrive]] for the Emacs Org workbook
+  - [ ] Head over [[https://drive.google.com/drive/folders/1mJ4HN7_Gq27LgXJBkcB_w3Aam3YjI5u_?usp=sharing][to GDrive]] for the Emacs Org workbook
     ~pointers_practice.org~. Download also the image file
     ~indirection.png~.
 
 * References
 
-  * Davenport/Vine (2015) C Programming for the Absolute Beginner
+  - Davenport/Vine (2015) C Programming for the Absolute Beginner
     (3ed). Cengage Learning.
-  * Kernighan/Ritchie (1978). The C Programming Language
+  - Kernighan/Ritchie (1978). The C Programming Language
     (1st). Prentice Hall.
-  * King (2008). C Programming - A modern approach (2e). W A Norton.
+  - King (2008). C Programming - A modern approach (2e). W A Norton.
     [[http://knking.com/books/c2/][URL: knking.com]].
-  * Orgmode.org (n.d.). 16 Working with Source Code [website]. [[https://orgmode.org/manual/Working-with-Source-Code.html][URL:
+  - Orgmode.org (n.d.). 16 Working with Source Code [website]. [[https://orgmode.org/manual/Working-with-Source-Code.html][URL:
     orgmode.org]]
 
 * Footnotes
