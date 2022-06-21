@@ -242,14 +242,13 @@
 
 * Let's practice!
 
-- Download and complete ~functions.org~ from GitHub
-  (tinyurl.com/)
+- [[https://raw.githubusercontent.com/birkenkrahe/cc101/piHome/8_functions/org/functions.org][Download ~functions.org~ from GitHub]] (tinyurl.com/4nacv9az)
 - Upload the completed file to Schoology
 
 * References
 
-* Kernighan/Ritchie (1978). The C Programming Language
-(1st). Prentice Hall.
-* King (2008). C Programming - A modern approach (2e). W A Norton.
-* Orgmode.org (n.d.). 16 Working with Source Code [website]. [[https://orgmode.org/manual/Working-with-Source-Code.html][URL:
-orgmode.org]]
+ - Kernighan/Ritchie (1978). The C Programming Language
+   (1st). Prentice Hall.
+ - King (2008). C Programming - A modern approach (2e). W A Norton.
+ - Orgmode.org (n.d.). 16 Working with Source Code [website]. [[https://orgmode.org/manual/Working-with-Source-Code.html][URL:
+   orgmode.org]]
