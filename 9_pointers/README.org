@@ -1,19 +1,14 @@
 #+TITLE:Pointers
 #+AUTHOR:Marcus Birkenkrahe
 #+SUBTITLE:CSC100 / Introduction to programming in C/C++
-#+STARTUP: overview hideblocks
+#+STARTUP: overview hideblocks indent
 #+OPTIONS: toc:nil ^:nil num:nil
 #+PROPERTY: header-args:C :main yes :includes <stdio.h> :exports both :results output :comments both
 * README
 
-  * This script introduces C pointers in theory and practice.
+  - This script introduces C pointers in theory and practice.
 
-  * Practice workbooks and input files [[https://drive.google.com/drive/folders/12FZkGSRdzfxFd1-QEMxMkw0Q-Alz4F3U?usp=sharing][in GDrive]].
-
-  * PDF version of this file and of the completed practice workbooks
-    is available [[https://github.com/birkenkrahe/cc100/tree/main/pdf][in GitHub]].
-
-  * This section, including some sample code, is based on: chapter 11
+  - This section, including some sample code, is based on: chapter 11
     in King (2008), and chapter 7 in Davenport/Vine.
 
 * Overview
@@ -37,16 +32,17 @@
 
   - C and C++ offer pointer variables and operators naturally
 
-  - This gives you a lot more control over the computer
+  - This gives you a lot more control over the computer (because every
+    operation, every process involves memory management)
 
   - Examples:
     - *String manipulation* (working with text - e.g. when creating
-    fast-performing chat bots or AI agents)
+      fast-performing chat bots or AI agents)
     - *Dynamic memory allocation* - the process of assigning memory
       during the execution time (when a program typically competes
       with thousands of other processes)
 
-  - It's mind control: You can essentially decide what the computer
+  - This is /mind control/: You can essentially decide what the computer
     should think with which part of its "brain" (great potential to
     mess up, too), e.g. when you mis-allocate resources.
 
@@ -61,28 +57,38 @@
 
   - This means that ~myPointer~ /indirectly/ points to the value ~75~.
 
-  - You already worked with pointers: an /array name/ ~a~ is a pointer to
+  - You already worked with addresses: an /array name/ ~a~ is a pointer to
     the start of the array, the address of ~a[0]~.
 
+  - In [[ptrprint]], the conversion specifier ~%p~ lets us access the
+    addresses that correspond to elements of the array ~a~, and even the
+    address for the whole array.
+    
+    #+name: ptrprint
     #+begin_src C
       int a[2] = {100,1000};
-      printf("a[0]=%d\na[1]=%d\n&a=%p\n", a[0], a[1], &a);
+      printf("a[0] = %p\na[1] = %p\n&a   = %p\n", a[0], a[1], &a);
     #+end_src
 
-    #+RESULTS:
-    : a[0]=100
-    : a[1]=1000
-    : &a=0061FEC8
+    #+RESULTS: ptrprint
+    : a[0] = 0x64
+    : a[1] = 0x3e8
+    : &a   = 0xbe883178
 
-  - You already worked with pointers: arguments in the call of ~scanf~~
+  - You already worked with pointers: arguments in the call of ~scanf~
     are /pointers/: without the ~&~, the function would be supplied with
-    the /value/ of ~i~, not the /address/.
+    the /value/ of ~i~, not the /address/. But ~scanf~'s job is to assign a
+    memory location (an address) to the input variable.
 
     #+begin_example C
     int i;
     scanf("%d", &i);
     #+end_example
 
+  - The relationship between variable value and memory address is
+    called /indirection/. A /pointer/ provides /indirect/ access to the
+    value via the address where the value is stored.
+    
 * Indirection (code)
 
   - There are two /unary/ pointer operators:
@@ -93,8 +99,13 @@
     e.g. ~&iResult = 6422216~ - it /references/ the memory location
 
   - The unary /indirection/ operator ~*~ returns a value, e.g. ~*myPointer
-    = 75~ if ~myPointer~ points at ~&iResult~. T
+    = 75~ if ~myPointer~ points at ~&iResult~. 
 
+  - In [[indirection]], a variable is declared and a value assigned to
+    it. The indirect way of getting to the variable is via the pointer
+    that points at its memory address.
+
+    #+name: indirection
     #+begin_src C
       int iResult; // declare an integer variable
       iResult = 75; // iResult now has the value 75
@@ -102,45 +113,65 @@
       int *myPointer; // declare an integer pointer variable
       myPointer = &iResult; // myPointer points at iResult's address
 
-      printf("iResult = %d and lives at &iResult = %p\n",
+      printf("iResult = %d and 'lives' at &iResult = %p\n",
              iResult, &iResult);
 
       printf("myPointer = %p points to iResult = %d\n",
              myPointer, *myPointer);
     #+end_src
 
-    #+RESULTS:
-    : iResult = 75 and lives at &iResult = 0061FEC8
-    : myPointer = 0061FEC8 points to iResult = 75
+    #+RESULTS: indirection
+    : iResult = 75 and 'lives' at &iResult = 0xbede0178
+    : myPointer = 0xbede0178 points to iResult = 75
 
+  - [ ] Figure [[fig:indirection]] illustrates these concepts. Can you
+    describe what goes on from line to line?
+  
     #+attr_html: :width 500px
+    #+name: fig:indirection
     #+caption: Graphical illustration of the indirection operator (Source: King)
     [[./img/indirection.png]]
 
+    #+begin_quote Answer
+    1) The pointer ~p~ points to the address ~&i~ of the variable ~i~.
+    2) ~i~ is initialized with the value ~1~. ~p~ still points at it.
+    3) To change the value of ~i~ indirectly using the pointer ~p~, we
+       assign ~*p = 2~. The indirection operator ~*~ designates a pointer.
+    4) To check that ~i~ indeed has been changed, we print it.
+    5) ~*p~ also prints the value of ~i~.
+    #+end_quote
+    
 * ~*~ and ~&~ are inverse to one another
 
   - Address and indirection operator are /inverse/ to one another
     (i.e. they reverse each other's operation - applying both amounts
     to doing nothing).
 
+  - Applying indirection ~*~ to an address /dereferences/ it.
+
+  - Applying referencing ~&~ to a pointer extracts its address.
+
+    #+name: inverseOps
     #+begin_src C
       int iResult = 75, *myPointer = &iResult; // declaring and initializing
 
       // print variable and dereferenced pointer
-      printf("iResult=%d => *&iResult=%d\n",
+      printf("iResult = %d => *&iResult = %d\n", 
              iResult, *&iResult);
       // print pointer and address of pointer
-      printf("myPointer=%p => &*myPointer=%p\n",
+      printf("myPointer = %p => &*myPointer = %p\n",
              myPointer, &*myPointer);
     #+end_src
 
-    #+RESULTS:
-    : iResult=75 => *&iResult=75
-    : myPointer=0061FEC8 => &*myPointer=0061FEC8
+    #+RESULTS: inverseOps
+    : iResult = 75 => *&iResult = 75
+    : myPointer = 0xbe932178 => &*myPointer = 0xbe932178
 
   - Applying ~&~ to a variable produces a pointer to the variable
+    (cp. ~scanf~)
 
   - Applying ~*~ to the pointer takes us back to the original variable
+    (dereferences the pointer)
 
     #+begin_example C
       j = *&i  // same as j = i
@@ -148,18 +179,19 @@
 
 * Pointers  must be initialized
 
-  - Not initialized pointers lead to invalid data or expressions.
+  - Non-initialized pointers lead to invalid data or expressions.
 
   - Pointer variables should always be initialized with:
-    - another variable's memory address (e.g. ~&i~), or
-    - with 0, or
+    - another variable's memory address (e.g. ~&i~), OR
+    - with 0, OR
     - with the keyword ~NULL~.
 
   - Here are some /valid/ pointer initializations - ~printf~ uses the
-    format specifier ~%p~ for pointers.
+    conversion specifier ~%p~ for pointers.
 
-    #+begin_src C
-      int *ptr1;  // declarations
+    #+name: ptrInit
+    #+begin_src C :tangle ./src/ptrinit.c
+      double *ptr1;  // declarations
       int *ptr2;
       int *ptr3;
       double x = 3.14; // initialize variable
@@ -168,11 +200,11 @@
       ptr2 = 0;  // initialize with 0
       ptr3 = NULL; // initialize with NULL
 
-      printf("%p %p %p\n", ptr1, ptr2, ptr3);
+      printf("%p %d %g\n", ptr1, ptr2, ptr3);
     #+end_src
 
-    #+RESULTS:
-    : 0061FEB8 00000000 00000000
+    #+RESULTS: ptrInit
+    : 0xbefad168 0 3.14
 
   - [ ] Here are a few non-valid initializations:
     - can you tell why?
@@ -182,8 +214,8 @@
       int i = 5; // declare and initialize i
       int *iPtr; // declare pointer iPtr
 
-      iPtr = i;   // wrong because i is a variable not an address
-      iPtr = 7;   // wrong because iPtr cannot hold a variable value
+      iPtr = i;   // wrong because ...
+      iPtr = 7;   // wrong because ...
     #+end_src
 
   - Solution:
@@ -199,13 +231,19 @@
     #+end_src
 
     #+RESULTS:
-    : 0061FEC8 0061FEC8 7
+    : 0xbe8cf178 0xbe8cf178 7
 
 * Let's practice!
 
-  - Download the practice notebook pointers.org from GitHub: tinyurl.com/
+  - Download the practice notebook pointers.org from GitHub:
+    #+begin_example
+    wget tinyurl.com/bdd7rcpr -O pointers.org -o log
+    #+end_example
 
-  - Download also the diagram indirection.png from GitHub: tinyurl.com/
+  - Download also the diagram indirection.png from GitHub:
+    #+begin_example
+    wget tinyurl.com/3m6pu7kf -O indirection.png -o log
+    #+end_example
 
 * References
 
