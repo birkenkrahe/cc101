@@ -488,6 +488,7 @@ memory, then ~i~ will be reset to ~0~, causing the loop to start over!
   : 4 5 6 
   : 7 8 9 
 
+
 - [ ] How could you populate the matrix column-wise instead of row-wise?
 
   #+begin_quote Answer
@@ -509,6 +510,9 @@ memory, then ~i~ will be reset to ~0~, causing the loop to start over!
     int a[10] = {0};
     printf("%d", sizeof(a));
   #+end_src
+
+  #+RESULTS: sizeof
+  : 40
 
 - You can use the operator also to measure the size of an array:
   dividing the array size by the element size gives you the length of
@@ -536,6 +540,9 @@ memory, then ~i~ will be reset to ~0~, causing the loop to start over!
       int B[3][3] = {0};
       printf("%d", sizeof(B));
     #+end_src
+
+    #+RESULTS: sizeof1
+    : 36
 
     #+begin_quote Answer
     It is the number of matrix elements (stored linearly) times the

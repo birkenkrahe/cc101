@@ -26,7 +26,6 @@
   statements
 
 - Functions allow us to
-
   - *reuse* functions in other programs
   - *recall* functions instead of duplicating code
   - *modularize*, and easier understand and modify programs
@@ -54,6 +53,11 @@
     hello_world();
   #+end_src
 
+  #+RESULTS: pgm:hello_world
+  : Hello world
+  : Hello world
+  : Hello world
+
 - function is doubly ~void~: no return value, no argument
 
 - function code can be reused elsewhere
@@ -75,6 +79,9 @@
       return 0;
     }
   #+end_src
+
+  #+RESULTS:
+  : 1
 
   Answer:
   #+begin_quote
@@ -115,6 +122,7 @@
 
 ** Function calls
 *** Overview
+
 - To call a function, write the /function name/ followed by a list of
   /function arguments/.
 
@@ -122,12 +130,13 @@
 
 - The argument can be any /expression/.
 *** Simple call with numbers
+
 #+name: simpleCall
 #+begin_src C :noweb yes
   // function definition
   <<average>>
 
-    // function call - result assigned to avg
+  // function call - result assigned to avg
   double avg = average(5.1, 8.9); // compute average of two numbers
 
   // function call inside function
@@ -136,7 +145,9 @@
 
 #+RESULTS: simpleCall
 : Average of 5.1 and 8.9: 7
+
 *** Call with expressions
+
 - Functions can have expressions as arguments.
 
   #+name: exprCall
@@ -156,6 +167,7 @@
 
   #+RESULTS: exprCall
   : Average of 5.1/2 and 8.9/2: 3.5
+
 *** Call by other functions
 - Functions can be called by other functions.
 
@@ -182,7 +194,9 @@
   3. ~printf~ prints the value that ~average~ returns.
   4. The ~return~ value of ~average~ becomes an argument of ~printf~.
   #+end_quote
+  
 *** What happens to function results?
+
 - The value of ~average~ is not saved anywhere. It is printed and
   then discarded.
 
@@ -199,6 +213,9 @@
     echo "3.5 9.6 10.2" > ./src/input
     cat ./src/input
   #+end_src
+
+  #+RESULTS:
+  : 3.5 9.6 10.2
 
   Sample output:
   #+begin_example
@@ -237,6 +254,7 @@
   : Average of 9.6 and 10.2: 9.9
   : Average of 3.5 and 10.2: 6.85
 
+
 - Important: the definition of ~average~ needs to be put *before* ~main~ -
   otherwise the function needs to be declared.
 
@@ -247,8 +265,8 @@
 
 * References
 
- - Kernighan/Ritchie (1978). The C Programming Language
-   (1st). Prentice Hall.
- - King (2008). C Programming - A modern approach (2e). W A Norton.
- - Orgmode.org (n.d.). 16 Working with Source Code [website]. [[https://orgmode.org/manual/Working-with-Source-Code.html][URL:
-   orgmode.org]]
+- Kernighan/Ritchie (1978). The C Programming Language
+  (1st). Prentice Hall.
+- King (2008). C Programming - A modern approach (2e). W A Norton.
+- Orgmode.org (n.d.). 16 Working with Source Code [website]. [[https://orgmode.org/manual/Working-with-Source-Code.html][URL:
+  orgmode.org]]

@@ -105,6 +105,12 @@
 
   // main function
 
+  // declarations
+
+  // get input
+
+  // print (and compute) result
+
 #+end_src
 
 ** Footnotes
