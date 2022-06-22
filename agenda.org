@@ -699,21 +699,22 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
 
 * Week 5 - Arrays, functions, pointers
 
-- [ ] Final exam on Friday, June 24 (2 hours)
-- [ ] Three more topics: arrays, functions, pointers
-- [ ] Introduction to OOP and C++ on Thursday
+- [ ] Final exam on Friday, June 24, 1-3 pm (2 hours)
+- [X] Three more topics: arrays, functions, pointers
+- [X] Introduction to OOP and C++ on +Thursday+
 - [X] Pgm assignment on Mon (10) and Tue (11)
 - [X] Lecture: one- and multi-dimensional arrays
 - [X] Practice Org-mode files ~array1.org~ and ~array2.org~
   1) [[https://raw.githubusercontent.com/birkenkrahe/cc101/piHome/7_arrays/org/array1.org][Download ~array1.org~ from GitHub]]: *tinyurl.com/27uv358b*
   2) Download ~array2.org~ from GitHub: *tinyurl.com/3hazjds8*
-- [ ] Submit gzipped /tarball/ of *completed* array files
+- [X] Submit gzipped /tarball/ of *completed* array files
 - [ ] Quiz 9 (arrays, functions) on Wed
 - [X] Lecture: functions
 - [X] Practice Org-mode file ~functions.org~: tinyurl.com/4nacv9az
-- [ ] Lecture: pointers
-- [ ] Practice Org-mode file ~pointers.org~: ~tinyurl.com/bdd7rcpr~ and
-  inline image ~tinyurl.com/3m6pu7kf~. 
+- [X] Lecture: pointers
+- [X] Practice Org-mode file ~pointers.org~: ~tinyurl.com/bdd7rcpr~ and
+  inline image ~tinyurl.com/3m6pu7kf~.
+- [ ] OOP and comparison of C and C++
 
 ** Bonus content
 *** Dunning-Kruger effect and hype cycle
