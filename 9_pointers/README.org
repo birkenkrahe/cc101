@@ -233,7 +233,6 @@
 
     #+RESULTS:
     : 0061FEC8 0061FEC8 7
-
   
 * Let's practice!
 
@@ -248,8 +247,9 @@
     #+begin_example
     wget tinyurl.com/3m6pu7kf -O indirection.png -o log
     file indirection.png
-    
     #+end_example
+
+    To open the image, enter ~C-c C-x C-v~
 
 * References
 
