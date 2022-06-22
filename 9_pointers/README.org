@@ -119,7 +119,7 @@
 
 * ~*~ and ~&~ are inverse to one another
 
-  * Adress and indirection operator are /inverse/ to one another
+  * Address and indirection operator are /inverse/ to one another
     (i.e. they reverse each other's operation - applying both amounts
     to doing nothing).
 
