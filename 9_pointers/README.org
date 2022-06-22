@@ -238,11 +238,15 @@
   - Download the practice notebook pointers.org from GitHub:
     #+begin_example
     wget tinyurl.com/bdd7rcpr -O pointers.org -o log
+    file pointers.org
+    head -n 2 pointers.org
     #+end_example
 
   - Download also the diagram indirection.png from GitHub:
     #+begin_example
     wget tinyurl.com/3m6pu7kf -O indirection.png -o log
+    file indirection.png
+    
     #+end_example
 
 * References

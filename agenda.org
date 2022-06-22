@@ -709,9 +709,12 @@ $  wget tinyurl.com/3euuvhuc -O scanf.org -o log
   2) Download ~array2.org~ from GitHub: *tinyurl.com/3hazjds8*
 - [ ] Submit gzipped /tarball/ of *completed* array files
 - [ ] Quiz 9 (arrays, functions) on Wed
-- [ ] Lecture: functions
-- [ ] Practice Org-mode file ~functions.org~: tinyurl.com/4nacv9az
-  
+- [X] Lecture: functions
+- [X] Practice Org-mode file ~functions.org~: tinyurl.com/4nacv9az
+- [ ] Lecture: pointers
+- [ ] Practice Org-mode file ~pointers.org~: ~tinyurl.com/bdd7rcpr~ and
+  inline image ~tinyurl.com/3m6pu7kf~. 
+
 ** Bonus content
 *** Dunning-Kruger effect and hype cycle
 
