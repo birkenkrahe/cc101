@@ -1,5 +1,6 @@
 #+TITLE:Program assignment No. 10 - Fibonacci Series
-#+Autthor: WYATT FRERICHS PLEDGED <*(~_~)
+#+Author: WYATT FRERICHS PLEDGED <*(~_~)
+#+startup: overview hideblocks indent
 #+PROPERTY: :main yes :includes <stdio.h> :tangle fibonacci.c :results output
 * Program assignment No. 10 - Fibonacci Series
 

@@ -1,3 +1,8 @@
+#+title: Fibonacci series
+#+authors: Victor Noppe / Marcus Birkenkrahe
+#+property: header-args:C :main yes :includes <stdio.h> :exports both :contents both :noweb yes
+#+startup: overview hideblocks indent
+#+options: toc:1 num:1 ^:nil
 * Program assignment No. 10 - Fibonacci Series
 
 - A Fibonacci series is a series of numbers where each number is the
