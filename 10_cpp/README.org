@@ -155,8 +155,11 @@
     float radius = 5, area;
 
     area = radius * radius * pi;
-    cout << area;
+    cout << area;  // equivalent in C would be printf("%g.....", area);
   #+end_src
+
+  #+RESULTS:
+  : 78.5
 
 ** Assignments
 
@@ -216,8 +219,8 @@
 
 ** Output
 
-- Output in C is done with the object ~cout~ ("console output"),
-  which prints information to the screen.
+- Output in C++ is done with the object ~cout~ ("console output"), which
+  prints information to the screen.
 
 - ~<<~ is the /insertion operator/
 
@@ -333,7 +336,6 @@ There are slight differences in all areas we've covered:
 - Pointers
 
 * Object Oriented Programming (OOP)
-
 ** The Mythical Man-Month
 
 - "As a project's complexity increases, the number of man-months to
@@ -382,7 +384,11 @@ There are slight differences in all areas we've covered:
       printf("%g\n", add(2.0,2.0)); // returns 0
     #+end_src
 
-  + Large programs become difficult to understand/debug
+    #+RESULTS: datastructure_example
+    : 4
+    : 8.00923e-307
+
+  + Large programs become difficult to understand/maintain/debug
 
   + Large programs are hard to maintain/extend/reuse
 

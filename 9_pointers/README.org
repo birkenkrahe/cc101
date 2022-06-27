@@ -88,9 +88,9 @@
     #+end_src
 
     #+RESULTS: ptrprint
-    : a[0] = 0x64
-    : a[1] = 0x3e8
-    : &a   = 0xbe883178
+    : a[0] = 00000064
+    : a[1] = 000003E8
+    : &a   = 0061FEC8
 
 <<<<<<< HEAD
   - You already worked with pointers: arguments in the call of ~scanf~~
@@ -146,8 +146,8 @@
     #+end_src
 
     #+RESULTS: indirection
-    : iResult = 75 and 'lives' at &iResult = 0xbede0178
-    : myPointer = 0xbede0178 points to iResult = 75
+    : iResult = 75 and 'lives' at &iResult = 0061FEC8
+    : myPointer = 0061FEC8 points to iResult = 75
 
   - [ ] Figure [[fig:indirection]] illustrates these concepts. Can you
     describe what goes on from line to line?
@@ -178,7 +178,8 @@
 
     #+name: inverseOps
     #+begin_src C
-      int iResult = 75, *myPointer = &iResult; // declaring and initializing
+      int iResult = 75, *myPointer = &iResult;
+      // declaring and initializing
 
       // print variable and dereferenced pointer
       printf("iResult = %d => *&iResult = %d\n", 
@@ -223,9 +224,9 @@
   - Non-initialized pointers lead to invalid data or expressions.
 
   - Pointer variables should always be initialized with:
-    - another variable's memory address (e.g. ~&i~), OR
-    - with 0, OR
-    - with the keyword ~NULL~.
+    + another variable's memory address (e.g. ~&i~), OR
+    + with 0, OR
+    + with the keyword ~NULL~.
 
   - Here are some /valid/ pointer initializations - ~printf~ uses the
     conversion specifier ~%p~ for pointers.
@@ -242,11 +243,11 @@
       ptr2 = 0;  // initialize with 0
       ptr3 = NULL; // initialize with NULL
 
-      printf("%p %d %g\n", ptr1, ptr2, ptr3);
+      printf("%p %d %p\n", ptr1, ptr2, ptr3);
     #+end_src
 
     #+RESULTS: ptrInit
-    : 0xbefad168 0 3.14
+    : 0061FEB8 0 00000000
 
   - [ ] Here are a few non-valid initializations:
     - can you tell why?
@@ -256,8 +257,8 @@
       int i = 5; // declare and initialize i
       int *iPtr; // declare pointer iPtr
 
-      iPtr = i;   // wrong because ...
-      iPtr = 7;   // wrong because ...
+      iPtr = &i;   // wrong because the pointer needs an address
+      *iPtr = 7;   // wrong because the pointer needs to look like one
     #+end_src
 
   - Solution:
@@ -273,8 +274,8 @@
     #+end_src
 
     #+RESULTS:
-    : 0xbe8cf178 0xbe8cf178 7
-
+    : 0061FEC8 0061FEC8 7
+  
 * Let's practice!
 
 <<<<<<< HEAD
@@ -293,9 +294,10 @@
     #+begin_example
     wget tinyurl.com/3m6pu7kf -O indirection.png -o log
     file indirection.png
-    
     #+end_example
 >>>>>>> 699ac948db578d26e27b2da30e5d357655706c19
+
+    To open the image, enter ~C-c C-x C-v~
 
 * References
 

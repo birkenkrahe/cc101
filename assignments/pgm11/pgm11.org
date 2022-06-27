@@ -1,0 +1,321 @@
+#+startup: overview hideblocks indent
+#+PROPERTY: header-args:C :main yes :includes <stdio.h> :exports both :results output :comments both
+* Functions (pgm 11)
+
+Assume that ~foo~ and ~n~ are parameters where ~a~ is an array of ~int~
+values, and ~n~ is the length of the array. Write a function that
+returns the following values:
+
+1) The largest element in ~foo~
+2) The average of all elements in ~foo~
+3) The number of positive elements in ~foo~
+
+As sample data, take this array: ~n=5~, and ~foo[5] = {-4,-5,600,10,100}.~
+
+Sample output:
+#+begin_example
+  : You entered: -4 -6 600 10 100 
+  : 
+  : Largest element: 600
+  : Arithmetic average: 140
+  : Number of positive elements: 3
+#+end_example C
+
+Tip: Build this program up bit by bit (use pseudo code!). First solve
+the problem of finding the largest number (which will involve a loop),
+then the computation of the average and the number of positive
+elements will fall in your lap.
+
+*You get 5 points for solving each of the three challenges. Submit an
+Org-mode file with the usual header matter.*
+
+On Friday, you will get a detailed description and path to a solution
+for this problem, alongside samplesolutions to the other problem
+assignments.
+
+** Solution
+*** Problem analysis
+
+- These are essentially three different problems rolled in one
+  function. For the beginner, it is useful to solve them one after the
+  other and then put a function together as asked.
+- Unless you can already clearly see the solution from the start (I
+  kinda can), in which case you should just try to cobble it together.
+- If you take this short route, give yourself a deadline and if you
+  cannot get results within that deadline, go back to the drawing
+  board and go the pedestrian route.
+
+*** Pseudo code
+
+- This is the pedestrian route - building it up slowly and going back
+  and forth. First attempt:
+
+  #+name: pseudo_pgm11_largest_err
+  #+begin_example C
+  for length of foo
+    store element foo[i] as LARGEST
+    go to next element foo[i++]
+    if foo[i++] > foo[i]
+       store foo[i++]
+  print LARGEST element
+  #+end_example
+
+- Corrected pseudo code v1:
+
+  #+name: pseudo_pgm11_largest_err_1
+  #+begin_example
+  assign foo[0] to LARGEST
+  for length of foo from foo[1] to foo[N-1]
+    if foo[i] > foo[i-1]
+         assign foo[i] to LARGEST
+  print LARGEST element
+  #+end_example
+
+- Corrected pseudo code - final version:
+
+  #+name: pseudo_pgm11_largest
+  #+begin_example
+  assign foo[0] to LARGEST
+  for length of foo from foo[1] to foo[N-1]
+    if foo[i] > LARGEST
+         assign foo[i] to LARGEST
+  print LARGEST element
+  #+end_example
+  
+*** Code 
+**** Setup: input, declaration, initialization
+      - Let's create a code block [[pgm11_setup]] with declarations and
+        initializations that we can re-use.
+
+      - This is literate programming at its best: we create transparency and
+        make our job easier, too!
+
+      - Inputfile
+        #+begin_src bash :results output
+          echo "4,-5,600,10,100" > ./src/pgm11input
+          cat ./src/pgm11input
+        #+end_src
+
+        #+RESULTS:
+        : 4,-5,600,10,100
+
+      - Setup 
+
+        #+name: pgm11_setup
+        #+begin_src C :cmdline < ./src/pgm11input
+          //declarations
+          #define N 5    // array length
+          int foo[N];    // array declaration
+
+          printf("You entered: ");
+          for ( int i = 0; i < N; i++) {
+            scanf("%d,",&foo[i]); // get input
+            printf("%d ", foo[i]); // check input
+           }
+        #+end_src
+
+        #+RESULTS: pgm11_setup
+        : You entered: 4 -5 600 10 100 
+
+      - Setup 1
+
+        #+name: pgm11_setup_1
+        #+begin_src C :results silent
+          #define N 5
+          int foo[N] = {-4,-6,600,10,100};
+        #+end_src
+
+**** Largest element of a vector
+
+- Alas, using a code block that relies on external input as a
+  placeholder does not work...because only the code is copied, not the
+  surrounding block with header options:
+
+  #+name: pgm11_largest_err
+  #+begin_src C :noweb yes
+    <<pgm11_setup>>
+  #+end_src
+
+  #+RESULTS: pgm11_largest_err
+  : You entered: 66792 0 66408 0 0 
+
+- Action: change [[pgm11_setup]] to [[pgm11_setup_1]] where the vector is
+  explicitly initialized.
+  
+- First attempt: already deviated from [[pseudo_pgm11_largest]]
+  (corrected) - set ~largest = foo[0]~ at the start. 
+  
+  #+name: pgm11_largest_err_1
+  #+begin_src C :noweb yes
+    <<pgm11_setup_1>>
+    int largest = foo[0];
+    printf("You entered: %d ", foo[0]);
+    for (int i = 1; i < N; i++) {
+      printf("%d ", foo[i]); // check input
+      if (foo[i] > foo[i-1]) { 
+        largest = foo[i];
+      }
+     }
+    printf("\nLargest element: %d\n", largest);
+  #+end_src
+
+  #+RESULTS: pgm11_largest_err_1
+  : You entered: 4 5 600 10 100 
+  : Largest element: 100
+
+- Debug [[pgm11_largest_err_1]]
+
+  #+name: tab:pgm11_largest_err_1
+  | largest | i-1 | i | foo[i] | foo[i-1] | foo[i] > foo[i-1] | i < N |
+  |---------+-----+---+--------+----------+-------------------+-------|
+  |       4 |   0 | 1 |      5 |        4 | TRUE              | TRUE  |
+  |       5 |   1 | 2 |    600 |        5 | TRUE              | TRUE  |
+  |     600 |   2 | 3 |     10 |      600 | FALSE             | TRUE  |
+  |     600 |   3 | 4 |    100 |      10  | TRUE              | TRUE  |
+  |     100 |   4 | 5 |        |          |                   | FALSE |
+
+  The table reveals that one should not compare subsequent elements,
+  but instead new elements with ~largest~. The correct table should look
+  like this:
+
+  #+name: tab:pgm11_largest
+  | largest | i-1 | i | foo[i] | foo[i] > largest | foo[i-1] | i < N |
+  |---------+-----+---+--------+------------------+----------+-------|
+  |       4 |   0 | 1 |      5 | TRUE             |        4 | TRUE  |
+  |       5 |   1 | 2 |    600 | TRUE             |        5 | TRUE  |
+  |     600 |   2 | 3 |     10 | FALSE            |      600 | TRUE  |
+  |     600 |   3 | 4 |    100 | FALSE            |       10 | TRUE  |
+  |     600 |   4 | 5 |        |                  |          | FALSE |
+  
+- Modified code:
+
+  #+name: pgm11_largest_2
+  #+begin_src C :noweb yes
+    <<pgm11_setup_1>>
+    int largest = foo[0];
+    printf("You entered: %d ", foo[0]);
+    for (int i = 1; i < N; i++) {
+      printf("%d ", foo[i]); // check input
+      if (foo[i] > largest) { 
+        largest = foo[i];
+      }
+     }
+    printf("\nLargest element: %d\n", largest);
+  #+end_src
+
+  #+RESULTS: pgm11_largest_2
+  : You entered: 4 5 600 10 100 
+  : Largest element: 600
+  
+**** Average of all elements in ~foo~
+
+- For the average, we need to sum all elements of ~foo~ and divide the
+  sum by the number of elements ~N~. The average needs to be allowed to
+  be a floating-point variable, so the sum must be declared ~float~. 
+
+- We can build this directly into the existing loop by initializing
+  ~sum~ to be the first element ~foo[0]~ before the loop and then adding
+  up the remaining elements inside the loop.
+
+  #+name: pgm11_average
+  #+begin_src C :noweb yes
+    <<pgm11_setup_1>>
+    int largest = foo[0];
+    float sum = foo[0];
+    printf("You entered: %d ", foo[0]);
+    for (int i = 1; i < N; i++) {
+      printf("%d ", foo[i]); // check input
+      if (foo[i] > largest) { 
+        largest = foo[i];
+      }
+      sum += foo[i];
+     }
+    printf("\n\nLargest element: %d\n", largest);
+    printf("Sum of %d elements: %g\n", N, sum);
+    printf("Arithmetic average: %g\n", sum/N);
+  #+end_src
+
+  #+RESULTS: pgm11_average
+  : You entered: -4 -6 600 10 100 
+  : 
+  : Largest element: 600
+  : Sum of 5 elements: 700
+  : Arithmetic average: 140
+
+**** Number of positive (and negative) elements
+
+- To find the number of positive elements, we need another counter
+  variable that stores the result.
+
+- Since we're dealing with ~foo[0]~ outside of our loop, we need to
+  check its sign first. The other elements can once again be taken
+  care of inside the loop.
+
+- To check if a number is positive, we compare with ~0~.
+
+  #+name: pgm11_positive
+  #+begin_src C :noweb yes
+    <<pgm11_setup_1>>
+    int largest  = foo[0]; 
+    float sum    = foo[0];
+    int positive = 0;     
+    printf("You entered: %d ", foo[0]);
+    for (int i = 1; i < N; i++)
+      {
+        printf("%d ", foo[i]);
+        if (foo[i] > largest) largest = foo[i]; 
+        sum += foo[i]; 
+        if (foo[i] > 0) positive++;
+      }
+    printf("\n\nLargest element: %d\n", largest);
+    printf("Sum of %d elements: %g\n", N, sum);
+    printf("Arithmetic average: %g\n", sum/N);
+    printf("Number of positive elements: %d\n", positive);
+    printf("Number of negative elements: %d\n", N-positive);
+  #+end_src
+
+  #+RESULTS: pgm11_positive
+  : You entered: -4 -6 600 10 100 
+  : 
+  : Largest element: 600
+  : Sum of 5 elements: 700
+  : Arithmetic average: 140
+  : Number of positive elements: 3
+  : Number of negative elements: 2
+
+**** Final program   
+
+#+name: pgm11_final
+#+begin_src C 
+  // declarations and initializations
+  #define N 5 // array length
+  int foo[N] = {-4,-6,600,10,100}; // array declaration
+  int largest  = foo[0]; // first = largest element
+  float sum    = foo[0]; // initialize sum for average
+  int positive = 0;      // initialize positive counter
+
+  // computation: largest, average, positives
+  printf("You entered: %d ", foo[0]);
+  for (int i = 1; i < N; i++)
+    {
+      printf("%d ", foo[i]); // check input
+      if (foo[i] > largest) // determine largest element
+        largest = foo[i]; 
+      sum += foo[i]; // sum for average
+      if (foo[i] > 0) // determine no. of positive elements
+        positive++;
+    }
+
+  // output
+  printf("\n\nLargest element: %d\n", largest);
+  printf("Arithmetic average: %g\n", sum/N);
+  printf("Number of positive elements: %d\n", positive);
+  #+end_src
+
+  #+RESULTS: pgm11_final
+  : You entered: -4 -6 600 10 100 
+  : 
+  : Largest element: 600
+  : Arithmetic average: 140
+  : Number of positive elements: 3
+

@@ -1,9 +1,11 @@
-// This program outputs the message "Hello World!" to the monitor
+#include "c:/Users/birkenkrahe/Documents/GitHub/cc100/10_cpp/header/std_lib_facilities.h"
 
-#include <iostream>
 
-int main()
-{
-  std::cout<<"Hello, World!\n";
-  return 0;
+
+
+
+
+int main() {
+cout << "Hello World!\n";
+return 0;
 }

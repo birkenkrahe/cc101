@@ -1,8 +1,7 @@
-#+title: Fibonacci series
-#+authors: Victor Noppe / Marcus Birkenkrahe
-#+property: header-args:C :main yes :includes <stdio.h> :exports both :contents both :noweb yes
+#+TITLE:Program assignment No. 10 - Fibonacci Series
+#+Author: WYATT FRERICHS PLEDGED <*(~_~)
 #+startup: overview hideblocks indent
-#+options: toc:1 num:1 ^:nil
+#+PROPERTY: :main yes :includes <stdio.h> :tangle fibonacci.c :results output
 * Program assignment No. 10 - Fibonacci Series
 
 - A Fibonacci series is a series of numbers where each number is the
@@ -42,6 +41,13 @@
    to make sure the setup works. Name the code block ~hello_world~.
 
 ----- put code here -----
+#+BEGIN_SRC C
+puts("NO");
+#+END_SRC
+
+#+RESULTS:
+: NO
+
 
 * Pseudo code
 
@@ -59,6 +65,16 @@
    #+end_example
 
 ----- put code below this line -----
+#include<iostream>
+arr[n] //size n is for generality
+arr[0]=0;
+arr[1]=1; // seed the array with the initial values
+
+//use for because function has a known number of iterations
+for( i=2 -> sizeof(arr)){
+arr[i] = arr[i-1]+arr[i-2] //sums the previous two and assigns it the current location
+cout<< arr[i]<<std::endl
+}
 
 * Declarations
 
@@ -73,7 +89,11 @@
    silent~ to the header arguments.
 
 ----- PUT CODE BELOW THIS LINE -----
-
+#+name:CHEESE
+#+BEGIN_SRC C
+fib[30];
+int a,b;
+#+END_SRC
 * Initialization
 
 1) Create a new code block named ~initialize~ below, and add the header
@@ -89,7 +109,10 @@
    numbers.
 
 ----- PUT CODE BELOW THIS LINE -----
-
+#+name: init
+#+BEGIN_SRC C :results silent :noweb yes
+<<declarations>>
+#+END_SRC
 * Loop over array
 
 1) Create a new code block named [[loop]] below, and add the header
@@ -134,6 +157,33 @@
      ...
      ...
    #+end_src
+#+name:sauce
+#+BEGIN_SRC C
+ /* THIS IS FOR PART THREE
+int n;
+scanf("%d",&n);
+int fib[n];
+*/
+ //size n is for generality
+  int fib[30];
+  // seed the array with the initial values
+  fib[0]=0;
+  fib[1]=1;
+  int i; 
+ //use for because loop  has a known number of iterations
+
+  for(i=2; i < sizeof(fib)/sizeof(fib[0]);i++){
+
+    //sums the previous two and assigns it the current location
+    fib[i] = fib[i-1]+fib[i-2];
+   }
+ /* for(i=0;i < sizeof(fib);i++){
+    printf("%d",fib[i]);
+   }*/
+
+#+END_SRC
+
+#+RESULTS: sauce
 
 * Bonus challenge 1 - check result
 
@@ -145,6 +195,60 @@
 
 3) Tip: use an ~IF...ELSE~ or ~SWITCH...CASE~~ selection statement to
    perform the check.
+#+BEGIN_SRC C :cmdline < fibb :noweb yes
+      <<sauce>>
+    <<printarr>>
+      int ans[30];
+      for(i=0; i < 30; i++){
+	scanf("%d,", &ans[i]);
+      }
+     for(i=0; i<30;i++){
+     if(fib[i] != ans[i]){
+       printf("wrong %d",i);
+       break;
+     }
+     else(){puts("youre a genius");}
+    }
+
+    printarr(ans,30);
+#+END_SRC
+
+#+RESULTS:
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| youre                  | a | genius |
+| 112358                 |   |        |
+| 1321345589144.0        |   |        |
+| 2.333776109871597e+19  |   |        |
+| 4.181676510946177e+27  |   |        |
+| 7.5025121393196415e+28 |   |        |
 
 * Bonus challenge 2 - vary printing format
 
@@ -159,6 +263,18 @@ Print the first 30 Fibonacci numbers as a 6 x 5 matrix.
    fib[ 5] = 5   ... fib[28] = 317811
    fib[ 6] = 8   ... fib[29] = 514229
 #+end_example
+#+BEGIN_SRC C :noweb yes
+<<printarr>>
+ <<sauce>>
+printarr(fib,30);
+#+END_SRC
+
+#+RESULTS:
+| Fib[0]==0      | Fib[1]==1       | Fib[2]==1       | Fib[3]==2       | Fib[4]==3       | Fib[5]==5      | Fib[6]==8 |
+| Fib[7]==13     | Fib[8]==21      | Fib[9]==34      | Fib[10]==55     | Fib[11]==89     | Fib[12]==144   |           |
+| Fib[13]==233   | Fib[14]==377    | Fib[15]==610    | Fib[16]==987    | Fib[17]==1597   | Fib[18]==2584  |           |
+| Fib[19]==4181  | Fib[20]==6765   | Fib[21]==10946  | Fib[22]==17711  | Fib[23]==28657  | Fib[24]==46368 |           |
+| Fib[25]==75025 | Fib[26]==121393 | Fib[27]==196418 | Fib[28]==317811 | Fib[29]==514229 |                |           |
 
 * Bonus challenge 3 - variable array length
 
@@ -168,5 +284,27 @@ first ~N~ Fibonacci numbers. Add the complete program as a code block
 below, and include a sample result for ~N=35~.
 
 ----- Put code below this line -----
+//already did this for the declaration of my first code block the for loop can take an array of any
+size and fill it with the fibb sequence
+* printarr()
+  #+name:printarr
+  #+BEGIN_SRC C
+	    // I REFUSE TO WRITE THAT MANY FOR LOOPS 
+	    // in rebellion i have written a print function
+	    void printarr(int arr[],int size){
+	      int i;
+	      for(i = 0; i < size; i++){
 
+		printf("Fib[%d]==%d ",i,arr[i]);
+		if(i % 6 == 0 && i != 0 )
+		  {printf("\n");}
+	      }	  
+	    };
+  #+END_SRC
 
+  #+RESULTS: printarr
+
+  #+RESULTS: printarr()
+  | 301 | 2 | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+  |   0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |   |
+  |   0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |   |   |

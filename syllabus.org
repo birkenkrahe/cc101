@@ -277,16 +277,16 @@ class per week) without risking a fail.
 | 13 | Thu-09-Jun | +Quiz 6+     | +Program 5+  |                          |
 | 14 | Fri-10-Jun |            |            |                          |
 |----+------------+------------+------------+--------------------------|
-| 15 | Mon-13-Jun | +Quiz 7+     | +Program 6+  | 8 Arrays                 |
+| 15 | Mon-13-Jun | +Quiz 7+     | +Program 6+  | +8 Arrays+               |
 | 16 | Tue-14-Jun |            |            |                          |
 | 17 | Wed-15-Jun | +Quiz 8+     | +Program 7+  |                          |
-| 18 | Thu-16-Jun |            |            | 9 Functions              |
+| 18 | Thu-16-Jun |            |            | +9 Functions+            |
 | 19 | Fri-17-Jun | +Quiz 9+     | +Program 8+  |                          |
 |----+------------+------------+------------+--------------------------|
 | 20 | Mon-20-Jun |            |            |                          |
-| 21 | Tue-21-Jun |            | +Program 9+  | 11 Pointers              |
+| 21 | Tue-21-Jun |            | +Program 9+  | +11 Pointers+            |
 | 22 | Wed-22-Jun |            |            |                          |
-| 23 | Thu-23-Jun | Final exam | +Program 10+ |                          |
+| 23 | Thu-23-Jun | +Final exam+ | +Program 10+ |                          |
 | 24 | Fri-24-Jun |            | +Program 11+ |                          |
 |----+------------+------------+------------+--------------------------|
 
