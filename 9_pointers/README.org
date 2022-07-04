@@ -8,6 +8,11 @@
 
   - This script introduces C pointers in theory and practice.
 
+<<<<<<< HEAD
+  - Practice workbook in GitHub (tinyurl.com/bdd7rcpr)
+
+=======
+>>>>>>> 699ac948db578d26e27b2da30e5d357655706c19
   - This section, including some sample code, is based on: chapter 11
     in King (2008), and chapter 7 in Davenport/Vine.
 
@@ -32,8 +37,12 @@
 
   - C and C++ offer pointer variables and operators naturally
 
+<<<<<<< HEAD
+  - This gives you a lot more control over the computer
+=======
   - This gives you a lot more control over the computer (because every
     operation, every process involves memory management)
+>>>>>>> 699ac948db578d26e27b2da30e5d357655706c19
 
   - Examples:
     - *String manipulation* (working with text - e.g. when creating
@@ -42,7 +51,11 @@
       during the execution time (when a program typically competes
       with thousands of other processes)
 
+<<<<<<< HEAD
+  - It's mind control: You can essentially decide what the computer
+=======
   - This is /mind control/: You can essentially decide what the computer
+>>>>>>> 699ac948db578d26e27b2da30e5d357655706c19
     should think with which part of its "brain" (great potential to
     mess up, too), e.g. when you mis-allocate resources.
 
@@ -57,7 +70,11 @@
 
   - This means that ~myPointer~ /indirectly/ points to the value ~75~.
 
+<<<<<<< HEAD
+  - You already worked with pointers: an /array name/ ~a~ is a pointer to
+=======
   - You already worked with addresses: an /array name/ ~a~ is a pointer to
+>>>>>>> 699ac948db578d26e27b2da30e5d357655706c19
     the start of the array, the address of ~a[0]~.
 
   - In [[ptrprint]], the conversion specifier ~%p~ lets us access the
@@ -75,7 +92,11 @@
     : a[1] = 000003E8
     : &a   = 0061FEC8
 
+<<<<<<< HEAD
+  - You already worked with pointers: arguments in the call of ~scanf~~
+=======
   - You already worked with pointers: arguments in the call of ~scanf~
+>>>>>>> 699ac948db578d26e27b2da30e5d357655706c19
     are /pointers/: without the ~&~, the function would be supplied with
     the /value/ of ~i~, not the /address/. But ~scanf~'s job is to assign a
     memory location (an address) to the input variable.
@@ -99,7 +120,11 @@
     e.g. ~&iResult = 6422216~ - it /references/ the memory location
 
   - The unary /indirection/ operator ~*~ returns a value, e.g. ~*myPointer
+<<<<<<< HEAD
+    = 75~ if ~myPointer~ points at ~&iResult~. T
+=======
     = 75~ if ~myPointer~ points at ~&iResult~. 
+>>>>>>> 699ac948db578d26e27b2da30e5d357655706c19
 
   - In [[indirection]], a variable is declared and a value assigned to
     it. The indirect way of getting to the variable is via the pointer
@@ -169,10 +194,15 @@
     : myPointer = 0xbe932178 => &*myPointer = 0xbe932178
 
   - Applying ~&~ to a variable produces a pointer to the variable
+<<<<<<< HEAD
+
+  - Applying ~*~ to the pointer takes us back to the original variable
+=======
     (cp. ~scanf~)
 
   - Applying ~*~ to the pointer takes us back to the original variable
     (dereferences the pointer)
+>>>>>>> 699ac948db578d26e27b2da30e5d357655706c19
 
     #+begin_example C
       j = *&i  // same as j = i
@@ -180,6 +210,17 @@
 
 * Pointers  must be initialized
 
+<<<<<<< HEAD
+  - Not initialized pointers lead to invalid data or expressions.
+
+  - Pointer variables should always be initialized with:
+    - another variable's memory address (e.g. ~&i~), or
+    - with 0, or
+    - with the keyword ~NULL~.
+
+  - Here are some /valid/ pointer initializations - ~printf~ uses the
+    format specifier ~%p~ for pointers.
+=======
   - Non-initialized pointers lead to invalid data or expressions.
 
   - Pointer variables should always be initialized with:
@@ -189,6 +230,7 @@
 
   - Here are some /valid/ pointer initializations - ~printf~ uses the
     conversion specifier ~%p~ for pointers.
+>>>>>>> 699ac948db578d26e27b2da30e5d357655706c19
 
     #+name: ptrInit
     #+begin_src C :tangle ./src/ptrinit.c
@@ -236,6 +278,11 @@
   
 * Let's practice!
 
+<<<<<<< HEAD
+  - [ ] Head over [[https://drive.google.com/drive/folders/1mJ4HN7_Gq27LgXJBkcB_w3Aam3YjI5u_?usp=sharing][to GDrive]] for the Emacs Org workbook
+    ~pointers_practice.org~. Download also the image file
+    ~indirection.png~.
+=======
   - Download the practice notebook pointers.org from GitHub:
     #+begin_example
     wget tinyurl.com/bdd7rcpr -O pointers.org -o log
@@ -248,6 +295,7 @@
     wget tinyurl.com/3m6pu7kf -O indirection.png -o log
     file indirection.png
     #+end_example
+>>>>>>> 699ac948db578d26e27b2da30e5d357655706c19
 
     To open the image, enter ~C-c C-x C-v~
 
