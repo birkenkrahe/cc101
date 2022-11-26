@@ -2,6 +2,9 @@
 #+AUTHOR:Marcus Birkenkrahe
 #+SUBTITLE: CSC 100 @ Lyon College Summer 2022
 #+OPTIONS: toc:nil
+#+attr_html: :width 600px
+[[./img/cover.jpg]]
+
 * What's in this repo?
 
   * Repository for CSC 101 - Introduction to Programming in C/C++
@@ -29,5 +32,5 @@
 
 * History
 
-   First offered @Lyon: Spring 2022 (Undergrad). To be offered: Summer
-   school 2022, Spring 2024, 2026, 2028.
+   First offered @Lyon: Spring 2022 (Undergrad). To be offered every
+   spring/summer from 2023.
