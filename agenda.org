@@ -752,7 +752,7 @@ of a spring.
 | Dunning-Kruger effect | Confidence vs. competence |
 | Hype Cycle            | Technology hype over time |
 
-* Footnotes
+ * Footnotes
 [fn:7]"Bonus content" is content that I have sampled and that I
 present to you as is. Usually these are podcasts or videos, or
 articles that I found interesting and that you might also enjoy.
